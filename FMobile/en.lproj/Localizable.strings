@@ -24,12 +24,12 @@
 "url_for_speedtest" = "URL for the speed test";
 "setup_title" = "Application setup";
 "setup_description" = "This application is designed to prevent a National Roaming Agreement to be applied on your device. No automatic configuration has been found for your carrier. If your carrier has a 3G+2G National Roaming Agreement that considerably slows your Internet down, you can set this app to help you to stay on your home network in your country. After you provide these informations, you will be able to set your preferences about the NRA. Please note that you cannot use this application with MVNOs. The application will probably not operate that well on a manual setup, so please contact the developer to build the automatic setup for your carrier.";
-"form_nra" = "Speed of the NRA in Mbps (ex: 0.470)";
-"form_hp" = "Home 3G protocol (ex: WCDMA)";
-"form_nr" = "NR 3G protocol (ex: HSDPA)";
-"form_name" = "Roaming name (ex: Ice.net)";
-"form_hname" = "Home network name (ex: Telenor)";
-"form_mnc" = "Roaming MNC (ex: 01)";
+"form_nra" = "Speed of the NRA in Mbps (e.g.: 0.470)";
+"form_hp" = "Home 3G protocol (e.g.: WCDMA)";
+"form_nr" = "NR 3G protocol (e.g.: HSDPA)";
+"form_name" = "Roaming name (e.g.: EE UK)";
+"form_hname" = "Home network name (e.g.: Vodafone UK)";
+"form_mnc" = "Roaming MNC (e.g.: 01)";
 "form_femto" = "NR protocol femto+mutuals? (yes/no)";
 "form_out2g" = "Home without 2G? (yes/no)";
 "detecting_autoconfig" = "Detecting auto config...";
@@ -102,7 +102,7 @@
 "wifi_status" = "Wi-Fi: %@";
 "set_no_network" = "Set this zone as not covered";
 "no_network_zone_saved" = "Non-covered zone saved";
-"no_network_zone_saved_description" = "You will no longer recieve roaming alerts in this zone.";
+"no_network_zone_saved_description" = "You will no longer receive roaming alerts in this zone.";
 "reset_countries_included" = "Reset the countries included in my plan";
 "reset_countries_done_title" = "The countries have been reset";
 "reset_countries_done_description" = "The countries included in your plan have been reset.";
@@ -137,11 +137,13 @@
 "donate_description" = "No matter what, FMobile will stay free and ad-free. The donation is a way to thank me for the app, even if I'm already super happy if you just give me a feedback about it. You will contribute to the funding of my Extopy project. Please make sure to fully test the application and be 100% sure you want to leave me a tip before doing so.";
 "ok" = "OK";
 "statistics_agreement" = "Participer à l'enquête 208 16";
+"old_ios_warning" = "iOS %@ is missing important features!";
+"old_ios_description" = "This apps works best with the Apple Shortcuts app, which is only available on iOS 12 and later. Please update your iOS device to iOS 12 or any later version. If your iOS device can run iOS 13, you will also be able to update the FMobile app to its latest version made for iOS 13. On your iOS version, the operations to exit roaming are manual.";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Speedtest";
 "speedtest_start" = "Start";
-"speedtest_description" = "The core of the speedtest has been developed by Nathan Fallet and then modified by Michaël Nass in order to better represent the real speed. It is going to download a heavy file for 15 seconds. This speedtest is not the same as the one used in the FMobile core to detect the roaming status on older engine generations, that is optimized to detect the roaming in less than a second with an Internet consumption clpse to zero.";
+"speedtest_description" = "The core of the speedtest has been developed by Nathan Fallet and then modified by Michaël Nass in order to better represent the real speed. It is going to download a heavy file for 15 seconds. This speedtest is not the same as the one used in the FMobile core to detect the roaming status on older engine generations, that is optimized to detect the roaming in less than a second with an Internet consumption clоse to zero.";
 "speedtest_in_progress" = "A speedtest is already running!";
 
     // NotificationManager
@@ -149,10 +151,10 @@
 "3g_2g_allowed" = "3G and 2G roaming allowed";
 "roaming_notification_description" = "You can always change your preferences in the FMobile application.";
 "roaming_protect_enabled" = "Protection against roaming enabled!";
-"3g_control_enabled" = "3G surveillance enabled..";
+"3g_control_enabled" = "3G surveillance enabled.";
 "2g_control_enabled" = "2G surveillance enabled.";
 "3g_2g_control_enabled" = "3G and 2G surveillance enabled.";
-"not_controlling" = "Surveilance not active.";
+"not_controlling" = "Surveillance not active.";
 "checking_roaming" = "Verification in progress...";
 "detected_hplus_roaming" = "H+ (3G) ROAMING DETECTED!";
 "detected_roaming_description" = "Click on the notification to go back to your home network.";
@@ -168,15 +170,13 @@
 "location_error_subtitle" = "Error while checking the country!";
 "location_error_description" = "Please check in your settings that you did authorize FMobile to access your location data in background or disable the country verification in the FMobile application.";
 "no_network_zone_auto_saved" = "Non-covered zone saved!";
-"no_network_zone_auto_saved_description" = "After serval attempts, you iPhone did not succeed to reconnect to your home network. The current zone has been saved as non-covered.";
+"no_network_zone_auto_saved_description" = "After several attempts, you iPhone did not succeed to reconnect to your home network. The current zone has been saved as non-covered.";
 "low_energy_mode_enabled_title" = "Reduced activity mode enabled";
 "low_energy_mode_enabled_description" = "The application will continue to operate in background in reduced activity mode.";
-"low_energy_mode_auto_disabled" = "Battery saving mode disabled.";
-"low_energy_mode_auto_disabled_description" = "You do not need the eco mode anymore. The application resumes its normal function mode.";
 "nothing_included_20815" = "No communication is included in the \"Free\" plan from this country.";
 "basic_included_201815" = "Calls, SMS and MMS are included in the \"Free\" plan from this country. Internet is not available.";
-"internet_included_20815" = "25Go of Internet are included in the \"Free\" plan! Calls, SMS and MMS are not included.";
-"all_included_20815" = "Calls, SMS, MMS and 25Go of Internet are included in the \"Free\" plan!";
+"internet_included_20815" = "25Gb of Internet are included in the \"Free\" plan! Calls, SMS and MMS are not included.";
+"all_included_20815" = "Calls, SMS, MMS and 25Gb of Internet are included in the \"Free\" plan!";
 "nothing_included" = "No communication is included in your plan from this country.";
 "basic_included" = "Calls, SMS and MMS are included in your plan plan from this country. Internet is not included.";
 "internet_included" = "Internet is included in your plan! Calls, SMS and MMS are not included.";
@@ -184,8 +184,6 @@
 "alert_paid_data_drain" = "🛂⚠️🛑 EXTRA-COST IN PROGRESS 🛑⚠️🆘";
 "new_sim_card_detected" = "SIM card configuration changed!";
 "new_sim_card_detected_description" = "Please configure your new SIM card in the FMobile application.";
-"ipad_carrier_alert" = "Carrier action required!";
-"ipad_carrier_alert_description" = "Your carrier must distribute a configuration file (Carrier Bundle) in order to allow the second generation of FMobile to operate on iPad. If your carrier wants to help its subscribers, it is invited to distribute it using a carrier update. In addition to that, for a maximal compatibility, it is also invited to check the possibility to remove every roaming PLMN from that same file on iPhone.";
 "update_done" = "Update succeeded!";
 
     //AppDelegate

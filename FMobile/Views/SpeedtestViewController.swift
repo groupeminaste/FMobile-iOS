@@ -22,7 +22,9 @@ class SpeedtestViewController: UIViewController {
         
         isDarkMode() ? enableDarkMode() : disableDarkMode()
         
-        navigationController?.navigationBar.prefersLargeTitles = false
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = false
+        }
         navigationItem.title = "speedtest_view_title".localized()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "speedtest_start".localized(), style: .plain, target: self, action: #selector(start(_:)))
         

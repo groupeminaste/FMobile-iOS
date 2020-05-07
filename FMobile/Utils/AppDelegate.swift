@@ -28,6 +28,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // FONCTIONS UTILITAIRES
     // -----
     
+    func oldios(){
+        guard #available(iOS 12.0, *) else {
+            let alert = UIAlertController(title: "old_ios_warning".localized().format([UIDevice.current.systemVersion]), message: "old_ios_description".localized(), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "close".localized(), style: .cancel, handler: nil))
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+    }
+    
     func delay(_ delay:Double, closure: @escaping () -> ()) {
         let when = DispatchTime.now() + delay
         DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
@@ -144,18 +154,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
-    static func sendLocationToServer(latitude: Double, longitude: Double) {
-        // Envoi des coordonnées à l'API
-        
-        print("Envoie des coordonnées à l'API : (\(latitude), \(longitude))")
-        APIRequest("GET", path: "/roaming/location.php").with(name: "latitude", value: latitude).with(name: "longitude", value: longitude).execute(Bool.self, completionHandler: { (data, status) in
-            if let data = data, data {
-                print("Coordonnées envoyées avec succès !")
-            } else {
-                print("Une erreur est survenue lors de l'envoi des coordonnées (status: \(status)")
-            }
-        })
-    }
+//    static func sendLocationToServer(latitude: Double, longitude: Double) {
+//        // Envoi des coordonnées à l'API
+//
+//        print("Envoie des coordonnées à l'API : (\(latitude), \(longitude))")
+//        APIRequest("GET", path: "/roaming/location.php").with(name: "latitude", value: latitude).with(name: "longitude", value: longitude).execute(Bool.self, completionHandler: { (data, status) in
+//            if let data = data, data {
+//                print("Coordonnées envoyées avec succès !")
+//            } else {
+//                print("Une erreur est survenue lors de l'envoi des coordonnées (status: \(status)")
+//            }
+//        })
+//    }
     
     static func engineRunning(locations: [CLLocation] = [CLLocation]()){
         print("TRIGGERED")
@@ -262,9 +272,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                        NotificationManager.sendNotification(for: .alertWCDMA)
                     }
                     
-                    if dataManager.statisticsAgreement{
-                        AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
-                    }
+//                    if dataManager.statisticsAgreement{
+//                        AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
+//                    }
                     
                     return
                 }
@@ -279,9 +289,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         NotificationManager.sendNotification(for: .alertWCDMA)
                     }
                     
-                    if dataManager.statisticsAgreement{
-                        AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
-                    }
+//                    if dataManager.statisticsAgreement{
+//                        AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
+//                    }
                     
                     return
                 }
@@ -319,9 +329,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         } else if dataManager.carrierNetwork == "CTRadioAccessTechnologyWCDMA" {
                             NotificationManager.sendNotification(for: .alertWCDMA)
                         }
-                        if dataManager.statisticsAgreement{
-                            AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
-                        }
+//                        if dataManager.statisticsAgreement{
+//                            AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
+//                        }
                     } else {
                         print("detected one nearby hotspot, STOPING OPERATIONS.")
                     }
@@ -332,9 +342,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     } else if dataManager.carrierNetwork == "CTRadioAccessTechnologyWCDMA" {
                         NotificationManager.sendNotification(for: .alertWCDMA)
                     }
-                    if dataManager.statisticsAgreement{
-                        AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
-                    }
+//                    if dataManager.statisticsAgreement{
+//                        AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
+//                    }
                 }
                 
             }
@@ -467,8 +477,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                             dataManager.datas.set(true, forKey: "wasEnabled")
                             dataManager.datas.set(true, forKey: "isRunning")
                             dataManager.datas.synchronize()
+                            if #available(iOS 12.0, *) {
                             guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
-                            UIApplication.shared.open(link)
+                                UIApplication.shared.open(link)
+                            } else {
+                                self.oldios()
+                            }
                         } else {
                             print("S65")
                             if CLLocationManager.authorizationStatus() == .authorizedAlways {
@@ -524,8 +538,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 dataManager.datas.set(true, forKey: "wasEnabled")
                 dataManager.datas.set(true, forKey: "isRunning")
                 dataManager.datas.synchronize()
+                if #available(iOS 12.0, *) {
                 guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
-                UIApplication.shared.open(link)
+                    UIApplication.shared.open(link)
+                } else {
+                    self.oldios()
+                }
                 return
             }
             
@@ -565,8 +583,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                     dataManager.datas.set(true, forKey: "wasEnabled")
                                     dataManager.datas.set(true, forKey: "isRunning")
                                     dataManager.datas.synchronize()
+                                    if #available(iOS 12.0, *) {
                                     guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
-                                    UIApplication.shared.open(link)
+                                        UIApplication.shared.open(link)
+                                    } else {
+                                        self.oldios()
+                                    }
                                 } else {
                                     if CLLocationManager.authorizationStatus() == .authorizedAlways {
                                         // On verifie la localisation en arrière plan
@@ -606,15 +628,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         dataManager.datas.set(true, forKey: "wasEnabled")
                         dataManager.datas.set(true, forKey: "isRunning")
                         dataManager.datas.synchronize()
+                        if #available(iOS 12.0, *) {
                         guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
                         UIApplication.shared.open(link)
+                        } else {
+                            self.oldios()
+                        }
                     }
                 } else if dataManager.carrierNetwork == "CTRadioAccessTechnologyEdge" && !dataManager.allow012G && dataManager.out2G == "yes" {
                     dataManager.datas.set(true, forKey: "wasEnabled")
                     dataManager.datas.set(true, forKey: "isRunning")
                     dataManager.datas.synchronize()
+                    if #available(iOS 12.0, *) {
                     guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
                     UIApplication.shared.open(link)
+                    } else {
+                        self.oldios()
+                    }
                 }
             } else if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && DataManager.isOnPhoneCall() {
                 let alerteS = UIAlertController(title: "end_phonecall".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
@@ -901,10 +931,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                     } else if dataManager.nrp == "HSDPA"{
                                         NotificationManager.sendNotification(for: .alertHPlus)
                                     }
-                                    if dataManager.statisticsAgreement{
-                                        let locationManager = CLLocationManager()
-                                        AppDelegate.sendLocationToServer(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
-                                    }
+//                                    if dataManager.statisticsAgreement{
+//                                        let locationManager = CLLocationManager()
+//                                        AppDelegate.sendLocationToServer(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
+//                                    }
                                     print("SPEEDTEST IN BACKGROUND SUCCESSFUL!")
                                 } else {
                                     if CLLocationManager.authorizationStatus() == .authorizedAlways {
@@ -945,10 +975,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                             NotificationManager.sendNotification(for: .alertHPlus)
                         }
                         
-                        if dataManager.statisticsAgreement{
-                            let locationManager = CLLocationManager()
-                            AppDelegate.sendLocationToServer(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
-                        }
+//                        if dataManager.statisticsAgreement{
+//                            let locationManager = CLLocationManager()
+//                            AppDelegate.sendLocationToServer(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
+//                        }
                     }
                     
                     
@@ -958,10 +988,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     } else if dataManager.nrp == "HSDPA"{
                         NotificationManager.sendNotification(for: .alertPossibleHPlus)
                     }
-                    if dataManager.statisticsAgreement{
-                        let locationManager = CLLocationManager()
-                        AppDelegate.sendLocationToServer(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
-                    }
+//                    if dataManager.statisticsAgreement{
+//                        let locationManager = CLLocationManager()
+//                        AppDelegate.sendLocationToServer(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
+//                    }
                 }
             } else {
                 print("H+ autorisée")
@@ -970,10 +1000,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if !dataManager.allow012G{
                 print("2G non autorisée")
                 NotificationManager.sendNotification(for: .alertEdge)
-                if dataManager.statisticsAgreement{
-                    let locationManager = CLLocationManager()
-                    AppDelegate.sendLocationToServer(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
-                }
+//                if dataManager.statisticsAgreement{
+//                    let locationManager = CLLocationManager()
+//                    AppDelegate.sendLocationToServer(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
+//                }
             } else {
                 print("2G autorisée ou incompatible")
             }

@@ -79,11 +79,11 @@ class NotificationManager {
                 content.title = "detected_edge_roaming".localized()
                 content.body = "detected_roaming_description".localized()
                 
-            case .runningVerification:
-                content.title = "roaming_protect_enabled".localized()
-                content.subtitle = "checking_roaming".localized()
-                content.body = "roaming_notification_description".localized()
-                time = 1
+//            case .runningVerification:
+//                content.title = "roaming_protect_enabled".localized()
+//                content.subtitle = "checking_roaming".localized()
+//                content.body = "roaming_notification_description".localized()
+//                time = 1
                 
             case .halt:
                 content.title = "low_energy_auto_enabled".localized()
@@ -106,11 +106,11 @@ class NotificationManager {
                 content.title = "low_energy_mode_enabled_title".localized()
                 content.body = "low_energy_mode_enabled_description".localized()
                 time = 8
-                
-            case .restarting:
-                content.title = "low_energy_mode_auto_disabled".localized()
-                content.body = "low_energy_mode_auto_disabled_description".localized()
-                time = 1
+
+//            case .restarting:
+//                content.title = "low_energy_mode_auto_disabled".localized()
+//                content.body = "low_energy_mode_auto_disabled_description".localized()
+//                time = 1
                 
             case .newCountryNothingFree:
                 content.title = arg
@@ -152,9 +152,9 @@ class NotificationManager {
                 content.title = "new_sim_card_detected".localized()
                 content.body = "new_sim_card_detected_description".localized()
                 
-            case .iPad:
-                content.title = "ipad_carrier_alert".localized()
-                content.body = "ipad_carrier_alert_description".localized()
+//            case .iPad:
+//                content.title = "ipad_carrier_alert".localized()
+//                content.body = "ipad_carrier_alert_description".localized()
                 
             case .update:
                 content.title = "update_done".localized()
@@ -164,7 +164,6 @@ class NotificationManager {
                 content.title = arg
                 content.body = arg2
             }
-            
             
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(time), repeats: false)
             
@@ -180,6 +179,7 @@ class NotificationManager {
 
 enum NotificationType {
     
-    case allow2G3G, allow2G, allow3G, allowNone, allowDisabled, alertHPlus, alertPossibleHPlus, alertWCDMA, alertPossibleWCDMA, alertEdge, runningVerification, halt, locFailed, saved, batteryLow, restarting, newCountryNothingFree, newCountryBasicFree, newCountryInternetFree, newCountryAllFree, newCountryNothing, newCountryBasic, newCountryInternet, newCountryAll, alertDataDrain, newSIM, iPad, update, custom
+    case allow2G3G, allow2G, allow3G, allowNone, allowDisabled, alertHPlus, alertPossibleHPlus, alertWCDMA, alertPossibleWCDMA, alertEdge, halt, locFailed, saved, batteryLow, newCountryNothingFree, newCountryBasicFree, newCountryInternetFree, newCountryAllFree, newCountryNothing, newCountryBasic, newCountryInternet, newCountryAll, alertDataDrain, newSIM, update, custom
     
 }
+

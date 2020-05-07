@@ -137,6 +137,8 @@
 "donate_description" = "No matter what, FMobile will stay free and ad-free. The donation is a way to thank me for the app, even if I'm already super happy if you just give me a feedback about it. You will contribute to the funding of my Extopy project. Please make sure to fully test the application and be 100% sure you want to leave me a tip before doing so.";
 "ok" = "OK";
 "statistics_agreement" = "Participer à l'enquête 208 16";
+"old_ios_warning" = "iOS %@ is missing important features!";
+"old_ios_description" = "This apps works best with the Apple Shortcuts app, which is only available on iOS 12 and later. Please update your iOS device to iOS 12 or any later version. If your iOS device can run iOS 13, you will also be able to update the FMobile app to its latest version made for iOS 13. On your iOS version, the operations to exit roaming are manual.";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Speedtest";
@@ -171,8 +173,6 @@
 "no_network_zone_auto_saved_description" = "After serval attempts, you iPhone did not succeed to reconnect to your home network. The current zone has been saved as non-covered.";
 "low_energy_mode_enabled_title" = "Reduced activity mode enabled";
 "low_energy_mode_enabled_description" = "The application will continue to operate in background in reduced activity mode.";
-"low_energy_mode_auto_disabled" = "Battery saving mode disabled.";
-"low_energy_mode_auto_disabled_description" = "You do not need the eco mode anymore. The application resumes its normal function mode.";
 "nothing_included_20815" = "No communication is included in the \"Free\" plan from this country.";
 "basic_included_201815" = "Calls, SMS and MMS are included in the \"Free\" plan from this country. Internet is not available.";
 "internet_included_20815" = "25Go of Internet are included in the \"Free\" plan! Calls, SMS and MMS are not included.";
@@ -184,8 +184,6 @@
 "alert_paid_data_drain" = "🛂⚠️🛑 EXTRA-COST IN PROGRESS 🛑⚠️🆘";
 "new_sim_card_detected" = "SIM card configuration changed!";
 "new_sim_card_detected_description" = "Please configure your new SIM card in the FMobile application.";
-"ipad_carrier_alert" = "Carrier action required!";
-"ipad_carrier_alert_description" = "Your carrier must distribute a configuration file (Carrier Bundle) in order to allow the second generation of FMobile to operate on iPad. If your carrier wants to help its subscribers, it is invited to distribute it using a carrier update. In addition to that, for a maximal compatibility, it is also invited to check the possibility to remove every roaming PLMN from that same file on iPhone.";
 "update_done" = "Update succeeded!";
 
     //AppDelegate

@@ -1542,13 +1542,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.302974"
+            timestampString = "581796934.5767241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "569"
-            endingLineNumber = "569"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
+            startingLineNumber = "603"
+            endingLineNumber = "603"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1559,11 +1559,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/DataManager.swift"
-            timestampString = "580183937.024368"
+            timestampString = "581796934.57734"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1576,11 +1576,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/DataManager.swift"
-            timestampString = "580183937.024411"
+            timestampString = "581796934.577409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
             landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1593,7 +1593,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/DataManager.swift"
-            timestampString = "580183937.024447"
+            timestampString = "581796934.577468"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "228"
@@ -1610,7 +1610,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/DataManager.swift"
-            timestampString = "580183937.0244811"
+            timestampString = "581796934.5775239"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "227"
@@ -1627,13 +1627,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.303116"
+            timestampString = "581796934.577581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "879"
-            endingLineNumber = "879"
-            landmarkName = "loadUI()"
-            landmarkType = "7">
+            startingLineNumber = "913"
+            endingLineNumber = "913"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1644,13 +1644,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.303172"
+            timestampString = "581796934.5780129"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "872"
-            endingLineNumber = "872"
-            landmarkName = "loadUI()"
-            landmarkType = "7">
+            startingLineNumber = "906"
+            endingLineNumber = "906"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1661,13 +1661,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.303218"
+            timestampString = "581796934.578405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "577"
-            endingLineNumber = "577"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
+            startingLineNumber = "611"
+            endingLineNumber = "611"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1678,13 +1678,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.303262"
+            timestampString = "581796934.578675"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "871"
-            endingLineNumber = "871"
-            landmarkName = "loadUI()"
-            landmarkType = "7">
+            startingLineNumber = "905"
+            endingLineNumber = "905"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1695,13 +1695,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.303305"
+            timestampString = "581796934.578938"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "873"
-            endingLineNumber = "873"
-            landmarkName = "loadUI()"
-            landmarkType = "7">
+            startingLineNumber = "907"
+            endingLineNumber = "907"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1712,11 +1712,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.025703"
+            timestampString = "581796934.579198"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "484"
-            endingLineNumber = "484"
+            startingLineNumber = "498"
+            endingLineNumber = "498"
             landmarkName = "WIFIDIS()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1729,63 +1729,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.025754"
+            timestampString = "581796934.579273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "486"
-            endingLineNumber = "486"
+            startingLineNumber = "500"
+            endingLineNumber = "500"
             landmarkName = "WIFIDIS()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6F85647B-BE7C-4D9D-BFB0-079EDB5EB3F2 - 78f0d5fe79255413"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FMobile.AppDelegate.userNotificationCenter(_: __C.UNUserNotificationCenter, didReceive: __C.UNNotificationResponse, withCompletionHandler: () -&gt; ()) -&gt; ()"
-                  moduleName = "FMobile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Library/CloudStorage/iCloud%20Drive/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
-                  timestampString = "0"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "487"
-                  endingLineNumber = "487"
-                  offsetFromSymbolStart = "348">
-               </Location>
-               <Location
-                  uuid = "6F85647B-BE7C-4D9D-BFB0-079EDB5EB3F2 - 78f0d5fe79255413"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FMobile.AppDelegate.userNotificationCenter(_: __C.UNUserNotificationCenter, didReceive: __C.UNNotificationResponse, withCompletionHandler: () -&gt; ()) -&gt; ()"
-                  moduleName = "FMobile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Library/CloudStorage/iCloud%20Drive/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
-                  timestampString = "0"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "487"
-                  endingLineNumber = "487"
-                  offsetFromSymbolStart = "452">
-               </Location>
-               <Location
-                  uuid = "6F85647B-BE7C-4D9D-BFB0-079EDB5EB3F2 - 78f0d5fe79255413"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FMobile.AppDelegate.userNotificationCenter(_: __C.UNUserNotificationCenter, didReceive: __C.UNNotificationResponse, withCompletionHandler: () -&gt; ()) -&gt; ()"
-                  moduleName = "FMobile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Library/CloudStorage/iCloud%20Drive/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
-                  timestampString = "0"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "487"
-                  endingLineNumber = "487"
-                  offsetFromSymbolStart = "856">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1796,63 +1746,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.025794"
+            timestampString = "581796934.579336"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "487"
-            endingLineNumber = "487"
+            startingLineNumber = "501"
+            endingLineNumber = "501"
             landmarkName = "WIFIDIS()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9B3B61BB-D09B-4CA2-8C7D-4E959549FC01 - 78f0d5fe79255413"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FMobile.AppDelegate.userNotificationCenter(_: __C.UNUserNotificationCenter, didReceive: __C.UNNotificationResponse, withCompletionHandler: () -&gt; ()) -&gt; ()"
-                  moduleName = "FMobile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Library/CloudStorage/iCloud%20Drive/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
-                  timestampString = "0"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "487"
-                  endingLineNumber = "487"
-                  offsetFromSymbolStart = "348">
-               </Location>
-               <Location
-                  uuid = "9B3B61BB-D09B-4CA2-8C7D-4E959549FC01 - 78f0d5fe79255413"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FMobile.AppDelegate.userNotificationCenter(_: __C.UNUserNotificationCenter, didReceive: __C.UNNotificationResponse, withCompletionHandler: () -&gt; ()) -&gt; ()"
-                  moduleName = "FMobile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Library/CloudStorage/iCloud%20Drive/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
-                  timestampString = "0"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "487"
-                  endingLineNumber = "487"
-                  offsetFromSymbolStart = "452">
-               </Location>
-               <Location
-                  uuid = "9B3B61BB-D09B-4CA2-8C7D-4E959549FC01 - 78f0d5fe79255413"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FMobile.AppDelegate.userNotificationCenter(_: __C.UNUserNotificationCenter, didReceive: __C.UNNotificationResponse, withCompletionHandler: () -&gt; ()) -&gt; ()"
-                  moduleName = "FMobile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Library/CloudStorage/iCloud%20Drive/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
-                  timestampString = "0"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "487"
-                  endingLineNumber = "487"
-                  offsetFromSymbolStart = "856">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1863,11 +1763,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.025835"
+            timestampString = "581796934.579391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "488"
-            endingLineNumber = "488"
+            startingLineNumber = "502"
+            endingLineNumber = "502"
             landmarkName = "WIFIDIS()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1880,11 +1780,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.0258729"
+            timestampString = "581796934.579447"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "569"
-            endingLineNumber = "569"
+            startingLineNumber = "588"
+            endingLineNumber = "588"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1897,47 +1797,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.02591"
+            timestampString = "581796934.579505"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "570"
-            endingLineNumber = "570"
+            startingLineNumber = "592"
+            endingLineNumber = "592"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "25BF7342-8EA7-44FF-A62C-0015B88D145C - 45d506ac9d128eb5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #3 (Swift.Optional&lt;Swift.Double&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FMobile.AppDelegate.userNotificationCenter(_: __C.UNUserNotificationCenter, didReceive: __C.UNNotificationResponse, withCompletionHandler: () -&gt; ()) -&gt; ()"
-                  moduleName = "FMobile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Library/CloudStorage/iCloud%20Drive/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
-                  timestampString = "0"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "570"
-                  endingLineNumber = "570"
-                  offsetFromSymbolStart = "4330">
-               </Location>
-               <Location
-                  uuid = "25BF7342-8EA7-44FF-A62C-0015B88D145C - a4c5216871959e2c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in closure #3 (Swift.Optional&lt;Swift.Double&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FMobile.AppDelegate.userNotificationCenter(_: __C.UNUserNotificationCenter, didReceive: __C.UNNotificationResponse, withCompletionHandler: () -&gt; ()) -&gt; ()"
-                  moduleName = "FMobile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Library/CloudStorage/iCloud%20Drive/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
-                  timestampString = "0"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "571"
-                  endingLineNumber = "571"
-                  offsetFromSymbolStart = "55">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1948,11 +1814,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.025948"
+            timestampString = "581796934.57956"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "571"
-            endingLineNumber = "571"
+            startingLineNumber = "593"
+            endingLineNumber = "593"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1965,11 +1831,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.025985"
+            timestampString = "581796934.5796191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "572"
-            endingLineNumber = "572"
+            startingLineNumber = "594"
+            endingLineNumber = "594"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1982,11 +1848,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.026023"
+            timestampString = "581796934.579706"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "573"
-            endingLineNumber = "573"
+            startingLineNumber = "595"
+            endingLineNumber = "595"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1999,11 +1865,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.0260611"
+            timestampString = "581796934.579767"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "576"
-            endingLineNumber = "576"
+            startingLineNumber = "598"
+            endingLineNumber = "598"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2016,11 +1882,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.026098"
+            timestampString = "581796934.579825"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "578"
-            endingLineNumber = "578"
+            startingLineNumber = "600"
+            endingLineNumber = "600"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2033,11 +1899,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.026135"
+            timestampString = "581796934.579883"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "579"
-            endingLineNumber = "579"
+            startingLineNumber = "601"
+            endingLineNumber = "601"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2050,11 +1916,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.026173"
+            timestampString = "581796934.5799429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "580"
-            endingLineNumber = "580"
+            startingLineNumber = "602"
+            endingLineNumber = "602"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2067,11 +1933,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.026211"
+            timestampString = "581796934.580009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "577"
-            endingLineNumber = "577"
+            startingLineNumber = "599"
+            endingLineNumber = "599"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2084,11 +1950,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.0262491"
+            timestampString = "581796934.58009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "575"
-            endingLineNumber = "575"
+            startingLineNumber = "597"
+            endingLineNumber = "597"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2101,11 +1967,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.026288"
+            timestampString = "581796934.580142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "588"
-            endingLineNumber = "588"
+            startingLineNumber = "610"
+            endingLineNumber = "610"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2118,11 +1984,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.0263259"
+            timestampString = "581796934.5802439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "590"
-            endingLineNumber = "590"
+            startingLineNumber = "612"
+            endingLineNumber = "612"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2135,11 +2001,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.026363"
+            timestampString = "581796934.580312"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "589"
-            endingLineNumber = "589"
+            startingLineNumber = "611"
+            endingLineNumber = "611"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2152,13 +2018,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.3035721"
+            timestampString = "581796934.580373"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1507"
-            endingLineNumber = "1507"
-            landmarkName = "loadUI()"
-            landmarkType = "7">
+            startingLineNumber = "1551"
+            endingLineNumber = "1551"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2169,13 +2035,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.303619"
+            timestampString = "581796934.580804"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1145"
-            endingLineNumber = "1145"
-            landmarkName = "loadUI()"
-            landmarkType = "7">
+            startingLineNumber = "1179"
+            endingLineNumber = "1179"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2186,13 +2052,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.303663"
+            timestampString = "581796934.581161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "760"
-            endingLineNumber = "760"
-            landmarkName = "loadUI()"
-            landmarkType = "7">
+            startingLineNumber = "794"
+            endingLineNumber = "794"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2203,13 +2069,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.303704"
+            timestampString = "581796934.581507"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "663"
-            endingLineNumber = "663"
-            landmarkName = "diag(source:)"
-            landmarkType = "7">
+            startingLineNumber = "697"
+            endingLineNumber = "697"
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   uuid = "FE2C9466-0F4C-423E-953E-D0E621819C60 - 1056537d3c93fc1a"
@@ -2220,12 +2086,12 @@
                   moduleName = "FMobile"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/plugn/Library/CloudStorage/iCloud%20Drive/Documents/FMobile/FMobile/Views/TableViewController.swift"
-                  timestampString = "0"
+                  timestampString = "581792606.227914"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "657"
-                  endingLineNumber = "657"
-                  offsetFromSymbolStart = "13492">
+                  startingLineNumber = "684"
+                  endingLineNumber = "684"
+                  offsetFromSymbolStart = "13784">
                </Location>
                <Location
                   uuid = "FE2C9466-0F4C-423E-953E-D0E621819C60 - 1056537d3c93fc1a"
@@ -2236,12 +2102,12 @@
                   moduleName = "FMobile"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/plugn/Library/CloudStorage/iCloud%20Drive/Documents/FMobile/FMobile/Views/TableViewController.swift"
-                  timestampString = "0"
+                  timestampString = "581792606.230009"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "657"
-                  endingLineNumber = "657"
-                  offsetFromSymbolStart = "14139">
+                  startingLineNumber = "684"
+                  endingLineNumber = "684"
+                  offsetFromSymbolStart = "14430">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2254,11 +2120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/SpeedtestViewController.swift"
-            timestampString = "580213383.970032"
+            timestampString = "581796934.58187"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2271,13 +2137,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.303763"
+            timestampString = "581796934.581935"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1477"
-            endingLineNumber = "1477"
-            landmarkName = "loadUI()"
-            landmarkType = "7">
+            startingLineNumber = "1521"
+            endingLineNumber = "1521"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2288,13 +2154,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.303808"
+            timestampString = "581796934.582304"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1107"
-            endingLineNumber = "1107"
-            landmarkName = "loadUI()"
-            landmarkType = "7">
+            startingLineNumber = "1141"
+            endingLineNumber = "1141"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2305,13 +2171,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.303851"
+            timestampString = "581796934.582673"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1108"
-            endingLineNumber = "1108"
-            landmarkName = "loadUI()"
-            landmarkType = "7">
+            startingLineNumber = "1142"
+            endingLineNumber = "1142"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2322,13 +2188,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.303894"
+            timestampString = "581796934.583015"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1109"
-            endingLineNumber = "1109"
-            landmarkName = "loadUI()"
-            landmarkType = "7">
+            startingLineNumber = "1143"
+            endingLineNumber = "1143"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2339,13 +2205,47 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/TableViewController.swift"
-            timestampString = "581203355.303937"
+            timestampString = "581796934.5834121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1485"
-            endingLineNumber = "1485"
-            landmarkName = "loadUI()"
-            landmarkType = "7">
+            startingLineNumber = "1529"
+            endingLineNumber = "1529"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "77095220-60A4-4BEC-829A-394358BEAF0E - 73e060eda775c8bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FMobile.TableViewController.loadUI() -&gt; ()"
+                  moduleName = "FMobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/plugn/Library/CloudStorage/iCloud%20Drive/Documents/FMobile/FMobile/Views/TableViewController.swift"
+                  timestampString = "581792606.253966"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1516"
+                  endingLineNumber = "1516"
+                  offsetFromSymbolStart = "179513">
+               </Location>
+               <Location
+                  uuid = "77095220-60A4-4BEC-829A-394358BEAF0E - 1ba3ad4aff8e6e04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #42 (__C.UIButton) -&gt; () in FMobile.TableViewController.loadUI() -&gt; ()"
+                  moduleName = "FMobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/plugn/Library/CloudStorage/iCloud%20Drive/Documents/FMobile/FMobile/Views/TableViewController.swift"
+                  timestampString = "581792606.25635"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1517"
+                  endingLineNumber = "1517"
+                  offsetFromSymbolStart = "49">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2356,11 +2256,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.028563"
+            timestampString = "581796934.583714"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "checkDataDisabled(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2373,11 +2273,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.028615"
+            timestampString = "581796934.583762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "checkDataDisabled(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2390,11 +2290,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.028656"
+            timestampString = "581796934.583801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "checkDataDisabled(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2407,11 +2307,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.0286959"
+            timestampString = "581796934.583837"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "checkDataDisabled(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2424,11 +2324,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.028735"
+            timestampString = "581796934.583873"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "checkDataDisabled(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2441,11 +2341,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.028774"
+            timestampString = "581796934.583908"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "checkDataDisabled(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2458,11 +2358,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.028813"
+            timestampString = "581796934.5839421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "checkDataDisabled(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2475,11 +2375,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Utils/AppDelegate.swift"
-            timestampString = "580183937.028854"
+            timestampString = "581796934.583977"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "AppDelegate"
             landmarkType = "3">
             <Locations>

@@ -385,6 +385,17 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
 //        CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { completion($0?.first, $1) }
 //    }
 //
+    
+    func oldios(){
+        guard #available(iOS 12.0, *) else {
+            let alert = UIAlertController(title: "old_ios_warning".localized().format([UIDevice.current.systemVersion]), message: "old_ios_description".localized(), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "close".localized(), style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            
+            return
+        }
+    }
+    
     func start(){
         locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {
@@ -459,12 +470,17 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
             present(alert, animated: true, completion: nil)
         }
         
-        if version < 88 && dataManager.setupDone && dataManager.targetMCC == "208" && dataManager.targetMNC == "15" {
+        if version < 90 && dataManager.setupDone && dataManager.targetMCC == "208" && dataManager.targetMNC == "15" {
             let alert = UIAlertController(title: "Enquête sur le réseau 208 16", message: "\nVous êtes plus de 7000 utilisateurs actifs de l'application. Vous avez peut-être remarqué que depuis quelques mois, Free a mis en service un nouveau réseau immatriculé 208 16. J'ai une théorie sur ce réseau et j'aimerais la vérifier en croisant différentes données mais il m'en manque une cruciale que seulement vous pouvez fournir. Je vous invite en masse à activer la nouvelle option temporaire \"Participer à l'enquête 208 16\" que vous soyez couvert par ce réseau ou non (j'ai besoin des deux à parts égales, n'hésitez pas). Ces données sont entièrement anonymes, donc il est impossible de vous tracer. Seules les coordonnées GPS du lieu où FMobile a détécté une itinérance seront envoyées dans une base de données centrale, avec les données de tout le monde de manière indiscernable. Ni la date d'envoi ni votre adresse IP ne sont enregistrées, il s'agit uniquement de construire une liste des endroits où l'itinérance pose le plus problème. Les données étant anonymes, vous ne disposez d'aucun droit d'accès, portabilité ou suppression puisqu'on ne peut pas identifier quelles données proviennent de votre appareil. Je compte sur vous pour participer un maximum. Un rapport synthétique sera ensuite partagé sur Twitter (@FMobileApp) et partagé avec certains médias s'il est concluant. Merci !", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "close".localized(), style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
         }
         
+        if version < 92 && dataManager.setupDone && dataManager.targetMCC == "208" && dataManager.targetMNC == "15" {
+            let alert = UIAlertController(title: "Fin de l'enquête.", message: "Merci à tous d'avoir participé à l'enquête 208 16, vous avez été nombreux et aux quatre coins de la France à avoir participé à déterminer si le réseau 208 16 impacte l'itinérance. La réponse officielle est donc oui, vous avez les captures d'écrans sur mon Twitter @FMobileApp. Maintenant FMobile va entrer dans une période de longue pause, et va revenir en septembre avec une très très grande mise à jour pour iOS 13, avec un tas de nouvelles fonctionalités et améliorations. Les TestFlight seront modifiés en juillet-août pour permettre aux deux versions de cohabiter. Pas de panique, l'enquête étant terminée, le bouton pour participer à l'enquête a disparu, et cette version de FMobile ne peut plus du tout transmettre ces statistiques.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "close".localized(), style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
         
         datas.set(appVersion, forKey: "version")
         datas.synchronize()
@@ -478,6 +494,13 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                 NotificationManager.sendNotification(for: .update, with: "update_succeeded".localized().format([String(version), String(appVersion)]))
             }
             
+        }
+        
+        if version < 90 {
+            guard #available(iOS 12.0, *) else {
+                self.oldios()
+                return
+            }
         }
         
     }
@@ -499,7 +522,10 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         
         // On active certaines fonctionnalitees
         UIDevice.current.isBatteryMonitoringEnabled = true
-        navigationController?.navigationBar.prefersLargeTitles = true
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
+        
         navigationItem.title = "fmobile".localized()
         
         // On demarre le moteur et l'UI
@@ -507,8 +533,25 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         loadUI()
         refreshSections()
         
-        // On save certaines preferences
+        let date0120 = Date(timeIntervalSinceReferenceDate: 599529600.0)
+        let date = Date()
         let datas = Foundation.UserDefaults.standard
+        var targetMCC = "208"
+        var targetMNC = "15"
+        if(datas.value(forKey: "MCC") != nil){
+            targetMCC = datas.value(forKey: "MCC") as? String ?? "208"
+        }
+        if(datas.value(forKey: "MNC") != nil){
+            targetMNC = datas.value(forKey: "MNC") as? String ?? "15"
+        }
+        
+        if date > date0120 && targetMCC == "208" && targetMNC == "15" {
+            datas.set(0.384, forKey: "STMS")
+            datas.synchronize()
+        }
+        print(date)
+        
+        // On save certaines preferences
         datas.set(false, forKey: "didAlertLB")
         datas.set(true, forKey: "statusUL")
         datas.set(Date().addingTimeInterval(-15 * 60), forKey: "NTimer")
@@ -1147,23 +1190,25 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
             sat = ""
         }
         
+        if #available(iOS 10.3, *) {
         delay(0.1) {
             if dataManager.modeRadin {
-                if UIApplication.shared.alternateIconName == nil {
-                    UIApplication.shared.setAlternateIconName("myradin-40"){ error in
-                        if let error = error {
-                            print(error.localizedDescription)
-                        } else {
-                            print("Done!")
+                    if UIApplication.shared.alternateIconName == nil {
+                        UIApplication.shared.setAlternateIconName("myradin-40"){ error in
+                            if let error = error {
+                                print(error.localizedDescription)
+                            } else {
+                                print("Done!")
+                            }
                         }
                     }
-                }
             } else {
                 if UIApplication.shared.alternateIconName != nil {
                     UIApplication.shared.setAlternateIconName(nil)
                     print("done")
                 }
             }
+        }
         }
         
         print(UIDevice.current.modelName)
@@ -1289,9 +1334,9 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         
         
         
-        if dataManager.targetMCC == "208" && dataManager.targetMNC == "15" && dataManager.setupDone {
-            net.elements += [UIElementSwitch(id: "statisticsAgreement", text: "statistics_agreement".localized(), d: false)]
-        }
+//        if dataManager.targetMCC == "208" && dataManager.targetMNC == "15" && dataManager.setupDone {
+//            net.elements += [UIElementSwitch(id: "statisticsAgreement", text: "statistics_agreement".localized(), d: false)]
+//        }
         
         // Section préférences
         let pref = Section(name: prefsnet, elements: [
@@ -1335,8 +1380,12 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         let conso = Section(name: cso, elements: [])
         if dataManager.targetMCC == "208" && dataManager.targetMNC == "15" && dataManager.setupDone {
             conso.elements += [UIElementButton(id: "", text: suivi) { (button) in
+                if #available(iOS 12.0, *) {
                     guard let link = URL(string: "shortcuts://run-shortcut?name=CFM") else { return }
                     UIApplication.shared.open(link)
+                } else {
+                    self.oldios()
+                }
                 },
                 UIElementButton(id: "", text: c555) { (button) in
                     guard let number = URL(string: "tel://555") else { return }
@@ -1472,8 +1521,12 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         // Section avancé
         let avance = Section(name: "advanced".localized(), elements: [
             UIElementButton(id: "", text: "reset_network".localized()) { (button) in
+                if #available(iOS 12.0, *) {
                 guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
-                UIApplication.shared.open(link)
+                    UIApplication.shared.open(link)
+                } else {
+                    self.oldios()
+                }
             },
             UIElementButton(id: "", text: "do_speedtest".localized()) { (button) in
                 let speedtestVC = SpeedtestViewController()

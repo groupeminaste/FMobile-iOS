@@ -136,6 +136,8 @@
 "donate_description" = "Quoi qu'il arrive, FMobile restera gratuite et sans publicités. Le don est une manière de me remercier pour l'app, même si je suis déjà super content si vous ne faites que me donner vos retours. Vous contribuerez au financement de mon projet Extopy. Merci de bien tester l'application et soyez sûr et certain de vouloir me de laisser un tip avant de le faire.";
 "ok" = "OK";
 "statistics_agreement" = "Participer à l'enquête 208 16";
+"old_ios_warning" = "iOS %@ manque de fonctinonalités importantes !";
+"old_ios_description" = "Cette application fonctionne au mieux avec l'application Raccourcis d'Apple, qui n'est disponible que dans iOS 12 et plus. Merci de mettre à jour votre appareil vers iOS 12 ou version supérieure. Si votre appareil supporte iOS 13, vous pourrez également mettre à jour FMobile vers sa dernière version créée pour iOS 13. Sur votre version actuelle, les opérations pour sortir de l'itinérance sont manuelles.";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Test de débit";
@@ -170,8 +172,6 @@
 "no_network_zone_auto_saved_description" = "Après plusieurs tentatives, votre iPhone ne s'est pas reconnecté sur le réseau propre. La zone actuelle a été sauvegardée comme non couverte.";
 "low_energy_mode_enabled_title" = "Mode activité réduite activé";
 "low_energy_mode_enabled_description" = "L'application va continuer de fonctionner en arrière-plan en mode activité réduite.";
-"low_energy_mode_auto_disabled" = "Mode économie d'énergie désactivé.";
-"low_energy_mode_auto_disabled_description" = "Vous n'avez plus besoin du mode éco. L'application reprend son mode de fonctionnement normal.";
 "nothing_included_20815" = "Aucune communication n'est incluse dans le forfait Free depuis ce pays.";
 "basic_included_201815" = "Les appels, SMS et MMS sont inclus dans le forfait Free. Internet est indisponible.";
 "internet_included_20815" = "25Go d'Internet sont inclus dans le forfait Free ! Les appels, SMS et MMS ne sont pas inclus.";
@@ -183,8 +183,6 @@
 "alert_paid_data_drain" = "🛂⚠️🛑 HORS-FORFAIT EN COURS 🛑⚠️🆘";
 "new_sim_card_detected" = "Configuration de carte SIM changée !";
 "new_sim_card_detected_description" = "Veuillez configurer votre nouvelle carte SIM dans l'application FMobile.";
-"ipad_carrier_alert" = "Action de votre opérateur requise !";
-"ipad_carrier_alert_description" = "Votre opérateur doit distribuer un fichier de configuration (Carrier Bundle) pour permettre à FMobile 2ème génération de fonctionner sur les iPad. Si votre opérateur veut aider ses abonnés, il est invité à distribuer ce fichier via une MÀJ opérateur. De plus, pour une compatibilité maximale, il est invité à vérifier la possibilité de retirer tous ses PLMN itinérants de ce même fichier sur iPhone.";
 "update_done" = "Mise à jour effectuée";
 
     //AppDelegate

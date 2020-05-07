@@ -46,8 +46,8 @@ class DataManager {
     var simData = String()
     var currentNetwork = String()
     var carrier = String()
-    var mycarrier: CTCarrier
-    var mycarrier2: CTCarrier
+    var mycarrier = CTCarrier()
+    var mycarrier2 = CTCarrier()
     var carrierNetwork = String()
     var carrierNetwork2 = String()
     var carrierName = String()
@@ -236,19 +236,27 @@ class DataManager {
         
         let info = CTTelephonyNetworkInfo()
         
+        if #available(iOS 12.1, *) {
         var simnum = 0
-        for (service, carrier) in info.serviceSubscriberCellularProviders ?? [:] {
-            simnum += 1
-            if simnum == 1{
-                mycarrier = carrier
-                carrierNetwork = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
-            } else if simnum == 2 {
-                mycarrier2 = carrier
-                carrierNetwork2 = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
+            for (service, carrier) in info.serviceSubscriberCellularProviders ?? [:] {
+                simnum += 1
+                if simnum == 1{
+                    mycarrier = carrier
+                    carrierNetwork = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
+                } else if simnum == 2 {
+                    mycarrier2 = carrier
+                    carrierNetwork2 = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
+                }
+                let radio = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
+                print("For Carrier " + (carrier.carrierName ?? "null") + ", got " + radio)
+                print(service)
             }
-            let radio = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
-            print("For Carrier " + (carrier.carrierName ?? "null") + ", got " + radio)
-            print(service)
+        } else {
+            // Fallback on earlier versions
+            mycarrier = info.subscriberCellularProvider ?? CTCarrier()
+            carrierNetwork = info.currentRadioAccessTechnology ?? ""
+            mycarrier2 = CTCarrier()
+            carrierNetwork2 = ""
         }
         
         

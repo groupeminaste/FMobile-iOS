@@ -52,10 +52,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                     DispatchQueue.main.async {
                         if speed ?? 0 < dataManager.stms {
                             dataManager.carrierNetwork = "\(dataManager.itiName) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
+                            if #available(iOS 12.0, *) {
                             guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
                             self.extensionContext?.open(link, completionHandler: { success in
                                 print("fun=success=\(success)")
                             })
+                            }
                         } else {
                             dataManager.carrierNetwork = "\(dataManager.carrier) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country)"
                         }
@@ -64,10 +66,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 }
             } else if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.itiMNC {
                 dataManager.carrierNetwork = "\(dataManager.itiName) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
+                if #available(iOS 12.0, *) {
                 guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
                 self.extensionContext?.open(link, completionHandler: { success in
                     print("fun=success=\(success)")
                 })
+                }
                 self.text?.reloadInputViews()
             } else {
                 dataManager.carrierNetwork = "\(dataManager.carrier) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
@@ -86,10 +90,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                     DispatchQueue.main.async {
                         if speed ?? 0 < dataManager.stms {
                             dataManager.carrierNetwork = "\(dataManager.itiName) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
+                            if #available(iOS 12.0, *) {
                             guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
                             self.extensionContext?.open(link, completionHandler: { success in
                                 print("fun=success=\(success)")
                             })
+                            }
                         } else {
                             dataManager.carrierNetwork = "\(dataManager.carrier) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country)"
                         }
@@ -98,10 +104,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 }
             } else if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.itiMNC {
                 dataManager.carrierNetwork = "\(dataManager.itiName) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
+                if #available(iOS 12.0, *) {
                 guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
                 self.extensionContext?.open(link, completionHandler: { success in
                     print("fun=success=\(success)")
                 })
+                }
                 self.text?.reloadInputViews()
             } else {
                 dataManager.carrierNetwork = "\(dataManager.carrier) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
