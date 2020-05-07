@@ -31,7 +31,7 @@ class UIElementSwitch: UIElement {
     
     init(id: String, text: String, d: Bool) {
         self.d = d
-        super.init(id: id, text: text);
+        super.init(id: id, text: text)
     }
     
 }

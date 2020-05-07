@@ -94,7 +94,7 @@ class DataManager {
     var disableFMobileCore = false
     
     init() {
-        print(Locale.current.languageCode ?? "...");
+        print(Locale.current.languageCode ?? "...")
         if datas.value(forKey: "modeRadin") != nil && Locale.current.languageCode == "fr" {
             modeRadin = datas.value(forKey: "modeRadin") as? Bool ?? false
         }
