@@ -242,7 +242,13 @@ class DataManager {
         
         let url = URL(fileURLWithPath: operatorPListPath ?? "Error")
         do {
-            let test = try NSDictionary(contentsOf: url, error: ())
+            let test: NSDictionary
+            if #available(iOS 11.0, *) {
+                test = try NSDictionary(contentsOf: url, error: ())
+            } else {
+                // Fallback on earlier versions
+                test = NSDictionary(contentsOf: url) ?? NSDictionary()
+            }
             let array = test["StatusBarImages"] as? NSArray ?? NSArray.init(array: [0])
             let secondDict = NSDictionary(dictionary: array[0] as? Dictionary ?? NSDictionary() as? Dictionary<AnyHashable, Any> ?? Dictionary())
             
@@ -255,7 +261,13 @@ class DataManager {
         carriersim = "Carrier"
         let urlcarrier = URL(fileURLWithPath: carrierPListPath ?? "Error")
         do {
-            let testsim = try NSDictionary(contentsOf: urlcarrier, error: ())
+            let testsim: NSDictionary
+            if #available(iOS 11.0, *) {
+                testsim = try NSDictionary(contentsOf: urlcarrier, error: ())
+            } else {
+                // Fallback on earlier versions
+                testsim = NSDictionary(contentsOf: urlcarrier) ?? NSDictionary()
+            }
             let arraysim = testsim["StatusBarImages"] as? NSArray ?? NSArray.init(array: [0])
             let secondDictsim = NSDictionary(dictionary: arraysim[0] as? Dictionary ?? NSDictionary() as? Dictionary<AnyHashable, Any> ?? Dictionary())
                     
@@ -347,9 +359,18 @@ class DataManager {
     }
     
     static func isOnPhoneCall() -> Bool {
-        for call in CXCallObserver().calls {
-            if call.hasEnded == false {
-                return true
+        if #available(iOS 10.0, *) {
+            for call in CXCallObserver().calls {
+                if call.hasEnded == false {
+                    return true
+                }
+            }
+        } else {
+            let callCenter = CTCallCenter()
+            for call in callCenter.currentCalls ?? [] {
+                if call.callState == CTCallStateConnected {
+                    return true
+                }
             }
         }
         return false
@@ -506,7 +527,7 @@ class DataManager {
             return "HOME"
         } else if country == "--"{
             return "UNKNOWN"
-        } else if country == "DE" || country == "AT" || country == "BE" || country == "BG" || country == "CY" || country == "HR" || country == "DK" || country == "ES" || country == "EE" || country == "FI" || country == "GI" || country == "GR" || country == "HU" || country == "IE" || country == "IS" || country == "IT" || country == "LV" || country == "LI" || country == "LT" || country == "LU" || country == "MT" || country == "NO" || country == "NL" || country == "PL" || country == "PT" || country == "CZ" || country == "RO" || country == "GB" || country == "SK" || country == "SI" || country == "SE" || country == "GP" || country == "GF" || country == "MQ" || country == "YT" || country == "RE" || country == "BL" || country == "MF" {
+        } else if country == "DE" || country == "AT" || country == "BE" || country == "BG" || country == "CY" || country == "HR" || country == "DK" || country == "ES" || country == "EE" || country == "FI" || country == "GI" || country == "GR" || country == "HU" || country == "IE" || country == "IS" || country == "IT" || country == "LV" || country == "LI" || country == "LT" || country == "LU" || country == "MT" || country == "NO" || country == "NL" || country == "PL" || country == "PT" || country == "CZ" || country == "RO" || country == "SK" || country == "SI" || country == "SE" || country == "GP" || country == "GF" || country == "MQ" || country == "YT" || country == "RE" || country == "BL" || country == "MF" {
             return "ALL"
         }
         

@@ -298,6 +298,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 
                 let currlocation = CLLocation(latitude: CLLocationDegrees(currlat), longitude: CLLocationDegrees(currlon))
                 
+                if #available(iOS 10.0, *) {
                 let context = appDelegate.persistentContainer.viewContext
                 
                 let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Locations")
@@ -346,6 +347,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //                        AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
 //                    }
                 }
+                } else {
+                    if dataManager.carrierNetwork == "CTRadioAccessTechnologyHSDPA" {
+                        NotificationManager.sendNotification(for: .alertHPlus)
+                    } else if dataManager.carrierNetwork == "CTRadioAccessTechnologyWCDMA" {
+                        NotificationManager.sendNotification(for: .alertWCDMA)
+                    }
+                }
                 
             }
             
@@ -373,6 +381,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     
                     let currlocation = CLLocation(latitude: CLLocationDegrees(currlat), longitude: CLLocationDegrees(currlon))
                     
+                    if #available(iOS 10.0, *) {
                     let context = appDelegate.persistentContainer.viewContext
                     
                     let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Locations")
@@ -407,6 +416,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         print("Failed")
                         AppDelegate.initBackground(dataManager)
                     }
+                } else {
+                    AppDelegate.initBackground(dataManager)
+                }
                 } else {
                     print("L'utilisateur est en 4G/3G propre")
                 }
@@ -494,20 +506,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                                     return
                                 }
-                                let context = appDelegate.persistentContainer.viewContext
-                                guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
-                                    return
-                                }
-                                let newCoo = NSManagedObject(entity: entity, insertInto: context)
-                                
-                                newCoo.setValue(latitude, forKey: "lat")
-                                newCoo.setValue(longitude, forKey: "lon")
-                                
-                                do {
-                                    try context.save()
-                                    print("COORDINATES SAVED!")
-                                } catch {
-                                    print("Failed saving")
+                                if #available(iOS 10.0, *) {
+                                    let context = appDelegate.persistentContainer.viewContext
+                                    guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
+                                        return
+                                    }
+                                    let newCoo = NSManagedObject(entity: entity, insertInto: context)
+                                    
+                                    newCoo.setValue(latitude, forKey: "lat")
+                                    newCoo.setValue(longitude, forKey: "lon")
+                                    
+                                    do {
+                                        try context.save()
+                                        print("COORDINATES SAVED!")
+                                    } catch {
+                                        print("Failed saving")
+                                    }
                                 }
                             }
                         }
@@ -525,6 +539,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // GESTION DES NOTIFICATIONS
     // -----
     
+    @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         // Determine the user action
         switch response.actionIdentifier {
@@ -668,6 +683,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         
+        if #available(iOS 10.0, *) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             if granted {
                 print("Notifications permission granted.")
@@ -680,6 +696,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         let notifications = UNNotificationCategory(identifier: "protectionItineranceActivee", actions: [], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([notifications])
+        } else {
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil))
+            UIApplication.shared.registerForRemoteNotifications()
+        }
         
         // On init l'UI
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -689,6 +709,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
+    @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .badge, .sound])
     }
@@ -865,23 +886,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                         return
                     }
-                    let context = appDelegate.persistentContainer.viewContext
-                    guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
-                        return
+                    if #available(iOS 10.0, *) {
+                        let context = appDelegate.persistentContainer.viewContext
+                        guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
+                            return
+                        }
+                        let newCoo = NSManagedObject(entity: entity, insertInto: context)
+                        
+                        newCoo.setValue(latitude, forKey: "lat")
+                        newCoo.setValue(longitude, forKey: "lon")
+                        
+                        do {
+                            try context.save()
+                            print("COORDINATES SAVED!")
+                            NotificationManager.sendNotification(for: .saved)
+                        } catch {
+                            print("Failed saving")
+                        }
                     }
-                    let newCoo = NSManagedObject(entity: entity, insertInto: context)
-                    
-                    newCoo.setValue(latitude, forKey: "lat")
-                    newCoo.setValue(longitude, forKey: "lon")
-                    
-                    do {
-                        try context.save()
-                        print("COORDINATES SAVED!")
-                        NotificationManager.sendNotification(for: .saved)
-                    } catch {
-                        print("Failed saving")
-                    }
-                    
                 }
                 dataManager.lastnet = dataManager.carrierNetwork
                 dataManager.timecode = now
@@ -946,21 +968,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                                             return
                                         }
-                                        let context = appDelegate.persistentContainer.viewContext
-                                        guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
-                                            return
-                                        }
-                                        let newCoo = NSManagedObject(entity: entity, insertInto: context)
-                                        
-                                        newCoo.setValue(latitude, forKey: "lat")
-                                        newCoo.setValue(longitude, forKey: "lon")
-                                        
-                                        do {
-                                            try context.save()
-                                            print("COORDINATES SAVED!")
-                                            print("SPEEDTEST IN BACKGROUND SUCCESSFUL!")
-                                        } catch {
-                                            print("Failed saving")
+                                        if #available(iOS 10.0, *) {
+                                            let context = appDelegate.persistentContainer.viewContext
+                                            guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
+                                                return
+                                            }
+                                            let newCoo = NSManagedObject(entity: entity, insertInto: context)
+                                            
+                                            newCoo.setValue(latitude, forKey: "lat")
+                                            newCoo.setValue(longitude, forKey: "lon")
+                                            
+                                            do {
+                                                try context.save()
+                                                print("COORDINATES SAVED!")
+                                                print("SPEEDTEST IN BACKGROUND SUCCESSFUL!")
+                                            } catch {
+                                                print("Failed saving")
+                                            }
                                         }
                                         
                                     }
@@ -1069,6 +1093,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // GESTION DE CORE DATA
     // -----
 
+    @available(iOS 10.0, *)
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
@@ -1095,19 +1120,81 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         })
         return container
     }()
+    
+    // iOS 9 and below
+    lazy var applicationDocumentsDirectory: URL = {
+
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return urls[urls.count-1]
+    }()
+
+    lazy var managedObjectModel: NSManagedObjectModel = {
+        // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
+        let modelURL = Bundle.main.url(forResource: "DATA", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
+    }()
+
+    lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+        // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
+        // Create the coordinator and store
+        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+        let url = self.applicationDocumentsDirectory.appendingPathComponent("SingleViewCoreData.sqlite")
+        var failureReason = "There was an error creating or loading the application's saved data."
+        do {
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
+        } catch {
+            // Report any error we got.
+            var dict = [String: AnyObject]()
+            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data" as AnyObject?
+            dict[NSLocalizedFailureReasonErrorKey] = failureReason as AnyObject?
+
+            dict[NSUnderlyingErrorKey] = error as NSError
+            let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            // Replace this with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
+            abort()
+        }
+
+        return coordinator
+    }()
+
+    lazy var managedObjectContext: NSManagedObjectContext = {
+        // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
+        let coordinator = self.persistentStoreCoordinator
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        managedObjectContext.persistentStoreCoordinator = coordinator
+        return managedObjectContext
+    }()
 
     func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        if #available(iOS 10.0, *) {
+            let context = persistentContainer.viewContext
+            if context.hasChanges {
+                do {
+                    try context.save()
+                } catch {
+                    // Replace this implementation with code to handle the error appropriately.
+                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                }
+            }
+        } else {
+            // iOS 9.0 and below - however you were previously handling it
+            if managedObjectContext.hasChanges {
+                do {
+                    try managedObjectContext.save()
+                } catch {
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    let nserror = error as NSError
+                    NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                    abort()
+                }
             }
         }
+        
     }
 
 }

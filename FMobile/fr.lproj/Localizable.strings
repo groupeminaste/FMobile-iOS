@@ -131,16 +131,16 @@
 "field_test_copied_confirmation" = "Code copié !";
 "select_url" = "URL personnalisée pour le test de débit";
 "about" = "À propos";
-"about_description" = "Application et Raccourcis créés par Michaël Nass\nUI/UX, test de débit et optimisation par Nathan Fallet\nLogo par Bruno (@brunopaiva_152)\n\nCette application a été développée par des développeurs indépendants et est fournie gratuitement sans aucune garantie.\n\nLe Groupe MINASTE (y compris son application FMobile) n'est, en aucun cas, affilié à quelconque opérateur.\n\n© 2019 Groupe MINASTE";
+"about_description" = "Application et Raccourcis créés par Michaël Nass\nUI/UX, test de débit et optimisation par Nathan Fallet\nLogo par Bruno (@brunopaiva_152)\n\nCette application a été développée par des développeurs indépendants et est fournie gratuitement sans aucune garantie.\n\nLe Groupe MINASTE (y compris son application FMobile) n'est, en aucun cas, affilié à quelconque opérateur.\n\n© 2020 Groupe MINASTE";
 "donate_paypal" = "Faire un don PayPal";
 "donate_description" = "Quoi qu'il arrive, FMobile restera gratuite et sans publicités. Le don est une manière de me remercier pour l'app, même si je suis déjà super content si vous ne faites que me donner vos retours. Vous contribuerez au financement de mon projet Extopy. Merci de bien tester l'application et soyez sûr et certain de vouloir me de laisser un tip avant de le faire.";
 "ok" = "OK";
 "statistics_agreement" = "Participer à l'enquête 208 16";
 "old_ios_warning" = "iOS %@ manque de fonctinonalités importantes !";
-"old_ios_description" = "Cette application fonctionne au mieux avec l'application Raccourcis d'Apple, qui n'est disponible que dans iOS 12 et plus. Merci de mettre à jour votre appareil vers iOS 12 ou version supérieure. Si votre appareil supporte iOS 13, vous pourrez également mettre à jour FMobile vers sa dernière version créée pour iOS 13. Sur votre version actuelle, les opérations pour sortir de l'itinérance sont manuelles.";
+"old_ios_description" = "Cette application n'est plus supportée. Veuillez mettre à jour votre appareil vers iOS 12 ou toute autre version ultérieure et télécharger FMobile 3 pour iOS 12. Sur votre version iOS, les opérations pour quitter l'itinérance sont manuelles.";
 "new_ios_warning" = "Vous êtes sur iOS %@ !";
-"new_ios_description" = "Bonne nouvelle : vous utilisez une version récente d'iOS. Mauvaise nouvelle : FMobile 1 n'est pas compatible avec votre appareil. Mais pas de panique ! FMobile 2 pour iOS 13 est desormais disponible sur l'App Store !";
-"download_fmobile2" = "Télécharger FMobile 2";
+"new_ios_description" = "Bonne nouvelle : vous utilisez une version récente d'iOS. Mauvaise nouvelle : FMobile 1 n'est pas compatible avec votre appareil. Mais pas de panique ! FMobile 3 pour iOS 12 est desormais disponible sur l'App Store !";
+"download_fmobile3" = "Télécharger FMobile 3";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Test de débit";

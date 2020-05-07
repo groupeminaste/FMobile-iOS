@@ -132,16 +132,16 @@
 "field_test_copied_confirmation" = "Code gekopieerd!";
 "select_url" = "Aangepaste URL voor flow test";
 "about" = "Over ons";
-"about_description" = "Applicatie en snelkoppelingen gemaakt door Michaël Nass\nUI/UX, flow test en optimalisatie door Nathan Fallet\nLogo by Bruno (@brunopaiva_152)\nNederlandse vertaling door Louis Legout\n\nDeze applicatie is ontwikkeld door onafhankelijke ontwikkelaars en wordt gratis en zonder enige garantie geleverd. \n\nDe Groupe MINASTE (inclusief de FMobile applicatie) is onder geen enkele voorwaarde verbonden aan een operator. \n\n© 2019 Groupe MINASTE";
+"about_description" = "Applicatie en snelkoppelingen gemaakt door Michaël Nass\nUI/UX, flow test en optimalisatie door Nathan Fallet\nLogo by Bruno (@brunopaiva_152)\nNederlandse vertaling door Louis Legout\n\nDeze applicatie is ontwikkeld door onafhankelijke ontwikkelaars en wordt gratis en zonder enige garantie geleverd. \n\nDe Groupe MINASTE (inclusief de FMobile applicatie) is onder geen enkele voorwaarde verbonden aan een operator. \n\n© 2020 Groupe MINASTE";
 "donate_paypal" = "Doe een PayPal-donatie";
 "donate_description" = "Wat er ook gebeurt, FMobile blijft gratis en zonder reclame. De donatie is een manier om me te bedanken voor de app, ook al ben ik al erg blij als je me gewoon je feedback geeft. U draagt bij aan de financiering van mijn Extopy-project. Test de toepassing zorgvuldig en zorg ervoor dat u mij een tip wilt geven voordat u het doet.";
 "ok" = "OK";
 "statistics_agreement" = "Participer à l'enquête 208 16";
 "old_ios_warning" = "iOS% @ mist belangrijke functies!";
-"old_ios_description" = "Deze apps werken het beste met de Apple Shortcuts-app, die alleen beschikbaar is op iOS 12 en hoger. Werk uw iOS-apparaat bij naar iOS 12 of een latere versie. Als uw iOS-apparaat iOS 13 kan uitvoeren, kunt u ook de FMobile-app bijwerken naar de nieuwste versie die is gemaakt voor iOS 13. Op uw iOS-versie zijn de bewerkingen om Roaming af te sluiten handmatig.";
+"old_ios_description" = "Deze app wordt nu niet meer ondersteund. Update uw apparaat naar iOS 12 of een latere versie en download FMobile 3 voor iOS 12. Op uw iOS-versie zijn de handelingen om roaming af te sluiten handmatig.";
 "new_ios_warning" = "Je gebruikt iOS %@!";
 "new_ios_description" = "Goed nieuws: u gebruikt moderne iOS-software. Slecht nieuws: FMobile 1 is niet compatibel met uw apparaat. Maar maak je geen zorgen! FMobile 2 voor iOS 13 is nu beschikbaar in de App Store!";
-"download_fmobile2" = "FMobile 2 downloaden";
+"download_fmobile3" = "FMobile 3 downloaden";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Stroomtest";

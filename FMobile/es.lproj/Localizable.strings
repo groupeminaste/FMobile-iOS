@@ -132,16 +132,16 @@
 "field_test_copied_confirmation" = "¡Código copiado exitosamente!";
 "select_url" = "URL personalizada para la prueba de velocidad";
 "about" = "Sobre";
-"about_description" = "Aplicación y atajo realizado por Michaël Nass\nUI/UX, prueba de velocidad y optimización por Nathan Fallet\nLogo por Bruno (@brunopaiva_152)\n\nEsta aplicación ha sido desarrollada por desarrolladores independientes y se proporciona de forma gratuita sin ninguna garantía.\n\nEl Groupe MINASTE (incluyendo su aplicación FMobile) no está, en ningún caso, afiliado a ningún operador.\n\n© 2019 Groupe MINASTE";
+"about_description" = "Aplicación y atajo realizado por Michaël Nass\nUI/UX, prueba de velocidad y optimización por Nathan Fallet\nLogo por Bruno (@brunopaiva_152)\n\nEsta aplicación ha sido desarrollada por desarrolladores independientes y se proporciona de forma gratuita sin ninguna garantía.\n\nEl Groupe MINASTE (incluyendo su aplicación FMobile) no está, en ningún caso, afiliado a ningún operador.\n\n© 2020 Groupe MINASTE";
 "donate_paypal" = "Hacer una donación con PayPal";
 "donate_description" = "No importa qué, FMobile se mantendrá libre y sin publicidad. La donación es una forma de agradecerme la aplicación, incluso si ya estoy súper contento si solo me envías un comentario al respecto. Contribuirás a la financiación de mi proyecto Extopy. Asegúrese de probar la aplicación por completo y de estar 100% seguro de que quiere dejarme una sugerencia antes de hacerlo.";
 "ok" = "De acuerdo";
 "statistics_agreement" = "Participa en la encuesta 208 16";
 "old_ios_warning" = "¡A iOS %@ le faltan características importantes!";
-"old_ios_description" = "Esta aplicación funciona mejor con la aplicación Apple Shortcuts, que solo está disponible en iOS 12 y versiones posteriores. Actualice su dispositivo iOS a iOS 12 o cualquier versión posterior. Si su dispositivo iOS puede ejecutar iOS 13, también podrá actualizar la aplicación FMobile a su última versión creada para iOS 13. En su versión de iOS, las operaciones para salir del roaming son manuales.";
+"old_ios_description" = "Esta aplicación ya no tiene soporte. Por favor, actualiza tu dispositivo a iOS 12 o cualquier versión posterior y descarga FMobile 3 para iOS 12. En tu versión iOS, las operaciones para salir de la itinerancia son manuales.";
 "new_ios_warning" = "Estás ejecutando iOS %@!";
-"new_ios_description" = "Buenas noticias: está ejecutando un software iOS moderno. Malas noticias: FMobile 1 no es compatible con su dispositivo. Pero no te preocupes! ¡FMobile 2 para iOS 13 ya está disponible en la App Store!";
-"download_fmobile2" = "Descargar FMobile 2";
+"new_ios_description" = "Buenas noticias: está ejecutando un software iOS moderno. Malas noticias: FMobile 1 no es compatible con su dispositivo. Pero no te preocupes! ¡FMobile 3 para iOS 12 ya está disponible en la App Store!";
+"download_fmobile3" = "Descargar FMobile 3";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Prueba de velocidad";

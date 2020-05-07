@@ -132,16 +132,16 @@
 "field_test_copied_confirmation" = "Code successfully copied!";
 "select_url" = "Custom URL for the speed test";
 "about" = "About";
-"about_description" = "Application and Shortcut made by Michaël Nass\nUI/UX, speedtest and optimization by Nathan Fallet\nLogo by Bruno (@brunopaiva_152)\n\nThis application has been developed by independent developers, and is provided for free without any warranty.\n\nThe Groupe MINASTE (including its FMobile application) is not, in any case, affiliated with any carrier.\n\n© 2019 Groupe MINASTE";
+"about_description" = "Application and Shortcut made by Michaël Nass\nUI/UX, speedtest and optimization by Nathan Fallet\nLogo by Bruno (@brunopaiva_152)\n\nThis application has been developed by independent developers, and is provided for free without any warranty.\n\nThe Groupe MINASTE (including its FMobile application) is not, in any case, affiliated with any carrier.\n\n© 2020 Groupe MINASTE";
 "donate_paypal" = "Donate with PayPal";
 "donate_description" = "No matter what, FMobile will stay free and ad-free. The donation is a way to thank me for the app, even if I'm already super happy if you just give me a feedback about it. You will contribute to the funding of my Extopy project. Please make sure to fully test the application and be 100% sure you want to leave me a tip before doing so.";
 "ok" = "OK";
 "statistics_agreement" = "Participer à l'enquête 208 16";
 "old_ios_warning" = "iOS %@ is missing important features!";
-"old_ios_description" = "This apps works best with the Apple Shortcuts app, which is only available on iOS 12 and later. Please update your iOS device to iOS 12 or any later version. If your iOS device can run iOS 13, you will also be able to update the FMobile app to its latest version made for iOS 13. On your iOS version, the operations to exit roaming are manual.";
+"old_ios_description" = "This app is now unsupported. Please update your device to iOS 12 or any later version and download FMobile 3 for iOS 12. On your iOS version, the operations to exit roaming are manual.";
 "new_ios_warning" = "You are running iOS %@!";
-"new_ios_description" = "Good news: you are running a modern iOS software. Bad news: FMobile 1 is not compatible with your device. But don't worry! FMobile 2 for iOS 13 is now available on the App Store!";
-"download_fmobile2" = "Download FMobile 2";
+"new_ios_description" = "Good news: you are running a modern iOS software. Bad news: FMobile 1 is not compatible with your device. But don't worry! FMobile 3 for iOS 12 is now available on the App Store!";
+"download_fmobile3" = "Download FMobile 3";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Speedtest";
