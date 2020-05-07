@@ -139,6 +139,9 @@
 "statistics_agreement" = "Participa en la encuesta 208 16";
 "old_ios_warning" = "¡A iOS %@ le faltan características importantes!";
 "old_ios_description" = "Esta aplicación funciona mejor con la aplicación Apple Shortcuts, que solo está disponible en iOS 12 y versiones posteriores. Actualice su dispositivo iOS a iOS 12 o cualquier versión posterior. Si su dispositivo iOS puede ejecutar iOS 13, también podrá actualizar la aplicación FMobile a su última versión creada para iOS 13. En su versión de iOS, las operaciones para salir del roaming son manuales.";
+"new_ios_warning" = "Estás ejecutando iOS %@!";
+"new_ios_description" = "Buenas noticias: está ejecutando un software iOS moderno. Malas noticias: FMobile 1 no es compatible con su dispositivo. Pero no te preocupes! ¡FMobile 2 para iOS 13 ya está disponible en la App Store!";
+"download_fmobile2" = "Descargar FMobile 2";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Prueba de velocidad";

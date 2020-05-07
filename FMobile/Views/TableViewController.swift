@@ -396,6 +396,19 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         }
     }
     
+    func newios(){
+           if #available(iOS 13.1, *) {
+               let alert = UIAlertController(title: "new_ios_warning".localized().format([UIDevice.current.systemVersion]), message: "new_ios_description".localized(), preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "download_fmobile2".localized(), style: .cancel) { (UIAlertAction) in
+                guard let mailto = URL(string: "https://itunes.apple.com/fr/app/fmobile-stop-national-roaming/id1449356942?l=en&mt=8") else { return }
+                UIApplication.shared.open(mailto)
+            })
+               present(alert, animated: true, completion: nil)
+               
+               return
+           }
+       }
+    
     func start(){
         locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {
@@ -443,44 +456,6 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         
         // Update protocol list
         
-        // Fix the STMS value for FM.FRA
-        if version < 66 && dataManager.setupDone && dataManager.targetMCC == "208" && dataManager.targetMNC == "15" {
-            dataManager.datas.set(0.768, forKey: "STMS")
-            dataManager.datas.synchronize()
-        }
-        
-        // NEW MINIMAL SETUP
-        if version < 69 && dataManager.setupDone && dataManager.targetMCC == "208" && dataManager.targetMNC == "15" {
-            dataManager.datas.set(false, forKey: "minimalSetup")
-            dataManager.datas.synchronize()
-        }
-        
-        if version < 73 && dataManager.setupDone && dataManager.targetMCC == "208" {
-            dataManager.datas.set(false, forKey: "setupDone")
-            dataManager.datas.synchronize()
-        }
-        
-        if version < 75 && dataManager.setupDone && dataManager.targetMCC == "208" && dataManager.targetMNC == "15" && version != 0 {
-            let alert = UIAlertController(title: "Mise à jour disponible", message: "Une nouvelle mise à jour du raccrouci CFM est disponible (version 1.1). Cette mise à jour n'est pas incluse dans l'application et doit s'installer manuellement.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Mettre à jour le raccourci CFM", style: .default) { (UIAlertAction) in
-                guard let discord = URL(string: "http://raccourcis.ios.free.fr/fmobile") else { return }
-                UIApplication.shared.open(discord)
-            })
-            alert.addAction(UIAlertAction(title: "close".localized(), style: .cancel, handler: nil))
-            present(alert, animated: true, completion: nil)
-        }
-        
-        if version < 90 && dataManager.setupDone && dataManager.targetMCC == "208" && dataManager.targetMNC == "15" {
-            let alert = UIAlertController(title: "Enquête sur le réseau 208 16", message: "\nVous êtes plus de 7000 utilisateurs actifs de l'application. Vous avez peut-être remarqué que depuis quelques mois, Free a mis en service un nouveau réseau immatriculé 208 16. J'ai une théorie sur ce réseau et j'aimerais la vérifier en croisant différentes données mais il m'en manque une cruciale que seulement vous pouvez fournir. Je vous invite en masse à activer la nouvelle option temporaire \"Participer à l'enquête 208 16\" que vous soyez couvert par ce réseau ou non (j'ai besoin des deux à parts égales, n'hésitez pas). Ces données sont entièrement anonymes, donc il est impossible de vous tracer. Seules les coordonnées GPS du lieu où FMobile a détécté une itinérance seront envoyées dans une base de données centrale, avec les données de tout le monde de manière indiscernable. Ni la date d'envoi ni votre adresse IP ne sont enregistrées, il s'agit uniquement de construire une liste des endroits où l'itinérance pose le plus problème. Les données étant anonymes, vous ne disposez d'aucun droit d'accès, portabilité ou suppression puisqu'on ne peut pas identifier quelles données proviennent de votre appareil. Je compte sur vous pour participer un maximum. Un rapport synthétique sera ensuite partagé sur Twitter (@FMobileApp) et partagé avec certains médias s'il est concluant. Merci !", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "close".localized(), style: .cancel, handler: nil))
-            present(alert, animated: true, completion: nil)
-        }
-        
-        if version < 92 && dataManager.setupDone && dataManager.targetMCC == "208" && dataManager.targetMNC == "15" {
-            let alert = UIAlertController(title: "Fin de l'enquête.", message: "Merci à tous d'avoir participé à l'enquête 208 16, vous avez été nombreux et aux quatre coins de la France à avoir participé à déterminer si le réseau 208 16 impacte l'itinérance. La réponse officielle est donc oui, vous avez les captures d'écrans sur mon Twitter @FMobileApp. Maintenant FMobile va entrer dans une période de longue pause, et va revenir en septembre avec une très très grande mise à jour pour iOS 13, avec un tas de nouvelles fonctionalités et améliorations. Les TestFlight seront modifiés en juillet-août pour permettre aux deux versions de cohabiter. Pas de panique, l'enquête étant terminée, le bouton pour participer à l'enquête a disparu, et cette version de FMobile ne peut plus du tout transmettre ces statistiques.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "close".localized(), style: .cancel, handler: nil))
-            present(alert, animated: true, completion: nil)
-        }
         
         datas.set(appVersion, forKey: "version")
         datas.synchronize()
@@ -533,6 +508,8 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         loadUI()
         refreshSections()
         
+        newios()
+        
         let date0120 = Date(timeIntervalSinceReferenceDate: 599529600.0)
         let date = Date()
         let datas = Foundation.UserDefaults.standard
@@ -579,6 +556,11 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         self.tableView.backgroundColor = CustomColor.darkTableBackground
         self.tableView.separatorColor = CustomColor.darkSeparator
         self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.backgroundColor = .black
+        self.navigationController?.navigationBar.barTintColor = .black
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
         self.navigationController?.view.backgroundColor = CustomColor.darkBackground
         self.navigationController?.navigationBar.tintColor = CustomColor.darkActive
     }
@@ -589,6 +571,11 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         self.tableView.backgroundColor = CustomColor.lightTableBackground
         self.tableView.separatorColor = CustomColor.lightSeparator
         self.navigationController?.navigationBar.barStyle = .default
+        self.navigationController?.navigationBar.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
         self.navigationController?.view.backgroundColor = CustomColor.lightBackground
         self.navigationController?.navigationBar.tintColor = CustomColor.lightActive
     }
@@ -1023,7 +1010,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         } else if dataManager.carrierNetwork2 == "WCDMA" {
             dataManager.carrierNetwork2 = dataManager.modeRadin ? "3G" : dataManager.modeExpert ? "3G (WCDMA)" : "3G"
         } else if dataManager.carrierNetwork2 == "HSDPA" {
-            dataManager.carrierNetwork2 = dataManager.modeRadin ? "H+" : dataManager.modeExpert ? "H+ (HSDPA)" : "H+"
+            dataManager.carrierNetwork2 = dataManager.modeRadin ? "H+" : dataManager.modeExpert ? "3G (HSDPA)" : "3G"
         } else if dataManager.carrierNetwork2 == "Edge"{
             dataManager.carrierNetwork2 = dataManager.modeRadin ? "2G" : dataManager.modeExpert ? "2G (EDGE)" : "2G"
         } else if dataManager.carrierNetwork2 == "GPRS"{
@@ -1031,7 +1018,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         } else if dataManager.carrierNetwork2 == "HRPD"{
             dataManager.carrierNetwork2 = dataManager.modeRadin ? "3G" : dataManager.modeExpert ? "3G (HRPD)" : "3G"
         } else if dataManager.carrierNetwork2 == "HSUPA"{
-            dataManager.carrierNetwork2 = dataManager.modeRadin ? "H+" : dataManager.modeExpert ? "H+ (HSUPA)" : "H+"
+            dataManager.carrierNetwork2 = dataManager.modeRadin ? "H+" : dataManager.modeExpert ? "3G (HSUPA)" : "3G"
         } else if dataManager.carrierNetwork2 == "CDMA1x"{
             dataManager.carrierNetwork2 = dataManager.modeRadin ? "3G" : dataManager.modeExpert ? "3G (CDMA2000)" : "3G"
         } else if dataManager.carrierNetwork2 == "CDMAEVDORev0"{

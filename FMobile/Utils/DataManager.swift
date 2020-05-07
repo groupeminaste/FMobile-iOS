@@ -46,11 +46,14 @@ class DataManager {
     var simData = String()
     var currentNetwork = String()
     var carrier = String()
+    var carriersim = String()
     var mycarrier = CTCarrier()
     var mycarrier2 = CTCarrier()
     var carrierNetwork = String()
     var carrierNetwork2 = String()
     var carrierName = String()
+    var checkSimMCC = "999"
+    var checkSimMNC = "99"
     
     // Carrier setup
     var hp = "WCDMA"
@@ -189,6 +192,17 @@ class DataManager {
         if(datas.value(forKey: "statisticsAgreement") != nil){
             statisticsAgreement = datas.value(forKey: "statisticsAgreement") as? Bool ?? false
         }
+        
+        // Arrondi des valeurs
+        if stms <= 0.5 {
+            stms *= 2.100 // On arrondit à +110%
+        } else if stms <= 1.50 {
+            stms *= 1.750 // On arrondit à +75%
+        } else if stms <= 2 {
+            stms *= 1.500 // On arrondit à +50%
+        } else if stms <= 3 {
+            stms *= 1.250 // On arrondit à +25%
+        }
 
         
         let operatorPListSymLinkPath = "/var/mobile/Library/Preferences/com.apple.operator.plist"
@@ -204,32 +218,58 @@ class DataManager {
         let carrierPListPath = try? fileManager.destinationOfSymbolicLink(atPath: carrierPListSymLinkPath)
         print(carrierPListPath ?? "UNKNOWN")
         
+        simData = "-----"
         if !(carrierPListPath ?? "unknown").lowercased().contains("unknown") {
-            let convertedCarrierPListPath = carrierPListPath?.trimmingCharacters(in: CharacterSet(charactersIn: "1234567890").inverted)
-            print(convertedCarrierPListPath ?? "UNKNOWN")
+            let values = carrierPListPath?.groups(for: "[0-9]+")
+            if let group = values?.first {
+                simData = group[0]
+            }
             
-            simData = (convertedCarrierPListPath as NSString?)?.substring(to: 5) ?? "No SIM card"
-        } else {
-            simData = "-----"
+            print(simData)
         }
         
+        currentNetwork = "-----"
         if !(operatorPListPath ?? "unknown").lowercased().contains("unknown"){
-            let convertedOperatorPListPath = operatorPListPath?.trimmingCharacters(in: CharacterSet(charactersIn: "1234567890").inverted)
-            print(convertedOperatorPListPath ?? "UNKNOWN")
-            currentNetwork = (convertedOperatorPListPath as NSString?)?.substring(to: 5) ?? "-----"
-        } else {
-            currentNetwork = "-----"
+            let values = operatorPListPath?.groups(for: "[0-9]+")
+            if let group = values?.first {
+                currentNetwork = group[0]
+            }
+            
+            print(currentNetwork)
+        }
+        
+        carrier = "Carrier"
+        
+        let url = URL(fileURLWithPath: operatorPListPath ?? "Error")
+        do {
+            let test = try NSDictionary(contentsOf: url, error: ())
+            let array = test["StatusBarImages"] as? NSArray ?? NSArray.init(array: [0])
+            let secondDict = NSDictionary(dictionary: array[0] as? Dictionary ?? NSDictionary() as? Dictionary<AnyHashable, Any> ?? Dictionary())
+            
+            carrier = (secondDict["StatusBarCarrierName"] as? String) ?? "Carrier"
+        } catch {
+            print("Une erreur s'est produite : \(error)")
         }
         
         
-        let test = NSMutableDictionary(contentsOfFile: operatorPListPath ?? "Error")
-        let array = test?["StatusBarImages"] as? NSArray ?? NSArray.init(array: [0])
-        let secondDict = NSMutableDictionary(dictionary: array[0] as? Dictionary ?? NSMutableDictionary() as? Dictionary<AnyHashable, Any> ?? Dictionary())
+        carriersim = "Carrier"
+        let urlcarrier = URL(fileURLWithPath: carrierPListPath ?? "Error")
+        do {
+            let testsim = try NSDictionary(contentsOf: urlcarrier, error: ())
+            let arraysim = testsim["StatusBarImages"] as? NSArray ?? NSArray.init(array: [0])
+            let secondDictsim = NSDictionary(dictionary: arraysim[0] as? Dictionary ?? NSDictionary() as? Dictionary<AnyHashable, Any> ?? Dictionary())
+                    
+            carriersim = (secondDictsim["StatusBarCarrierName"] as? String) ?? "Carrier"
+        } catch {
+            print("Une erreur s'est produite : \(error)")
+        }
         
-        carrier = (secondDict["StatusBarCarrierName"] as? String) ?? "Carrier"
         
         connectedMCC = String(currentNetwork.prefix(3))
-        connectedMNC = String(currentNetwork.suffix(2))
+        connectedMNC = String(currentNetwork.count == 6 ? currentNetwork.suffix(3) : currentNetwork.suffix(2))
+        
+        checkSimMCC = String(simData.prefix(3))
+        checkSimMNC = String(simData.count == 6 ? simData.suffix(3) : simData.suffix(2))
         
         mycarrier = CTCarrier()
         mycarrier2 = CTCarrier()
@@ -261,7 +301,7 @@ class DataManager {
         
         
         
-        if mycarrier2.mobileCountryCode == targetMCC && mycarrier2.mobileNetworkCode == targetMNC {
+        if (mycarrier2.mobileCountryCode == targetMCC && mycarrier2.mobileNetworkCode == targetMNC) || (mycarrier2.mobileCountryCode == checkSimMCC && mycarrier2.mobileNetworkCode == checkSimMNC) {
             swap(&mycarrier2, &mycarrier)
             swap(&carrierNetwork2, &carrierNetwork)
         }
@@ -269,6 +309,10 @@ class DataManager {
         print(carrierNetwork)
         
         carrierName = mycarrier.carrierName ?? "Carrier"
+        
+        if carrierName == "Carrier" && carriersim != "Carrier" {
+            carrierName = carriersim
+        }
         
         ipadMCC = connectedMCC
         ipadMNC = connectedMNC
@@ -284,7 +328,7 @@ class DataManager {
                 }
             }
             
-            if connectedMCC == targetMCC && connectedMNC == targetMNC && carrierName == "Carrier" {
+            if carrierName == "Carrier" && homeName != "null" && !homeName.isEmpty {
                 carrierName = homeName
             }
             

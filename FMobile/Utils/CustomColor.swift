@@ -13,7 +13,7 @@ class CustomColor {
     
     // Light theme
     static let lightBackground = UIColor.white
-    static let lightTableBackground = UIColor.groupTableViewBackground
+    static let lightTableBackground = UIColor.white
     static let lightForeground = UIColor.gray
     static let lightSeparator: UIColor? = nil
     static let lightText = UIColor.black

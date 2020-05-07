@@ -138,6 +138,9 @@
 "statistics_agreement" = "Participer à l'enquête 208 16";
 "old_ios_warning" = "iOS %@ manque de fonctinonalités importantes !";
 "old_ios_description" = "Cette application fonctionne au mieux avec l'application Raccourcis d'Apple, qui n'est disponible que dans iOS 12 et plus. Merci de mettre à jour votre appareil vers iOS 12 ou version supérieure. Si votre appareil supporte iOS 13, vous pourrez également mettre à jour FMobile vers sa dernière version créée pour iOS 13. Sur votre version actuelle, les opérations pour sortir de l'itinérance sont manuelles.";
+"new_ios_warning" = "Vous êtes sur iOS %@ !";
+"new_ios_description" = "Bonne nouvelle : vous utilisez une version récente d'iOS. Mauvaise nouvelle : FMobile 1 n'est pas compatible avec votre appareil. Mais pas de panique ! FMobile 2 pour iOS 13 est desormais disponible sur l'App Store !";
+"download_fmobile2" = "Télécharger FMobile 2";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Test de débit";
