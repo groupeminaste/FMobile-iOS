@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 extension UITableView {
     
     /// Check if cell at the specific section and row is visible
@@ -23,4 +22,5 @@ extension UITableView {
         }
         return indexes.contains {$0.section == section && $0.row == row }
     }
+    
 }

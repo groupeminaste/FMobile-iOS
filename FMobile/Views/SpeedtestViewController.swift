@@ -10,58 +10,61 @@ import UIKit
 
 class SpeedtestViewController: UIViewController {
 
-    @IBOutlet weak var progress: UIProgressView?
-    @IBOutlet weak var speed: UILabel?
-    var speedtest: Speedtest?
+    var progress = SpeedtestProgressView()
+    var desc = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Notifs de changements de couleur
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
+        
+        isDarkMode() ? enableDarkMode() : disableDarkMode()
+        
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.title = "speedtest_view_title".localized()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "speedtest_start".localized(), style: .plain, target: self, action: #selector(start(_:)))
+        
+        // Initialisation des views
+        view.addSubview(progress)
+        view.addSubview(desc)
+        
+        progress.translatesAutoresizingMaskIntoConstraints = false
+        progress.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 15).isActive = true
+        progress.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor).isActive = true
+        progress.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        progress.loadViews()
+        
+        desc.translatesAutoresizingMaskIntoConstraints = false
+        desc.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor).isActive = true
+        desc.topAnchor.constraint(equalTo: progress.bottomAnchor, constant: 20).isActive = true
+        desc.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor).isActive = true
+        desc.numberOfLines = 0
+        desc.textAlignment = .center
+        desc.font = UIFont.systemFont(ofSize: 14)
+        desc.text = "speedtest_description".localized()
     }
     
-    @IBAction func start(_ sender: Any) {
-        if speedtest == nil {
-            speedtest = Speedtest()
-            speedtest?.set(){ (_ megabytesPerSecond) in
-                DispatchQueue.main.async {
-                    self.progress?.setProgress(megabytesPerSecond ?? 0 < 10.0 ? Float((megabytesPerSecond ?? 0)/10) : Float((10.0)/10), animated: true)
-                    self.speed?.text = megabytesPerSecond ?? 0 > 1 ? "Vitesse : \(megabytesPerSecond?.rounded(toPlaces: 3) ?? 0) Mbps" : "Vitesse : \(Int(((megabytesPerSecond ?? 0) * 1000).rounded())) Kbps"
-                }
-            }
-            
-            let datas = Foundation.UserDefaults.standard
-            
-            var urlst = "http://test-debit.free.fr/1048576.rnd"
-            if(datas.value(forKey: "URLST") != nil){
-                urlst = datas.value(forKey: "URLST") as? String ?? "http://test-debit.free.fr/1048576.rnd"
-            }
-            
-            speedtest?.testDownloadSpeedWithTimout(timeout: 15.0, usingURL: urlst) { (speed, error) in
-                DispatchQueue.main.async {
-                    let text = speed ?? 0 > 1 ? "Vitesse : \(speed?.rounded(toPlaces: 3) ?? 0) Mbps" : "Vitesse : \(Int(((speed ?? 0) * 1000).rounded())) Kbps"
-
-                    let alert = UIAlertController(title: "Résultat", message: text, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
-                    self.speedtest = nil
-                }
-            }
-        }else{
-            let alert = UIAlertController(title: "Test déjà en cours !", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
-        }
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc override func enableDarkMode() {
+        super.enableDarkMode()
+        progress.enableDarkMode()
+        desc.textColor = CustomColor.darkText2
     }
-    */
+    
+    @objc override func disableDarkMode() {
+        super.disableDarkMode()
+        progress.disableDarkMode()
+        desc.textColor = CustomColor.lightText2
+    }
+    
+    @objc func start(_ sender: Any) {
+        progress.start(sender)
+    }
 
 }

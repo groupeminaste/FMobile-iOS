@@ -73,7 +73,8 @@ class DataManager {
     var disableFMobileCore = false
     
     init() {
-        if datas.value(forKey: "modeRadin") != nil {
+        print(Locale.current.languageCode ?? "...");
+        if datas.value(forKey: "modeRadin") != nil && Locale.current.languageCode == "fr" {
             modeRadin = datas.value(forKey: "modeRadin") as? Bool ?? false
         }
         if datas.value(forKey: "allow013G") != nil {
@@ -382,6 +383,34 @@ class DataManager {
         var valueToReturn = false
         
         if simData != "-----" && setupDone {
+            let carrierPListSymLinkPath = "/var/mobile/Library/Preferences/com.apple.carrier.plist"
+            
+            // Déclaration du gestionaire de fichiers
+            let fileManager = FileManager.default
+            
+            // Obtenir le fichier de configuration de la carte SIM
+            let carrierPListPath = try? fileManager.destinationOfSymbolicLink(atPath: carrierPListSymLinkPath)
+            
+            let test = NSMutableDictionary(contentsOfFile: carrierPListPath ?? "Error")
+            let array = test?["SupportedPLMNs"] as? NSArray ?? NSArray.init(array: [0])
+            
+            for index in 0..<array.count {
+                let value = array[index] as? String ?? "-----"
+                let plmnmcc = value.prefix(3)
+                let plmnmnc = value.suffix(2)
+                
+                if plmnmcc == targetMCC && plmnmnc == itiMNC {
+                    valueToReturn = true
+                }
+            }
+        }
+        return valueToReturn
+    }
+    
+    func isNRDECstatus() -> Bool {
+        var valueToReturn = false
+        
+        if simData != "-----" {
             let carrierPListSymLinkPath = "/var/mobile/Library/Preferences/com.apple.carrier.plist"
             
             // Déclaration du gestionaire de fichiers

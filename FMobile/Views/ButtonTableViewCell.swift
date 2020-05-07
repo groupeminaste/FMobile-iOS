@@ -10,24 +10,47 @@ import UIKit
 
 class ButtonTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var button: UIButton?
+    var button: UIButton = UIButton()
     var handler: (UIButton) -> Void = { (button) in }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        button?.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-        //button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        button?.titleLabel?.adjustsFontSizeToFitWidth = true
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        selectionStyle = .none
+        separatorInset = .zero
+        
+        contentView.addSubview(button)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor).isActive = true
+        button.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
+        button.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor).isActive = true
+        button.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.addTarget(self, action: #selector(onClick(_:)), for: .touchUpInside)
     }
     
-    @IBAction func onClick(_ sender: UIButton) {
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func with(title: String, alignment: UIControl.ContentHorizontalAlignment = .center, handler: @escaping (UIButton) -> Void, darkMode: Bool) -> ButtonTableViewCell {
+        self.handler = handler
+        button.setTitle(title, for: .normal)
+        button.contentHorizontalAlignment = alignment
+        
+        if darkMode {
+            backgroundColor = CustomColor.darkBackground
+            button.setTitleColor(CustomColor.darkActive, for: .normal)
+        } else {
+            backgroundColor = CustomColor.lightBackground
+            button.setTitleColor(CustomColor.lightActive, for: .normal)
+        }
+        return self
+    }
+    
+    @objc func onClick(_ sender: UIButton) {
         handler(sender)
     }
     

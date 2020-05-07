@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  FMobile
+
+  Created by PlugN on 5/22/19.
+  Copyright © 2019 Groupe MINASTE. All rights reserved.
+*/
+
+NSLocationAlwaysUsageDescription = "Vous devez autoriser la localisation en arrière-plan avec \"Toujours\" pour pouvoir profiter de cette application. Ces données permettent de vérifier si vous êtes dans une zone non-couverte, ou couverte par des Femto et ran-sharing (consulter ou sauvegarder ces coordonnées pour une vérification future). Elles permettent également d’arrêter l'app lorsque vous êtes à l'étranger. Ces données restent locales mais sont primordiales au bon fonctionnement de l’application. Ceci peut avoir un impact négatif sur l'autonomie de votre batterie.";
+
+NSLocationAlwaysAndWhenInUseUsageDescription = "Vous devez autoriser la localisation en arrière-plan avec \"Toujours\" pour pouvoir profiter de cette application. Ces données permettent de vérifier si vous êtes dans une zone non-couverte, ou couverte par des Femto et ran-sharing (consulter ou sauvegarder ces coordonnées pour une vérification future). Elles permettent également d’arrêter l'app lorsque vous êtes à l'étranger. Ces données restent locales mais sont primordiales au bon fonctionnement de l’application. Ceci peut avoir un impact négatif sur l'autonomie de votre batterie.";
+
+NSLocationUsageDescription = "Vous devez autoriser la localisation en arrière-plan avec \"Toujours\" pour pouvoir profiter de cette application. Ces données permettent de vérifier si vous êtes dans une zone non-couverte, ou couverte par des Femto et ran-sharing (consulter ou sauvegarder ces coordonnées pour une vérification future). Elles permettent également d’arrêter l'app lorsque vous êtes à l'étranger. Ces données restent locales mais sont primordiales au bon fonctionnement de l’application. Ceci peut avoir un impact négatif sur l'autonomie de votre batterie.";
+
+NSLocationWhenInUseUsageDescription = "Vous devez autoriser la localisation en arrière-plan avec \"Toujours\" pour pouvoir profiter de cette application. Ces données permettent de vérifier si vous êtes dans une zone non-couverte, ou couverte par des Femto et ran-sharing (consulter ou sauvegarder ces coordonnées pour une vérification future). Elles permettent également d’arrêter l'app lorsque vous êtes à l'étranger. Ces données restent locales mais sont primordiales au bon fonctionnement de l’application. Ceci peut avoir un impact négatif sur l'autonomie de votre batterie.";

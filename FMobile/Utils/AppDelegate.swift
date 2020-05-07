@@ -50,15 +50,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     static func checkDataDisabled(_ dataManager: DataManager = DataManager()){
-        
         let country = CarrierIdentification.getIsoCountryCode(String(dataManager.connectedMCC)).uppercased()
         
         if DataManager.isConnectedToNetwork() && !DataManager.isWifiConnected() && dataManager.connectedMCC != "208" && dataManager.targetMCC == "208" && dataManager.targetMNC == "15" && dataManager.freeZoneCheck() == "OUTZONE" {
-            NotificationManager.sendNotification(for: .alertDataDrain, with: "Desactivez immédiatement les données cellulaires, votre consommation est surtaxée. \(dataManager.carrier) (\(country))")
+            NotificationManager.sendNotification(for: .alertDataDrain, with: "data_drain_notification_description".localized().format([dataManager.carrier, country]))
+            return
         }
         
-        else if DataManager.isConnectedToNetwork() && !DataManager.isWifiConnected() && dataManager.connectedMCC != "208" && dataManager.targetMCC == "208" && dataManager.zoneCheck() == "OUTZONE" || dataManager.zoneCheck() == "CALLS" {
-            NotificationManager.sendNotification(for: .alertDataDrain, with: "Desactivez immédiatement les données cellulaires, votre consommation est surtaxée. \(dataManager.carrier) (\(country))")
+        if DataManager.isConnectedToNetwork() && !DataManager.isWifiConnected() && dataManager.connectedMCC != "208" && dataManager.targetMCC == "208" && dataManager.targetMNC != "15" && (dataManager.zoneCheck() == "OUTZONE" || dataManager.zoneCheck() == "CALLS") {
+            NotificationManager.sendNotification(for: .alertDataDrain, with: "data_drain_notification_description".localized().format([dataManager.carrier, country]))
+            return
         }
     }
     
@@ -80,27 +81,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             simpleNetwork = "3G"
         }
         
-        if dataManager.mycarrier.mobileCountryCode == "208" && dataManager.mycarrier.mobileNetworkCode == "15" && dataManager.connectedMCC != "208" {
+        if dataManager.targetMCC == "208" && dataManager.targetMNC == "15" && dataManager.connectedMCC != "208" {
             // ATTENTION TRAITER LES EXCEPTIONS EN PREMIER ! Changer le country en fonction du MNC !
             if dataManager.freeZoneCheck() == "ALL" {
-                NotificationManager.sendNotification(for: .newCountryAll, with: "\(dataManager.carrier) \(simpleNetwork) (\(country)) : Bienvenue !")
+                NotificationManager.sendNotification(for: .newCountryAllFree, with: "new_country_welcome_title".localized().format([dataManager.carrier, simpleNetwork, country]))
             } else if dataManager.freeZoneCheck() == "CALLS"{
-                NotificationManager.sendNotification(for: .newCountryBasic, with: "\(dataManager.carrier) (\(country)) : Bienvenue !")
+                NotificationManager.sendNotification(for: .newCountryBasicFree, with: "new_country_welcome_title".localized().format([dataManager.carrier, simpleNetwork, country]))
             } else if dataManager.freeZoneCheck() == "INTERNET"{
-                NotificationManager.sendNotification(for: .newCountryInternet, with: "\(dataManager.carrier) \(simpleNetwork) (\(country)) : Bienvenue !")
+                NotificationManager.sendNotification(for: .newCountryInternetFree, with: "new_country_welcome_title".localized().format([dataManager.carrier, simpleNetwork, country]))
             } else {
-                NotificationManager.sendNotification(for: .newCountryNothing, with: "\(dataManager.carrier) \(simpleNetwork) (\(country)) : Bienvenue !")
+                NotificationManager.sendNotification(for: .newCountryNothingFree, with: "new_country_welcome_title".localized().format([dataManager.carrier, simpleNetwork, country]))
             }
-        } else if dataManager.targetMCC == "208" && dataManager.connectedMCC != "208" {
+        } else if dataManager.targetMCC == "208" && dataManager.connectedMCC != "208" && dataManager.targetMNC != "15" {
             // ATTENTION TRAITER LES EXCEPTIONS EN PREMIER ! Changer le country en fonction du MNC !
             if dataManager.zoneCheck() == "ALL" {
-                NotificationManager.sendNotification(for: .newCountryAll, with: "\(dataManager.carrier) \(simpleNetwork) (\(country)) : Bienvenue !")
+                NotificationManager.sendNotification(for: .newCountryAll, with: "new_country_welcome_title".localized().format([dataManager.carrier, simpleNetwork, country]))
             } else if dataManager.zoneCheck() == "CALLS"{
-                NotificationManager.sendNotification(for: .newCountryBasic, with: "\(dataManager.carrier) (\(country)) : Bienvenue !")
+                NotificationManager.sendNotification(for: .newCountryBasic, with: "new_country_welcome_title".localized().format([dataManager.carrier, simpleNetwork, country]))
             } else if dataManager.zoneCheck() == "INTERNET"{
-                NotificationManager.sendNotification(for: .newCountryInternet, with: "\(dataManager.carrier) \(simpleNetwork) (\(country)) : Bienvenue !")
+                NotificationManager.sendNotification(for: .newCountryInternet, with: "new_country_welcome_title".localized().format([dataManager.carrier, simpleNetwork, country]))
             } else {
-                NotificationManager.sendNotification(for: .newCountryNothing, with: "\(dataManager.carrier) \(simpleNetwork) (\(country)) : Bienvenue !")
+                NotificationManager.sendNotification(for: .newCountryNothing, with: "new_country_welcome_title".localized().format([dataManager.carrier, simpleNetwork, country]))
             }
         }
         
@@ -214,8 +215,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
             
             print(dataManager.hp)
-            if dataManager.carrierNetwork == "CTRadioAccessTechnology\(dataManager.hp)"  || dataManager.carrierNetwork == "CTRadioAccessTechnologyLTE" {
+            if dataManager.carrierNetwork == "CTRadioAccessTechnology\(dataManager.hp)" || dataManager.carrierNetwork == "CTRadioAccessTechnologyLTE" {
                 print("LTE/3G => SKIP")
+                dataManager.lastnet = dataManager.carrierNetwork
+                dataManager.count = 0
+                dataManager.wasEnabled = false
+                dataManager.datas.set(dataManager.lastnet, forKey: "lastnet")
+                dataManager.datas.set(dataManager.count, forKey: "count")
+                dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
+                dataManager.datas.synchronize()
                 return
             }
             
@@ -397,7 +405,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
    
     func WIFIDIS(){
-        
         let dataManager = DataManager()
         
         if DataManager.isWifiConnected() {
@@ -496,9 +503,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && !DataManager.isOnPhoneCall() {
                 if dataManager.carrierNetwork == "CTRadioAccessTechnology\(dataManager.nrp)" && !dataManager.allow013G {
                     if dataManager.verifyonwifi && DataManager.isWifiConnected() && dataManager.nrDEC && dataManager.femto {
-                        let alerteW = UIAlertController(title: "Déconnectez-vous du Wi-Fi", message:nil, preferredStyle: UIAlertController.Style.alert)
+                        let alerteW = UIAlertController(title: "disconnect_from_wifi".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
                         
-                        alerteW.addAction(UIAlertAction(title: "Annuler", style: .cancel) { (UIAlertAction) in
+                        alerteW.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel) { (UIAlertAction) in
                             self.timer?.invalidate()
                         })
                         
@@ -510,7 +517,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         
                         // NOW I NEED TO WAIT THAT THE USER IS INDEED DISCONNECTED TO WIFI BEFORE CONTINIUNG!
                     } else if dataManager.femtoLOWDATA && dataManager.femto && dataManager.nrDEC {
-                        let alert = UIAlertController(title: "Préparation en cours...", message:nil, preferredStyle: UIAlertController.Style.alert)
+                        let alert = UIAlertController(title: "preparation_inprogress".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
                         
                         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 3, y: 5, width: 50, height: 50))
                         loadingIndicator.hidesWhenStopped = true
@@ -581,9 +588,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     UIApplication.shared.open(link)
                 }
             } else if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && DataManager.isOnPhoneCall() {
-                let alerteS = UIAlertController(title: "Veuillez terminer votre conversation puis réessayez", message:nil, preferredStyle: UIAlertController.Style.alert)
+                let alerteS = UIAlertController(title: "end_phonecall".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
                 
-                alerteS.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                alerteS.addAction(UIAlertAction(title: "ok".localized(), style: UIAlertAction.Style.default, handler: nil))
                 
                 self.window?.rootViewController?.present(alerteS, animated: true, completion: nil)
             } else {
@@ -614,6 +621,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         let notifications = UNNotificationCategory(identifier: "protectionItineranceActivee", actions: [], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([notifications])
+        
+        // On init l'UI
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = UINavigationController(rootViewController: TableViewController(style: .grouped))
+        window?.makeKeyAndVisible()
         
         return true
     }

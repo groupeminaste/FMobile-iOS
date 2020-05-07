@@ -37,7 +37,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -52,7 +52,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>76</string>
+	<string>82</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>monreseau-freemobile</string>
@@ -82,13 +82,13 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Vous devez autoriser la localisation en arrière-plan avec "Toujours" pour pouvoir profiter de cette application. Ces données permettent de vérifier si vous êtes dans une zone non-couverte, ou couverte par des Femto et ran-sharing (consulter ou sauvegarder ces coordonnées pour une vérification future). Elles permettent également d’arrêter l'app lorsque vous êtes à l'étranger. Ces données restent locales mais sont primordiales au bon fonctionnement de l’application. Ceci peut avoir un impact négatif sur l'autonomie de votre batterie.</string>
+	<string>You must allow background location using \"Always\" in order to take advantage of this application. These data allow to check if you are localized in a non-covered zone, or covered by a Femto or ran-sharing antenna (read or save these coordinates for future verifications). They also allow to stop the app when you travel aboard. These data stay local but are mendatory for the good functionning of the app. This may have a negative impact on your phone's battery life.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Vous devez autoriser la localisation en arrière-plan avec "Toujours" pour pouvoir profiter de cette application. Ces données permettent de vérifier si vous êtes dans une zone non-couverte, ou couverte par des Femto et ran-sharing (consulter ou sauvegarder ces coordonnées pour une vérification future). Elles permettent également d’arrêter l'app lorsque vous êtes à l'étranger. Ces données restent locales mais sont primordiales au bon fonctionnement de l’application. Ceci peut avoir un impact négatif sur l'autonomie de votre batterie.</string>
+	<string>You must allow background location using \"Always\" in order to take advantage of this application. These data allow to check if you are localized in a non-covered zone, or covered by a Femto or ran-sharing antenna (read or save these coordinates for future verifications). They also allow to stop the app when you travel aboard. These data stay local but are mendatory for the good functionning of the app. This may have a negative impact on your phone's battery life.</string>
 	<key>NSLocationUsageDescription</key>
-	<string>Vous devez autoriser la localisation en arrière-plan avec "Toujours" pour pouvoir profiter de cette application. Ces données permettent de vérifier si vous êtes dans une zone non-couverte, ou couverte par des Femto et ran-sharing (consulter ou sauvegarder ces coordonnées pour une vérification future). Elles permettent également d’arrêter l'app lorsque vous êtes à l'étranger. Ces données restent locales mais sont primordiales au bon fonctionnement de l’application. Ceci peut avoir un impact négatif sur l'autonomie de votre batterie.</string>
+	<string>You must allow background location using \"Always\" in order to take advantage of this application. These data allow to check if you are localized in a non-covered zone, or covered by a Femto or ran-sharing antenna (read or save these coordinates for future verifications). They also allow to stop the app when you travel aboard. These data stay local but are mendatory for the good functionning of the app. This may have a negative impact on your phone's battery life.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Vous devez autoriser la localisation en arrière-plan avec "Toujours" pour pouvoir profiter de cette application. Ces données permettent de vérifier si vous êtes dans une zone non-couverte, ou couverte par des Femto et ran-sharing (consulter ou sauvegarder ces coordonnées pour une vérification future). Elles permettent également d’arrêter l'app lorsque vous êtes à l'étranger. Ces données restent locales mais sont primordiales au bon fonctionnement de l’application. Ceci peut avoir un impact négatif sur l'autonomie de votre batterie.</string>
+	<string>You must allow background location using \"Always\" in order to take advantage of this application. These data allow to check if you are localized in a non-covered zone, or covered by a Femto or ran-sharing antenna (read or save these coordinates for future verifications). They also allow to stop the app when you travel aboard. These data stay local but are mendatory for the good functionning of the app. This may have a negative impact on your phone's battery life.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
@@ -96,8 +96,6 @@
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>gps</string>
@@ -120,6 +118,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

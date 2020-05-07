@@ -10,21 +10,41 @@ import UIKit
 
 class LabelTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var label: UILabel?
+    var label: UILabel = UILabel()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        label?.font = UIFont.preferredFont(forTextStyle: .body)
-        //label.font = UIFont.systemFont(ofSize: 15)
-        label?.adjustsFontSizeToFitWidth = true
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        // Initialization code
+        selectionStyle = .none
+        separatorInset = .zero
+        
+        contentView.addSubview(label)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor).isActive = true
+        label.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
+        label.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontSizeToFitWidth = true
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func with(text: String, accessory: UITableViewCell.AccessoryType = .none, darkMode: Bool) -> LabelTableViewCell {
+        label.text = text
+        accessoryType = accessory
+        
+        if darkMode {
+            backgroundColor = CustomColor.darkBackground
+            label.textColor = CustomColor.darkText
+        } else {
+            backgroundColor = CustomColor.lightBackground
+            label.textColor = CustomColor.lightText
+        }
+        return self
     }
 
 }

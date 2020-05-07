@@ -35,113 +35,129 @@ class NotificationManager {
             switch type {
                 
             case .allow2G3G:
-                content.title = "Protection contre l'itinérance désactivée !"
-                content.subtitle = "Itinérance 3G et 2G autorisée"
-                content.body = "Vous pouvez toujours changer vos préférences dans l'application FMobile."
+                content.title = "roaming_protect_disabled".localized()
+                content.subtitle = "3g_2g_allowed".localized()
+                content.body = "roaming_notification_description".localized()
                
             case .allow2G:
-                content.title = "Protection contre l'itinérance activée !"
-                content.subtitle = "Surveillance 3G activée."
-                content.body = "Vous pouvez toujours changer vos réglages dans l'application FMobile."
+                content.title = "roaming_protect_enabled".localized()
+                content.subtitle = "3g_control_enabled".localized()
+                content.body = "roaming_notification_description".localized()
                 
             case .allow3G:
-                content.title = "Protection contre l'itinérance activée !"
-                content.subtitle = "Surveillance 2G activée."
-                content.body = "Vous pouvez toujours changer vos préférences dans l'application FMobile."
+                content.title = "roaming_protect_enabled".localized()
+                content.subtitle = "2g_control_enabled".localized()
+                content.body = "roaming_notification_description".localized()
                 
             case .allowNone:
-                content.title = "Protection contre l'itinérance activée !"
-                content.subtitle = "Surveillance 3G et 2G activée."
-                content.body = "Vous pouvez toujours changer vos préférences dans l'application FMobile."
+                content.title = "roaming_protect_enabled".localized()
+                content.subtitle = "3g_2g_control_enabled".localized()
+                content.body = "roaming_notification_description".localized()
                 
             case .allowDisabled:
-                content.title = "Protection contre l'itinérance désactivée !"
-                content.subtitle = "Surveillance non active."
-                content.body = "Vous pouvez toujours changer vos préférences dans l'application FMobile."
+                content.title = "roaming_protect_disabled".localized()
+                content.subtitle = "not_controlling".localized()
+                content.body = "roaming_notification_description".localized()
                 
             case .alertHPlus:
-                content.title = "ITINÉRANCE H+ (3G) DÉTECTÉE !"
-                content.body = "Cliquez sur la notification pour revenir sur le réseau propre."
+                content.title = "detected_hplus_roaming".localized()
+                content.body = "detected_roaming_description".localized()
                 
             case .alertPossibleHPlus:
-                content.title = "ITINÉRANCE H+ (3G) PROBABLE !"
-                content.body = "Lancez maintenant une analyse du réseau et revenez sur le réseau propre si nécéssaire."
+                content.title = "possible_hplus_roaming".localized()
+                content.body = "possible_roaming_description".localized()
                 
             case .alertWCDMA:
-                content.title = "ITINÉRANCE WCDMA (3G) DÉTECTÉE !"
-                content.body = "Cliquez sur la notification pour revenir sur le réseau propre."
+                content.title = "detected_wcdma_roaming".localized()
+                content.body = "detected_roaming_description".localized()
                 
             case .alertPossibleWCDMA:
-                content.title = "ITINÉRANCE WCDMA (3G) PROBABLE !"
-                content.body = "Lancez maintenant une analyse du réseau et revenez sur le réseau propre si nécéssaire."
+                content.title = "possible_wcdma_roaming".localized()
+                content.body = "possible_roaming_description".localized()
                 
             case .alertEdge:
-                content.title = "ITINÉRANCE EDGE DÉTECTÉE !"
-                content.body = "Cliquez sur la notification pour revenir sur le réseau propre."
+                content.title = "detected_edge_roaming".localized()
+                content.body = "detected_roaming_description".localized()
                 
             case .runningVerification:
-                content.title = "Protection contre l'itinérance activée !"
-                content.subtitle = "Vérification en cours...."
-                content.body = "Vous pouvez toujours changer vos réglages dans l'application FMobile."
+                content.title = "roaming_protect_enabled".localized()
+                content.subtitle = "checking_roaming".localized()
+                content.body = "roaming_notification_description".localized()
                 time = 1
                 
             case .halt:
-                content.title = "Mode activité réduite activé automatiquement"
-                content.subtitle = "Vous avez quitté l'application."
-                content.body = "L'application va continuer de fonctionner en arrière-plan en mode activité réduite."
+                content.title = "low_energy_auto_enabled".localized()
+                content.subtitle = "low_energy_auto_enabled_subtitle".localized()
+                content.body = "low_energy_auto_enabled_description".localized()
                 time = 10
                 
             case .locFailed:
-                content.title = "Localisation en arrière plan désactivée !"
-                content.subtitle = "Erreur lors de la vérification du pays !"
-                content.body = "Vérifiez dans les réglages de votre appareil que vous avez bien autorisé l'accès à vos données de localisation en arrière plan ou désactivez la vérification de pays dans l'application FMobile."
+                content.title = "location_error_title".localized()
+                content.subtitle = "location_error_subtitle".localized()
+                content.body = "location_error_description".localized()
                 time = 2
             
             case .saved:
-                content.title = "Lieu non couvert sauvegardé !"
-                content.body = "Après plusieurs tentatives, votre iPhone ne s'est pas reconnecté sur le réseau propre. La zone actuelle a été sauvegardée comme non couverte."
+                content.title = "no_network_zone_auto_saved".localized()
+                content.body = "no_network_zone_auto_saved_description".localized()
                 time = 1
                 
             case .batteryLow:
-                content.title = "Mode activité réduite activé"
-                content.body = "L'application va continuer de fonctionner en arrière-plan en mode activité réduite."
+                content.title = "low_energy_mode_enabled_title".localized()
+                content.body = "low_energy_mode_enabled_description".localized()
                 time = 8
                 
             case .restarting:
-                content.title = "Mode économie d'énergie désactivé."
-                content.body = "Vous n'avez plus besoin du mode éco. L'application reprend son mode de fonctionnement normal."
+                content.title = "low_energy_mode_auto_disabled".localized()
+                content.body = "low_energy_mode_auto_disabled_description".localized()
                 time = 1
                 
+            case .newCountryNothingFree:
+                content.title = arg
+                content.body = "nothing_included_20815".localized()
+                
+            case .newCountryBasicFree:
+                content.title = arg
+                content.body = "basic_included_20815".localized()
+                
+            case .newCountryInternetFree:
+                content.title = arg
+                content.body = "internet_included_20815".localized()
+                
+            case .newCountryAllFree:
+                content.title = arg
+                content.body = "all_included_20815".localized()
+            
             case .newCountryNothing:
                 content.title = arg
-                content.body = "Aucune communication n'est incluse dans le forfait Free depuis ce pays."
+                content.body = "nothing_included".localized()
                 
             case .newCountryBasic:
                 content.title = arg
-                content.body = "Les appels, SMS et MMS sont inclus dans le forfait Free. Internet est indisponible."
+                content.body = "basic_included".localized()
                 
             case .newCountryInternet:
                 content.title = arg
-                content.body = "25Go d'Internet sont inclus dans le forfait Free ! Les appels, SMS et MMS ne sont pas inclus."
+                content.body = "internet_included".localized()
                 
             case .newCountryAll:
                 content.title = arg
-                content.body = "Les appels, SMS, MMS ainsi que 25Go d'Internet sont inclus dans le forfait Free !"
-            
+                content.body = "all_included".localized()
+                
             case .alertDataDrain:
-                content.title = "🛂⚠️🛑 HORS-FORFAIT EN COURS 🛑⚠️🆘"
+                content.title = "alert_paid_data_drain".localized()
                 content.body = arg
             
             case .newSIM:
-                content.title = "SIM card configuration changed!"
-                content.body = "Please configure your new SIM card in the FMobile app."
+                content.title = "new_sim_card_detected".localized()
+                content.body = "new_sim_card_detected_description".localized()
                 
             case .iPad:
-                content.title = "Action de votre opérateur requise !"
-                content.body = "Votre opérateur doit distribuer un fichier de configuration (Carrier Bundle) pour permettre à FMobile 2ème génération de fonctionner sur les iPad. Si votre opérateur veut aider ses abonnés, il est invité à distribuer ce fichier via une MÀJ opérateur. De plus, pour une compatibilité maximale, il est invité à vérifier la possibilité de retirer tous ses PLMN itinérants de ce même fichier sur iPhone."
+                content.title = "ipad_carrier_alert".localized()
+                content.body = "ipad_carrier_alert_description".localized()
                 
             case .update:
-                content.title = "Mise à jour effectuée"
+                content.title = "update_done".localized()
                 content.body = arg
             
             case .custom:
@@ -164,6 +180,6 @@ class NotificationManager {
 
 enum NotificationType {
     
-    case allow2G3G, allow2G, allow3G, allowNone, allowDisabled, alertHPlus, alertPossibleHPlus, alertWCDMA, alertPossibleWCDMA, alertEdge, runningVerification, halt, locFailed, saved, batteryLow, restarting, newCountryNothing, newCountryBasic, newCountryInternet, newCountryAll, alertDataDrain, newSIM, iPad, update, custom
+    case allow2G3G, allow2G, allow3G, allowNone, allowDisabled, alertHPlus, alertPossibleHPlus, alertWCDMA, alertPossibleWCDMA, alertEdge, runningVerification, halt, locFailed, saved, batteryLow, restarting, newCountryNothingFree, newCountryBasicFree, newCountryInternetFree, newCountryAllFree, newCountryNothing, newCountryBasic, newCountryInternet, newCountryAll, alertDataDrain, newSIM, iPad, update, custom
     
 }
