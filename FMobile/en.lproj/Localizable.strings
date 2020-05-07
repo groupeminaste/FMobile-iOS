@@ -1,4 +1,21 @@
 /*
+Copyright (C) 2020 Groupe MINASTE
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+*/
+/*
     Localizable.strings
     FMobile
  
@@ -138,10 +155,10 @@
 "ok" = "OK";
 "statistics_agreement" = "Participer à l'enquête 208 16";
 "old_ios_warning" = "iOS %@ is missing important features!";
-"old_ios_description" = "This app is now unsupported. Please update your device to iOS 12 or any later version and download FMobile 3 for iOS 12. On your iOS version, the operations to exit roaming are manual.";
+"old_ios_description" = "This app is now unsupported. Please download the new FMobile 4. On this version, the operations to exit roaming are manual.";
 "new_ios_warning" = "You are running iOS %@!";
 "new_ios_description" = "Good news: you are running a modern iOS software. Bad news: FMobile 1 is not compatible with your device. But don't worry! FMobile 3 for iOS 12 is now available on the App Store!";
-"download_fmobile3" = "Download FMobile 3";
+"download_fmobile4" = "Download FMobile 4";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Speedtest";

@@ -1,4 +1,21 @@
 /*
+Copyright (C) 2020 Groupe MINASTE
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+*/
+/*
  Localizable.strings
  FMobile
  
@@ -137,10 +154,10 @@
 "ok" = "OK";
 "statistics_agreement" = "Participer à l'enquête 208 16";
 "old_ios_warning" = "iOS %@ manque de fonctinonalités importantes !";
-"old_ios_description" = "Cette application n'est plus supportée. Veuillez mettre à jour votre appareil vers iOS 12 ou toute autre version ultérieure et télécharger FMobile 3 pour iOS 12. Sur votre version iOS, les opérations pour quitter l'itinérance sont manuelles.";
+"old_ios_description" = "Cette application n'est plus supportée. Veuillez télécharger le nouveau FMobile 4. Sur cette version, les opérations pour quitter l'itinérance sont manuelles.";
 "new_ios_warning" = "Vous êtes sur iOS %@ !";
 "new_ios_description" = "Bonne nouvelle : vous utilisez une version récente d'iOS. Mauvaise nouvelle : FMobile 1 n'est pas compatible avec votre appareil. Mais pas de panique ! FMobile 3 pour iOS 12 est desormais disponible sur l'App Store !";
-"download_fmobile3" = "Télécharger FMobile 3";
+"download_fmobile4" = "Télécharger FMobile 4";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Test de débit";

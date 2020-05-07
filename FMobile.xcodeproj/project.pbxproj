@@ -40,8 +40,6 @@
 		ED20ABF321E61FA700C77529 /* myradin-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED20ABF021E61FA700C77529 /* myradin-40@3x.png */; };
 		ED20ABF421E61FA700C77529 /* myradin-40.png in Resources */ = {isa = PBXBuildFile; fileRef = ED20ABF121E61FA700C77529 /* myradin-40.png */; };
 		ED20ABF521E61FA700C77529 /* myradin-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED20ABF221E61FA700C77529 /* myradin-40@2x.png */; };
-		ED2649A721FEF61700C3F1F5 /* FMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2649A621FEF61700C3F1F5 /* FMobileUITests.swift */; };
-		ED2649B521FEF61F00C3F1F5 /* FMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2649B421FEF61F00C3F1F5 /* FMobileTests.swift */; };
 		ED7B58A8224A7E2D00CDBB61 /* CarrierIdentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7B58A7224A7E2D00CDBB61 /* CarrierIdentification.swift */; };
 		ED7D7739220C949A007844D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3F18CC220C7EAD003C701B /* CoreLocation.framework */; };
 		ED7D773A220C949A007844D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3F18CA220C7EA5003C701B /* Foundation.framework */; };
@@ -55,8 +53,6 @@
 		EDA1B97B223C0B790015A05B /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA1B97A223C0B790015A05B /* TodayViewController.swift */; };
 		EDA1B97E223C0B790015A05B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA1B97C223C0B790015A05B /* MainInterface.storyboard */; };
 		EDA1B982223C0B790015A05B /* status.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EDA1B976223C0B790015A05B /* status.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		EDA1B9AF223C0C430015A05B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED01AAEE215F80D300693C03 /* Assets.xcassets */; };
-		EDA1B9B0223C0C440015A05B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED01AAEE215F80D300693C03 /* Assets.xcassets */; };
 		EDA1B9B1223C0C440015A05B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED01AAEE215F80D300693C03 /* Assets.xcassets */; };
 		EDA1B9B2223C0F200015A05B /* UIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3247789621618866003ADE47 /* UIElement.swift */; };
 		EDA1B9B5223C14930015A05B /* Speedtest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA1B9B4223C14920015A05B /* Speedtest.swift */; };
@@ -66,20 +62,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		ED2649A921FEF61700C3F1F5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ED01AAD9215F80D100693C03 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ED01AAE0215F80D100693C03;
-			remoteInfo = FMobile;
-		};
-		ED2649B721FEF61F00C3F1F5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ED01AAD9215F80D100693C03 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ED01AAE0215F80D100693C03;
-			remoteInfo = FMobile;
-		};
 		EDA1B980223C0B790015A05B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ED01AAD9215F80D100693C03 /* Project object */;
@@ -143,14 +125,10 @@
 		ED20ABF021E61FA700C77529 /* myradin-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myradin-40@3x.png"; sourceTree = "<group>"; };
 		ED20ABF121E61FA700C77529 /* myradin-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myradin-40.png"; sourceTree = "<group>"; };
 		ED20ABF221E61FA700C77529 /* myradin-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myradin-40@2x.png"; sourceTree = "<group>"; };
-		ED2649A421FEF61700C3F1F5 /* FMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2649A621FEF61700C3F1F5 /* FMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMobileUITests.swift; sourceTree = "<group>"; };
 		ED2649A821FEF61700C3F1F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED2649B221FEF61F00C3F1F5 /* FMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2649B421FEF61F00C3F1F5 /* FMobileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMobileTests.swift; sourceTree = "<group>"; };
 		ED2649B621FEF61F00C3F1F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED387D5321FE255000643E69 /* FreeWay.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FreeWay.gpx; sourceTree = "<group>"; };
-		ED387D5521FE277100643E69 /* CityRun.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CityRun.gpx; sourceTree = "<group>"; };
 		ED3F18BE220C7E58003C701B /* CallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallKit.framework; path = System/Library/Frameworks/CallKit.framework; sourceTree = SDKROOT; };
 		ED3F18C0220C7E75003C701B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ED3F18C2220C7E7E003C701B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -160,7 +138,6 @@
 		ED3F18CA220C7EA5003C701B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ED3F18CC220C7EAD003C701B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		ED7B58A7224A7E2D00CDBB61 /* CarrierIdentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierIdentification.swift; sourceTree = "<group>"; };
-		ED8E94A822C2DE5200E57F27 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		ED8E94A922C2DE7000E57F27 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED8E94AA22C2DEB600E57F27 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ED8E94AB22C2E23600E57F27 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -177,8 +154,6 @@
 		EDA1B97F223C0B790015A05B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDA1B987223C0B910015A05B /* status.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = status.entitlements; sourceTree = "<group>"; };
 		EDA1B9B4223C14920015A05B /* Speedtest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speedtest.swift; sourceTree = "<group>"; };
-		EDA5B4CB22416E9300C31867 /* Paris.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Paris.gpx; sourceTree = "<group>"; };
-		EDA5B4CD224197BA00C31867 /* CDN.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CDN.gpx; sourceTree = "<group>"; };
 		EDA865772273BAA60083FDCC /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		EDBCBBB22162724800D066F9 /* FMobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FMobile.entitlements; sourceTree = "<group>"; };
 		EDBE471422956456003086C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -200,20 +175,6 @@
 				ED7D773E220C949A007844D7 /* CoreData.framework in Frameworks */,
 				ED7D773F220C949A007844D7 /* UIKit.framework in Frameworks */,
 				ED7D7740220C949A007844D7 /* CallKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ED2649A121FEF61700C3F1F5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ED2649AF21FEF61F00C3F1F5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,17 +205,6 @@
 				3247789E21618A29003ADE47 /* UIElementButton.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		6A597DE4225121D600926DAD /* GPX */ = {
-			isa = PBXGroup;
-			children = (
-				EDA5B4CD224197BA00C31867 /* CDN.gpx */,
-				ED387D5521FE277100643E69 /* CityRun.gpx */,
-				ED387D5321FE255000643E69 /* FreeWay.gpx */,
-				EDA5B4CB22416E9300C31867 /* Paris.gpx */,
-			);
-			path = GPX;
 			sourceTree = "<group>";
 		};
 		6A597DE52251221000926DAD /* Extensions */ = {
@@ -309,8 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				ED01AAE1215F80D200693C03 /* FMobile.app */,
-				ED2649A421FEF61700C3F1F5 /* FMobileUITests.xctest */,
-				ED2649B221FEF61F00C3F1F5 /* FMobileTests.xctest */,
 				EDA1B976223C0B790015A05B /* status.appex */,
 			);
 			name = Products;
@@ -322,7 +270,6 @@
 				ED27D64021DFF95000E1A603 /* AlternateIcon */,
 				6AC1BDBF22AA629300C5B3CC /* API */,
 				6A597DE52251221000926DAD /* Extensions */,
-				6A597DE4225121D600926DAD /* GPX */,
 				324778A021618D2A003ADE47 /* Utils */,
 				6A597DE62251224000926DAD /* Views */,
 				ED01AAEE215F80D300693C03 /* Assets.xcassets */,
@@ -415,42 +362,6 @@
 			productReference = ED01AAE1215F80D200693C03 /* FMobile.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ED2649A321FEF61700C3F1F5 /* FMobileUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ED2649AB21FEF61700C3F1F5 /* Build configuration list for PBXNativeTarget "FMobileUITests" */;
-			buildPhases = (
-				ED2649A021FEF61700C3F1F5 /* Sources */,
-				ED2649A121FEF61700C3F1F5 /* Frameworks */,
-				ED2649A221FEF61700C3F1F5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				ED2649AA21FEF61700C3F1F5 /* PBXTargetDependency */,
-			);
-			name = FMobileUITests;
-			productName = FMobileUITests;
-			productReference = ED2649A421FEF61700C3F1F5 /* FMobileUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		ED2649B121FEF61F00C3F1F5 /* FMobileTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ED2649B921FEF61F00C3F1F5 /* Build configuration list for PBXNativeTarget "FMobileTests" */;
-			buildPhases = (
-				ED2649AE21FEF61F00C3F1F5 /* Sources */,
-				ED2649AF21FEF61F00C3F1F5 /* Frameworks */,
-				ED2649B021FEF61F00C3F1F5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				ED2649B821FEF61F00C3F1F5 /* PBXTargetDependency */,
-			);
-			name = FMobileTests;
-			productName = FMobileTests;
-			productReference = ED2649B221FEF61F00C3F1F5 /* FMobileTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		EDA1B975223C0B790015A05B /* status */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EDA1B985223C0B790015A05B /* Build configuration list for PBXNativeTarget "status" */;
@@ -502,14 +413,6 @@
 							};
 						};
 					};
-					ED2649A321FEF61700C3F1F5 = {
-						CreatedOnToolsVersion = 10.2;
-						TestTargetID = ED01AAE0215F80D100693C03;
-					};
-					ED2649B121FEF61F00C3F1F5 = {
-						CreatedOnToolsVersion = 10.2;
-						TestTargetID = ED01AAE0215F80D100693C03;
-					};
 					EDA1B975223C0B790015A05B = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
@@ -539,8 +442,6 @@
 			projectRoot = "";
 			targets = (
 				ED01AAE0215F80D100693C03 /* FMobile */,
-				ED2649A321FEF61700C3F1F5 /* FMobileUITests */,
-				ED2649B121FEF61F00C3F1F5 /* FMobileTests */,
 				EDA1B975223C0B790015A05B /* status */,
 			);
 		};
@@ -558,22 +459,6 @@
 				ED01AAF2215F80D300693C03 /* LaunchScreen.storyboard in Resources */,
 				ED20ABF421E61FA700C77529 /* myradin-40.png in Resources */,
 				ED01AAEF215F80D300693C03 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ED2649A221FEF61700C3F1F5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EDA1B9AF223C0C430015A05B /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ED2649B021FEF61F00C3F1F5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EDA1B9B0223C0C440015A05B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,22 +509,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED2649A021FEF61700C3F1F5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ED2649A721FEF61700C3F1F5 /* FMobileUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ED2649AE21FEF61F00C3F1F5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ED2649B521FEF61F00C3F1F5 /* FMobileTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EDA1B972223C0B790015A05B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -655,16 +524,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		ED2649AA21FEF61700C3F1F5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ED01AAE0215F80D100693C03 /* FMobile */;
-			targetProxy = ED2649A921FEF61700C3F1F5 /* PBXContainerItemProxy */;
-		};
-		ED2649B821FEF61F00C3F1F5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ED01AAE0215F80D100693C03 /* FMobile */;
-			targetProxy = ED2649B721FEF61F00C3F1F5 /* PBXContainerItemProxy */;
-		};
 		EDA1B981223C0B790015A05B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EDA1B975223C0B790015A05B /* status */;
@@ -702,7 +561,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				EDA1B97D223C0B790015A05B /* Base */,
-				ED8E94A822C2DE5200E57F27 /* nl */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -860,7 +718,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobile/FMobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = 141;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -870,7 +728,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.plugn.fmobile-older";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -888,7 +746,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobile/FMobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = 141;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -898,7 +756,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.plugn.fmobile-older";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -908,97 +766,13 @@
 			};
 			name = Release;
 		};
-		ED2649AC21FEF61700C3F1F5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZL9396WK65;
-				INFOPLIST_FILE = FMobileUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.FMobileUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FMobile;
-			};
-			name = Debug;
-		};
-		ED2649AD21FEF61700C3F1F5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZL9396WK65;
-				INFOPLIST_FILE = FMobileUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.FMobileUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FMobile;
-			};
-			name = Release;
-		};
-		ED2649BA21FEF61F00C3F1F5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZL9396WK65;
-				INFOPLIST_FILE = FMobileTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.FMobileTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FMobile.app/FMobile";
-			};
-			name = Debug;
-		};
-		ED2649BB21FEF61F00C3F1F5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZL9396WK65;
-				INFOPLIST_FILE = FMobileTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.FMobileTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FMobile.app/FMobile";
-			};
-			name = Release;
-		};
 		EDA1B983223C0B790015A05B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = status/status.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = 141;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = status/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1007,7 +781,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.5.1;
 				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.plugn.fmobile-older.status";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1023,7 +797,7 @@
 				CODE_SIGN_ENTITLEMENTS = status/status.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = 141;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = status/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1032,7 +806,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.5.1;
 				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.plugn.fmobile-older.status";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1059,24 +833,6 @@
 			buildConfigurations = (
 				ED01AB0D215F80D300693C03 /* Debug */,
 				ED01AB0E215F80D300693C03 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ED2649AB21FEF61700C3F1F5 /* Build configuration list for PBXNativeTarget "FMobileUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ED2649AC21FEF61700C3F1F5 /* Debug */,
-				ED2649AD21FEF61700C3F1F5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ED2649B921FEF61F00C3F1F5 /* Build configuration list for PBXNativeTarget "FMobileTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ED2649BA21FEF61F00C3F1F5 /* Debug */,
-				ED2649BB21FEF61F00C3F1F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

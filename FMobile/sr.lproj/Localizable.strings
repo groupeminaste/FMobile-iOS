@@ -1,4 +1,21 @@
 /*
+Copyright (C) 2020 Groupe MINASTE
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+*/
+/*
  Localizable.strings
  FMobile
  
@@ -137,10 +154,10 @@
 "donate_description" = "Без обзира шта, ЕфМобил остаће бесплатна и без рекламе. Једну додај је једну могућност да мене хвалите за апликацију, исто ако сам већ срећан ако мени само дајте ваше повратке. Ви ћете да помогнете финансирање од мој Екстопи пројект. Молим вас да комплетно тестирате апликацију и да будете 100% сигурни да хоћете да оставите једну врх пре него то радите.";
 "ok" = "Важи";
 "old_ios_warning" = "АјОС %@ фали важне функције!";
-"old_ios_description" = "Ова апликација више није подржана. Ажурирајте ваш АјФон или АјПед на АјОС 12 или било коју другу модерније верзију и преузмите ЕфМобил 3 за АјОС 12. На вашој верзији од АјОС поступци напуштања роаминга су ручни.";
+"old_ios_description" = "Ова апликација више није подржана. Молимо вас да преузмите ЕфМобил 4. На обу верзији, поступци напуштања роаминга су ручни.";
 "new_ios_warning" = "Ви сте на АјОС %@!";
 "new_ios_description" = "Добра вест: имате модернан АјОС верзију. Лоша вест: ЕфМобил 1 није компатибилан с вашим уређајем. Али не брините! ЕфМобил 3 за АјОС 12 је сад доступна на Ап Стору!";
-"download_fmobile3" = "Преузми ЕфМобил 3";
+"download_fmobile4" = "Преузми ЕфМобил 4";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Тест брзина";

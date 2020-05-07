@@ -1,3 +1,20 @@
+/*
+Copyright (C) 2020 Groupe MINASTE
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+*/
 //
 //  TableViewController.swift
 //  FMobile
@@ -369,28 +386,39 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
 //    }
 //
     
-    func oldios(){
-        guard #available(iOS 12.0, *) else {
-            let alert = UIAlertController(title: "old_ios_warning".localized().format([UIDevice.current.systemVersion]), message: "old_ios_description".localized(), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "close".localized(), style: .cancel, handler: nil))
-            present(alert, animated: true, completion: nil)
-            
-            return
-        }
+    func fmobile4() {
+        let alert = UIAlertController(title: "new_ios_warning".localized().format([UIDevice.current.systemVersion]), message: "old_ios_description".localized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "download_fmobile4".localized(), style: .cancel) { (UIAlertAction) in
+            guard let mailto = URL(string: "https://itunes.apple.com/fr/app/fmobile-stop-national-roaming/id1449356942?l=en&mt=8") else { return }
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(mailto)
+            } else {
+                UIApplication.shared.openURL(mailto)
+            }
+        })
+        alert.addAction(UIAlertAction(title: "close".localized(), style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     func newios(){
-        if #available(iOS 12.0, *) {
-               let alert = UIAlertController(title: "new_ios_warning".localized().format([UIDevice.current.systemVersion]), message: "new_ios_description".localized(), preferredStyle: .alert)
-               alert.addAction(UIAlertAction(title: "download_fmobile3".localized(), style: .cancel) { (UIAlertAction) in
-                guard let mailto = URL(string: "https://itunes.apple.com/fr/app/fmobile-stop-national-roaming/id1449356942?l=en&mt=8") else { return }
-                UIApplication.shared.open(mailto)
-            })
-               present(alert, animated: true, completion: nil)
-               
-               return
-           }
-       }
+        
+        if let url = URL(string: "fmobile://") {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url) { (result) in
+                    if !result {
+                        self.fmobile4()
+                    }
+                }
+            } else {
+                // Fallback on earlier versions
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.openURL(url)
+                } else {
+                    fmobile4()
+                }
+            }
+        }
+    }
     
     func start(){
         locationManager.requestAlwaysAuthorization()
@@ -452,13 +480,6 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                 NotificationManager.sendNotification(for: .update, with: "update_succeeded".localized().format([String(version), String(appVersion)]))
             }
             
-        }
-        
-        if version < 90 {
-            guard #available(iOS 12.0, *) else {
-                self.oldios()
-                return
-            }
         }
         
     }
@@ -1385,7 +1406,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                     guard let link = URL(string: "shortcuts://run-shortcut?name=CFM") else { return }
                     UIApplication.shared.open(link)
                 } else {
-                    self.oldios()
+                    self.fmobile4()
                 }
                 },
                 UIElementButton(id: "", text: c555) { (button) in
@@ -1618,7 +1639,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                 guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
                     UIApplication.shared.open(link)
                 } else {
-                    self.oldios()
+                    self.fmobile4()
                 }
             },
             UIElementButton(id: "", text: "do_speedtest".localized()) { (button) in

@@ -1,4 +1,21 @@
 /*
+Copyright (C) 2020 Groupe MINASTE
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+*/
+/*
  Localizable.strings
  FMobile
  
@@ -138,10 +155,10 @@
 "ok" = "OK";
 "statistics_agreement" = "Participer à l'enquête 208 16";
 "old_ios_warning" = "iOS% @ mist belangrijke functies!";
-"old_ios_description" = "Deze app wordt nu niet meer ondersteund. Update uw apparaat naar iOS 12 of een latere versie en download FMobile 3 voor iOS 12. Op uw iOS-versie zijn de handelingen om roaming af te sluiten handmatig.";
+"old_ios_description" = "Deze app wordt nu niet meer ondersteund. Download de nieuwe FMobile 4. Op deze versie zijn de handelingen om roaming af te sluiten handmatig.";
 "new_ios_warning" = "Je gebruikt iOS %@!";
 "new_ios_description" = "Goed nieuws: u gebruikt moderne iOS-software. Slecht nieuws: FMobile 1 is niet compatibel met uw apparaat. Maar maak je geen zorgen! FMobile 2 voor iOS 13 is nu beschikbaar in de App Store!";
-"download_fmobile3" = "FMobile 3 downloaden";
+"download_fmobile4" = "FMobile 4 downloaden";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Stroomtest";
