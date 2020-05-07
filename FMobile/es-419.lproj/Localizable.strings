@@ -7,7 +7,6 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile";
 "reset_zones_done" = "Reset done";
 "reset_zones_done_description" = "All Femto and ran-sharing zones has been reset.";
 "close" = "Close";
@@ -136,7 +135,6 @@
 "donate_paypal" = "Donate with PayPal";
 "donate_description" = "No matter what, FMobile will stay free and ad-free. The donation is a way to thank me for the app, even if I'm already super happy if you just give me a feedback about it. You will contribute to the funding of my Extopy project. Please make sure to fully test the application and be 100% sure you want to leave me a tip before doing so.";
 "ok" = "OK";
-"statistics_agreement" = "Participer à l'enquête 208 16";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Speedtest";

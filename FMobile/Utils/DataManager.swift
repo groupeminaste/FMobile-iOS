@@ -40,6 +40,7 @@ class DataManager {
     var setupDone = false
     var minimalSetup = true
     var modeExpert = false
+    var statisticsAgreement = false
     
     // Carrier vars
     var simData = String()
@@ -184,6 +185,9 @@ class DataManager {
         }
         if(datas.value(forKey: "disableFMobileCore") != nil){
             disableFMobileCore = datas.value(forKey: "disableFMobileCore") as? Bool ?? false
+        }
+        if(datas.value(forKey: "statisticsAgreement") != nil){
+            statisticsAgreement = datas.value(forKey: "statisticsAgreement") as? Bool ?? false
         }
 
         

@@ -144,6 +144,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
+    static func sendLocationToServer(latitude: Double, longitude: Double) {
+        // Envoi des coordonnées à l'API
+        
+        print("Envoie des coordonnées à l'API : (\(latitude), \(longitude))")
+        APIRequest("GET", path: "/roaming/location.php").with(name: "latitude", value: latitude).with(name: "longitude", value: longitude).execute(Bool.self, completionHandler: { (data, status) in
+            if let data = data, data {
+                print("Coordonnées envoyées avec succès !")
+            } else {
+                print("Une erreur est survenue lors de l'envoi des coordonnées (status: \(status)")
+            }
+        })
+    }
+    
     static func engineRunning(locations: [CLLocation] = [CLLocation]()){
         print("TRIGGERED")
         
@@ -248,6 +261,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     } else if dataManager.carrierNetwork == "CTRadioAccessTechnologyWCDMA" {
                        NotificationManager.sendNotification(for: .alertWCDMA)
                     }
+                    
+                    if dataManager.statisticsAgreement{
+                        AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
+                    }
+                    
                     return
                 }
                 
@@ -260,6 +278,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     } else if dataManager.carrierNetwork == "CTRadioAccessTechnologyWCDMA" {
                         NotificationManager.sendNotification(for: .alertWCDMA)
                     }
+                    
+                    if dataManager.statisticsAgreement{
+                        AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
+                    }
+                    
                     return
                 }
                 
@@ -296,6 +319,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         } else if dataManager.carrierNetwork == "CTRadioAccessTechnologyWCDMA" {
                             NotificationManager.sendNotification(for: .alertWCDMA)
                         }
+                        if dataManager.statisticsAgreement{
+                            AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
+                        }
                     } else {
                         print("detected one nearby hotspot, STOPING OPERATIONS.")
                     }
@@ -305,6 +331,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         NotificationManager.sendNotification(for: .alertHPlus)
                     } else if dataManager.carrierNetwork == "CTRadioAccessTechnologyWCDMA" {
                         NotificationManager.sendNotification(for: .alertWCDMA)
+                    }
+                    if dataManager.statisticsAgreement{
+                        AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
                     }
                 }
                 
@@ -872,6 +901,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                     } else if dataManager.nrp == "HSDPA"{
                                         NotificationManager.sendNotification(for: .alertHPlus)
                                     }
+                                    if dataManager.statisticsAgreement{
+                                        let locationManager = CLLocationManager()
+                                        AppDelegate.sendLocationToServer(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
+                                    }
                                     print("SPEEDTEST IN BACKGROUND SUCCESSFUL!")
                                 } else {
                                     if CLLocationManager.authorizationStatus() == .authorizedAlways {
@@ -911,6 +944,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         } else if dataManager.nrp == "HSDPA"{
                             NotificationManager.sendNotification(for: .alertHPlus)
                         }
+                        
+                        if dataManager.statisticsAgreement{
+                            let locationManager = CLLocationManager()
+                            AppDelegate.sendLocationToServer(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
+                        }
                     }
                     
                     
@@ -920,6 +958,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     } else if dataManager.nrp == "HSDPA"{
                         NotificationManager.sendNotification(for: .alertPossibleHPlus)
                     }
+                    if dataManager.statisticsAgreement{
+                        let locationManager = CLLocationManager()
+                        AppDelegate.sendLocationToServer(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
+                    }
                 }
             } else {
                 print("H+ autorisée")
@@ -928,6 +970,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if !dataManager.allow012G{
                 print("2G non autorisée")
                 NotificationManager.sendNotification(for: .alertEdge)
+                if dataManager.statisticsAgreement{
+                    let locationManager = CLLocationManager()
+                    AppDelegate.sendLocationToServer(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
+                }
             } else {
                 print("2G autorisée ou incompatible")
             }

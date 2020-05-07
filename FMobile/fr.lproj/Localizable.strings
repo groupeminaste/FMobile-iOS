@@ -1,21 +1,22 @@
-/* 
-  Localizable.strings
-  FMobile
+/*
+ Localizable.strings
+ FMobile
+ 
+ Created by Nathan FALLET on 15/05/2019.
+ Copyright © 2019 Groupe MINASTE. All rights reserved.
+ */
 
-  Created by Nathan FALLET on 15/05/2019.
-  Copyright © 2019 Groupe MINASTE. All rights reserved.
-*/
-
-// TableViewController
+    // TableViewController
+"fmobile" = "FMobile";
 "reset_zones_done" = "Réinitialisation effectuée";
 "reset_zones_done_description" = "Toutes les zones de Femto et ran-sharing ont étés réinitialisés.";
 "close" = "Fermer";
 "never_show_again" = "Ne plus afficher";
 "custom_url_title" = "URL personnalisée";
-"custom_url_description" = "Ici vous pouvez définir une URL peronnalisée pour le test de débit (utilisé dans la G1, G-A1 et G2). Vous devez fournir deux URL : la première sert pour le moteur. Elle doit contenir un fichier très petit (environ 512Kb pour un usage optimal). La deuxième est utilisée pour le test de débit dans l'UI. Elle doit contenir un fichier très grand (comme 1Gb). Vous pouvez prendre n'importe quel fichier. Le serveyr hébergeant ces fichiers doit être à proximité de votre localisation (latence plus faible). Le serveur des fichiers par défaut est situé en France Métropolitaine.";
+"custom_url_description" = "Ici vous pouvez définir une URL personnalisée pour le test de débit (utilisé dans la G1, G-A1 et G2). Vous devez fournir deux URL : la première sert pour le moteur. Elle doit contenir un fichier très petit (environ 512Kb pour un usage optimal). La deuxième est utilisée pour le test de débit dans l'UI. Elle doit contenir un fichier très grand (comme 1Gb). Vous pouvez prendre n'importe quel fichier. Le serveur hébergeant ces fichiers doit être à proximité de votre localisation (latence plus faible). Le serveur des fichiers par défaut est situé en France Métropolitaine.";
 "save" = "Enregistrer";
 "error" = "Erreur";
-"url_error_message" = "Le lien precisé n'a pas pu être converti en URL. Vérifiez bien que vous avez saisi ube URL commençant par http:// ou https://.";
+"url_error_message" = "Le lien précisé n'a pas pu être converti en URL. Vérifiez bien que vous avez saisi ube URL commençant par http:// ou https://.";
 "retry" = "Réessayer";
 "cancel" = "Annuler";
 "set_default_url" = "Définir les URL par défaut";
@@ -33,16 +34,16 @@
 "form_out2g" = "RP sans 2G? (yes/no)";
 "detecting_autoconfig" = "Config. automatique...";
 "choose_setup" = "Choisissez votre configuration";
-"choose_setup_description" = "FMobile n'a pas trouvé de configuration automatique pour votre opérateur. Vous pouvez choisir de d'éxécuter FMobile sur une configuration minimale sans saisir aucune information, ou en option, vous pouvez aussi choisir d'éxécuter FMobile sur une configuration standard, en saisissant les informations basiques sur votre opérateur et son réseau itinérant. Pour une majorité d'opérateurs, la confuguration minimale devrait s'éxécuter sans problème, cependant certains opérateurs qui ont une structure d'itinérance plus complexe peuvent être obligés d'utiliser la configuration standard à la place.";
+"choose_setup_description" = "FMobile n'a pas trouvé de configuration automatique pour votre opérateur. Vous pouvez choisir de d’exécuter FMobile sur une configuration minimale sans saisir aucune information, ou en option, vous pouvez aussi choisir d’exécuter FMobile sur une configuration standard, en saisissant les informations basiques sur votre opérateur et son réseau itinérant. Pour une majorité d'opérateurs, la configuration minimale devrait s'éxécuter sans problème, cependant certains opérateurs qui ont une structure d'itinérance plus complexe peuvent être obligés d'utiliser la configuration standard à la place.";
 "use_minimal_setup" = "Utiliser la configuration minimale";
 "checking_eligibility" = "Vérif. de l'éligibilité...";
 "compatibility_issues" = "Erreurs de compatibilité";
-"compatibility_error_message" = "FMobile a détécté que la configuration minimale peut échouer sur votre appareil. Vous pouvez malgré tout l'utiliser ou lancer la configuration standard à la place.";
+"compatibility_error_message" = "FMobile a détecté que la configuration minimale peut échouer sur votre appareil. Vous pouvez malgré tout l'utiliser ou lancer la configuration standard à la place.";
 "force_minimal_setup" = "Forcer la configuration minimale";
 "run_standard_setup" = "Lancer la configuration standard";
 "use_standard_setup" = "Utiliser la configuration standard";
 "warning_title" = "⚠️ RESPONSABILITÉ";
-"warning_description" = "IMPORTANT : Cette application est fournie gratuitement sans garantie. Vous en êtes entièrement responsable, autrement dit tous les dommages liés à l'application sont sous votre responsabilité exclusivement (hors-forfait mobile, consommation électrique, surchauffe, etc...). C'est à vous de régulièrement vérifier la consomation de l'application et de la désactiver lorsque vous partez à l'étranger. Ne venez pas m'envoyer vos factures par mail, vous n'obtiendrez aucun remboursement (ça peut paraître évident pour certains mais c'est déjà arrivé...)";
+"warning_description" = "IMPORTANT : Cette application est fournie gratuitement sans garantie. Vous en êtes entièrement responsable, autrement dit tous les dommages liés à l'application sont sous votre responsabilité exclusivement (hors-forfait mobile, consommation électrique, surchauffe, etc...). C'est à vous de régulièrement vérifier la consommation de l'application et de la désactiver lorsque vous partez à l'étranger. Ne venez pas m'envoyer vos factures par mail, vous n'obtiendrez aucun remboursement (ça peut paraître évident pour certains mais c'est déjà arrivé...)";
 "uninstall" = "Désinstaller l'application";
 "accept_conditions" = "J'accepte ces conditions";
 "first_update_succeeded" = "Le processus de mise à jour initial a réussi.";
@@ -52,8 +53,8 @@
 "first_start_description" = "Bienvenue sur FMobile ! Commencez par apprendre les bases avant d'utiliser l'application. Vous retrouverez le tutoriel vidéo et les raccourcis à tout moment dans la section aide de FMobile. Quand vous n'en avez plus besoin, fermez la fenêtre avec \"Ne plus afficher\".";
 "itinerance" = "itinérance";
 "insert_sim_title" = "Insérez une carte SIM";
-"insert_sim_description" = "Veuillez insérer et dévérouiller une carte SIM valide pour commencer à utiliser FMobile. Une fois la carte SIM insérée, suivez les instructions de configuration (configuration automatique est disponible pour une séléction d'opérateurs.";
-"no_sim" = "Aucune carte SIM valide détéctée";
+"insert_sim_description" = "Veuillez insérer et déverrouiller une carte SIM valide pour commencer à utiliser FMobile. Une fois la carte SIM insérée, suivez les instructions de configuration (configuration automatique est disponible pour une sélection d'opérateurs.";
+"no_sim" = "Aucune carte SIM valide détectée";
 "sim_card" = "Carte SIM :";
 "no_esim" = "Aucune eSIM activée";
 "esim" = "eSIM :";
@@ -72,7 +73,7 @@
 "femto_footer" = "Pour détecter automatiquement un boîtier Femto, l'app télécharge un petit fichier afin d'effectuer un test de rapidité du réseau. En mode économie de données, l'app attend votre permission pour le télécharger.";
 "reset_offline_zones" = "Réinitialiser les zones non couvertes";
 "extra_cost_protection" = "Protection contre le hors-forfait involontaire";
-"land_footer" = "En activant cette option, l'app vérifie en arrière plan dans quelle zone tarifaire (pays) vous vous situez. Si vos données cellulaires sont activées alors que vous êtes dans une zone hors-forfait, vous receverez plusieurs notifications vous invitant à couper vos données. Cette option est disponible uniquement pour une séléction d'opérateurs.";
+"land_footer" = "En activant cette option, l'app vérifie en arrière plan dans quelle zone tarifaire (pays) vous vous situez. Si vos données cellulaires sont activées alors que vous êtes dans une zone hors-forfait, vous receverez plusieurs notifications vous invitant à couper vos données. Cette option est disponible uniquement pour une sélection d'opérateurs.";
 "cost_protection_title" = "Protection hors-forfait";
 "carrier_services" = "Services opérateurs";
 "suivi_conso_20815" = "Obtenir le suivi détaillé de consommation";
@@ -83,7 +84,7 @@
 "low_energy" = "Mode activité réduite";
 "low_energy_footer" = "Lorsque le mode activité réduite est activé, les vérifications auront lieu après un déplacement d'environ 500m, au moment du changement de l'antenne réseau. Si vous quittez de force l'application, ce mode s'activera automatiquement.";
 "land_g1" = "Vérifier le pays en arrière-plan";
-"land_footer_g1" = "En activant cette option, FMobile va vérifier en arrière-plan que vous vous situez toujours dans votre pays afin d'empêcher les vérifications d'itinérance lorsque vous êtes à l'étranger. Votre opérateur actuel n'est pas encore compatible avec la 2ème génération de FMobile sur iPad, mais si un opérateur éligible est disponible, FMobile activera ici les fonctionalités de la 2ème génération automatiquement.";
+"land_footer_g1" = "En activant cette option, FMobile va vérifier en arrière-plan que vous vous situez toujours dans votre pays afin d'empêcher les vérifications d'itinérance lorsque vous êtes à l'étranger. Votre opérateur actuel n'est pas encore compatible avec la 2ème génération de FMobile sur iPad, mais si un opérateur éligible est disponible, FMobile activera ici les fonctionnalités de la 2ème génération automatiquement.";
 "background_loc_g1" = "Localisation en arrière-plan";
 "activation" = "🕗 Activation du moteur de FMobile en cours...";
 "activate" = "⚠️ Activer le moteur de FMobile";
@@ -103,7 +104,7 @@
 "no_network_zone_saved" = "Zone non couverte enregistrée";
 "no_network_zone_saved_description" = "Vous ne recevrez plus d'alertes sur l'itinérance dans cette zone.";
 "reset_countries_included" = "Réinitialiser les pays inclus dans le forfait";
-"reset_countries_done_description" = "Les pays inlcus dans votre forfait ont été réinitialisé.";
+"reset_countries_done_description" = "Les pays inclus dans votre forfait ont été réinitialisé.";
 "open_official_app" = "Ouvrir l'app officielle %@";
 "call_service" = "Appeler le %@ (SAV)";
 "call_conso" = "Appeler le %@ (suivi conso)";
@@ -132,16 +133,17 @@
 "about" = "À propos";
 "about_description" = "Application et Raccourcis créés par Michaël Nass\nUI/UX, test de débit et optimisation par Nathan Fallet\nLogo par Bruno (@brunopaiva_152)\n\nCette application a été développée par des développeurs indépendants et est fournie gratuitement sans aucune garantie.\n\nLe Groupe MINASTE (y compris son application FMobile) n'est, en aucun cas, affilié à quelconque opérateur.\n\n© 2019 Groupe MINASTE";
 "donate_paypal" = "Faire un don PayPal";
-"donate_description" = "Quoi qu'il arrive, FMobile restera gratuite et sans publicités. Le don est une manière de me remercier pour l'app, même si je suis déjà super content si vous ne faites que me donner vos retours. Vous contriburez au financeremennt de mon projet Extopy. Merci de bien tester l'application et soyez sûr et certain de vouloir me de laisser un tip avant de le faire.";
+"donate_description" = "Quoi qu'il arrive, FMobile restera gratuite et sans publicités. Le don est une manière de me remercier pour l'app, même si je suis déjà super content si vous ne faites que me donner vos retours. Vous contribuerez au financement de mon projet Extopy. Merci de bien tester l'application et soyez sûr et certain de vouloir me de laisser un tip avant de le faire.";
 "ok" = "OK";
+"statistics_agreement" = "Participer à l'enquête 208 16";
 
-// SpeedtestViewController
+    // SpeedtestViewController
 "speedtest_view_title" = "Test de débit";
 "speedtest_start" = "Démarrer";
 "speedtest_description" = "Le coeur du test de débit a été developpé par Nathan Fallet puis a été revisité par Michaël Nass pour mieux correspondre au débit réel. Il va télécharger un lourd fichier pendant 15 secondes. Ce test de débit n'est pas le même que celui qui est utilisé dans le coeur de FMobile pour détécter l'itinérance sur les anciennes générations du moteur, qui lui est opimisé pour détécter l'itinérance en moins d'une seconde avec une consommation Internet quasi nulle.";
 "speedtest_in_progress" = "Test déjà en cours !";
 
-// NotificationManager
+    // NotificationManager
 "roaming_protect_disabled" = "Protection contre l'itinérance désactivée !";
 "3g_2g_allowed" = "Itinérance 3G et 2G autorisée";
 "roaming_notification_description" = "Vous pouvez toujours changer vos préférences dans l'application FMobile.";
@@ -173,7 +175,7 @@
 "nothing_included_20815" = "Aucune communication n'est incluse dans le forfait Free depuis ce pays.";
 "basic_included_201815" = "Les appels, SMS et MMS sont inclus dans le forfait Free. Internet est indisponible.";
 "internet_included_20815" = "25Go d'Internet sont inclus dans le forfait Free ! Les appels, SMS et MMS ne sont pas inclus.";
-"all_incliuded_20815" = "Les appels, SMS, MMS ainsi que 25Go d'Internet sont inclus dans le forfait Free !";
+"all_included_20815" = "Les appels, SMS, MMS ainsi que 25Go d'Internet sont inclus dans le forfait Free !";
 "nothing_included" = "Aucune communication n'est incluse dans votre forfait depuis ce pays.";
 "basic_included" = "Les appels, SMS et MMS sont inclus dans votre forfait. Internet n'est pas inclus.";
 "internet_included" = "Internet est inclus dans votre forfait ! Les appels, SMS et MMS ne sont pas inclus.";
@@ -185,9 +187,9 @@
 "ipad_carrier_alert_description" = "Votre opérateur doit distribuer un fichier de configuration (Carrier Bundle) pour permettre à FMobile 2ème génération de fonctionner sur les iPad. Si votre opérateur veut aider ses abonnés, il est invité à distribuer ce fichier via une MÀJ opérateur. De plus, pour une compatibilité maximale, il est invité à vérifier la possibilité de retirer tous ses PLMN itinérants de ce même fichier sur iPhone.";
 "update_done" = "Mise à jour effectuée";
 
-//AppDelegate
+    //AppDelegate
 "disconnect_from_wifi" = "Déconnectez-vous du Wi-Fi";
 "preparation_inprogress" = "Préparation en cours...";
 "end_phonecall" = "Veuillez terminer votre conversation puis réessayez";
-"data_drain_notification_description" = "Desactivez immédiatement les données cellulaires, votre consommation est surtaxée. %@ %@";
+"data_drain_notification_description" = "Désactivez immédiatement les données cellulaires, votre consommation est surtaxée. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@) : Bienvenue !";

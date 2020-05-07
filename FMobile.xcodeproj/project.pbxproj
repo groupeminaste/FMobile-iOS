@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,8 @@
 		6A597DEC22512F7200926DAD /* CarrierIdentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7B58A7224A7E2D00CDBB61 /* CarrierIdentification.swift */; };
 		6A597DEE2251383F00926DAD /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A597DED2251383F00926DAD /* UIDeviceExtension.swift */; };
 		6AB778322259F74F0063CDE6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A597DE92251237800926DAD /* DataManager.swift */; };
+		6AC1BDC222AA629300C5B3CC /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1BDC022AA629300C5B3CC /* APIRequest.swift */; };
+		6AC1BDC322AA629300C5B3CC /* APIResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1BDC122AA629300C5B3CC /* APIResponseStatus.swift */; };
 		6AC3560C21DE80A5008DF77A /* SpeedtestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3560B21DE80A5008DF77A /* SpeedtestViewController.swift */; };
 		6AE8B9B021EFB1B200AB820C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE8B9AF21EFB1B200AB820C /* NotificationManager.swift */; };
 		6AED7FD3228C64CA00696969 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AED7FD2228C64CA00696969 /* CustomColor.swift */; };
@@ -113,6 +115,8 @@
 		6A597DE7225122B300926DAD /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		6A597DE92251237800926DAD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		6A597DED2251383F00926DAD /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
+		6AC1BDC022AA629300C5B3CC /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		6AC1BDC122AA629300C5B3CC /* APIResponseStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponseStatus.swift; sourceTree = "<group>"; };
 		6AC3560B21DE80A5008DF77A /* SpeedtestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedtestViewController.swift; sourceTree = "<group>"; };
 		6AE8B9AF21EFB1B200AB820C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		6AED7FD2228C64CA00696969 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
@@ -152,6 +156,30 @@
 		ED7B58A7224A7E2D00CDBB61 /* CarrierIdentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierIdentification.swift; sourceTree = "<group>"; };
 		ED95EC1B229AF4020008CB9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		ED95EC1D229AF4040008CB9E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		ED9B917422A4685E005B5F68 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		ED9B917622A4685E005B5F68 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED9B917722A4685F005B5F68 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED9B917822A4685F005B5F68 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED9B917922A46882005B5F68 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		ED9B917A22A46882005B5F68 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED9B917B22A46882005B5F68 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED9B917C22A46882005B5F68 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED9B917D22A46891005B5F68 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		ED9B917E22A46891005B5F68 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED9B917F22A46891005B5F68 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED9B918022A46891005B5F68 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED9B918522A468A8005B5F68 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		ED9B918622A468A8005B5F68 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED9B918722A468A8005B5F68 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED9B918822A468A8005B5F68 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED9B918922A468BD005B5F68 /* sr-Latn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sr-Latn"; path = "sr-Latn.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		ED9B918A22A468BE005B5F68 /* sr-Latn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sr-Latn"; path = "sr-Latn.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		ED9B918B22A468BE005B5F68 /* sr-Latn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sr-Latn"; path = "sr-Latn.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		ED9B918C22A468BE005B5F68 /* sr-Latn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sr-Latn"; path = "sr-Latn.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		ED9B918D22A468FA005B5F68 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		ED9B918E22A468FA005B5F68 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED9B918F22A468FA005B5F68 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED9B919022A468FA005B5F68 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EDA1B976223C0B790015A05B /* status.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = status.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDA1B977223C0B790015A05B /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		EDA1B97A223C0B790015A05B /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +294,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		6AC1BDBF22AA629300C5B3CC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				6AC1BDC022AA629300C5B3CC /* APIRequest.swift */,
+				6AC1BDC122AA629300C5B3CC /* APIResponseStatus.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		ED01AAD8215F80D100693C03 = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				ED27D64021DFF95000E1A603 /* AlternateIcon */,
+				6AC1BDBF22AA629300C5B3CC /* API */,
 				6A597DE52251221000926DAD /* Extensions */,
 				6A597DE4225121D600926DAD /* GPX */,
 				324778A021618D2A003ADE47 /* Utils */,
@@ -447,7 +485,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Groupe MINASTE";
 				TargetAttributes = {
 					ED01AAE0215F80D100693C03 = {
@@ -494,13 +532,19 @@
 				};
 			};
 			buildConfigurationList = ED01AADC215F80D100693C03 /* Build configuration list for PBXProject "FMobile" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 				fr,
+				hr,
+				de,
+				sr,
+				es,
+				"sr-Latn",
+				nl,
 			);
 			mainGroup = ED01AAD8215F80D100693C03;
 			productRefGroup = ED01AAE2215F80D200693C03 /* Products */;
@@ -565,6 +609,7 @@
 			files = (
 				324778A721619751003ADE47 /* ButtonTableViewCell.swift in Sources */,
 				ED01AAE5215F80D200693C03 /* AppDelegate.swift in Sources */,
+				6AC1BDC222AA629300C5B3CC /* APIRequest.swift in Sources */,
 				3247789B2161890A003ADE47 /* UIElementSwitch.swift in Sources */,
 				6A597DEE2251383F00926DAD /* UIDeviceExtension.swift in Sources */,
 				324778A321618D66003ADE47 /* LabelTableViewCell.swift in Sources */,
@@ -583,6 +628,7 @@
 				ED7B58A8224A7E2D00CDBB61 /* CarrierIdentification.swift in Sources */,
 				6AC3560C21DE80A5008DF77A /* SpeedtestViewController.swift in Sources */,
 				EDA1B9B2223C0F200015A05B /* UIElement.swift in Sources */,
+				6AC1BDC322AA629300C5B3CC /* APIResponseStatus.swift in Sources */,
 				32477899216188EB003ADE47 /* UIElementLabel.swift in Sources */,
 				EDA865782273BAA60083FDCC /* DoubleExtension.swift in Sources */,
 				324778A521618DC8003ADE47 /* SwitchTableViewCell.swift in Sources */,
@@ -644,6 +690,12 @@
 			children = (
 				6AED7FDD228C9D2500696969 /* en */,
 				6AED7FDF228C9D2700696969 /* fr */,
+				ED9B917722A4685F005B5F68 /* hr */,
+				ED9B917B22A46882005B5F68 /* de */,
+				ED9B917F22A46891005B5F68 /* sr */,
+				ED9B918722A468A8005B5F68 /* es */,
+				ED9B918B22A468BE005B5F68 /* sr-Latn */,
+				ED9B918F22A468FA005B5F68 /* nl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -654,6 +706,12 @@
 				ED01AAF1215F80D300693C03 /* Base */,
 				ED95EC1B229AF4020008CB9E /* en */,
 				ED95EC1D229AF4040008CB9E /* fr */,
+				ED9B917422A4685E005B5F68 /* hr */,
+				ED9B917922A46882005B5F68 /* de */,
+				ED9B917D22A46891005B5F68 /* sr */,
+				ED9B918522A468A8005B5F68 /* es */,
+				ED9B918922A468BD005B5F68 /* sr-Latn */,
+				ED9B918D22A468FA005B5F68 /* nl */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -671,6 +729,12 @@
 			children = (
 				EDBE471422956456003086C7 /* en */,
 				EDBE471622956457003086C7 /* fr */,
+				ED9B917622A4685E005B5F68 /* hr */,
+				ED9B917A22A46882005B5F68 /* de */,
+				ED9B917E22A46891005B5F68 /* sr */,
+				ED9B918622A468A8005B5F68 /* es */,
+				ED9B918A22A468BE005B5F68 /* sr-Latn */,
+				ED9B918E22A468FA005B5F68 /* nl */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -680,6 +744,12 @@
 			children = (
 				EDED50302298A72F00178B14 /* en */,
 				EDED50322298A73600178B14 /* fr */,
+				ED9B917822A4685F005B5F68 /* hr */,
+				ED9B917C22A46882005B5F68 /* de */,
+				ED9B918022A46891005B5F68 /* sr */,
+				ED9B918822A468A8005B5F68 /* es */,
+				ED9B918C22A468BE005B5F68 /* sr-Latn */,
+				ED9B919022A468FA005B5F68 /* nl */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -813,6 +883,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobile/FMobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 84;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -822,9 +893,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -838,6 +911,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobile/FMobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 84;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -847,9 +921,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

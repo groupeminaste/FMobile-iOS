@@ -459,6 +459,12 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
             present(alert, animated: true, completion: nil)
         }
         
+        if version < 88 && dataManager.setupDone && dataManager.targetMCC == "208" && dataManager.targetMNC == "15" {
+            let alert = UIAlertController(title: "Enquête sur le réseau 208 16", message: "\nVous êtes plus de 7000 utilisateurs actifs de l'application. Vous avez peut-être remarqué que depuis quelques mois, Free a mis en service un nouveau réseau immatriculé 208 16. J'ai une théorie sur ce réseau et j'aimerais la vérifier en croisant différentes données mais il m'en manque une cruciale que seulement vous pouvez fournir. Je vous invite en masse à activer la nouvelle option temporaire \"Participer à l'enquête 208 16\" que vous soyez couvert par ce réseau ou non (j'ai besoin des deux à parts égales, n'hésitez pas). Ces données sont entièrement anonymes, donc il est impossible de vous tracer. Seules les coordonnées GPS du lieu où FMobile a détécté une itinérance seront envoyées dans une base de données centrale, avec les données de tout le monde de manière indiscernable. Ni la date d'envoi ni votre adresse IP ne sont enregistrées, il s'agit uniquement de construire une liste des endroits où l'itinérance pose le plus problème. Les données étant anonymes, vous ne disposez d'aucun droit d'accès, portabilité ou suppression puisqu'on ne peut pas identifier quelles données proviennent de votre appareil. Je compte sur vous pour participer un maximum. Un rapport synthétique sera ensuite partagé sur Twitter (@FMobileApp) et partagé avec certains médias s'il est concluant. Merci !", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "close".localized(), style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+        
         
         datas.set(appVersion, forKey: "version")
         datas.synchronize()
@@ -494,7 +500,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         // On active certaines fonctionnalitees
         UIDevice.current.isBatteryMonitoringEnabled = true
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "FMobile"
+        navigationItem.title = "fmobile".localized()
         
         // On demarre le moteur et l'UI
         start()
@@ -1280,6 +1286,12 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         }
         
         net.elements += [UIElementSwitch(id: "lowbat", text: lb, d: false)]
+        
+        
+        
+        if dataManager.targetMCC == "208" && dataManager.targetMNC == "15" && dataManager.setupDone {
+            net.elements += [UIElementSwitch(id: "statisticsAgreement", text: "statistics_agreement".localized(), d: false)]
+        }
         
         // Section préférences
         let pref = Section(name: prefsnet, elements: [
