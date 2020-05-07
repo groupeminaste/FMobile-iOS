@@ -37,11 +37,22 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleURLTypes</key>
-	<array/>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLName</key>
+			<string>fr.plugn.fmobile</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fmobile</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>70</string>
+	<string>76</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>monreseau-freemobile</string>

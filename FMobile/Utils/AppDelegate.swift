@@ -53,26 +53,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         let country = CarrierIdentification.getIsoCountryCode(String(dataManager.connectedMCC)).uppercased()
         
-        if DataManager.isConnectedToNetwork() && !DataManager.isWifiConnected() && dataManager.connectedMCC != "208" && dataManager.mycarrier.mobileCountryCode == "208" && dataManager.mycarrier.mobileNetworkCode == "15" && freeZoneCheck(dataManager) == "OUTZONE" {
+        if DataManager.isConnectedToNetwork() && !DataManager.isWifiConnected() && dataManager.connectedMCC != "208" && dataManager.targetMCC == "208" && dataManager.targetMNC == "15" && dataManager.freeZoneCheck() == "OUTZONE" {
             NotificationManager.sendNotification(for: .alertDataDrain, with: "Desactivez immédiatement les données cellulaires, votre consommation est surtaxée. \(dataManager.carrier) (\(country))")
         }
-    }
-    
-    static func freeZoneCheck(_ dataManager: DataManager = DataManager()) -> String{
-        let country = CarrierIdentification.getIsoCountryCode(dataManager.connectedMCC).uppercased()
-        if country == "FR"{
-            return "HOME"
-        } else if country == "--"{
-            return "UNKNOWN"
+        
+        else if DataManager.isConnectedToNetwork() && !DataManager.isWifiConnected() && dataManager.connectedMCC != "208" && dataManager.targetMCC == "208" && dataManager.zoneCheck() == "OUTZONE" || dataManager.zoneCheck() == "CALLS" {
+            NotificationManager.sendNotification(for: .alertDataDrain, with: "Desactivez immédiatement les données cellulaires, votre consommation est surtaxée. \(dataManager.carrier) (\(country))")
         }
-        else if country == "DE" || country == "AT" || country == "BE" || country == "BG" || country == "CY" || country == "HR" || country == "DK" || country == "ES" || country == "EE" || country == "FI" || country == "GI" || country == "GR" || country == "HU" || country == "IE" || country == "IS" || country == "IT" || country == "LV" || country == "LI" || country == "LT" || country == "LU" || country == "MT" || country == "NO" || country == "NL" || country == "PL" || country == "PT" || country == "CZ" || country == "RO" || country == "GB" || country == "SK" || country == "SI" || country == "SE" || country == "GP" || country == "GF" || country == "MQ" || country == "YT" || country == "RE" || country == "BL" || country == "MF" || country == "ZA" || country == "AU" || country == "CA" || country == "US" || country == "IL" || country == "NZ" {
-            return "ALL"
-        } else if country == "PM" {
-            return "CALLS"
-        } else if  country == "DZ" || country == "AR" || country == "AM" || country == "BD" || country == "BY" || country == "BR" || country == "GE" || country == "GG" || country == "IM" || country == "IN" || country == "JE" || country == "KZ" || country == "MK" || country == "MY" || country == "MX" || country == "ME" || country == "UZ" || country == "PK" || country == "RU" || country == "RS" || country == "LK" || country == "CH" || country == "TH" || country == "TN" || country == "TR" || country == "UA" {
-            return "INTERNET"
-        }
-        return "OUTZONE"
     }
     
     static func newCountryCheck(_ dataManager: DataManager = DataManager()){
@@ -95,11 +82,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         if dataManager.mycarrier.mobileCountryCode == "208" && dataManager.mycarrier.mobileNetworkCode == "15" && dataManager.connectedMCC != "208" {
             // ATTENTION TRAITER LES EXCEPTIONS EN PREMIER ! Changer le country en fonction du MNC !
-            if freeZoneCheck() == "ALL" {
+            if dataManager.freeZoneCheck() == "ALL" {
                 NotificationManager.sendNotification(for: .newCountryAll, with: "\(dataManager.carrier) \(simpleNetwork) (\(country)) : Bienvenue !")
-            } else if freeZoneCheck() == "CALLS"{
+            } else if dataManager.freeZoneCheck() == "CALLS"{
                 NotificationManager.sendNotification(for: .newCountryBasic, with: "\(dataManager.carrier) (\(country)) : Bienvenue !")
-            } else if freeZoneCheck() == "INTERNET"{
+            } else if dataManager.freeZoneCheck() == "INTERNET"{
+                NotificationManager.sendNotification(for: .newCountryInternet, with: "\(dataManager.carrier) \(simpleNetwork) (\(country)) : Bienvenue !")
+            } else {
+                NotificationManager.sendNotification(for: .newCountryNothing, with: "\(dataManager.carrier) \(simpleNetwork) (\(country)) : Bienvenue !")
+            }
+        } else if dataManager.targetMCC == "208" && dataManager.connectedMCC != "208" {
+            // ATTENTION TRAITER LES EXCEPTIONS EN PREMIER ! Changer le country en fonction du MNC !
+            if dataManager.zoneCheck() == "ALL" {
+                NotificationManager.sendNotification(for: .newCountryAll, with: "\(dataManager.carrier) \(simpleNetwork) (\(country)) : Bienvenue !")
+            } else if dataManager.zoneCheck() == "CALLS"{
+                NotificationManager.sendNotification(for: .newCountryBasic, with: "\(dataManager.carrier) (\(country)) : Bienvenue !")
+            } else if dataManager.zoneCheck() == "INTERNET"{
                 NotificationManager.sendNotification(for: .newCountryInternet, with: "\(dataManager.carrier) \(simpleNetwork) (\(country)) : Bienvenue !")
             } else {
                 NotificationManager.sendNotification(for: .newCountryNothing, with: "\(dataManager.carrier) \(simpleNetwork) (\(country)) : Bienvenue !")
@@ -124,11 +122,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             dataManager.datas.set("yes", forKey: "OUT2G")
             dataManager.datas.set(true, forKey: "setupDone")
             dataManager.datas.set(false, forKey: "minimalSetup")
+            dataManager.datas.set(false, forKey: "disableFMobileCore")
+            dataManager.datas.synchronize()
+        } else if dataManager.mycarrier.mobileCountryCode == "208" {
+            dataManager.datas.set(50000, forKey: "STMS")
+            dataManager.datas.set("NONE", forKey: "HP")
+            dataManager.datas.set("NONE", forKey: "NRP")
+            dataManager.datas.set(dataManager.mycarrier.mobileCountryCode ?? "---", forKey: "MCC")
+            dataManager.datas.set(dataManager.mycarrier.mobileNetworkCode ?? "--", forKey: "MNC")
+            dataManager.datas.set(dataManager.mycarrier.isoCountryCode?.uppercased() ?? "--", forKey: "LAND")
+            dataManager.datas.set("FMobile", forKey: "ITINAME")
+            dataManager.datas.set("FMobile", forKey: "HOMENAME")
+            dataManager.datas.set("99", forKey: "ITIMNC")
+            dataManager.datas.set("no", forKey: "NRFEMTO")
+            dataManager.datas.set("no", forKey: "OUT2G")
+            dataManager.datas.set(true, forKey: "setupDone")
+            dataManager.datas.set(true, forKey: "minimalSetup")
+            dataManager.datas.set(true, forKey: "disableFMobileCore")
             dataManager.datas.synchronize()
         }
     }
     
-    static func engineRunning(locations: [CLLocation] = [CLLocation].init()){
+    static func engineRunning(locations: [CLLocation] = [CLLocation]()){
         print("TRIGGERED")
         
         let dataManager = DataManager()
@@ -251,7 +266,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     print("GOT INTO DB")
                     let result = try context.fetch(request)
                     var detected = false
-                    for data in result as? [NSManagedObject] ?? [NSManagedObject.init()] {
+                    for data in result as? [NSManagedObject] ?? [NSManagedObject()] {
                         print(data.value(forKey: "lat") as? Float ?? 0)
                         print(data.value(forKey: "lon") as? Float ?? 0)
                         
@@ -320,7 +335,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         print("GOT INTO DB")
                         let result = try context.fetch(request)
                         var detected = false
-                        for data in result as? [NSManagedObject] ?? [NSManagedObject.init()] {
+                        for data in result as? [NSManagedObject] ?? [NSManagedObject()] {
                             print(data.value(forKey: "lat") as? Float ?? 0)
                             print(data.value(forKey: "lon") as? Float ?? 0)
                             

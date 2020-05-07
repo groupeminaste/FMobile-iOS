@@ -41,7 +41,7 @@ class SpeedtestViewController: UIViewController {
                 DispatchQueue.main.async {
                     let text = speed ?? 0 > 1 ? "Vitesse : \(speed?.rounded(toPlaces: 3) ?? 0) Mbps" : "Vitesse : \(Int(((speed ?? 0) * 1000).rounded())) Kbps"
 
-                    let alert = UIAlertController(title: "Résulat", message: text, preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Résultat", message: text, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
                     self.speedtest = nil

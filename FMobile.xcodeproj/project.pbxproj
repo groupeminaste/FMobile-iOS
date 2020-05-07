@@ -27,6 +27,7 @@
 		ED01AAEA215F80D200693C03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED01AAE8215F80D200693C03 /* Main.storyboard */; };
 		ED01AAEF215F80D300693C03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED01AAEE215F80D300693C03 /* Assets.xcassets */; };
 		ED01AAF2215F80D300693C03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED01AAF0215F80D300693C03 /* LaunchScreen.storyboard */; };
+		ED10BA1622818D2A0005B1BE /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED10BA1522818D2A0005B1BE /* UITableViewExtension.swift */; };
 		ED20ABEF21E53C9E00C77529 /* DATA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED20ABED21E53C9E00C77529 /* DATA.xcdatamodeld */; };
 		ED20ABF321E61FA700C77529 /* myradin-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED20ABF021E61FA700C77529 /* myradin-40@3x.png */; };
 		ED20ABF421E61FA700C77529 /* myradin-40.png in Resources */ = {isa = PBXBuildFile; fileRef = ED20ABF121E61FA700C77529 /* myradin-40.png */; };
@@ -114,6 +115,7 @@
 		ED01AAF1215F80D300693C03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED01AAF3215F80D300693C03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0BDD1E22779CD60001E0E9 /* carrier.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = carrier.plist; sourceTree = "<group>"; };
+		ED10BA1522818D2A0005B1BE /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		ED20ABEE21E53C9E00C77529 /* DATA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DATA.xcdatamodel; sourceTree = "<group>"; };
 		ED20ABF021E61FA700C77529 /* myradin-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myradin-40@3x.png"; sourceTree = "<group>"; };
 		ED20ABF121E61FA700C77529 /* myradin-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myradin-40.png"; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				6A597DE7225122B300926DAD /* DictionaryExtension.swift */,
 				6A597DED2251383F00926DAD /* UIDeviceExtension.swift */,
 				EDA865772273BAA60083FDCC /* DoubleExtension.swift */,
+				ED10BA1522818D2A0005B1BE /* UITableViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				6A597DE8225122B300926DAD /* DictionaryExtension.swift in Sources */,
 				EDA1B9B5223C14930015A05B /* Speedtest.swift in Sources */,
 				6A597DEA2251237800926DAD /* DataManager.swift in Sources */,
+				ED10BA1622818D2A0005B1BE /* UITableViewExtension.swift in Sources */,
 				ED7B58A8224A7E2D00CDBB61 /* CarrierIdentification.swift in Sources */,
 				6AC3560C21DE80A5008DF77A /* SpeedtestViewController.swift in Sources */,
 				EDA1B9B2223C0F200015A05B /* UIElement.swift in Sources */,
@@ -763,7 +767,7 @@
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = FMobile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -788,7 +792,7 @@
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = FMobile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

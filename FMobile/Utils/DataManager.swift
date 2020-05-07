@@ -39,6 +39,7 @@ class DataManager {
     var urlst = "http://test-debit.free.fr/1048576.rnd"
     var setupDone = false
     var minimalSetup = true
+    var modeExpert = false
     
     // Carrier vars
     var simData = String()
@@ -66,6 +67,10 @@ class DataManager {
     var itiName = "Orange F"
     var homeName = "Free"
     var stms = 0.768
+    var includedData = [String]()
+    var includedVoice = [String]()
+    var includedVData = [String]()
+    var disableFMobileCore = false
     
     init() {
         if datas.value(forKey: "modeRadin") != nil {
@@ -164,6 +169,21 @@ class DataManager {
         if(datas.value(forKey: "minimalSetup") != nil){
             minimalSetup = datas.value(forKey: "minimalSetup") as? Bool ?? true
         }
+        if(datas.value(forKey: "modeExpert") != nil){
+            modeExpert = datas.value(forKey: "modeExpert") as? Bool ?? false
+        }
+        if(datas.value(forKey: "includedData") != nil){
+            includedData = datas.value(forKey: "includedData") as? [String] ?? [String]()
+        }
+        if(datas.value(forKey: "includedVData") != nil){
+            includedVData = datas.value(forKey: "includedVData") as? [String] ?? [String]()
+        }
+        if(datas.value(forKey: "includedVoice") != nil){
+            includedVoice = datas.value(forKey: "includedVoice") as? [String] ?? [String]()
+        }
+        if(datas.value(forKey: "disableFMobileCore") != nil){
+            disableFMobileCore = datas.value(forKey: "disableFMobileCore") as? Bool ?? false
+        }
 
         
         let operatorPListSymLinkPath = "/var/mobile/Library/Preferences/com.apple.operator.plist"
@@ -199,15 +219,15 @@ class DataManager {
         
         let test = NSMutableDictionary(contentsOfFile: operatorPListPath ?? "Error")
         let array = test?["StatusBarImages"] as? NSArray ?? NSArray.init(array: [0])
-        let secondDict = NSMutableDictionary(dictionary: array[0] as? Dictionary ?? NSMutableDictionary.init() as? Dictionary<AnyHashable, Any> ?? Dictionary.init())
+        let secondDict = NSMutableDictionary(dictionary: array[0] as? Dictionary ?? NSMutableDictionary() as? Dictionary<AnyHashable, Any> ?? Dictionary())
         
         carrier = (secondDict["StatusBarCarrierName"] as? String) ?? "Carrier"
         
         connectedMCC = String(currentNetwork.prefix(3))
         connectedMNC = String(currentNetwork.suffix(2))
         
-        mycarrier = CTCarrier.init()
-        mycarrier2 = CTCarrier.init()
+        mycarrier = CTCarrier()
+        mycarrier2 = CTCarrier()
         
         let info = CTTelephonyNetworkInfo()
         
@@ -384,6 +404,79 @@ class DataManager {
             }
         }
         return valueToReturn
+    }
+    
+    func resetCountryIncluded(){
+        let emptyList = [String]()
+        
+        datas.set(emptyList, forKey: "includedData")
+        datas.set(emptyList, forKey: "includedVData")
+        datas.set(emptyList, forKey: "includedVoice")
+        datas.synchronize()
+    }
+    
+    func zoneCheck() -> String {
+        let country = CarrierIdentification.getIsoCountryCode(connectedMCC).uppercased()
+        if country == CarrierIdentification.getIsoCountryCode(targetMCC).uppercased(){
+            return "HOME"
+        } else if country == "--"{
+            return "UNKNOWN"
+        } else if country == "DE" || country == "AT" || country == "BE" || country == "BG" || country == "CY" || country == "HR" || country == "DK" || country == "ES" || country == "EE" || country == "FI" || country == "GI" || country == "GR" || country == "HU" || country == "IE" || country == "IS" || country == "IT" || country == "LV" || country == "LI" || country == "LT" || country == "LU" || country == "MT" || country == "NO" || country == "NL" || country == "PL" || country == "PT" || country == "CZ" || country == "RO" || country == "GB" || country == "SK" || country == "SI" || country == "SE" || country == "GP" || country == "GF" || country == "MQ" || country == "YT" || country == "RE" || country == "BL" || country == "MF" {
+            return "ALL"
+        }
+        
+        for includedCountry in includedData {
+            if country == includedCountry {
+                return "INTERNET"
+            }
+        }
+        
+        for includedCountry in includedVData {
+            if country == includedCountry {
+                return "ALL"
+            }
+        }
+        
+        for includedCountry in includedVoice {
+            if country == includedCountry {
+                return "CALLS"
+            }
+        }
+        
+        return "OUTZONE"
+    }
+    
+    func freeZoneCheck() -> String{
+        let country = CarrierIdentification.getIsoCountryCode(connectedMCC).uppercased()
+        if country == "FR"{
+            return "HOME"
+        } else if country == "--"{
+            return "UNKNOWN"
+        }
+        else if country == "DE" || country == "AT" || country == "BE" || country == "BG" || country == "CY" || country == "HR" || country == "DK" || country == "ES" || country == "EE" || country == "FI" || country == "GI" || country == "GR" || country == "HU" || country == "IE" || country == "IS" || country == "IT" || country == "LV" || country == "LI" || country == "LT" || country == "LU" || country == "MT" || country == "NO" || country == "NL" || country == "PL" || country == "PT" || country == "CZ" || country == "RO" || country == "GB" || country == "SK" || country == "SI" || country == "SE" || country == "GP" || country == "GF" || country == "MQ" || country == "YT" || country == "RE" || country == "BL" || country == "MF" || country == "ZA" || country == "AU" || country == "CA" || country == "US" || country == "IL" || country == "NZ" {
+            return "ALL"
+        } else if country == "PM" {
+            return "CALLS"
+        } else if  country == "DZ" || country == "AR" || country == "AM" || country == "BD" || country == "BY" || country == "BR" || country == "GE" || country == "GG" || country == "IM" || country == "IN" || country == "JE" || country == "KZ" || country == "MK" || country == "MY" || country == "MX" || country == "ME" || country == "UZ" || country == "PK" || country == "RU" || country == "RS" || country == "LK" || country == "CH" || country == "TH" || country == "TN" || country == "TR" || country == "UA" {
+            return "INTERNET"
+        }
+        return "OUTZONE"
+    }
+    
+    func addCountryIncluded(country: String, list: Int){
+        if list == 0 {
+            includedVoice.append(country)
+            datas.set(includedVoice, forKey: "includedVoice")
+            datas.synchronize()
+        } else if list == 1 {
+            includedData.append(country)
+            datas.set(includedData, forKey: "includedData")
+            datas.synchronize()
+        } else if list == 2 {
+            includedVData.append(country)
+            datas.set(includedVData, forKey: "includedVData")
+            datas.synchronize()
+        }
     }
     
 }
