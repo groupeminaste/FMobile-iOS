@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="status" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S00-Od-qV8">
+                                <rect key="frame" x="-20" y="-20" width="360" height="77"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Veuillez patienter..." textAlignment="center" lineBreakMode="characterWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="aoZ-ee-2K3">
+                                        <rect key="frame" x="20" y="20" width="320" height="37"/>
+                                        <viewLayoutGuide key="safeArea" id="9Pv-VT-Kf1"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.13269106220103632" green="0.13269106220103632" blue="0.13269106220103632" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="aoZ-ee-2K3" firstAttribute="leading" secondItem="S00-Od-qV8" secondAttribute="leading" constant="20" id="Bzc-wO-kr5"/>
+                                    <constraint firstItem="aoZ-ee-2K3" firstAttribute="top" secondItem="S00-Od-qV8" secondAttribute="top" constant="20" id="E5v-4Z-nzN"/>
+                                    <constraint firstItem="aoZ-ee-2K3" firstAttribute="centerY" secondItem="S00-Od-qV8" secondAttribute="centerY" id="kio-wz-DJH"/>
+                                    <constraint firstAttribute="trailing" secondItem="aoZ-ee-2K3" secondAttribute="trailing" constant="20" id="vao-jJ-6e4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="S00-Od-qV8" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="topMargin" constant="-20" id="AJi-BL-hPd"/>
+                            <constraint firstItem="S00-Od-qV8" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="Lcb-zv-VUI"/>
+                            <constraint firstItem="S00-Od-qV8" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="-36" id="d9i-cs-Wwn"/>
+                            <constraint firstItem="S00-Od-qV8" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="gLl-hr-1hp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="37"/>
+                    <connections>
+                        <outlet property="text" destination="aoZ-ee-2K3" id="9no-iq-2y5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="62.399999999999999" y="27.436281859070466"/>
+        </scene>
+    </scenes>
+</document>
