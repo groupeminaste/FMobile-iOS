@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func fmobile4() {
         let alert = UIAlertController(title: "new_ios_warning".localized().format([UIDevice.current.systemVersion]), message: "old_ios_description".localized(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "download_fmobile4".localized(), style: .cancel) { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "download_fmobile4".localized(), style: .cancel) { (_) in
             guard let mailto = URL(string: "https://itunes.apple.com/fr/app/fmobile-stop-national-roaming/id1449356942?l=en&mt=8") else { return }
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(mailto)
@@ -496,12 +496,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 3, y: 5, width: 50, height: 50))
                 loadingIndicator.hidesWhenStopped = true
                 loadingIndicator.style = UIActivityIndicatorView.Style.gray
-                loadingIndicator.startAnimating();
+                loadingIndicator.startAnimating()
                 alert.view.addSubview(loadingIndicator)
                 
                 self.window?.rootViewController?.present(alert, animated: true, completion: nil)
                 
-                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
+                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                     DispatchQueue.main.async {
                         print(speed ?? 0)
                         if speed ?? 0 < dataManager.stms {
@@ -588,13 +588,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     if dataManager.verifyonwifi && DataManager.isWifiConnected() && dataManager.nrDEC && dataManager.femto {
                         let alerteW = UIAlertController(title: "disconnect_from_wifi".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
                         
-                        alerteW.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel) { (UIAlertAction) in
+                        alerteW.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel) { (_) in
                             self.timer?.invalidate()
                         })
                         
                         self.window?.rootViewController?.present(alerteW, animated: true, completion: nil)
                         
-                        timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
+                        timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
                             self.WIFIDIS()
                         }
                         
@@ -605,13 +605,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 3, y: 5, width: 50, height: 50))
                         loadingIndicator.hidesWhenStopped = true
                         loadingIndicator.style = UIActivityIndicatorView.Style.gray
-                        loadingIndicator.startAnimating();
+                        loadingIndicator.startAnimating()
                         
                         alert.view.addSubview(loadingIndicator)
                         
                         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
                         
-                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
+                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                             print("THIS SHOULD NOT BE CALLED...")
                             DispatchQueue.main.async {
                                 print(speed ?? 0)
@@ -965,7 +965,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 if !dataManager.femtoLOWDATA && dataManager.femto && !DataManager.isWifiConnected() {
                     
                     if dataManager.nrDEC {
-                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
+                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                             DispatchQueue.main.async {
                                 print(speed ?? 0)
                                 if speed ?? 0 < dataManager.stms {
@@ -1123,7 +1123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "DATA")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.

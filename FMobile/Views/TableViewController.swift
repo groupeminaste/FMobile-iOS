@@ -265,7 +265,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.style = UIActivityIndicatorView.Style.gray
-        loadingIndicator.startAnimating();
+        loadingIndicator.startAnimating()
         alert.view.addSubview(loadingIndicator)
         
         present(alert, animated: true, completion: nil)
@@ -313,7 +313,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                     let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 5, width: 50, height: 50))
                     loadingIndicator.hidesWhenStopped = true
                     loadingIndicator.style = UIActivityIndicatorView.Style.gray
-                    loadingIndicator.startAnimating();
+                    loadingIndicator.startAnimating()
                     alert2.view.addSubview(loadingIndicator)
                     
                     self.present(alert2, animated: true, completion: nil)
@@ -367,12 +367,12 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         let dataManager = DataManager()
         let alert = UIAlertController(title: "warning_title".localized(), message: "warning_description".localized(), preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "uninstall".localized(), style: .destructive) { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "uninstall".localized(), style: .destructive) { (_) in
             dataManager.datas.set(false, forKey: "warningApproved")
             dataManager.datas.synchronize()
             UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
         })
-        alert.addAction(UIAlertAction(title: "accept_conditions".localized(), style: .cancel) { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "accept_conditions".localized(), style: .cancel) { (_) in
             dataManager.datas.set(true, forKey: "warningApproved")
             dataManager.datas.synchronize()
         })
@@ -388,7 +388,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
     
     func fmobile4() {
         let alert = UIAlertController(title: "new_ios_warning".localized().format([UIDevice.current.systemVersion]), message: "old_ios_description".localized(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "download_fmobile4".localized(), style: .cancel) { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "download_fmobile4".localized(), style: .cancel) { (_) in
             guard let mailto = URL(string: "https://itunes.apple.com/fr/app/fmobile-stop-national-roaming/id1449356942?l=en&mt=8") else { return }
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(mailto)
@@ -627,7 +627,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         }
         
         if #available(iOS 10.0, *) {
-            timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
+            timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
                 if !self.isAUTH {
                     self.start()
                 }
@@ -646,7 +646,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         }
         
         if #available(iOS 10.0, *) {
-            timernet = Timer.scheduledTimer(withTimeInterval: 20.0, repeats: true) { timernet in
+            timernet = Timer.scheduledTimer(withTimeInterval: 20.0, repeats: true) { _ in
                 if !stopverification{
                     print("REFRESH BACKGROUND TASKS FROM UI")
                     AppDelegate.engineRunning()
@@ -694,7 +694,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.style = UIActivityIndicatorView.Style.gray
-        loadingIndicator.startAnimating();
+        loadingIndicator.startAnimating()
         alert.view.addSubview(loadingIndicator)
         
         present(alert, animated: true, completion: nil)
@@ -878,7 +878,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                             print("CACHE FEMTO")
                         }
                     } else {
-                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
+                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                             DispatchQueue.main.async {
                                 if speed ?? 0 < dataManager.stms{
                                     dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
@@ -936,7 +936,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                             print("CACHE FEMTO")
                         }
                     } else {
-                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
+                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                             DispatchQueue.main.async {
                                 if speed ?? 0 < dataManager.stms {
                                     dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
@@ -1242,7 +1242,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
             if countryCode == "208" {
                 net.elements += [UIElementLabel(id: "activ", text: "activation".localized())]
             } else {
-            net.elements += [UIElementButton(id: "", text: "activate".localized()) { (button) in
+            net.elements += [UIElementButton(id: "", text: "activate".localized()) { (_) in
                 self.setup(dataManager)
                 }]
             }
@@ -1276,18 +1276,18 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                 }
             }]
         if dataManager.targetMCC == "208" && dataManager.targetMNC != "15" && dataManager.connectedMCC != "208" && (dataManager.zoneCheck() == "OUTZONE" || dataManager.zoneCheck() == "CALLS") && CarrierIdentification.getIsoCountryCode(String(dataManager.connectedMCC)) != "--" && dataManager.setupDone {
-            net.elements += [UIElementButton(id: "", text: "country_included_button".localized().format([CarrierIdentification.getIsoCountryCode(String(dataManager.connectedMCC))])) { (button) in
+            net.elements += [UIElementButton(id: "", text: "country_included_button".localized().format([CarrierIdentification.getIsoCountryCode(String(dataManager.connectedMCC))])) { (_) in
                 
                 let country = CarrierIdentification.getIsoCountryCode(String(dataManager.connectedMCC))
                 
                 let alert = UIAlertController(title: "new_country".localized(), message: "new_country_description".localized().format([country]), preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "included_voice".localized(), style: .default) { (UIAlertAction) in
+                alert.addAction(UIAlertAction(title: "included_voice".localized(), style: .default) { (_) in
                     dataManager.addCountryIncluded(country: country, list: 0)
                 })
-                alert.addAction(UIAlertAction(title: "included_internet".localized(), style: .default) { (UIAlertAction) in
+                alert.addAction(UIAlertAction(title: "included_internet".localized(), style: .default) { (_) in
                     dataManager.addCountryIncluded(country: country, list: 1)
                 })
-                alert.addAction(UIAlertAction(title: "included_all".localized(), style: .default) { (UIAlertAction) in
+                alert.addAction(UIAlertAction(title: "included_all".localized(), style: .default) { (_) in
                     dataManager.addCountryIncluded(country: country, list: 2)
                 })
                 alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
@@ -1315,7 +1315,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         
         if #available(iOS 10.0, *) {
         if !dataManager.disableFMobileCore || dataManager.modeExpert || (dataManager.connectedMCC == "208" && dataManager.connectedMNC == "15"){
-            net.elements += [UIElementButton(id: "", text: "set_no_network".localized()) { (button) in
+            net.elements += [UIElementButton(id: "", text: "set_no_network".localized()) { (_) in
                 if CLLocationManager.authorizationStatus() == .authorizedAlways {
                     let locationManager = CLLocationManager()
                     let latitude = locationManager.location?.coordinate.latitude ?? 0
@@ -1381,14 +1381,14 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         
         if #available(iOS 10.0, *) {
             if !dataManager.disableFMobileCore || dataManager.modeExpert || (dataManager.connectedMCC == "208" && dataManager.connectedMNC == "15"){
-                femto.elements += [UIElementButton(id: "", text: zns) { (button) in
+                femto.elements += [UIElementButton(id: "", text: zns) { (_) in
                     self.resetAllRecords(in: "Locations")
                 }]
             }
         }
         
         if dataManager.targetMCC == "208" && dataManager.targetMNC != "15" && dataManager.setupDone{
-            femto.elements += [UIElementButton(id: "", text: "reset_countries_included".localized()) { (button) in
+            femto.elements += [UIElementButton(id: "", text: "reset_countries_included".localized()) { (_) in
                 self.resetCountriesIncluded(dataManager)
                 }]
         }
@@ -1401,7 +1401,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         // Section conso
         let conso = Section(name: cso, elements: [])
         if dataManager.targetMCC == "208" && dataManager.targetMNC == "15" && dataManager.setupDone {
-            conso.elements += [UIElementButton(id: "", text: suivi) { (button) in
+            conso.elements += [UIElementButton(id: "", text: suivi) { (_) in
                 if #available(iOS 12.0, *) {
                     guard let link = URL(string: "shortcuts://run-shortcut?name=CFM") else { return }
                     UIApplication.shared.open(link)
@@ -1409,7 +1409,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                     self.fmobile4()
                 }
                 },
-                UIElementButton(id: "", text: c555) { (button) in
+                UIElementButton(id: "", text: c555) { (_) in
                     guard let number = URL(string: "tel://555") else { return }
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(number)
@@ -1418,7 +1418,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                     }
                     
                 },
-                UIElementButton(id: "", text: c3244) { (button) in
+                UIElementButton(id: "", text: c3244) { (_) in
                     guard let number = URL(string: "tel://3244") else { return }
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(number)
@@ -1428,7 +1428,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                     
                 }]
         } else if dataManager.targetMCC == "208" && dataManager.targetMNC == "01" && dataManager.setupDone {
-            conso.elements += [UIElementButton(id: "", text: "open_official_app".localized().format(["\"Orange et moi\""])) { (button) in
+            conso.elements += [UIElementButton(id: "", text: "open_official_app".localized().format(["\"Orange et moi\""])) { (_) in
                 guard let link = URL(string: "orangeetmoi://") else { return }
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(link)
@@ -1437,7 +1437,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                 }
                 
                 },
-                UIElementButton(id: "", text: "open_official_app".localized().format(["\"MySosh France\""])) { (button) in
+                UIElementButton(id: "", text: "open_official_app".localized().format(["\"MySosh France\""])) { (_) in
                 guard let link = URL(string: "mysosh://") else { return }
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(link)
@@ -1446,7 +1446,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                 }
                     
                 },
-                UIElementButton(id: "", text: "copy_callcode".localized()) { (button) in
+                UIElementButton(id: "", text: "copy_callcode".localized()) { (_) in
                 UIPasteboard.general.string = "#123#"
                 
                 let alert = UIAlertController(title: "code_copied_confirmation".localized(), message: nil, preferredStyle: UIAlertController.Style.alert)
@@ -1458,7 +1458,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                 }
                 
                 },
-                               UIElementButton(id: "", text: "call_service".localized().format(["3900"])) { (button) in
+                               UIElementButton(id: "", text: "call_service".localized().format(["3900"])) { (_) in
                                 guard let number = URL(string: "tel://3900") else { return }
                                     if #available(iOS 10.0, *) {
                                         UIApplication.shared.open(number)
@@ -1468,7 +1468,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                                 
                 }]
         } else if dataManager.targetMCC == "208" && dataManager.targetMNC == "10" && dataManager.setupDone {
-            conso.elements += [UIElementButton(id: "", text: "open_official_app".localized().format(["\"SFR & Moi\""])) { (button) in
+            conso.elements += [UIElementButton(id: "", text: "open_official_app".localized().format(["\"SFR & Moi\""])) { (_) in
                 guard let link = URL(string: "sfrmoncompte://") else { return }
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(link)
@@ -1477,7 +1477,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                 }
                 
                 },
-                UIElementButton(id: "", text: "open_official_app".localized().format(["\"RED & Moi\""])) { (button) in
+                UIElementButton(id: "", text: "open_official_app".localized().format(["\"RED & Moi\""])) { (_) in
                 guard let link = URL(string: "redetmoi://") else { return }
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(link)
@@ -1486,7 +1486,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                 }
                     
                 },
-                               UIElementButton(id: "", text: "call_conso".localized().format(["950"])) { (button) in
+                               UIElementButton(id: "", text: "call_conso".localized().format(["950"])) { (_) in
                                 guard let number = URL(string: "tel://950") else { return }
                                 if #available(iOS 10.0, *) {
                                     UIApplication.shared.open(number)
@@ -1495,7 +1495,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                                 }
                                 
                 },
-                               UIElementButton(id: "", text: "call_service".localized().format(["1023"])) { (button) in
+                               UIElementButton(id: "", text: "call_service".localized().format(["1023"])) { (_) in
                                 guard let number = URL(string: "tel://1023") else { return }
                                 if #available(iOS 10.0, *) {
                                     UIApplication.shared.open(number)
@@ -1505,7 +1505,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                                 
                 }]
         } else if dataManager.targetMCC == "208" && dataManager.targetMNC == "20" && dataManager.setupDone {
-            conso.elements += [UIElementButton(id: "", text: "open_official_app".localized().format(["\"Espace client\""])) { (button) in
+            conso.elements += [UIElementButton(id: "", text: "open_official_app".localized().format(["\"Espace client\""])) { (_) in
                 guard let link = URL(string: "fr.bouyguestelecom.espaceclient://") else { return }
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(link)
@@ -1514,7 +1514,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                 }
                 
                 },
-                               UIElementButton(id: "", text: "call_conso".localized().format(["680"])) { (button) in
+                               UIElementButton(id: "", text: "call_conso".localized().format(["680"])) { (_) in
                                 guard let number = URL(string: "tel://680") else { return }
                                 if #available(iOS 10.0, *) {
                                     UIApplication.shared.open(number)
@@ -1523,7 +1523,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                                 }
                                 
                 },
-                               UIElementButton(id: "", text: "call_service".localized().format(["1064"])) { (button) in
+                               UIElementButton(id: "", text: "call_service".localized().format(["1064"])) { (_) in
                                 guard let number = URL(string: "tel://1064") else { return }
                                 if #available(iOS 10.0, *) {
                                     UIApplication.shared.open(number)
@@ -1534,7 +1534,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                 }]
         }
         else if dataManager.targetMCC == "208" && dataManager.targetMNC == "26" && dataManager.setupDone {
-            conso.elements += [UIElementButton(id: "", text: "open_official_app".localized().format(["\"NRJ Mobile\""])) { (button) in
+            conso.elements += [UIElementButton(id: "", text: "open_official_app".localized().format(["\"NRJ Mobile\""])) { (_) in
                 guard let link = URL(string: "spid://") else { return }
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(link)
@@ -1543,7 +1543,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                 }
                 
                 },
-                               UIElementButton(id: "", text: "call_conso".localized().format(["700"])) { (button) in
+                               UIElementButton(id: "", text: "call_conso".localized().format(["700"])) { (_) in
                                 guard let number = URL(string: "tel://700") else { return }
                                 if #available(iOS 10.0, *) {
                                     UIApplication.shared.open(number)
@@ -1552,7 +1552,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                                 }
                                 
                 },
-                               UIElementButton(id: "", text: "call_service".localized().format(["200"])) { (button) in
+                               UIElementButton(id: "", text: "call_service".localized().format(["200"])) { (_) in
                                 guard let number = URL(string: "tel://200") else { return }
                                 if #available(iOS 10.0, *) {
                                     UIApplication.shared.open(number)
@@ -1565,9 +1565,9 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         
         // Section aide
         let aide = Section(name: help, elements: [
-            UIElementButton(id: "", text: cont) { (button) in
+            UIElementButton(id: "", text: cont) { (_) in
                 let alert = UIAlertController(title: "contact_title".localized(), message: nil, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Mail", style: .default) { (UIAlertAction) in
+                alert.addAction(UIAlertAction(title: "Mail", style: .default) { (_) in
                     guard let mailto = URL(string: "mailto:contact@groupe-minaste.org") else { return }
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(mailto)
@@ -1576,7 +1576,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                     }
                     
                 })
-                alert.addAction(UIAlertAction(title: "Discord", style: .default) { (UIAlertAction) in
+                alert.addAction(UIAlertAction(title: "Discord", style: .default) { (_) in
                     guard let discord = URL(string: "https://www.craftsearch.net/discord") else { return }
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(discord)
@@ -1585,7 +1585,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                     }
                     
                 })
-                alert.addAction(UIAlertAction(title: "Twitter - Michaël Nass", style: .default) { (UIAlertAction) in
+                alert.addAction(UIAlertAction(title: "Twitter - Michaël Nass", style: .default) { (_) in
                     guard let twitter = URL(string: "https://www.twitter.com/PlugNTweet") else { return }
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(twitter)
@@ -1594,7 +1594,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                     }
                     
                 })
-                alert.addAction(UIAlertAction(title: "Twitter - FMobile", style: .default) { (UIAlertAction) in
+                alert.addAction(UIAlertAction(title: "Twitter - FMobile", style: .default) { (_) in
                     guard let twitter = URL(string: "https://www.twitter.com/FMobileApp") else { return }
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(twitter)
@@ -1603,7 +1603,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                     }
                     
                 })
-                alert.addAction(UIAlertAction(title: "Twitter - Groupe MINASTE", style: .default) { (UIAlertAction) in
+                alert.addAction(UIAlertAction(title: "Twitter - Groupe MINASTE", style: .default) { (_) in
                     guard let twitter = URL(string: "https://www.twitter.com/Groupe_MINASTE") else { return }
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(twitter)
@@ -1612,7 +1612,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                     }
                     
                 })
-                alert.addAction(UIAlertAction(title: "Extopy", style: .default) { (UIAlertAction) in
+                alert.addAction(UIAlertAction(title: "Extopy", style: .default) { (_) in
                     UIApplication.shared.keyWindow?.rootViewController?.present(UIAlertController(title: "extopy_not_available_title".localized(), message: "extopy_not_available_description".localized(), preferredStyle: .alert), animated: true, completion: nil)
                     self.delay(3){
                         UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
@@ -1624,7 +1624,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         ])
         
         if dataManager.modeExpert {
-            aide.elements += [ UIElementButton(id: "", text: "engine_generation_signification".localized()) { (button) in
+            aide.elements += [ UIElementButton(id: "", text: "engine_generation_signification".localized()) { (_) in
                 let text = "engine_explaination".localized()
                 let alert = UIAlertController(title: "engine_generation_title".localized(), message: text, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "explaination_understood".localized(), style: .default, handler: nil))
@@ -1634,7 +1634,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         
         // Section avancé
         let avance = Section(name: "advanced".localized(), elements: [
-            UIElementButton(id: "", text: "reset_network".localized()) { (button) in
+            UIElementButton(id: "", text: "reset_network".localized()) { (_) in
                 if #available(iOS 12.0, *) {
                 guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
                     UIApplication.shared.open(link)
@@ -1642,14 +1642,14 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                     self.fmobile4()
                 }
             },
-            UIElementButton(id: "", text: "do_speedtest".localized()) { (button) in
+            UIElementButton(id: "", text: "do_speedtest".localized()) { (_) in
                 let speedtestVC = SpeedtestViewController()
                 self.navigationController?.pushViewController(speedtestVC, animated: true)
             },
             UIElementButton(id: "", text: "perform_diagnostic".localized()) { (button) in
                 self.diag(source: button)
             },
-            UIElementButton(id: "", text: "reset_first_start".localized()) { (button) in
+            UIElementButton(id: "", text: "reset_first_start".localized()) { (_) in
                 dataManager.datas.set(false, forKey: "didFinishFirstStart")
                 dataManager.datas.set(false, forKey: "warningApproved")
                 dataManager.datas.set(false, forKey: "setupDone")
@@ -1666,7 +1666,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         }
         
         if dataManager.modeExpert {
-            avance.elements += [UIElementButton(id: "", text: "copy_field_test".localized()) { (button) in
+            avance.elements += [UIElementButton(id: "", text: "copy_field_test".localized()) { (_) in
                 UIPasteboard.general.string = "*3001#12345#*"
                 
                 let alert = UIAlertController(title: "field_test_copied_confirmation".localized(), message: nil, preferredStyle: UIAlertController.Style.alert)
@@ -1677,20 +1677,20 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                     UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
                 }
                 },
-                UIElementButton(id: "", text: "select_url".localized()) { (button) in
+                UIElementButton(id: "", text: "select_url".localized()) { (_) in
                 self.seturl()
                 },]
         }
         
         // Section à propos
         let plus = Section(name: "", elements: [
-            UIElementButton(id: "", text: "about".localized()) { (button) in
+            UIElementButton(id: "", text: "about".localized()) { (_) in
                 let text = "about_description".localized()
                 let alert = UIAlertController(title: "about".localized(), message: text, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: nil))
                 UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
             },
-            UIElementButton(id: "", text: "donate_paypal".localized()) { (button) in
+            UIElementButton(id: "", text: "donate_paypal".localized()) { (_) in
                 guard let link = URL(string: "https://www.paypal.me/PlugNPay") else { return }
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(link)
