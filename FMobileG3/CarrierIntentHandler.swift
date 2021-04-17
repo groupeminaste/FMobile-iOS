@@ -9,8 +9,7 @@
 import Foundation
 import Intents
 
-class CarrierIntentHandler: NSObject, CarrierIntentHandling, IllegalRoamingIntentHandling, GetCurrentMCCIntentHandling, GetCurrentMNCIntentHandling, GetSimMCCIntentHandling, GetSimMNCIntentHandling, GetCurrentCarrierIntentHandling, GetSimCarrierIntentHandling {
-    
+class CarrierIntentHandler: NSObject, CarrierIntentHandling, IllegalRoamingIntentHandling, GetCurrentMCCIntentHandling, GetCurrentMNCIntentHandling, GetSimMCCIntentHandling, GetSimMNCIntentHandling, GetCurrentCarrierIntentHandling, GetSimCarrierIntentHandling, FlightModeIntentHandling, IsWifiConnectedIntentHandling, IsNetworkConnectedIntentHandling {
     
     static func donateInteraction() {
         let carrierIntent = CarrierIntent()
@@ -21,6 +20,9 @@ class CarrierIntentHandler: NSObject, CarrierIntentHandling, IllegalRoamingInten
         let simMncIntent = GetSimMNCIntent()
         let currentCarrierIntent = GetCurrentCarrierIntent()
         let simCarrierIntent = GetSimCarrierIntent()
+        let flightModeIntent = FlightModeIntent()
+        let isWifiConnectedIntent = IsWifiConnectedIntent()
+        let isNetworkConnectedIntent = IsNetworkConnectedIntent()
         
         let interaction = INInteraction(intent: carrierIntent, response: nil)
         let interaction2 = INInteraction(intent: roamingIntent, response: nil)
@@ -30,6 +32,10 @@ class CarrierIntentHandler: NSObject, CarrierIntentHandling, IllegalRoamingInten
         let interaction6 = INInteraction(intent: simMncIntent, response: nil)
         let interaction7 = INInteraction(intent: currentCarrierIntent, response: nil)
         let interaction8 = INInteraction(intent: simCarrierIntent, response: nil)
+        let interaction9 = INInteraction(intent: flightModeIntent, response: nil)
+        let interaction10 = INInteraction(intent: isWifiConnectedIntent, response: nil)
+        let interaction11 = INInteraction(intent: isNetworkConnectedIntent, response: nil)
+        
         
         interaction.donate { error in
         
@@ -86,6 +92,28 @@ class CarrierIntentHandler: NSObject, CarrierIntentHandling, IllegalRoamingInten
             print(error.localizedDescription)
         }
         }
+        
+        interaction9.donate { error in
+        
+        if let error = error {
+            print(error.localizedDescription)
+        }
+        }
+        
+        interaction10.donate { error in
+        
+        if let error = error {
+            print(error.localizedDescription)
+        }
+        }
+        
+        interaction11.donate { error in
+        
+        if let error = error {
+            print(error.localizedDescription)
+        }
+        }
+        
         
         print("Donated Intents!")
     }
@@ -162,6 +190,24 @@ class CarrierIntentHandler: NSObject, CarrierIntentHandling, IllegalRoamingInten
         
         let carrier = dataManager.carrierName
         completion(GetSimCarrierIntentResponse.success(carrier: carrier))
+    }
+    
+    func handle(intent: FlightModeIntent, completion: @escaping (FlightModeIntentResponse) -> Void) {
+        let flightMode = DataManager.isAirplaneMode()
+        
+        completion(FlightModeIntentResponse.success(flightMode: flightMode ? 1 : 0))
+    }
+    
+    func handle(intent: IsWifiConnectedIntent, completion: @escaping (IsWifiConnectedIntentResponse) -> Void) {
+        let wifi = DataManager.isWifiConnected()
+        
+        completion(IsWifiConnectedIntentResponse.success(wifi: wifi ? 1 : 0))
+    }
+    
+    func handle(intent: IsNetworkConnectedIntent, completion: @escaping (IsNetworkConnectedIntentResponse) -> Void) {
+        let cellular = DataManager.isConnectedToNetwork()
+        
+        completion(IsNetworkConnectedIntentResponse.success(cellular: cellular ? 1 : 0))
     }
     
 }

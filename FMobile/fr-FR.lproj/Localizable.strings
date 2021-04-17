@@ -118,6 +118,8 @@
 "call_conso" = "Appeler le %@ (suivi conso)";
 "copy_callcode" = "Copier le code suivi conso dans le presse-papiers";
 "code_copied_confirmation" = "Code copié !";
+"open" = "Ouvrir le service %@";
+"copy" = "Copier le code service %@";
 "contact_title" = "Contact";
 "extopy_not_available_title" = "Extopy n'est pas encore disponible";
 "extopy_not_available_description" = "Pour en savoir plus, rendez-vous sur extopy.com";
@@ -139,7 +141,7 @@
 "field_test_copied_confirmation" = "Code copié !";
 "select_url" = "URL personnalisée pour le test de débit";
 "about" = "À propos";
-"about_description" = "Application et Raccourcis créés par Michaël Nass\nUI/UX, test de débit et optimisation par Nathan Fallet\nLogo par Bruno (@brunopaiva_152)\n\nCette application a été développée par des développeurs indépendants et est fournie gratuitement sans aucune garantie.\n\nLe Groupe MINASTE (y compris son application FMobile) n'est, en aucun cas, affilié à quelconque opérateur.\n\n© 2019 Groupe MINASTE";
+"about_description" = "Application et Raccourcis créés par Michaël Nass\nUI/UX, test de débit et optimisation par Nathan Fallet\nLogo par Bruno (@brunopaiva_152)\n\nCette application a été développée par des développeurs indépendants et est fournie gratuitement sans aucune garantie.\n\nLe Groupe MINASTE (y compris son application FMobile) n'est, en aucun cas, affilié à quelconque opérateur.\n\n© 2020 Groupe MINASTE";
 "donate_paypal" = "Faire un don PayPal";
 "donate_description" = "Quoi qu'il arrive, FMobile restera gratuite et sans publicités. Le don est une manière de me remercier pour l'app, même si je suis déjà super content si vous ne faites que me donner vos retours. Vous contribuerez au financement de mon projet Extopy. Merci de bien tester l'application et soyez sûr et certain de vouloir me de laisser un tip avant de le faire.";
 "ok" = "OK";

@@ -44,6 +44,7 @@ class DataManager {
     var modeExpert = false
     var statisticsAgreement = false
     var syncNewSIM = Date().addingTimeInterval(30)
+    var isSettingUp = false
     
     // Carrier vars
     var simData = String()
@@ -59,6 +60,7 @@ class DataManager {
     var airplanemode = false
     var checkSimMCC = "999"
     var checkSimMNC = "99"
+    var siminventory = [(String, CTCarrier, String)]()
     
     // Carrier setup
     var hp = "WCDMA"
@@ -80,6 +82,8 @@ class DataManager {
     var countriesVoice = [String]()
     var countriesVData = [String]()
     var disableFMobileCore = false
+    var registeredService = String()
+    var carrierServices = [(String, String, String)]()
     
     // Custom values
     var includedData = [String]()
@@ -226,6 +230,27 @@ class DataManager {
         if let includedVoice = datas.value(forKey: "includedVoice") as? [String] {
             self.includedVoice = includedVoice
         }
+        if let isSettingUp = datas.value(forKey: "isSettingUp") as? Bool {
+            self.isSettingUp = isSettingUp
+        }
+        if let registeredService = datas.value(forKey: "registeredService") as? String {
+            self.registeredService = registeredService
+        }
+        if let carrierServices = datas.value(forKey: "carrierServices") as? [[String]] {
+            var newCarrierS = [(String, String, String)]()
+            
+            for service in carrierServices {
+                if service.count >= 3 {
+                    if !service[0].isEmpty && !service[1].isEmpty && !service[2].isEmpty {
+                        newCarrierS.append((service[0], service[1], service[2]))
+                    }
+                }
+            }
+            self.carrierServices = newCarrierS
+        }
+        
+        print(carrierServices)
+        
         
         // Arrondi des valeurs
         if stms <= 0.5 {
@@ -300,20 +325,7 @@ class DataManager {
             print("Une erreur s'est produite : \(error)")
         }
         
-        
-        let urlairplane = URL(fileURLWithPath: "/var/preferences/SystemConfiguration/com.apple.radios.plist")
-        do {
-            let test = try NSDictionary(contentsOf: urlairplane, error: ())
-            airplanemode = test["AirplaneMode"] as? Bool ?? false
-         if airplanemode {
-            print("The device is in Airplane mode.")
-         } else {
-             print("The device is not in Airplane mode.")
-         }
-        } catch {
-            print("Une erreur s'est produite : \(error)")
-        }
-        
+        airplanemode = DataManager.isAirplaneMode()
         
         connectedMCC = String(currentNetwork.prefix(3))
         connectedMNC = String(currentNetwork.count == 6 ? currentNetwork.suffix(3) : currentNetwork.suffix(2))
@@ -326,24 +338,34 @@ class DataManager {
         
         let info = CTTelephonyNetworkInfo()
         
-        var simnum = 0
         for (service, carrier) in info.serviceSubscriberCellularProviders ?? [:] {
-            simnum += 1
-            if simnum == 1{
-                mycarrier = carrier
-                carrierNetwork = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
-            } else if simnum == 2 {
-                mycarrier2 = carrier
-                carrierNetwork2 = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
-            }
+            
             let radio = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
+            siminventory.append((service, carrier, radio))
+            
             print("For Carrier " + (carrier.carrierName ?? "null") + ", got " + radio)
             print(service)
         }
         
-        if (mycarrier2.mobileCountryCode == targetMCC && mycarrier2.mobileNetworkCode == targetMNC) || (mycarrier2.mobileCountryCode == checkSimMCC && mycarrier2.mobileNetworkCode == checkSimMNC) {
+        print(siminventory)
+        
+        if siminventory.count > 0 {
+            mycarrier = siminventory[0].1
+            carrierNetwork = siminventory[0].2
+            print("\(siminventory[0].0) match test with registered \(registeredService)")
+        }
+        
+        if siminventory.count > 1 {
+            mycarrier2 = siminventory[1].1
+            carrierNetwork2 = siminventory[1].2
+            
+            print("\(siminventory[1].0) match test with registered \(registeredService)")
+        
+            if (mycarrier2.mobileCountryCode == targetMCC && mycarrier2.mobileNetworkCode == targetMNC) || (mycarrier2.mobileCountryCode == checkSimMCC && mycarrier2.mobileNetworkCode == checkSimMNC) || (siminventory[1].0 == registeredService) {
             swap(&mycarrier2, &mycarrier)
             swap(&carrierNetwork2, &carrierNetwork)
+            }
+        
         }
         
         print(carrierNetwork)
@@ -379,6 +401,80 @@ class DataManager {
             chasedMNC = targetMNC
         } else {
             chasedMNC = itiMNC
+        }
+        
+        switch hp.uppercased() {
+        case "LTE":
+            hp = CTRadioAccessTechnologyLTE
+        case "WCDMA":
+            hp = CTRadioAccessTechnologyWCDMA
+        case "HSDPA":
+            hp = CTRadioAccessTechnologyHSDPA
+        case "EDGE":
+            hp = CTRadioAccessTechnologyEdge
+        case "GPRS":
+            hp = CTRadioAccessTechnologyGPRS
+        case "EHRPD":
+            hp = CTRadioAccessTechnologyeHRPD
+        case "HRPD":
+            hp = CTRadioAccessTechnologyeHRPD
+        case "HSUPA":
+            hp = CTRadioAccessTechnologyHSUPA
+        case "CDMA1X":
+            hp = CTRadioAccessTechnologyCDMA1x
+        case "CDMA":
+            hp = CTRadioAccessTechnologyCDMA1x
+        case "CDMAEVDOREV0":
+            hp = CTRadioAccessTechnologyCDMAEVDORev0
+        case "EVDO":
+            hp = CTRadioAccessTechnologyCDMAEVDORev0
+        case "CDMAEVDOREVA":
+            hp = CTRadioAccessTechnologyCDMAEVDORevA
+        case "EVDOA":
+            hp = CTRadioAccessTechnologyCDMAEVDORevA
+        case "CDMAEVDOREVB":
+            hp = CTRadioAccessTechnologyCDMAEVDORevB
+        case "EVDOB":
+            hp = CTRadioAccessTechnologyCDMAEVDORevB
+        default:
+            hp = CTRadioAccessTechnologyWCDMA
+        }
+        
+        switch nrp.uppercased() {
+        case "LTE":
+            nrp = CTRadioAccessTechnologyLTE
+        case "WCDMA":
+            nrp = CTRadioAccessTechnologyWCDMA
+        case "HSDPA":
+            nrp = CTRadioAccessTechnologyHSDPA
+        case "EDGE":
+            nrp = CTRadioAccessTechnologyEdge
+        case "GPRS":
+            nrp = CTRadioAccessTechnologyGPRS
+        case "EHRPD":
+            nrp = CTRadioAccessTechnologyeHRPD
+        case "HRPD":
+            nrp = CTRadioAccessTechnologyeHRPD
+        case "HSUPA":
+            nrp = CTRadioAccessTechnologyHSUPA
+        case "CDMA1X":
+            nrp = CTRadioAccessTechnologyCDMA1x
+        case "CDMA":
+            nrp = CTRadioAccessTechnologyCDMA1x
+        case "CDMAEVDOREV0":
+            nrp = CTRadioAccessTechnologyCDMAEVDORev0
+        case "EVDO":
+            nrp = CTRadioAccessTechnologyCDMAEVDORev0
+        case "CDMAEVDOREVA":
+            nrp = CTRadioAccessTechnologyCDMAEVDORevA
+        case "EVDOA":
+            nrp = CTRadioAccessTechnologyCDMAEVDORevA
+        case "CDMAEVDOREVB":
+            nrp = CTRadioAccessTechnologyCDMAEVDORevB
+        case "EVDOB":
+            nrp = CTRadioAccessTechnologyCDMAEVDORevB
+        default:
+            nrp = CTRadioAccessTechnologyHSDPA
         }
         
         // On fait le check européen (pays inclus EU)
@@ -515,6 +611,17 @@ class DataManager {
             }
         }
         return valueToReturn
+    }
+    
+    static func isAirplaneMode() -> Bool {
+        let urlairplane = URL(fileURLWithPath: "/var/preferences/SystemConfiguration/com.apple.radios.plist")
+        do {
+            let test = try NSDictionary(contentsOf: urlairplane, error: ())
+            let airplanemode = test["AirplaneMode"] as? Bool ?? false
+            return airplanemode
+        } catch {
+            return false
+        }
     }
     
     func isNRDECstatus() -> Bool {

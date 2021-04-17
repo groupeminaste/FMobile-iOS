@@ -41,6 +41,7 @@
 			<key>IntentsSupported</key>
 			<array>
 				<string>CarrierIntent</string>
+				<string>FlightModeIntent</string>
 				<string>GetCurrentCarrierIntent</string>
 				<string>GetCurrentMCCIntent</string>
 				<string>GetCurrentMNCIntent</string>
@@ -48,6 +49,8 @@
 				<string>GetSimMCCIntent</string>
 				<string>GetSimMNCIntent</string>
 				<string>IllegalRoamingIntent</string>
+				<string>IsNetworkConnectedIntent</string>
+				<string>IsWifiConnectedIntent</string>
 			</array>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>

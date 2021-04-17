@@ -1,36 +1,58 @@
-"1Gq9I0" = "Obtenir le MCC de la carte SIM";
+"07Bqfc" = "Erreur";
 
-"2Ic8Is" = "Obtenir le MCC de la SIM";
+"2Ic8Is" = "Obtenir le MNC de la carte SIM";
 
 "2O0Z0J" = "${roaming}";
 
-"4bknAw" = "Une erreur s'est produite.";
+"37NcUM" = "Obtient le statut d'une connexion en itinérance nationale. Retourne 0/1.";
 
-"4e5VzK" = "Retourne le MCC actuel du réseau connecté";
+"4PBnst" = "${carrier}";
+
+"4bknAw" = "Erreur";
+
+"4e5VzK" = "Retourne le MCC du réseau connecté";
+
+"5ELEwW" = "Statut du mode avion";
 
 "5I4WMR" = "Retourne le MNC de la carte SIM";
 
+"6OSdTz" = "Erreur";
+
 "6csoSr" = "Retourne le MCC de la carte SIM";
 
-"B5KrgZ" = "Obtenir le MNC de la SIM";
+"8F2iON" = "Statut de connexion cellulaire";
+
+"9AoR98" = "${flightMode}";
+
+"9G9ZgU" = "${carrier}";
 
 "BmKG1n" = "Obtenir le MCC actuel";
 
-"CabRuh" = "Vous êtes connecté au MNC : ${mnc}";
+"CabRuh" = "${mnc}";
 
 "Cxh6DA" = "Obtenir le MNC actuel";
 
-"DMQq3J" = "Obtenir le MCC actuel du réseau connecté";
-
-"DdmfiG" = "Une erreur s'est produite.";
+"DdmfiG" = "Erreur";
 
 "FpX2L5" = "Obtenir le MNC actuel";
 
 "GRNv06" = "${mnc}";
 
+"IT1l2g" = "Obtenir le statut du mode avion";
+
+"InqGrV" = "Obtenir l'opérateur SIM";
+
+"JmoZDF" = "Obtenir l'opérateur actuel";
+
 "K6bzVl" = "Obtenir le MCC de la carte SIM";
 
-"L6r1je" = "Désolé, une erreur s'est produite.";
+"KSVtAz" = "${cellular}";
+
+"KT4ceM" = "Obtient le nom de l'opérateur connecté";
+
+"L3RtsF" = "${carrier}";
+
+"L6r1je" = "Erreur";
 
 "LNAh5b" = "Erreur";
 
@@ -38,59 +60,105 @@
 
 "OK3cDF" = "Obtenir le MCC actuel";
 
+"PLYmzh" = "Erreur";
+
+"Q5Jwtl" = "Obtenir le Statut d'Itinérance Nationale";
+
+"R5EoMD" = "Erreur";
+
+"TKk3SA" = "Statut du mode avion";
+
 "VO77Ks" = "${mcc}";
 
-"WNo3ep" = "Obtenir le MNC actuel";
+"VhFC6Z" = "Erreur";
 
-"bGliKc" = "Vérifier le statut de l'itinérance internationale non-autorisée";
+"Xk66YZ" = "${carrier}";
+
+"YmE9lQ" = "Statut de connexion Wi-Fi";
+
+"Yvwa99" = "Obtient le nom de l'opérateur de la carte SIM";
+
+"Z5Q5Us" = "Itinérance Nationale";
 
 "bUv2SI" = "MCC";
 
 "c2PAzW" = "MNC";
 
-"c4k2kQ" = "Obtenir le MCC de la SIM";
+"c4k2kQ" = "Obtenir le MCC de la carte SIM";
 
-"c5nZMC" = "Obtenir le MCC de la carte SIM";
+"cj3edn" = "${flightMode}";
 
-"cTVs12" = "sur un réseau international interdit";
+"cwTJKe" = "${roaming}";
 
-"cwTJKe" = "Vous êtes connecté ${roaming}";
-
-"dOs4t4" = "Vérifie le statut de la connexion en itinérance internationale non-autorisée";
+"dOs4t4" = "Vérifie le statut de l'itinérance interdite";
 
 "daFk7V" = "Obtenir le MNC de la carte SIM";
 
-"ewYgMQ" = "Le MNC de votre carte SIM est : ${mnc}";
+"ewYgMQ" = "${mnc}";
 
-"fhCJVM" = "Vérifie l'utilisation interdite de l'itinérance internationale";
+"fLwUtT" = "${cellular}";
 
 "fiYRii" = "${mcc}";
 
+"g1HYTa" = "Erreur";
+
+"gGtAtZ" = "Erreur";
+
 "h19Zqc" = "Itinérance";
 
-"hZAVGO" = "Obtenir le MCC actuel du réseau connecté";
+"hDW63j" = "Erreur";
+
+"hJqUW5" = "${wifi}";
+
+"i1UfNg" = "Statut de connexion Wi-Fi";
+
+"iWygLe" = "Vérifie si l'appareil est connecté au Wi-FI";
+
+"inubuu" = "Obtenir l'opérateur actuel";
+
+"jJtlw3" = "Statut du mode avion";
+
+"jRXlKB" = "${wifi}";
 
 "jUD9k1" = "Erreur";
 
 "jacx6j" = "MNC";
 
-"k8b7Vd" = "Une erreur s'est produite.";
+"k8b7Vd" = "Erreur";
 
-"npPdKC" = "Le MCC de votre carte SIM est : ${mcc}";
+"keKkJG" = "Erreur";
+
+"kjbMlw" = "Vérifie si l'appareil est connecté au réseau cellulaire";
+
+"m20RCM" = "Statut de connexion cellulaire";
+
+"npPdKC" = "${mcc}";
 
 "o3DgJm" = "Erreur";
 
 "oNUcPB" = "Retourne le MCC du réseau connecté";
 
-"ohhgC9" = "sur un réseau autorisé";
+"pHYkHd" = "Opérateur";
 
-"qW6cQD" = "Obtenir le statut d'itinérance interdite";
+"pQRBZP" = "Obtenir l'opérateur SIM";
 
-"qYuUEE" = "Obtient le MNC de la carte SIM";
+"paFIqg" = "Erreur";
 
-"riTDBK" = "Une erreur s'est produite";
+"pxK0cA" = "${carrier}";
 
-"s0YZwR" = "Vérifier le statut d'itinérance interdite";
+"qW6cQD" = "Obtenir le Statut d'Itinérance Interdite";
+
+"riTDBK" = "Erreur";
+
+"s0YZwR" = "Obtenir le Statut d'Itinérance Interdite";
+
+"s4kvV0" = "Connexion cellulaire";
+
+"sLkT1i" = "Erreur";
+
+"shaxdE" = "Erreur";
+
+"tv807z" = "Obtenir le Statut d'Itinérance Nationale";
 
 "uOCw3O" = "Erreur";
 
@@ -98,70 +166,12 @@
 
 "wU6jLX" = "${mnc}";
 
-"yTa07U" = "Le MCC connecté est : ${mcc}.";
-
-"zHzCNL" = "Obtenir le MCC actuel";
-
-"0s1Ssy" = "Obtenir le statut d'une connexion en Itinérance Nationale.";
-
-"2tWd7V" = "en itinérance nationale";
-
-"37NcUM" = "Obtenir le statut d'une connexion en Itinérance Nationale. Renvoie 0/1.";
-
-"I171dw" = "votre réseau domestique";
-
-"L3RtsF" = "Vous êtes actuellement connecté à ${carrier}.";
-
-"Q5Jwtl" = "Obtenir le Statut d'Itinérance Nationale";
-
-"Xk66YZ" = "${carrier}";
-
-"Z5Q5Us" = "Itinérance nationale";
-
-"g1HYTa" = "Erreur";
-
-"hDW63j" = "Désolé, une erreur s'est produite.";
-
-"mh97LU" = "Obtenir le Statut d'Itinérance Nationale";
-
-"tv807z" = "Obtenir le Statut d'Itinérance Nationale";
-
-"07Bqfc" = "Une erreur s'est produite";
-
-"148NnB" = "Retourne le nom de l'opérateur de la carte SIM";
-
-"3onxl0" = "Obtenir l'opérateur SIM";
-
-"4PBnst" = "Vous êtes connecté chez ${carrier}";
-
-"9G9ZgU" = "Votre opérateur de carte SIM est ${carrier}";
-
-"InqGrV" = "Obtenir l'opérateur SIM";
-
-"JmoZDF" = "Obtenir l'opérateur actuel";
-
-"KT4ceM" = "Obtient le nom de l'opérateur actuellement connecté";
-
-"KiJFmO" = "Obtenir l'opérateur actuel";
-
-"U2A2bg" = "Retourne le nom de l'opérateur actuellement connecté";
-
-"VhFC6Z" = "Erreur";
-
-"Yvwa99" = "Obtient le nom de l'opérateur de la carte SIM";
-
-"inubuu" = "Obtenir l'opérateur actuel";
-
-"keKkJG" = "Une erreur s'est produite";
-
-"pHYkHd" = "Opérateur";
-
-"pQRBZP" = "Obtenir l'opérateur SIM";
-
-"pxK0cA" = "${carrier}";
-
-"shaxdE" = "Erreur";
-
 "xqcFOJ" = "${carrier}";
 
+"y9r5ho" = "Connexion Wi-Fi";
+
+"yTa07U" = "${mcc}";
+
 "yzYR7B" = "Opérateur";
+
+

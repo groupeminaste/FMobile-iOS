@@ -119,6 +119,8 @@
 "call_conso" = "Call the %@ (consumption tracking)";
 "copy_callcode" = "Copy the consumption tracking code in the pasteboard";
 "code_copied_confirmation" = "Code successfully copied!";
+"open" = "Open service %@";
+"copy" = "Copy code for service %@";
 "contact_title" = "Contact";
 "extopy_not_available_title" = "Extopy is not yet available";
 "extopy_not_available_description" = "To learn more about it, please visit extopy.com";
@@ -140,7 +142,7 @@
 "field_test_copied_confirmation" = "Code successfully copied!";
 "select_url" = "Custom URL for the speed test";
 "about" = "About";
-"about_description" = "Application and Shortcut made by Michaël Nass\nUI/UX, speedtest and optimization by Nathan Fallet\nLogo by Bruno (@brunopaiva_152)\n\nThis application has been developed by independent developers, and is provided for free without any warranty.\n\nThe Groupe MINASTE (including its FMobile application) is not, in any case, affiliated with any carrier.\n\n© 2019 Groupe MINASTE";
+"about_description" = "Application and Shortcut made by Michaël Nass\nUI/UX, speedtest and optimization by Nathan Fallet\nLogo by Bruno (@brunopaiva_152)\n\nThis application has been developed by independent developers, and is provided for free without any warranty.\n\nThe Groupe MINASTE (including its FMobile application) is not, in any case, affiliated with any carrier.\n\n© 2020 Groupe MINASTE";
 "donate_paypal" = "Donate with PayPal";
 "donate_description" = "No matter what, FMobile will stay free and ad-free. The donation is a way to thank me for the app, even if I'm already super happy if you just give me a feedback about it. You will contribute to the funding of my Extopy project. Please make sure to fully test the application and be 100% sure you want to leave me a tip before doing so.";
 "ok" = "OK";
@@ -163,7 +165,7 @@
 "exit_roaming" = "Exit the national roaming";
 "send_diagnostic_to_developer" = "Send to the developer";
 "email_default_content" = "<p>Explain in details the problem you are encoutering here: </p>";
-"diagnostic_email" = "FMobile %@ diagnistics - b%@";
+"diagnostic_email" = "FMobile %@ diagnostic - b%@";
 "mail_not_available" = "The Mail app is currently unavailable.";
 
 

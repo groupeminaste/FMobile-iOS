@@ -119,6 +119,8 @@
 "call_conso" = "Llamar al %@ (Seguimiento del consumo)";
 "copy_callcode" = "Copia el código de seguimiento de consumos en la mesa de trabajo";
 "code_copied_confirmation" = "¡Código copiado con éxito!";
+"open" = "Abra el servicio %@";
+"copy" = "Copie el código de servicio %@";
 "contact_title" = "Contacto";
 "extopy_not_available_title" = "Extopy aún no está disponible";
 "extopy_not_available_description" = "Para obtener más información al respecto, visite extopy.com";
@@ -140,7 +142,7 @@
 "field_test_copied_confirmation" = "¡Código copiado exitosamente!";
 "select_url" = "URL personalizada para la prueba de velocidad";
 "about" = "Sobre";
-"about_description" = "Aplicación y atajo realizado por Michaël Nass\nUI/UX, prueba de velocidad y optimización por Nathan Fallet\nLogo por Bruno (@brunopaiva_152)\n\nEsta aplicación ha sido desarrollada por desarrolladores independientes y se proporciona de forma gratuita sin ninguna garantía.\n\nEl Groupe MINASTE (incluyendo su aplicación FMobile) no está, en ningún caso, afiliado a ningún operador.\n\n© 2019 Groupe MINASTE";
+"about_description" = "Aplicación y atajo realizado por Michaël Nass\nUI/UX, prueba de velocidad y optimización por Nathan Fallet\nLogo por Bruno (@brunopaiva_152)\n\nEsta aplicación ha sido desarrollada por desarrolladores independientes y se proporciona de forma gratuita sin ninguna garantía.\n\nEl Groupe MINASTE (incluyendo su aplicación FMobile) no está, en ningún caso, afiliado a ningún operador.\n\n© 2020 Groupe MINASTE";
 "donate_paypal" = "Hacer una donación con PayPal";
 "donate_description" = "No importa qué, FMobile se mantendrá libre y sin publicidad. La donación es una forma de agradecerme la aplicación, incluso si ya estoy súper contento si solo me envías un comentario al respecto. Contribuirás a la financiación de mi proyecto Extopy. Asegúrese de probar la aplicación por completo y de estar 100% seguro de que quiere dejarme una sugerencia antes de hacerlo.";
 "ok" = "De acuerdo";

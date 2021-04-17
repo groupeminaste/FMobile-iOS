@@ -1,50 +1,44 @@
-"07Bqfc" = "An error occured";
+"07Bqfc" = "Error";
 
-"0s1Ssy" = "Get the status of a National Roaming connection.";
-
-"148NnB" = "Returns the name of the SIM card carrier name";
-
-"1Gq9I0" = "Gets the SIM card MCC";
-
-"2Ic8Is" = "Get SIM MNC";
+"2Ic8Is" = "Get SIM card MNC";
 
 "2O0Z0J" = "${roaming}";
 
-"2tWd7V" = "a natinoal roaming network";
+"37NcUM" = "Gets the status of a National Roaming connection. Returns 0/1.";
 
-"37NcUM" = "Get the status of a National Roaming connection. Returns 0/1.";
+"4PBnst" = "${carrier}";
 
-"3onxl0" = "Get SIM Carrier";
-
-"4PBnst" = "You are connected on ${carrier}";
-
-"4bknAw" = "An error occured.";
+"4bknAw" = "Error";
 
 "4e5VzK" = "Returns the current MCC of the connected network";
 
+"5ELEwW" = "Airplane Mode Status";
+
 "5I4WMR" = "Returns the SIM card MNC";
+
+"6OSdTz" = "Error";
 
 "6csoSr" = "Returns the SIM card MCC";
 
-"9G9ZgU" = "Your SIM card carrier is ${carrier}";
+"8F2iON" = "Cellular Connection Status";
 
-"B5KrgZ" = "Get SIM card MNC";
+"9AoR98" = "${flightMode}";
+
+"9G9ZgU" = "${carrier}";
 
 "BmKG1n" = "Get Current MCC";
 
-"CabRuh" = "Your connected mnc is ${mnc}";
+"CabRuh" = "${mnc}";
 
 "Cxh6DA" = "Get Current MNC";
 
-"DMQq3J" = "Get the current MCC of the connected network";
-
-"DdmfiG" = "An error occured.";
+"DdmfiG" = "Error";
 
 "FpX2L5" = "Get Current MNC";
 
 "GRNv06" = "${mnc}";
 
-"I171dw" = "your home network";
+"IT1l2g" = "Get Airplane Mode Status";
 
 "InqGrV" = "Get SIM Carrier";
 
@@ -52,13 +46,13 @@
 
 "K6bzVl" = "Get SIM card MCC";
 
+"KSVtAz" = "${cellular}";
+
 "KT4ceM" = "Gets the current connected carrier name";
 
-"KiJFmO" = "Get Current Carrier";
+"L3RtsF" = "${carrier}";
 
-"L3RtsF" = "You are currently connected to ${carrier}.";
-
-"L6r1je" = "Sorry, an error occured.";
+"L6r1je" = "Error";
 
 "LNAh5b" = "Error";
 
@@ -66,87 +60,101 @@
 
 "OK3cDF" = "Get Current MCC";
 
-"Q5Jwtl" = "Get National Roaming Status";
+"PLYmzh" = "Error";
 
-"U2A2bg" = "Returns the name of the current connected carrier";
+"Q5Jwtl" = "Get National Romaing Status";
+
+"R5EoMD" = "Error";
+
+"TKk3SA" = "Airplane Mode Status";
 
 "VO77Ks" = "${mcc}";
 
 "VhFC6Z" = "Error";
 
-"WNo3ep" = "Get Current MNC";
-
 "Xk66YZ" = "${carrier}";
+
+"YmE9lQ" = "Wi-Fi Connection Status";
 
 "Yvwa99" = "Gets the name of the SIM card carrier";
 
 "Z5Q5Us" = "National Roaming";
 
-"bGliKc" = "Forbidden Roaming Status Check";
-
 "bUv2SI" = "MCC";
 
 "c2PAzW" = "MNC";
 
-"c4k2kQ" = "Get SIM MCC";
+"c4k2kQ" = "Get SIM card MCC";
 
-"c5nZMC" = "Get SIM card MCC";
+"cj3edn" = "${flightMode}";
 
-"cTVs12" = "a forbidden roaming network";
-
-"cwTJKe" = "You are currently on ${roaming}";
+"cwTJKe" = "${roaming}";
 
 "dOs4t4" = "Checks forbidden roaming status";
 
 "daFk7V" = "Get SIM card MNC";
 
-"ewYgMQ" = "Your SIM card mnc is ${mnc}";
+"ewYgMQ" = "${mnc}";
 
-"fhCJVM" = "Check for forbidden roaming usage";
+"fLwUtT" = "${cellular}";
 
 "fiYRii" = "${mcc}";
 
 "g1HYTa" = "Error";
 
+"gGtAtZ" = "Error";
+
 "h19Zqc" = "Roaming";
 
-"hDW63j" = "Sorry, an error occured.";
+"hDW63j" = "Error";
 
-"hZAVGO" = "Get the current MCC of the connected network";
+"hJqUW5" = "${wifi}";
+
+"i1UfNg" = "Wi-Fi Connection Status";
+
+"iWygLe" = "Checks if the device is connected to Wi-Fi";
 
 "inubuu" = "Get Current Carrier";
+
+"jJtlw3" = "Airplane Mode Status";
+
+"jRXlKB" = "${wifi}";
 
 "jUD9k1" = "Error";
 
 "jacx6j" = "MNC";
 
-"k8b7Vd" = "An error occured.";
+"k8b7Vd" = "Error";
 
-"keKkJG" = "An error occured";
+"keKkJG" = "Error";
 
-"mh97LU" = "Get National Roaming Status";
+"kjbMlw" = "Checks if the device is connected to Cellular";
 
-"npPdKC" = "Your SIM card MCC is ${mcc}";
+"m20RCM" = "Cellular Connection Status";
+
+"npPdKC" = "${mcc}";
 
 "o3DgJm" = "Error";
 
 "oNUcPB" = "Returns the current MCC of the connected network";
 
-"ohhgC9" = "a legal network";
-
 "pHYkHd" = "Carrier";
 
 "pQRBZP" = "Get SIM Carrier";
+
+"paFIqg" = "Error";
 
 "pxK0cA" = "${carrier}";
 
 "qW6cQD" = "Get Forbidden Roaming Status";
 
-"qYuUEE" = "Gets the SIM card MNC";
+"riTDBK" = "Error";
 
-"riTDBK" = "An error occured";
+"s0YZwR" = "Get Forbidden Roaming Status";
 
-"s0YZwR" = "Forbidden Roaming Status Check";
+"s4kvV0" = "Cellular connection";
+
+"sLkT1i" = "Error";
 
 "shaxdE" = "Error";
 
@@ -160,9 +168,9 @@
 
 "xqcFOJ" = "${carrier}";
 
-"yTa07U" = "The connected mcc is ${mcc}.";
+"y9r5ho" = "Wi-Fi connection";
+
+"yTa07U" = "${mcc}";
 
 "yzYR7B" = "Carrier";
-
-"zHzCNL" = "Get Current MCC";
 

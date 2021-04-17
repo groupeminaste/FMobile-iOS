@@ -9,11 +9,11 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>s5yDy2</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>19A602</string>
+	<string>19B88</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>11A1027</string>
+	<string>11B500</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>11.1</string>
+	<string>11.2.1</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
@@ -26,7 +26,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>Image 98-1024</string>
 			<key>INIntentDescription</key>
-			<string>Get the status of a National Roaming connection. Returns 0/1.</string>
+			<string>Gets the status of a National Roaming connection. Returns 0/1.</string>
 			<key>INIntentDescriptionID</key>
 			<string>37NcUM</string>
 			<key>INIntentIneligibleForSuggestions</key>
@@ -57,7 +57,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>Xk66YZ</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>You are currently connected to ${carrier}.</string>
+						<string>${carrier}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>L3RtsF</string>
 						<key>INIntentResponseCodeName</key>
@@ -71,7 +71,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>g1HYTa</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Sorry, an error occured.</string>
+						<string>Error</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>hDW63j</string>
 						<key>INIntentResponseCodeName</key>
@@ -131,7 +131,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Illegal Roaming Status Check</string>
+					<string>Get Forbidden Roaming Status</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>s0YZwR</string>
 					<key>INIntentParameterCombinationUpdatesLinked</key>
@@ -150,7 +150,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>2O0Z0J</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>You are currently on ${roaming}</string>
+						<string>${roaming}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>cwTJKe</string>
 						<key>INIntentResponseCodeName</key>
@@ -164,7 +164,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>vv5HI8</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Sorry, an error occured.</string>
+						<string>Error</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>L6r1je</string>
 						<key>INIntentResponseCodeName</key>
@@ -213,6 +213,8 @@
 			<string>Returns the current MCC of the connected network</string>
 			<key>INIntentDescriptionID</key>
 			<string>4e5VzK</string>
+			<key>INIntentIneligibleForSuggestions</key>
+			<true/>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
 				<key></key>
@@ -229,24 +231,6 @@
 			</dict>
 			<key>INIntentName</key>
 			<string>GetCurrentMCC</string>
-			<key>INIntentParameterCombinations</key>
-			<dict>
-				<key></key>
-				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string>Get the current MCC of the connected network</string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>hZAVGO</string>
-					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
-					<true/>
-					<key>INIntentParameterCombinationTitle</key>
-					<string>Get Current MCC</string>
-					<key>INIntentParameterCombinationTitleID</key>
-					<string>zHzCNL</string>
-				</dict>
-			</dict>
 			<key>INIntentResponse</key>
 			<dict>
 				<key>INIntentResponseCodes</key>
@@ -257,7 +241,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>fiYRii</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>The connected mcc is ${mcc}.</string>
+						<string>${mcc}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>yTa07U</string>
 						<key>INIntentResponseCodeName</key>
@@ -271,7 +255,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>o3DgJm</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>An error occured.</string>
+						<string>Error</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>DdmfiG</string>
 						<key>INIntentResponseCodeName</key>
@@ -320,6 +304,8 @@
 			<string>Returns the current MCC of the connected network</string>
 			<key>INIntentDescriptionID</key>
 			<string>oNUcPB</string>
+			<key>INIntentIneligibleForSuggestions</key>
+			<true/>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
 				<key></key>
@@ -336,24 +322,6 @@
 			</dict>
 			<key>INIntentName</key>
 			<string>GetCurrentMNC</string>
-			<key>INIntentParameterCombinations</key>
-			<dict>
-				<key></key>
-				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string>Get the current MCC of the connected network</string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>DMQq3J</string>
-					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
-					<true/>
-					<key>INIntentParameterCombinationTitle</key>
-					<string>Get Current MNC</string>
-					<key>INIntentParameterCombinationTitleID</key>
-					<string>WNo3ep</string>
-				</dict>
-			</dict>
 			<key>INIntentResponse</key>
 			<dict>
 				<key>INIntentResponseCodes</key>
@@ -364,7 +332,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>GRNv06</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Your connected mnc is ${mnc}</string>
+						<string>${mnc}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>CabRuh</string>
 						<key>INIntentResponseCodeName</key>
@@ -378,7 +346,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>LNAh5b</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>An error occured</string>
+						<string>Error</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>riTDBK</string>
 						<key>INIntentResponseCodeName</key>
@@ -427,6 +395,8 @@
 			<string>Returns the SIM card MCC</string>
 			<key>INIntentDescriptionID</key>
 			<string>6csoSr</string>
+			<key>INIntentIneligibleForSuggestions</key>
+			<true/>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
 				<key></key>
@@ -443,24 +413,6 @@
 			</dict>
 			<key>INIntentName</key>
 			<string>GetSimMCC</string>
-			<key>INIntentParameterCombinations</key>
-			<dict>
-				<key></key>
-				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string>Gets the SIM card MCC</string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>1Gq9I0</string>
-					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
-					<true/>
-					<key>INIntentParameterCombinationTitle</key>
-					<string>Get SIM card MCC</string>
-					<key>INIntentParameterCombinationTitleID</key>
-					<string>c5nZMC</string>
-				</dict>
-			</dict>
 			<key>INIntentResponse</key>
 			<dict>
 				<key>INIntentResponseCodes</key>
@@ -471,7 +423,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>VO77Ks</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Your SIM card MCC is ${mcc}</string>
+						<string>${mcc}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>npPdKC</string>
 						<key>INIntentResponseCodeName</key>
@@ -485,7 +437,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>jUD9k1</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>An error occured.</string>
+						<string>Error</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>4bknAw</string>
 						<key>INIntentResponseCodeName</key>
@@ -515,7 +467,7 @@
 				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>Get SIM MCC</string>
+			<string>Get SIM card MCC</string>
 			<key>INIntentTitleID</key>
 			<string>c4k2kQ</string>
 			<key>INIntentType</key>
@@ -534,6 +486,8 @@
 			<string>Returns the SIM card MNC</string>
 			<key>INIntentDescriptionID</key>
 			<string>5I4WMR</string>
+			<key>INIntentIneligibleForSuggestions</key>
+			<true/>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
 				<key></key>
@@ -550,24 +504,6 @@
 			</dict>
 			<key>INIntentName</key>
 			<string>GetSimMNC</string>
-			<key>INIntentParameterCombinations</key>
-			<dict>
-				<key></key>
-				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string>Gets the SIM card MNC</string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>qYuUEE</string>
-					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
-					<true/>
-					<key>INIntentParameterCombinationTitle</key>
-					<string>Get SIM card MNC</string>
-					<key>INIntentParameterCombinationTitleID</key>
-					<string>B5KrgZ</string>
-				</dict>
-			</dict>
 			<key>INIntentResponse</key>
 			<dict>
 				<key>INIntentResponseCodes</key>
@@ -578,7 +514,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>wU6jLX</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Your SIM card mnc is ${mnc}</string>
+						<string>${mnc}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>ewYgMQ</string>
 						<key>INIntentResponseCodeName</key>
@@ -592,7 +528,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>uOCw3O</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>An error occured.</string>
+						<string>Error</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>k8b7Vd</string>
 						<key>INIntentResponseCodeName</key>
@@ -622,7 +558,7 @@
 				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>Get SIM MNC</string>
+			<string>Get SIM card MNC</string>
 			<key>INIntentTitleID</key>
 			<string>2Ic8Is</string>
 			<key>INIntentType</key>
@@ -641,6 +577,8 @@
 			<string>Gets the current connected carrier name</string>
 			<key>INIntentDescriptionID</key>
 			<string>KT4ceM</string>
+			<key>INIntentIneligibleForSuggestions</key>
+			<true/>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
 				<key></key>
@@ -657,24 +595,6 @@
 			</dict>
 			<key>INIntentName</key>
 			<string>GetCurrentCarrier</string>
-			<key>INIntentParameterCombinations</key>
-			<dict>
-				<key></key>
-				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string>Returns the name of the current connected carrier</string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>U2A2bg</string>
-					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
-					<true/>
-					<key>INIntentParameterCombinationTitle</key>
-					<string>Get Current Carrier</string>
-					<key>INIntentParameterCombinationTitleID</key>
-					<string>KiJFmO</string>
-				</dict>
-			</dict>
 			<key>INIntentResponse</key>
 			<dict>
 				<key>INIntentResponseCodes</key>
@@ -685,7 +605,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>xqcFOJ</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>You are connected on ${carrier}</string>
+						<string>${carrier}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>4PBnst</string>
 						<key>INIntentResponseCodeName</key>
@@ -699,7 +619,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>VhFC6Z</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>An error occured</string>
+						<string>Error</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>07Bqfc</string>
 						<key>INIntentResponseCodeName</key>
@@ -742,10 +662,14 @@
 			<string>download</string>
 			<key>INIntentConfigurable</key>
 			<true/>
+			<key>INIntentDefaultImageName</key>
+			<string>Image 98-1024</string>
 			<key>INIntentDescription</key>
 			<string>Gets the name of the SIM card carrier</string>
 			<key>INIntentDescriptionID</key>
 			<string>Yvwa99</string>
+			<key>INIntentIneligibleForSuggestions</key>
+			<true/>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
 				<key></key>
@@ -762,24 +686,6 @@
 			</dict>
 			<key>INIntentName</key>
 			<string>GetSimCarrier</string>
-			<key>INIntentParameterCombinations</key>
-			<dict>
-				<key></key>
-				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string>Returns the name of the SIM card carrier name</string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>148NnB</string>
-					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
-					<true/>
-					<key>INIntentParameterCombinationTitle</key>
-					<string>Get SIM Carrier</string>
-					<key>INIntentParameterCombinationTitleID</key>
-					<string>3onxl0</string>
-				</dict>
-			</dict>
 			<key>INIntentResponse</key>
 			<dict>
 				<key>INIntentResponseCodes</key>
@@ -790,7 +696,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>pxK0cA</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Your SIM card carrier is ${carrier}</string>
+						<string>${carrier}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>9G9ZgU</string>
 						<key>INIntentResponseCodeName</key>
@@ -804,7 +710,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>shaxdE</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>An error occured</string>
+						<string>Error</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>keKkJG</string>
 						<key>INIntentResponseCodeName</key>
@@ -834,9 +740,282 @@
 				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>Get Sim Carrier</string>
+			<string>Get SIM Carrier</string>
 			<key>INIntentTitleID</key>
 			<string>pQRBZP</string>
+			<key>INIntentType</key>
+			<string>Custom</string>
+			<key>INIntentVerb</key>
+			<string>Get</string>
+		</dict>
+		<dict>
+			<key>INIntentCategory</key>
+			<string>download</string>
+			<key>INIntentConfigurable</key>
+			<true/>
+			<key>INIntentDefaultImageName</key>
+			<string>Image 98-1024</string>
+			<key>INIntentDescription</key>
+			<string>Get Airplane Mode Status</string>
+			<key>INIntentDescriptionID</key>
+			<string>IT1l2g</string>
+			<key>INIntentIneligibleForSuggestions</key>
+			<true/>
+			<key>INIntentManagedParameterCombinations</key>
+			<dict>
+				<key></key>
+				<dict>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Airplane Mode Status</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>TKk3SA</string>
+					<key>INIntentParameterCombinationUpdatesLinked</key>
+					<true/>
+				</dict>
+			</dict>
+			<key>INIntentName</key>
+			<string>FlightMode</string>
+			<key>INIntentResponse</key>
+			<dict>
+				<key>INIntentResponseCodes</key>
+				<array>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>${flightMode}</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>9AoR98</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>${flightMode}</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>cj3edn</string>
+						<key>INIntentResponseCodeName</key>
+						<string>success</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>Error</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>gGtAtZ</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>Error</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>paFIqg</string>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
+				</array>
+				<key>INIntentResponseLastParameterTag</key>
+				<integer>2</integer>
+				<key>INIntentResponseOutput</key>
+				<string>flightMode</string>
+				<key>INIntentResponseParameters</key>
+				<array>
+					<dict>
+						<key>INIntentResponseParameterDisplayName</key>
+						<string>Airplane Mode Status</string>
+						<key>INIntentResponseParameterDisplayNameID</key>
+						<string>jJtlw3</string>
+						<key>INIntentResponseParameterDisplayPriority</key>
+						<integer>1</integer>
+						<key>INIntentResponseParameterName</key>
+						<string>flightMode</string>
+						<key>INIntentResponseParameterTag</key>
+						<integer>2</integer>
+						<key>INIntentResponseParameterType</key>
+						<string>Integer</string>
+					</dict>
+				</array>
+			</dict>
+			<key>INIntentTitle</key>
+			<string>Airplane Mode Status</string>
+			<key>INIntentTitleID</key>
+			<string>5ELEwW</string>
+			<key>INIntentType</key>
+			<string>Custom</string>
+			<key>INIntentVerb</key>
+			<string>Get</string>
+		</dict>
+		<dict>
+			<key>INIntentCategory</key>
+			<string>download</string>
+			<key>INIntentConfigurable</key>
+			<true/>
+			<key>INIntentDefaultImageName</key>
+			<string>Image 98-1024</string>
+			<key>INIntentDescription</key>
+			<string>Checks if the device is connected to Wi-Fi</string>
+			<key>INIntentDescriptionID</key>
+			<string>iWygLe</string>
+			<key>INIntentIneligibleForSuggestions</key>
+			<true/>
+			<key>INIntentManagedParameterCombinations</key>
+			<dict>
+				<key></key>
+				<dict>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Wi-Fi Connection Status</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>YmE9lQ</string>
+					<key>INIntentParameterCombinationUpdatesLinked</key>
+					<true/>
+				</dict>
+			</dict>
+			<key>INIntentName</key>
+			<string>IsWifiConnected</string>
+			<key>INIntentResponse</key>
+			<dict>
+				<key>INIntentResponseCodes</key>
+				<array>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>${wifi}</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>jRXlKB</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>${wifi}</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>hJqUW5</string>
+						<key>INIntentResponseCodeName</key>
+						<string>success</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>Error</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>6OSdTz</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>Error</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>PLYmzh</string>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
+				</array>
+				<key>INIntentResponseLastParameterTag</key>
+				<integer>3</integer>
+				<key>INIntentResponseOutput</key>
+				<string>wifi</string>
+				<key>INIntentResponseParameters</key>
+				<array>
+					<dict>
+						<key>INIntentResponseParameterDisplayName</key>
+						<string>Wi-Fi connection</string>
+						<key>INIntentResponseParameterDisplayNameID</key>
+						<string>y9r5ho</string>
+						<key>INIntentResponseParameterDisplayPriority</key>
+						<integer>1</integer>
+						<key>INIntentResponseParameterName</key>
+						<string>wifi</string>
+						<key>INIntentResponseParameterTag</key>
+						<integer>3</integer>
+						<key>INIntentResponseParameterType</key>
+						<string>Integer</string>
+					</dict>
+				</array>
+			</dict>
+			<key>INIntentTitle</key>
+			<string>Wi-Fi Connection Status</string>
+			<key>INIntentTitleID</key>
+			<string>i1UfNg</string>
+			<key>INIntentType</key>
+			<string>Custom</string>
+			<key>INIntentVerb</key>
+			<string>Get</string>
+		</dict>
+		<dict>
+			<key>INIntentCategory</key>
+			<string>download</string>
+			<key>INIntentConfigurable</key>
+			<true/>
+			<key>INIntentDefaultImageName</key>
+			<string>Image 98-1024</string>
+			<key>INIntentDescription</key>
+			<string>Checks if the device is connected to Cellular</string>
+			<key>INIntentDescriptionID</key>
+			<string>kjbMlw</string>
+			<key>INIntentIneligibleForSuggestions</key>
+			<true/>
+			<key>INIntentManagedParameterCombinations</key>
+			<dict>
+				<key></key>
+				<dict>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Cellular Connection Status</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>m20RCM</string>
+					<key>INIntentParameterCombinationUpdatesLinked</key>
+					<true/>
+				</dict>
+			</dict>
+			<key>INIntentName</key>
+			<string>IsNetworkConnected</string>
+			<key>INIntentResponse</key>
+			<dict>
+				<key>INIntentResponseCodes</key>
+				<array>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>${cellular}</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>KSVtAz</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>${cellular}</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>fLwUtT</string>
+						<key>INIntentResponseCodeName</key>
+						<string>success</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>Error</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>R5EoMD</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>Error</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>sLkT1i</string>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
+				</array>
+				<key>INIntentResponseLastParameterTag</key>
+				<integer>2</integer>
+				<key>INIntentResponseOutput</key>
+				<string>cellular</string>
+				<key>INIntentResponseParameters</key>
+				<array>
+					<dict>
+						<key>INIntentResponseParameterDisplayName</key>
+						<string>Cellular connection</string>
+						<key>INIntentResponseParameterDisplayNameID</key>
+						<string>s4kvV0</string>
+						<key>INIntentResponseParameterDisplayPriority</key>
+						<integer>1</integer>
+						<key>INIntentResponseParameterName</key>
+						<string>cellular</string>
+						<key>INIntentResponseParameterTag</key>
+						<integer>2</integer>
+						<key>INIntentResponseParameterType</key>
+						<string>Integer</string>
+					</dict>
+				</array>
+			</dict>
+			<key>INIntentTitle</key>
+			<string>Cellular Connection Status</string>
+			<key>INIntentTitleID</key>
+			<string>8F2iON</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
 			<key>INIntentVerb</key>

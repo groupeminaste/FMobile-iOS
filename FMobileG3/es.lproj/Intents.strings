@@ -1,46 +1,58 @@
-"0s1Ssy" = "Recuperar el estado de itinerancia nacional.";
-
-"1Gq9I0" = "Recuperar el MCC de la SIM";
+"07Bqfc" = "Error";
 
 "2Ic8Is" = "Recuperar el MNC de la SIM";
 
 "2O0Z0J" = "${roaming}";
 
-"2tWd7V" = "Una conección de itinerancia nacional";
-
 "37NcUM" = "Recuperar el estado de conección de itinerancia nacional. Devolve 0/1.";
 
-"4bknAw" = "Un error ocurró.";
+"4PBnst" = "${carrier}";
+
+"4bknAw" = "Error";
 
 "4e5VzK" = "Devolve el MCC de la conección";
 
+"5ELEwW" = "Estado del Modo Avión";
+
 "5I4WMR" = "Devolve el MNC de la SIM";
+
+"6OSdTz" = "Error";
 
 "6csoSr" = "Devolve el MCC de la SIM";
 
-"B5KrgZ" = "Recuperar el MNC de la SIM";
+"8F2iON" = "Estado de la conexión celular";
+
+"9AoR98" = "${flightMode}";
+
+"9G9ZgU" = "${carrier}";
 
 "BmKG1n" = "Recuperar el MCC actual";
 
-"CabRuh" = "Esta conectado al MNC ${mnc}";
+"CabRuh" = "${mnc}";
 
 "Cxh6DA" = "Recuperar el MNC actual";
 
-"DMQq3J" = "Recuperar el MCC de la conección";
-
-"DdmfiG" = "Un error ocurró.";
+"DdmfiG" = "Error";
 
 "FpX2L5" = "Recuperar el MNC actual";
 
 "GRNv06" = "${mnc}";
 
-"I171dw" = "la conección de casa";
+"IT1l2g" = "Obtener el estado de Modo Avión";
+
+"InqGrV" = "Recupera el operador SIM";
+
+"JmoZDF" = "Recupera el operador actual";
 
 "K6bzVl" = "Recuperar el MCC de la SIM";
 
-"L3RtsF" = "Esta conectado a ${carrier}.";
+"KSVtAz" = "${cellular}";
 
-"L6r1je" = "Lo siento, un error ocurró.";
+"KT4ceM" = "Recupera el nombre de la red actualmente conectada";
+
+"L3RtsF" = "${carrier}";
+
+"L6r1je" = "Error";
 
 "LNAh5b" = "Error";
 
@@ -48,17 +60,25 @@
 
 "OK3cDF" = "Recuperar el MCC actual";
 
+"PLYmzh" = "Error";
+
 "Q5Jwtl" = "Recuperar el estado de itinerancia nacional";
+
+"R5EoMD" = "Error";
+
+"TKk3SA" = "Estado del Modo Avión";
 
 "VO77Ks" = "${mcc}";
 
-"WNo3ep" = "Recuperar el MNC actual";
+"VhFC6Z" = "Error";
 
 "Xk66YZ" = "${carrier}";
 
-"Z5Q5Us" = "Itinerancia Nacional";
+"YmE9lQ" = "Estado de la conexión Wi-Fi";
 
-"bGliKc" = "Verificación del estado de itinerancia olvidado";
+"Yvwa99" = "Recupera el nombre del operador de la tarjeta SIM";
+
+"Z5Q5Us" = "Itinerancia Nacional";
 
 "bUv2SI" = "MCC";
 
@@ -66,53 +86,77 @@
 
 "c4k2kQ" = "Recuperar el MCC de la SIM";
 
-"c5nZMC" = "Recuperar el MCC de la SIM";
+"cj3edn" = "${flightMode}";
 
-"cTVs12" = "una conección de itenerancia olvidada";
-
-"cwTJKe" = "Esta conectado a ${roaming}";
+"cwTJKe" = "${roaming}";
 
 "dOs4t4" = "Comprueba el estado de roaming prohibido";
 
 "daFk7V" = "Recuperar el MNC de la SIM";
 
-"ewYgMQ" = "El MNC de la SIM es ${mnc}";
+"ewYgMQ" = "${mnc}";
 
-"fhCJVM" = "Verificación del uso de itinerancia olvidada";
+"fLwUtT" = "${cellular}";
 
 "fiYRii" = "${mcc}";
 
 "g1HYTa" = "Error";
 
+"gGtAtZ" = "Error";
+
 "h19Zqc" = "Itinerancia";
 
-"hDW63j" = "Lo siento, un error ocurró.";
+"hDW63j" = "Error";
 
-"hZAVGO" = "Recuperar el MCC de la conección";
+"hJqUW5" = "${wifi}";
+
+"i1UfNg" = "Estado de la conexión Wi-Fi";
+
+"iWygLe" = "Comprueba si el dispositivo está conectado a Wi-Fi";
+
+"inubuu" = "Recupera el operador actual";
+
+"jJtlw3" = "Estado del Modo Avión";
+
+"jRXlKB" = "${wifi}";
 
 "jUD9k1" = "Error";
 
 "jacx6j" = "MNC";
 
-"k8b7Vd" = "Un error ocurró.";
+"k8b7Vd" = "Error";
 
-"mh97LU" = "Recuperar el estado de itinerancia nacional";
+"keKkJG" = "Error";
 
-"npPdKC" = "El MCC de la SIM es ${mcc}";
+"kjbMlw" = "Comprueba si el dispositivo está conectado a Cellular";
+
+"m20RCM" = "Estado de la conexión celular";
+
+"npPdKC" = "${mcc}";
 
 "o3DgJm" = "Error";
 
 "oNUcPB" = "Devolve el MCC de la conección";
 
-"ohhgC9" = "Una conección legal";
+"pHYkHd" = "Operador";
+
+"pQRBZP" = "Recupera el operador SIM";
+
+"paFIqg" = "Error";
+
+"pxK0cA" = "${carrier}";
 
 "qW6cQD" = "Intent de itinerancia olvidada";
 
-"qYuUEE" = "Recupera el MNC de la SIM";
+"riTDBK" = "Error";
 
-"riTDBK" = "Un error ocurró.";
+"s0YZwR" = "Intent de itinerancia olvidada";
 
-"s0YZwR" = "Verificación del estado de itinerancia olvidado";
+"s4kvV0" = "Conexión celular";
+
+"sLkT1i" = "Error";
+
+"shaxdE" = "Error";
 
 "tv807z" = "Recuperar el estado de itinerancia nacional";
 
@@ -122,46 +166,11 @@
 
 "wU6jLX" = "${mnc}";
 
-"yTa07U" = "El MCC conectado es ${mcc}.";
-
-"zHzCNL" = "Recuperar el MCC actual";
-
-"07Bqfc" = "Un error ocurró.";
-
-"148NnB" = "Devuelve el nombre del operador de la tarjeta SIM";
-
-"3onxl0" = "Recupera el operador SIM";
-
-"4PBnst" = "Estás conectado en ${carrier}";
-
-"9G9ZgU" = "El operador de tu tarjeta SIM es ${carrier}";
-
-"InqGrV" = "Recupera el operador SIM";
-
-"JmoZDF" = "Recupera el operador actual";
-
-"KT4ceM" = "Recupera el nombre de la red actualmente conectada";
-
-"KiJFmO" = "Recupera el operador actual";
-
-"U2A2bg" = "Devuelve el nombre del operador conectado actualmente";
-
-"VhFC6Z" = "Error";
-
-"Yvwa99" = "Recupera el nombre del operador de la tarjeta SIM";
-
-"inubuu" = "Recupera el operador actual";
-
-"keKkJG" = "Un error ocurró";
-
-"pHYkHd" = "Operador";
-
-"pQRBZP" = "Recupera el operador SIM";
-
-"pxK0cA" = "${carrier}";
-
-"shaxdE" = "Error";
-
 "xqcFOJ" = "${carrier}";
 
+"y9r5ho" = "Conexión Wi-Fi";
+
+"yTa07U" = "${mcc}";
+
 "yzYR7B" = "Operador";
+

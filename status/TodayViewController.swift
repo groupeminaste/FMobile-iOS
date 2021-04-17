@@ -41,12 +41,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let country = CarrierIdentification.getIsoCountryCode(dataManager.connectedMCC, dataManager.connectedMNC)
         var status = ""
         
-        dataManager.carrierNetwork = dataManager.carrierNetwork.replacingOccurrences(of: "CTRadioAccessTechnology", with: "", options: NSString.CompareOptions.literal, range: nil)
-        
-        if dataManager.carrierNetwork == "LTE" {
+        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
             dataManager.carrierNetwork = "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             status = "✅"
-        } else if dataManager.carrierNetwork == "WCDMA" {
+        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyWCDMA {
             if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && dataManager.carrierNetwork == dataManager.nrp && dataManager.isNRDECstatus(){
                 status = "⚠️"
             } else {
@@ -84,7 +82,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 dataManager.carrierNetwork = "\(dataManager.carrier) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             }
             
-        } else if dataManager.carrierNetwork == "HSDPA" {
+        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA {
             if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && dataManager.carrierNetwork == dataManager.nrp && dataManager.isNRDECstatus(){
                 status = "⚠️"
             } else {
@@ -122,7 +120,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 dataManager.carrierNetwork = "\(dataManager.carrier) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             }
             
-        } else if dataManager.carrierNetwork == "Edge"{
+        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge {
             dataManager.carrierNetwork = dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.out2G ?
                 "\(dataManager.itiName) 2G (EDGE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" : "\(dataManager.carrier) 2G (EDGE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             status = "🛑"
@@ -130,22 +128,22 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             dataManager.carrierNetwork = dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.out2G ?
                 "\(dataManager.itiName) G (GPRS) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" : "\(dataManager.carrier) G (GPRS) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             status = "⛔️"
-        } else if dataManager.carrierNetwork == "HRPD"{
-            dataManager.carrierNetwork = "\(dataManager.carrier) 3G (HRPD) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyeHRPD {
+            dataManager.carrierNetwork = "\(dataManager.carrier) 3G (eHRPD) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             status = "🛂"
-        } else if dataManager.carrierNetwork == "HSUPA"{
+        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyHSUPA {
             dataManager.carrierNetwork = "\(dataManager.carrier) 3G (HSUPA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             status = "🛂"
-        } else if dataManager.carrierNetwork == "CDMA1x"{
+        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyCDMA1x {
             dataManager.carrierNetwork = "\(dataManager.carrier) 3G (CDMA2000) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             status = "🛂"
-        } else if dataManager.carrierNetwork == "CDMAEVDORev0"{
+        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyCDMAEVDORev0 {
             dataManager.carrierNetwork = "\(dataManager.carrier) 3G (EvDO) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             status = "🛂"
-        } else if dataManager.carrierNetwork == "CDMAEVDORevA"{
+        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyCDMAEVDORevA {
             dataManager.carrierNetwork = "\(dataManager.carrier) 3G (EvDO-A) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             status = "🛂"
-        } else if dataManager.carrierNetwork == "CDMAEVDORevB"{
+        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyCDMAEVDORevB {
             dataManager.carrierNetwork = "\(dataManager.carrier) 3G (EvDO-B) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             status = "🛂"
         }

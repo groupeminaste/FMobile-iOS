@@ -116,7 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                             print("ITI 35")
                             dataManager.wasEnabled += 1
                             dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                            if dataManager.nrp == "HSDPA" {
+                            if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
                                 dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                             } else {
                                 dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
@@ -200,7 +200,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
             
             if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && !DataManager.isOnPhoneCall() {
-                if dataManager.carrierNetwork == "CTRadioAccessTechnology\(dataManager.nrp)" && !dataManager.allow013G {
+                if dataManager.carrierNetwork == dataManager.nrp && !dataManager.allow013G {
                     if dataManager.verifyonwifi && DataManager.isWifiConnected() && dataManager.nrDEC && dataManager.femto {
                         let alerteW = UIAlertController(title: "disconnect_from_wifi".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
                         
@@ -234,7 +234,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 if speed ?? 0 < dataManager.stms {
                                     dataManager.wasEnabled += 1
                                     dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                                    if dataManager.nrp == "HSDPA" {
+                                    if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
                                         dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                                     } else {
                                         dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
@@ -285,7 +285,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     } else {
                         dataManager.wasEnabled += 1
                         dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                        if dataManager.nrp == "HSDPA" {
+                        if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
                             dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                         } else {
                             dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
@@ -299,7 +299,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                             self.oldios()
                         }
                     }
-                } else if dataManager.carrierNetwork == "CTRadioAccessTechnologyEdge" && !dataManager.allow012G && dataManager.out2G {
+                } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge && !dataManager.allow012G && dataManager.out2G {
                     dataManager.wasEnabled += 1
                     dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
                     dataManager.datas.set("EDGE", forKey: "g3lastcompletion")
@@ -413,6 +413,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         CarrierIntentHandler.donateInteraction()
         
         registerBackgroundTasks()
+        
+        //CustomDNS().refreshManager()
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             if granted {
