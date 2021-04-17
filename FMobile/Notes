@@ -1,0 +1,39 @@
+
+["DE", "AT", "BE", "BG", "CY", "HR", "DK", "ES", "EE", "FI", "GI", "GR", "HU", "IE", "IS", "IT", "LV", "LI", "LT", "LU", "MT", "NO", "NL", "PL", "PT", "CZ", "RO", "GB", "SK", "SI", "SE", "GP", "GF", "MQ", "YT", "RE", "BL", "MF", "ZA", "AU", "CA", "US", "IL", "NZ"]
+
+
+["DE", "AT", "BE", "BG", "CY", "HR", "DK", "ES", "EE", "FI", "GI", "GR", "HU", "IE", "IS", "IT", "LV", "LI", "LT", "LU", "MT", "NO", "NL", "PL", "PT", "CZ", "RO", "GB", "SK", "SI", "SE", "GP", "GF", "MQ", "YT", "RE", "BL", "MF", "ZA", "AU", "CA", "US", "IL", "NZ"]
+
+
+
+
+
+["EU", "ZA", "AU", "CA", "US", "IL", "NZ"]
+
+
+["DZ", "AR", "AM", "BD", "BY", "BR", "GE", "GG", "IM", "IN", "JE", "KZ", "MK", "MY", "MX", "ME", "UZ", "PK", "RU", "RS", "LK", "CH", "TH", "TN", "TR", "UA"]
+
+
+
+["EU"] = ["FR", "DE", "AT", "BE", "BG", "CY", "HR", "DK", "ES", "EE", "FI", "GI", "GR", "HU", "IE", "IS", "IT", "LV", "LI", "LT", "LU", "MT", "NO", "NL", "PL", "PT", "CZ", "RO", "GB", "SK", "SI", "SE", "GP", "GF", "MQ", "YT", "RE", "BL", "MF"]
+
+
+
+
+
+func freeZoneCheck() -> String{
+     let country = CarrierIdentification.getIsoCountryCode(connectedMCC).uppercased()
+     if country == "FR"{
+         return "HOME"
+     } else if country == "--"{
+         return "UNKNOWN"
+     }
+     else if country == "DE" || country == "AT" || country == "BE" || country == "BG" || country == "CY" || country == "HR" || country == "DK" || country == "ES" || country == "EE" || country == "FI" || country == "GI" || country == "GR" || country == "HU" || country == "IE" || country == "IS" || country == "IT" || country == "LV" || country == "LI" || country == "LT" || country == "LU" || country == "MT" || country == "NO" || country == "NL" || country == "PL" || country == "PT" || country == "CZ" || country == "RO" || country == "GB" || country == "SK" || country == "SI" || country == "SE" || country == "GP" || country == "GF" || country == "MQ" || country == "YT" || country == "RE" || country == "BL" || country == "MF" || country == "ZA" || country == "AU" || country == "CA" || country == "US" || country == "IL" || country == "NZ" {
+         return "ALL"
+     } else if country == "PM" {
+         return "CALLS"
+     } else if  country == "DZ" || country == "AR" || country == "AM" || country == "BD" || country == "BY" || country == "BR" || country == "GE" || country == "GG" || country == "IM" || country == "IN" || country == "JE" || country == "KZ" || country == "MK" || country == "MY" || country == "MX" || country == "ME" || country == "UZ" || country == "PK" || country == "RU" || country == "RS" || country == "LK" || country == "CH" || country == "TH" || country == "TN" || country == "TR" || country == "UA" {
+         return "INTERNET"
+     }
+     return "OUTZONE"
+ }

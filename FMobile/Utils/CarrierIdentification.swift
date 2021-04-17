@@ -1,20 +1,3 @@
-/*
-Copyright (C) 2020 Groupe MINASTE
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-*/
 //
 //  CarrierIdentification.swift
 //  FMobile
@@ -25,9 +8,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 import Foundation
 
-class CarrierIdentification{
+class CarrierIdentification {
 
-    static func getIsoCountryCode (_ country : String) -> String {
+    static func getIsoCountryCode (_ country : String, _ mnc : String) -> String {
         let dictCodes = [
             "412" : "AF",
             "276" : "AL",
@@ -268,61 +251,59 @@ class CarrierIdentification{
             valueToReturn = dictCodes[country] ?? "--"
         }
         
-        let dataManager = DataManager()
-        
-        if (dataManager.connectedMCC == "425" && dataManager.connectedMNC == "05"){
+        if country == "425" && mnc == "05" {
             valueToReturn = "PS"
         }
-        if (dataManager.connectedMCC == "425" && dataManager.connectedMNC == "06"){
+        if country == "425" && mnc == "06" {
             valueToReturn = "PS"
         }
-        if (dataManager.connectedMCC == "234" && dataManager.connectedMNC == "55"){
+        if country == "234" && mnc == "55" {
             valueToReturn = "GG"
         }
-        if (dataManager.connectedMCC == "234" && dataManager.connectedMNC == "50"){
+        if country == "234" && mnc == "50" {
             valueToReturn = "GG"
         }
-        if (dataManager.connectedMCC == "234" && dataManager.connectedMNC == "03"){
+        if country == "234" && mnc == "03" {
             valueToReturn = "GG"
         }
         
-        if (dataManager.connectedMCC == "234" && dataManager.connectedMNC == "18"){
+        if country == "234" && mnc == "18" {
             valueToReturn = "IM"
         }
-        if (dataManager.connectedMCC == "234" && dataManager.connectedMNC == "36"){
+        if country == "234" && mnc == "36" {
             valueToReturn = "IM"
         }
-        if (dataManager.connectedMCC == "234" && dataManager.connectedMNC == "58"){
+        if country == "234" && mnc == "58" {
             valueToReturn = "IM"
         }
         
-        if (dataManager.connectedMCC == "234" && dataManager.connectedMNC == "28"){
+        if country == "234" && mnc == "28" {
             valueToReturn = "JE"
         }
         
-        if ((dataManager.connectedMCC == "340") && (dataManager.connectedMNC == "01" || dataManager.connectedMNC == "11")){
+        if (country == "340") && (mnc == "01" || mnc == "11") {
             valueToReturn = "GF"
         }
-        if ((dataManager.connectedMCC == "340") && (dataManager.connectedMCC == "02" || dataManager.connectedMNC == "09" || dataManager.connectedMNC == "10")){
+        if (country == "340") && (country == "02" || mnc == "09" || mnc == "10") {
             valueToReturn = "GP"
         }
-        if (dataManager.connectedMCC == "340" && dataManager.connectedMNC == "03"){
+        if country == "340" && mnc == "03" {
             valueToReturn = "BL"
         }
-        if (dataManager.connectedMCC == "340" && dataManager.connectedMNC == "08"){
+        if country == "340" && mnc == "08" {
             valueToReturn = "MF"
         }
-        if (dataManager.connectedMCC == "340" && dataManager.connectedMNC == "12"){
+        if country == "340" && mnc == "12" {
             valueToReturn = "MQ"
         }
-        if (dataManager.connectedMCC == "340" && dataManager.connectedMNC == "20"){
+        if country == "340" && mnc == "20" {
             valueToReturn = "MQ"
         }
         
-        if (dataManager.connectedMCC == "310" && (dataManager.connectedMNC == "110" || dataManager.connectedMNC == "11")){
+        if country == "310" && (mnc == "110" || mnc == "11") {
             valueToReturn = "MP"
         }
-        if (dataManager.connectedMCC == "310" && (dataManager.connectedMNC == "370" || dataManager.connectedMNC == "37")){
+        if country == "310" && (mnc == "370" || mnc == "37") {
             valueToReturn = "MP"
         }
         

@@ -1,20 +1,3 @@
-/*
-Copyright (C) 2020 Groupe MINASTE
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-*/
 //
 //  TodayViewController.swift
 //  status
@@ -40,7 +23,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBOutlet weak var text: UILabel?
     
-    override func viewDidLoad(){
+    // Petite info importante,
+    // Tu vas devoir t'amuser à traduire le widget aussi
+    // Pour ça tu fais comme d'habitude
+    // "id_de_la_string".localised()
+    // Et tu mets les références dans le fichier de traduction habituel
+    // (Localizable.strings de FMobile avec les autres trads)
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         text?.font = UIFont.preferredFont(forTextStyle: .body)
@@ -48,7 +38,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         text?.adjustsFontSizeToFitWidth = true
         
         let dataManager = DataManager()
-        let country = CarrierIdentification.getIsoCountryCode(dataManager.connectedMCC)
+        let country = CarrierIdentification.getIsoCountryCode(dataManager.connectedMCC, dataManager.connectedMNC)
         var status = ""
         
         dataManager.carrierNetwork = dataManager.carrierNetwork.replacingOccurrences(of: "CTRadioAccessTechnology", with: "", options: NSString.CompareOptions.literal, range: nil)
@@ -65,12 +55,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && !DataManager.isWifiConnected() && dataManager.carrierNetwork == dataManager.nrp && dataManager.isNRDECstatus() {
                 text?.text = "Veuillez patienter..."
                 dataManager.carrierNetwork = "\(dataManager.carrier) 3G (WCDMA) [Vérification...]"
-                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
+                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
                     DispatchQueue.main.async {
                         if speed ?? 0 < dataManager.stms {
                             dataManager.carrierNetwork = "\(dataManager.itiName) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
                             if #available(iOS 12.0, *) {
-                            guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
+                            guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
                             self.extensionContext?.open(link, completionHandler: { success in
                                 print("fun=success=\(success)")
                             })
@@ -84,7 +74,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             } else if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.itiMNC {
                 dataManager.carrierNetwork = "\(dataManager.itiName) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
                 if #available(iOS 12.0, *) {
-                guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
+                guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
                 self.extensionContext?.open(link, completionHandler: { success in
                     print("fun=success=\(success)")
                 })
@@ -103,12 +93,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && !DataManager.isWifiConnected() && dataManager.carrierNetwork == dataManager.nrp && dataManager.isNRDECstatus() {
                 text?.text = "Veuillez patienter..."
                 dataManager.carrierNetwork = "\(dataManager.carrier) 3G (HSDPA) [Vérification...]"
-                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
+                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
                     DispatchQueue.main.async {
                         if speed ?? 0 < dataManager.stms {
                             dataManager.carrierNetwork = "\(dataManager.itiName) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
                             if #available(iOS 12.0, *) {
-                            guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
+                            guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
                             self.extensionContext?.open(link, completionHandler: { success in
                                 print("fun=success=\(success)")
                             })
@@ -122,7 +112,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             } else if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.itiMNC {
                 dataManager.carrierNetwork = "\(dataManager.itiName) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
                 if #available(iOS 12.0, *) {
-                guard let link = URL(string: "shortcuts://run-shortcut?name=RRFM") else { return }
+                guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
                 self.extensionContext?.open(link, completionHandler: { success in
                     print("fun=success=\(success)")
                 })
@@ -133,11 +123,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             }
             
         } else if dataManager.carrierNetwork == "Edge"{
-            dataManager.carrierNetwork = dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.out2G == "yes" ?
+            dataManager.carrierNetwork = dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.out2G ?
                 "\(dataManager.itiName) 2G (EDGE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" : "\(dataManager.carrier) 2G (EDGE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             status = "🛑"
         } else if dataManager.carrierNetwork == "GPRS"{
-            dataManager.carrierNetwork = dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.out2G == "yes" ?
+            dataManager.carrierNetwork = dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.out2G ?
                 "\(dataManager.itiName) G (GPRS) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" : "\(dataManager.carrier) G (GPRS) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             status = "⛔️"
         } else if dataManager.carrierNetwork == "HRPD"{
@@ -171,9 +161,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         print(dataManager.carrierNetwork)
         
         text?.text = "\(status) \(dataManager.carrierNetwork)"
-        text?.textColor = UIColor.white
-        text?.font = UIFont.boldSystemFont(ofSize: 17)
-        text?.adjustsFontForContentSizeCategory = true
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {

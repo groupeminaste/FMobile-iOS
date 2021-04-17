@@ -1,0 +1,70 @@
+//
+//  MapViewController.swift
+//  FMobile
+//
+//  Created by Nathan FALLET on 01/09/2019.
+//  Copyright © 2019 Groupe MINASTE. All rights reserved.
+//
+
+import UIKit
+import MapKit
+
+class MapViewController: UIViewController, MKMapViewDelegate {
+    
+    let locationManager = CLLocationManager()
+    let map = MKMapView()
+    var coverageMap = CoverageMap()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.title = "map_view_title".localized()
+
+        view.addSubview(map)
+        
+        map.translatesAutoresizingMaskIntoConstraints = false
+        map.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        map.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        map.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        map.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        map.userTrackingMode = .follow
+        map.showsUserLocation = true
+        map.showsCompass = true
+        map.showsScale = true
+        map.delegate = self
+    }
+    
+    func loadCoverageMap() {
+        CoverageManager.getCoverage(center: map.centerCoordinate, radius: map.currentRadius()) { coverageMap in
+            if let coverageMap = coverageMap {
+                self.coverageMap = coverageMap
+            }
+            
+            self.updateOverlays()
+        }
+    }
+    
+    func updateOverlays() {
+        map.removeOverlays(map.overlays)
+        
+        for point in coverageMap.points ?? [] {
+            map.addOverlay(point, level: .aboveLabels)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        loadCoverageMap()
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let point = overlay as? CoveragePoint {
+            let polygonView = MKPolygonRenderer(overlay: point)
+            polygonView.fillColor = point.protocolToColor()
+            polygonView.alpha = 0.2
+            return polygonView
+        }
+        
+        return MKOverlayRenderer()
+    }
+
+}

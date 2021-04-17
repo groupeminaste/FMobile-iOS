@@ -1,0 +1,167 @@
+"1Gq9I0" = "Haalt de MCC op van de simkaart";
+
+"2Ic8Is" = "Krijg SIM MNC";
+
+"2O0Z0J" = "${roaming}";
+
+"4bknAw" = "Er is een fout opgetreden.";
+
+"4e5VzK" = "Retourneert de huidige MCC van het verbonden netwerk";
+
+"5I4WMR" = "Retourneert de SIM-kaart MNC";
+
+"6csoSr" = "Retourneert de SIM-kaart MCC";
+
+"B5KrgZ" = "Haal SIM-kaart op MNC";
+
+"BmKG1n" = "Haal de huidige MCC op";
+
+"CabRuh" = "Uw verbonden MNC is ${mnc}";
+
+"Cxh6DA" = "Haal de huidige MNC op";
+
+"DMQq3J" = "Haal de huidige MCC van het verbonden netwerk op";
+
+"DdmfiG" = "Er is een fout opgetreden.";
+
+"FpX2L5" = "Haal de huidige MNC op";
+
+"GRNv06" = "${mnc}";
+
+"K6bzVl" = "Haal SIM-kaart op MCC";
+
+"L6r1je" = "Sorry, er is een fout opgetreden.";
+
+"LNAh5b" = "Error";
+
+"OJuy1p" = "MCC";
+
+"OK3cDF" = "Haal de huidige MCC op";
+
+"VO77Ks" = "${mcc}";
+
+"WNo3ep" = "Haal de huidige MNC op";
+
+"bGliKc" = "Verboden Roamingstatuscontrole";
+
+"bUv2SI" = "MCC";
+
+"c2PAzW" = "MNC";
+
+"c4k2kQ" = "Krijg SIM MCC";
+
+"c5nZMC" = "Haal SIM-kaart op MCC";
+
+"cTVs12" = "een verboden roaming netwerk.";
+
+"cwTJKe" = "U bevindt zich momenteel op ${roaming}";
+
+"dOs4t4" = "Controleert verboden roaming-status";
+
+"daFk7V" = "Haal SIM-kaart op MNC";
+
+"ewYgMQ" = "Your SIM card MNC is ${mnc}";
+
+"fhCJVM" = "Controleer op verboden gebruik van roaming";
+
+"fiYRii" = "${mcc}";
+
+"h19Zqc" = "Roaming";
+
+"hZAVGO" = "Haal de huidige MCC van het verbonden netwerk op";
+
+"jUD9k1" = "Error";
+
+"jacx6j" = "MNC";
+
+"k8b7Vd" = "Er is een fout opgetreden.";
+
+"npPdKC" = "Uw SIM-kaart MCC is ${mcc}";
+
+"o3DgJm" = "Error";
+
+"oNUcPB" = "Retourneert de huidige MCC van het verbonden netwerk";
+
+"ohhgC9" = "een geautoriseerd netwerk";
+
+"qW6cQD" = "Krijg Verboden Roaming-status";
+
+"qYuUEE" = "Krijgt de SIM-kaart MNC";
+
+"riTDBK" = "Er is een fout opgetreden.";
+
+"s0YZwR" = "Verboden Roamingstatuscontrole";
+
+"uOCw3O" = "Error";
+
+"vv5HI8" = "Error";
+
+"wU6jLX" = "${mnc}";
+
+"yTa07U" = "De verbonden MCC is ${mcc}.";
+
+"zHzCNL" = "Haal de huidige MCC op";
+
+"0s1Ssy" = "De status van een nationale roamingverbinding opvragen.";
+
+"2tWd7V" = "een national roaming netwerk";
+
+"37NcUM" = "De status van een nationale roamingverbinding opvragen. Geeft 0/1 terug.";
+
+"I171dw" = "uw thuisnetwerk";
+
+"L3RtsF" = "U bent momenteel verbonden ${carrier}.";
+
+"Q5Jwtl" = "Krijg de Nationale Roaming-Status";
+
+"Xk66YZ" = "${carrier}";
+
+"Z5Q5Us" = "Nationale Roaming";
+
+"g1HYTa" = "Error";
+
+"hDW63j" = "Sorry, er is een fout opgetreden.";
+
+"mh97LU" = "Krijg de Nationale Roaming-Status";
+
+"tv807z" = "Krijg de Nationale Roaming-Status";
+
+"07Bqfc" = "Er is een fout opgetreden";
+
+"148NnB" = "Retourneert de naam van de SIM-kaartoperator";
+
+"3onxl0" = "Krijg de SIM-operator";
+
+"4PBnst" = "U bent verbonden op ${carrier}";
+
+"9G9ZgU" = "Uw SIM-kaartaanbieder is ${carrier}";
+
+"InqGrV" = "Krijg de SIM-operator";
+
+"JmoZDF" = "Krijg de huidige operator";
+
+"KT4ceM" = "Krijg de naam op van de momenteel aangemelde operator";
+
+"KiJFmO" = "Krijg de huidige operator";
+
+"U2A2bg" = "Retourneert de naam van de momenteel aangemelde operator";
+
+"VhFC6Z" = "Error";
+
+"Yvwa99" = "Haalt de naam van de SIM-kaartdrager op";
+
+"inubuu" = "Krijg de huidige operator";
+
+"keKkJG" = "Er is een fout opgetreden";
+
+"pHYkHd" = "Operator";
+
+"pQRBZP" = "Krijg de SIM-operator";
+
+"pxK0cA" = "${carrier}";
+
+"shaxdE" = "Error";
+
+"xqcFOJ" = "${carrier}";
+
+"yzYR7B" = "Operator";

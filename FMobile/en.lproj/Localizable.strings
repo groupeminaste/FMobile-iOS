@@ -1,21 +1,4 @@
 /*
-Copyright (C) 2020 Groupe MINASTE
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-*/
-/*
     Localizable.strings
     FMobile
  
@@ -24,7 +7,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
  */
 
     // TableViewController
-"fmobile" = "FMobile";
+"fmobile" = "FMobile 2";
 "reset_zones_done" = "Reset done";
 "reset_zones_done_description" = "All Femto and ran-sharing zones has been reset.";
 "close" = "Close";
@@ -81,7 +64,14 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "allow3g" = "Allow 3G national roaming";
 "allow2g" = "Allow 2G national roaming";
 "verifywifi" = "Verify even on Wi-Fi";
-"wififooter" = "By enabling this option, the roaming verifications will take place even when you are connected to a WiFi network. In order to optimize the battery life (except when using the A2 generation), it is recommended to keep this option disabled.";
+"wififooter" = "By enabling this option, the roaming verifications will take place even when you are connected to a WiFi network. In order to optimize the battery life (except when using the A3 generation), it is recommended to keep this option disabled.";
+"statsprefs" = "Statistic preferences";
+"coveragemap_switch" = "Participate to fill coverage map";
+"coveragemap_alert_title" = "Privacy notice";
+"coveragemap_alert_description" = "Participating to the filling of the coverage map is completely anonymous. The data you send is therefore not subject to the rights of portability, access or deletion. The following data will be collected in the background during the usual FMobile checks: Operator code (MCC, MNC), SIM card code (MCC, MNC), Location, connection protocol. We do not store any form of user identification, so we can not know which data has been sent by whom, and we can not track you. Once collected, they will appear instantly on the coverage map if the operator is declared at FMobile. You can always view the coverage map even if you decide not to contribute.";
+"coveragemap_alert_accept" = "Accept";
+"coveragemap_alert_accept2" = "Accept and never show again";
+"coveragemap_alert_deny" = "Decline";
 "stop_background_tasks" = "Stop all tasks when in background";
 "detect_ransharing" = "Detect the Femto and ran-sharing";
 "detect_femto" = "Detect the Femto";
@@ -98,8 +88,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "help" = "Help";
 "call_3244" = "Call the 3244 (service)";
 "contact_developer" = "Contact the developer of the app";
-"low_energy" = "Reduced activity mode";
-"low_energy_footer" = "When the reduced activity mode is enabled, the verifications occurs after a 500m displacement, at the cellular antenna change. If you force quit the app, this mode will be automatically enabled.";
+"performance_mode" = "Perfomance+ mode";
+"performance_mode_footer" = "When the Performance+ mode is enabled, your device will check the roaming status every 1 to 10 seconds. It is recommended for those who suffer from national roaming very often. It is recommended to have an A11 Bionic chip and a strong GPS signal reception in order to limit the battery life loss.";
 "land_g1" = "Check the country in background";
 "land_footer_g1" = "By enabling this option, FMobile will check in background that you are still located in your home country in order to avoid the roaming verifications when you are aboard. Your current carrier is not yet compatible with FMobile's second generation on iPad, but if a compatible carrier is available, FMobile will automatically enable the second generation features here.";
 "background_loc_g1" = "Background location";
@@ -107,8 +97,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "activate" = "⚠️ Activate the FMobile engine";
 "updating" = "🕗 Upgrading the FMobile engine...";
 "not_connected" = "You are not connected";
+"not_connected_searching" = "Searching for %@...";
 "connected" = "Connected: %@";
-"country_includded_button" = "This country %@ is included in my plan";
+"country_included_button" = "This country %@ is included in my plan";
 "new_country" = "New included country";
 "new_country_description" = "We will add the country %@ as included in your plan.";
 "included_voice" = "Includes Voice/SMS only";
@@ -134,7 +125,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "video_tutorial" = "Video tutorial on FMobile";
 "install_shortcuts" = "Install the Shortcuts";
 "engine_generation_signification" = "What does the engine generations mean?";
-"engine_explaination" = "\nFMobile G1\nThe historical engine of FMobile, since the first version. It relies on the verifications of the location and connection speed only, and is reserved to iPad.\n\nFMobile G-A1\nIt is a better version of the 1st generation, than can avoid the connection speed verification in some conditions, also reserved to iPad.\n\nFMobile G2\nIt is a brand new engine that relies on the cellular network state. It also consumes way less energy, but not all carriers are eligible.\n\nFMobile G-A2\nIt is the most advanced generation available for now. It allows to bypass the speedtest and the location verifications, and operates fully natively. It requires a carrier and and a network that are both eligible.\n\nThe switch between the generations is done automatically according to the eligibility of the network you are connected to.";
+"engine_explaination" = "\nFMobile G1\nThe historical engine of FMobile, since the first version. It relies on the verifications of the location and connection speed only, and is reserved to iPad.\n\nFMobile G-A1\nIt is a better version of the 1st generation, than can avoid the connection speed verification in some conditions, also reserved to iPad.\n\nFMobile G2\nIt is a brand new engine that relies on the cellular network state. It also consumes way less energy, but not all carriers are eligible.\n\nFMobile G-A2\nIt is the most advanced generation available for now. It allows to bypass the speedtest and the location verifications, and operates fully natively. It requires a carrier and and a network that are both eligible.\nFMobile G-3/A3\nIt is the evolved engine from the generation G-2/A2. It uses the iOS core through Siri and a brand new centralized ecosytem to communicate with the OS in both directions to ensure the best effeciency possible. The technology behind it relies on FMobile G-2/A2.\n\nThe switch between the generations is done automatically according to the eligibility of the network you are connected to.";
 "engine_generation_title" = "Engine generations";
 "explaination_understood" = "Understood!";
 "advanced" = "Advanced";
@@ -149,21 +140,28 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "field_test_copied_confirmation" = "Code successfully copied!";
 "select_url" = "Custom URL for the speed test";
 "about" = "About";
-"about_description" = "Application and Shortcut made by Michaël Nass\nUI/UX, speedtest and optimization by Nathan Fallet\nLogo by Bruno (@brunopaiva_152)\n\nThis application has been developed by independent developers, and is provided for free without any warranty.\n\nThe Groupe MINASTE (including its FMobile application) is not, in any case, affiliated with any carrier.\n\n© 2020 Groupe MINASTE";
+"about_description" = "Application and Shortcut made by Michaël Nass\nUI/UX, speedtest and optimization by Nathan Fallet\nLogo by Bruno (@brunopaiva_152)\n\nThis application has been developed by independent developers, and is provided for free without any warranty.\n\nThe Groupe MINASTE (including its FMobile application) is not, in any case, affiliated with any carrier.\n\n© 2019 Groupe MINASTE";
 "donate_paypal" = "Donate with PayPal";
 "donate_description" = "No matter what, FMobile will stay free and ad-free. The donation is a way to thank me for the app, even if I'm already super happy if you just give me a feedback about it. You will contribute to the funding of my Extopy project. Please make sure to fully test the application and be 100% sure you want to leave me a tip before doing so.";
 "ok" = "OK";
 "statistics_agreement" = "Participer à l'enquête 208 16";
 "old_ios_warning" = "iOS %@ is missing important features!";
-"old_ios_description" = "This app is now unsupported. Please download the new FMobile 4. On this version, the operations to exit roaming are manual.";
-"new_ios_warning" = "You are running iOS %@!";
-"new_ios_description" = "Good news: you are running a modern iOS software. Bad news: FMobile 1 is not compatible with your device. But don't worry! FMobile 3 for iOS 12 is now available on the App Store!";
-"download_fmobile4" = "Download FMobile 4";
+"old_ios_description" = "This apps works best with the Apple Shortcuts app, which is only available on iOS 12 and later. Please update your iOS device to iOS 12 or any later version. If your iOS device can run iOS 13, you will also be able to update the FMobile app to its latest version made for iOS 13. On your iOS version, the operations to exit roaming are manual.";
+"location_denied" = "Location access denied";
+"location_denied_description" = "FMobile 2 needs to have access your location for technical and practical reasons, in order to be able to run in the background. You decided to deny the permanent access to your location data. Please note that none of your personal data will ever be sent anywhere without your explicit consent. Setting the location access to \"Always\" is not considered as an explicit consent: it only allows the app to operate normally on your device, locally. Be aware that FMobile 2 will lose a lot of its efficiency if you don't set the location access to \"Always\".";
+"location_denied_change" = "Change the location setting to \"Always\"";
+"location_denied_agree" = "Temporarily force deny location access";
+"location_denied_agree_forever" = "Permanently force deny location access";
+"location_wrong_setting" = "Wrong setup for location access";
+"location_ws_agree" = "Temporarily force \"When In Use\" setting";
+"location_ws_agree_forever" = "Permanently force \"When In Use\" setting";
+
 
     // SpeedtestViewController
 "speedtest_view_title" = "Speedtest";
 "speedtest_start" = "Start";
-"speedtest_description" = "The core of the speedtest has been developed by Nathan Fallet and then modified by Michaël Nass in order to better represent the real speed. It is going to download a heavy file for 15 seconds. This speedtest is not the same as the one used in the FMobile core to detect the roaming status on older engine generations, that is optimized to detect the roaming in less than a second with an Internet consumption clоse to zero.";
+"speedtest_stop" = "Stop";
+"speedtest_description" = "The core of the speedtest has been developed by Nathan Fallet and then modified by Michaël Nass. It is going to download a heavy file for 15s. This speedtest is not the same as the one used in the FMobile core to detect the roaming status on older engine generations, that is optimized to detect it in less than 1s with an Internet consumption clоse to zero.";
 "speedtest_in_progress" = "A speedtest is already running!";
 
     // NotificationManager
@@ -183,16 +181,16 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "detected_wcdma_roaming" = "WCDMA (3G) ROAMING DETECTED!";
 "possible_wcdma_roaming" = "WCDMA (3G) ROAMING POSSIBLE!";
 "detected_edge_roaming" = "EDGE (2G) ROAMING DETECTED!";
-"low_energy_auto_enabled" = "Reduced activity mode automatically enabled";
-"low_energy_auto_enabled_subtitle" = "You have quit the application.";
-"low_energy_auto_enabled_description" = "The application will continue to operate in background in reduced activity mode.";
+"performance_mode_auto_enabled" = "Performance+ mode automatically disabled";
+"performance_mode_auto_enabled_subtitle" = "You have quit the application.";
+"performance_mode_auto_enabled_description" = "The application will continue to operate in background without the Perfomance+ mode.";
 "location_error_title" = "Background location disabled!";
 "location_error_subtitle" = "Error while checking the country!";
 "location_error_description" = "Please check in your settings that you did authorize FMobile to access your location data in background or disable the country verification in the FMobile application.";
 "no_network_zone_auto_saved" = "Non-covered zone saved!";
 "no_network_zone_auto_saved_description" = "After several attempts, you iPhone did not succeed to reconnect to your home network. The current zone has been saved as non-covered.";
-"low_energy_mode_enabled_title" = "Reduced activity mode enabled";
-"low_energy_mode_enabled_description" = "The application will continue to operate in background in reduced activity mode.";
+"performance_mode_mode_enabled_title" = "Performance+ mode enabled";
+"performance_mode_mode_enabled_description" = "The application will continue to operate in background in Performance+ mode.";
 "nothing_included_20815" = "No communication is included in the \"Free\" plan from this country.";
 "basic_included_201815" = "Calls, SMS and MMS are included in the \"Free\" plan from this country. Internet is not available.";
 "internet_included_20815" = "25Gb of Internet are included in the \"Free\" plan! Calls, SMS and MMS are not included.";
@@ -202,6 +200,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "internet_included" = "Internet is included in your plan! Calls, SMS and MMS are not included.";
 "all_included" = "Calls, SMS, MMS and Internet are included in your plan!";
 "alert_paid_data_drain" = "🛂⚠️🛑 EXTRA-COST IN PROGRESS 🛑⚠️🆘";
+"alert_paid_data_drain_g3" = "🛂⚠️🛑 EXTRA-COSTS SAVED! 🛑⚠️🆘";
 "new_sim_card_detected" = "SIM card configuration changed!";
 "new_sim_card_detected_description" = "Please configure your new SIM card in the FMobile application.";
 "update_done" = "Update succeeded!";
@@ -211,4 +210,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "preparation_inprogress" = "Preparation in progress...";
 "end_phonecall" = "Please end your phone call and retry";
 "data_drain_notification_description" = "Disable your cellular data immediately, your consumption is overcharged. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 2 just disabled your Cellular Data to avoid roaming fees. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@): Welcome!";
+
+"general_view_title" = "Settings";
+"map_view_title" = "Coverage map";
+

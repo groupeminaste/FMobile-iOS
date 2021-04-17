@@ -1,20 +1,3 @@
-/*
-Copyright (C) 2020 Groupe MINASTE
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-*/
 //
 //  Speedtest.swift
 //  FMobile
@@ -31,6 +14,7 @@ class Speedtest: NSObject, URLSessionDelegate, URLSessionDataDelegate {
     
     var speedTestCompletionBlock: speedTestCompletionHandler?
     var progress: ((_ megabytesPerSecond: Double?) -> Void)?
+    var task: URLSessionDataTask?
     
     var startTime: CFAbsoluteTime! = nil
     var stopTime: CFAbsoluteTime! = nil
@@ -38,10 +22,9 @@ class Speedtest: NSObject, URLSessionDelegate, URLSessionDataDelegate {
     
     let configuration = URLSessionConfiguration.ephemeral
     
-    let datas = Foundation.UserDefaults.standard
+    let datas = UserDefaults(suiteName: "group.fr.plugn.fmobile") ?? Foundation.UserDefaults.standard
     
     func testDownloadSpeedWithTimout(timeout: TimeInterval, usingURL: String = "null", withCompletionBlock: @escaping speedTestCompletionHandler) {
-        
         // See https://www.thinkbroadband.com/download for file URLs
         // Voir http://test-debit.free.fr pour les autres fichiers
         var fallbackURL = "http://test-debit.free.fr/512.rnd"
@@ -73,9 +56,13 @@ class Speedtest: NSObject, URLSessionDelegate, URLSessionDataDelegate {
         configuration.sessionSendsLaunchEvents = true
         configuration.timeoutIntervalForResource = timeout
         let session = URLSession.init(configuration: configuration, delegate: self, delegateQueue: nil)
-        let task = session.dataTask(with: url)
-        task.resume()
-        
+        task = session.dataTask(with: url)
+        task?.resume()
+    }
+    
+    func stop() {
+        task?.cancel()
+        task = nil
     }
     
     func set(progress: @escaping (_ megabytesPerSecond: Double?) -> Void) {
@@ -94,13 +81,13 @@ class Speedtest: NSObject, URLSessionDelegate, URLSessionDataDelegate {
         bytesReceived! += data.count
         stopTime = CFAbsoluteTimeGetCurrent()
         print("\(bytesReceived!) bytes received...")
-        if progress != nil {
-            progress!(speed())
+        if let progress = progress {
+            progress(speed())
         }
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        
+        self.task = nil
         let elapsed = stopTime - startTime
         print("Fin du téléchargement: \(elapsed)")
         
@@ -110,10 +97,10 @@ class Speedtest: NSObject, URLSessionDelegate, URLSessionDataDelegate {
         }
         
         speedTestCompletionBlock?(speed(), nil)
-        
     }
     
     func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
+        self.task = nil
         print("Suppression de la task du speedtest")
         session.finishTasksAndInvalidate()
     }

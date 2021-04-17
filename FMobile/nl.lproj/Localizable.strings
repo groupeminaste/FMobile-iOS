@@ -1,21 +1,4 @@
 /*
-Copyright (C) 2020 Groupe MINASTE
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-*/
-/*
  Localizable.strings
  FMobile
  
@@ -24,7 +7,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
  */
 
     // TableViewController
-"fmobile" = "FMobile";
+"fmobile" = "FMobile 2";
 "reset_zones_done" = "Reset uitgevoerd";
 "reset_zones_done_description" = "Alle Femto en randzones zijn gereset.";
 "close" = "Sluit";
@@ -81,7 +64,14 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "allow3g" = "3G nationale roaming toestaan";
 "allow2g" = "2G nationale roaming toestaan";
 "verifywifi" = "Controleer zelfs op Wi-Fi";
-"wififooter" = "Door deze optie in te schakelen, vindt de controle op roaming plaats, zelfs wanneer u verbonden bent met een WiFi-netwerk. Om de batterij te optimaliseren (met uitzondering van de A2-generatie), is het raadzaam om deze optie uitgeschakeld te houden.";
+"wififooter" = "Door deze optie in te schakelen, vindt de controle op roaming plaats, zelfs wanneer u verbonden bent met een WiFi-netwerk. Om de batterij te optimaliseren (met uitzondering van de A3-generatie), is het raadzaam om deze optie uitgeschakeld te houden.";
+"statsprefs" = "Statistische voorkeuren";
+"coveragemap_switch" = "Bijdragen aan de omslagkaart";
+"coveragemap_alert_title" = "vertrouwelijkheid";
+"coveragemap_alert_description" = "Deelname aan het invullen van de dekkingskaart is volledig anoniem.  De gegevens die u verzendt, zijn daarom niet onderworpen aan de rechten van overdraagbaarheid, toegang of verwijdering.  De volgende gegevens worden op de achtergrond verzameld tijdens de gebruikelijke FMobile-controles: operatorcode (MCC, MNC), simkaartcode (MCC, MNC), locatie, verbindingsprotocol.  We slaan geen enkele vorm van gebruikersidentificatie op, dus we kunnen niet weten welke gegevens door wie zijn verzonden en we kunnen u niet volgen.  Eenmaal verzameld, zullen ze direct op de dekkingskaart verschijnen als de operator bij FMobile wordt aangegeven.  U kunt de dekkingskaart altijd bekijken, zelfs als u besluit niet bij te dragen.";
+"coveragemap_alert_accept" = "Accepteren";
+"coveragemap_alert_accept2" = "Accepteren en nooit meer weergeven";
+"coveragemap_alert_deny" = "Afwijzen";
 "stop_background_tasks" = "Taken op de achtergrond stoppen";
 "detect_ransharing" = "Detecteer Femto & ran-sharing";
 "detect_femto" = "Het opsporen van Femto";
@@ -98,8 +88,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "help" = "Hulp";
 "call_3244" = "Bel 3244 (service na verkoop)";
 "contact_developer" = "Neem contact op met de ontwikkelaar van de applicatie";
-"low_energy" = "Verminderde activiteitsmodus";
-"low_energy_footer" = "Wanneer de gereduceerde activiteitenmodus is geactiveerd, zullen de controles plaatsvinden na een beweging van ongeveer 500 m, wanneer de netwerkantenne wordt vervangen. Als u de toepassing met geweld verlaat, wordt deze modus automatisch geactiveerd.";
+"performance_mode" = "Modusperformance+";
+"performance_mode_footer" = "Wanneer de modus Performance+ is ingeschakeld, wordt de roamingstatus elke 1 tot 10 seconden vernieuwd. Deze optie wordt aanbevolen voor gebruikers die zeer vaak roamen. Het wordt aanbevolen om een Bionic A11 chip of hoger en een goede GPS-ontvangst te hebben om van deze optie gebruik te maken en tegelijkertijd het verlies aan levensduur van de batterij te beperken.";
 "land_g1" = "Controleer het land op de achtergrond";
 "land_footer_g1" = "Door deze optie in te schakelen, zal FMobile op de achtergrond controleren of u zich nog steeds in uw land bevindt om roaming-controles in het buitenland te voorkomen. Uw huidige provider is nog niet compatibel met de tweede generatie FMobile op iPad, maar als er een geschikte provider beschikbaar is, zal FMobile hier automatisch de tweede generatie functies activeren.";
 "background_loc_g1" = "Achtergrond locatie";
@@ -107,8 +97,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "activate" = "⚠️ Activeer de FMobile motor";
 "updating" = "🕗 Update van de FMobile motor in uitvoering...";
 "not_connected" = "U bent niet verbonden";
+"not_connected_searching" = "Op zoek naar %@...";
 "connected" = "Aangesloten: %@";
-"country_includded_button" = "Dit land %@ is inbegrepen in mijn pakket.";
+"country_included_button" = "Dit land %@ is inbegrepen in mijn pakket.";
 "new_country" = "Nieuw land inbegrepen";
 "new_country_description" = "Wij voegen het land toe %@ zoals inbegrepen in uw pakket..";
 "included_voice" = "Alleen bijgeleverde voice/SMS";
@@ -134,7 +125,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "video_tutorial" = "Videotutorial op FMobile";
 "install_shortcuts" = "Snelkoppelingen installeren";
 "engine_generation_signification" = "Wat betekenen de generaties van de motor?";
-"engine_explaination" = "\nFMobile G1\nDe historische motor van FMobile, sinds de eerste versie. Het is gebaseerd op verificaties via lokalisatie en flow testing alleen, en is gereserveerd voor iPad.\n\nFMobile G-A1\ndie onder bepaalde omstandigheden zonder de flowtest kan, ook gereserveerd voor iPad. \n\nFMobile G2\nhet is een gloednieuwe engine op basis van de staat van het telefoonnetwerk. Het verbruikt aanzienlijk minder energie, maar niet alle operatoren komen in aanmerking. \n\nFMobile G-A2\dit is de meest geavanceerde versie tot nu toe. Het kan zonder stromingstesten, lokalisatie en werkt volledig in eigen beheer. Het vereist een operator en een in aanmerking komend netwerk. De omschakeling van de ene generatie naar de volgende vindt automatisch plaats, afhankelijk van de geschiktheid van het netwerk waarmee u bent verbonden.";
+"engine_explaination" = "\nFMobile G1\nDe historische motor van FMobile, sinds de eerste versie. Het is gebaseerd op verificaties via lokalisatie en flow testing alleen, en is gereserveerd voor iPad.\n\nFMobile G-A1\ndie onder bepaalde omstandigheden zonder de flowtest kan, ook gereserveerd voor iPad. \n\nFMobile G2\nhet is een gloednieuwe engine op basis van de staat van het telefoonnetwerk. Het verbruikt aanzienlijk minder energie, maar niet alle operatoren komen in aanmerking. \n\nFMobile G-A2\dit is de meest geavanceerde versie tot nu toe. Het kan zonder stromingstesten, lokalisatie en werkt volledig in eigen beheer. Het vereist een operator en een in aanmerking komend netwerk.\nFMobile G-3/A3\nHet is de ontwikkelde motor van de generatie G-2/A2. Het maakt gebruik van de iOS-kern via Siri en een gloednieuw gecentraliseerd ecosysteem om in beide richtingen met het besturingssysteem te communiceren om de best mogelijke efficiëntie te garanderen. De achterliggende technologie is gebaseerd op FMobile G-2/A2.\n\nDe omschakeling van de ene generatie naar de volgende vindt automatisch plaats, afhankelijk van de geschiktheid van het netwerk waarmee u bent verbonden.";
 "engine_generation_title" = "Motorgeneraties";
 "explaination_understood" = "Begrepen!";
 "advanced" = "Gevorderd";
@@ -149,25 +140,31 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "field_test_copied_confirmation" = "Code gekopieerd!";
 "select_url" = "Aangepaste URL voor flow test";
 "about" = "Over ons";
-"about_description" = "Applicatie en snelkoppelingen gemaakt door Michaël Nass\nUI/UX, flow test en optimalisatie door Nathan Fallet\nLogo by Bruno (@brunopaiva_152)\nNederlandse vertaling door Louis Legout\n\nDeze applicatie is ontwikkeld door onafhankelijke ontwikkelaars en wordt gratis en zonder enige garantie geleverd. \n\nDe Groupe MINASTE (inclusief de FMobile applicatie) is onder geen enkele voorwaarde verbonden aan een operator. \n\n© 2020 Groupe MINASTE";
+"about_description" = "Applicatie en snelkoppelingen gemaakt door Michaël Nass\nUI/UX, flow test en optimalisatie door Nathan Fallet\nLogo by Bruno (@brunopaiva_152)\nNederlandse vertaling door Louis Legout\n\nDeze applicatie is ontwikkeld door onafhankelijke ontwikkelaars en wordt gratis en zonder enige garantie geleverd. \n\nDe Groupe MINASTE (inclusief de FMobile applicatie) is onder geen enkele voorwaarde verbonden aan een operator. \n\n© 2019 Groupe MINASTE";
 "donate_paypal" = "Doe een PayPal-donatie";
 "donate_description" = "Wat er ook gebeurt, FMobile blijft gratis en zonder reclame. De donatie is een manier om me te bedanken voor de app, ook al ben ik al erg blij als je me gewoon je feedback geeft. U draagt bij aan de financiering van mijn Extopy-project. Test de toepassing zorgvuldig en zorg ervoor dat u mij een tip wilt geven voordat u het doet.";
 "ok" = "OK";
 "statistics_agreement" = "Participer à l'enquête 208 16";
 "old_ios_warning" = "iOS% @ mist belangrijke functies!";
-"old_ios_description" = "Deze app wordt nu niet meer ondersteund. Download de nieuwe FMobile 4. Op deze versie zijn de handelingen om roaming af te sluiten handmatig.";
-"new_ios_warning" = "Je gebruikt iOS %@!";
-"new_ios_description" = "Goed nieuws: u gebruikt moderne iOS-software. Slecht nieuws: FMobile 1 is niet compatibel met uw apparaat. Maar maak je geen zorgen! FMobile 2 voor iOS 13 is nu beschikbaar in de App Store!";
-"download_fmobile4" = "FMobile 4 downloaden";
+"old_ios_description" = "Deze apps werken het beste met de Apple Shortcuts-app, die alleen beschikbaar is op iOS 12 en hoger. Werk uw iOS-apparaat bij naar iOS 12 of een latere versie. Als uw iOS-apparaat iOS 13 kan uitvoeren, kunt u ook de FMobile-app bijwerken naar de nieuwste versie die is gemaakt voor iOS 13. Op uw iOS-versie zijn de bewerkingen om Roaming af te sluiten handmatig.";
+"location_denied" = "Locatietoegang geweigerd";
+"location_denied_description" = "FMobile 2 moet om technische en praktische redenen toegang hebben tot uw locatie om op de achtergrond te kunnen werken. U hebt besloten de permanente toegang tot uw locatiegegevens te weigeren. Houd er rekening mee dat geen van uw persoonlijke gegevens ooit ergens naartoe zal worden verzonden zonder uw uitdrukkelijke toestemming. Het instellen van de locatietoegang op \"Altijd\" wordt niet beschouwd als een expliciete toestemming: het laat de app alleen normaal op uw apparaat werken, lokaal. Houd er rekening mee dat FMobile 2 veel van zijn efficiëntie verliest als u de locatietoegang niet instelt op \"Altijd\".";
+"location_denied_change" = "Wijzig de locatie-instelling in \"Altijd\"";
+"location_denied_agree" = "Toegang tot locatie tijdelijk forceren";
+"location_denied_agree_forever" = "Toegang tot locatie permanent forceren";
+"location_wrong_setting" = "Verkeerde instelling voor locatietoegang";
+"location_ws_agree" = "Instelling \"Wanneer in gebruik\" tijdelijk forceren";
+"location_ws_agree_forever" = "Instelling \"Wanneer in gebruik\" permanent forceren";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Stroomtest";
 "speedtest_start" = "Opstarten";
-"speedtest_description" = "De kern van de stromingstest werd ontwikkeld door Nathan Fallet en vervolgens opnieuw bekeken door Michaël Nass om beter aan te sluiten bij de werkelijke stroming. Hij gaat een groot bestand downloaden voor 15 seconden. Deze snelheidstest is niet hetzelfde als de snelheidstest die in de FMobile-kern wordt gebruikt om roaming op oudere generaties van de motor te detecteren, die is geoptimaliseerd om roaming in minder dan een seconde met bijna geen internetverbruik te detecteren.";
+"speedtest_stop" = "Stoppen";
+"speedtest_description" = "Van kern van de stromingstest werd ontwikkeld door Nathan Fallet en opnieuw bekeken door Michaël Nass. Hij gaat een groot bestand downloaden voor 15s. Deze snelheidstest is niet hetzelfde als de snelheidstest sterven in de FMobile-kern wordt gebruikt om roaming op oudere generaties van de motor te detecteren in - dan 1s met bijna geen internetverbruik.";
 "speedtest_in_progress" = "Test reeds in uitvoering!";
 
     // NotificationManager
-"roaming_protect_disabled" = "Roaming protection disabled!";
+"roaming_protect_disabled" = "Roaming-bescherming uitgeschakeld!";
 "3g_2g_allowed" = "3G- en 2G-roaming toegestaan";
 "roaming_notification_description" = "U kunt uw voorkeuren altijd wijzigen in de FMobile applicatie.";
 "roaming_protect_enabled" = "Roaming bescherming ingeschakeld!";
@@ -183,16 +180,16 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "detected_wcdma_roaming" = "WCDMA ROAMING (3G) GEDETECTEERD!";
 "possible_wcdma_roaming" = "WCDMA ROAMING (3G) WAARSCHIJNLIJK!";
 "detected_edge_roaming" = "EDGE ROAMING (2G) GEDETECTEERD!";
-"low_energy_auto_enabled" = "Verminderde activiteitsmodus automatisch geactiveerd";
-"low_energy_auto_enabled_subtitle" = "Je hebt de applicatie verlaten.";
-"low_energy_auto_enabled_description" = "De toepassing zal op de achtergrond blijven draaien in de verminderde activiteitsmodus.";
+"performance_mode_auto_enabled" = "Performance+ modus automatisch gedeactiveerd";
+"performance_mode_auto_enabled_subtitle" = "Je hebt de applicatie verlaten.";
+"performance_mode_auto_enabled_description" = "De toepassing zal op de achtergrond blijven draaien zonder de Performance+ modus.";
 "location_error_title" = "Achtergrond locatie uitgeschakeld!";
 "location_error_subtitle" = "Fout bij het controleren van het land!";
 "location_error_description" = "Controleer in de instellingen van uw apparaat of u toegang hebt verleend tot uw locatiegegevens op de achtergrond of schakel de verificatie per land uit in de FMobile-toepassing.";
 "no_network_zone_auto_saved" = "Onontdekte plaats gered!";
 "no_network_zone_auto_saved_description" = "Na een aantal pogingen is uw iPhone niet meer verbonden met het eigen netwerk. Het huidige gebied is opgeslagen als onbedekt.";
-"low_energy_mode_enabled_title" = "Verminderde activiteitsmodus ingeschakeld";
-"low_energy_mode_enabled_description" = "De toepassing zal op de achtergrond blijven draaien in de verminderde activiteitsmodus.";
+"performance_mode_mode_enabled_title" = "Modus Perfomance+ geactiveerd";
+"performance_mode_mode_enabled_description" = "De applicatie blijft op de achtergrond draaien in de Performance+ modus.";
 "nothing_included_20815" = "Er is geen communicatie inbegrepen in Free's pakket van dit land.";
 "basic_included_201815" = "Oproepen, SMS en MMS zijn inbegrepen in het pakket van Free's. Internet is niet beschikbaar.";
 "internet_included_20815" = "25GB internet is inbegrepen in het pakket van Free's! Oproepen, SMS en MMS zijn niet inbegrepen.";
@@ -202,6 +199,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "internet_included" = "Internet is inbegrepen in uw pakket! Oproepen, SMS en MMS zijn niet inbegrepen.";
 "all_included" = "Gesprekken, SMS, MMS en internet zijn inbegrepen in uw pakket!";
 "alert_paid_data_drain" = "🛂⚠️🛑 OFF-PACKAGE IN UITVOERING 🛑⚠️🆘";
+"alert_paid_data_drain" = "🛂⚠️🛑 OFF-PACKAGE GERED 🛑⚠️🆘";
 "new_sim_card_detected" = "SIM-kaart configuratie veranderd!";
 "new_sim_card_detected_description" = "Configureer uw nieuwe SIM-kaart in de FMobile-toepassing.";
 "update_done" = "Update gedaan";
@@ -211,4 +209,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 "preparation_inprogress" = "De voorbereiding is in volle gang...";
 "end_phonecall" = "Beëindig uw gesprek en probeer het opnieuw";
 "data_drain_notification_description" = "Deactiveer onmiddellijk de cellulaire gegevens, uw verbruik wordt overbelast. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 2 heeft zojuist uw mobiele gegevens gedeactiveerd om overladen te voorkomen. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@) : Welkom!";
+
+"general_view_title" = "Instellingen";
+"map_view_title" = "Omslagkaart";

@@ -1,20 +1,3 @@
-/*
-Copyright (C) 2020 Groupe MINASTE
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-*/
 /* 
   InfoPlist.strings
   FMobile
@@ -31,4 +14,4 @@ NSLocationUsageDescription = "Морате да ставите локација 
 
 NSLocationWhenInUseUsageDescription = "Морате да ставите локација на \"увек\" да би користили све предносте ову апликацију. Ове подаце су користили за апликацију да би проверио ако сте у једну непокривано зону, или покривано од једну Фемто или Ран-шеринг антена (ћитај или напиши место адреса за касније провере). Оне исто су потребан да би угасио апликацију када путуејте у другу земјлу. Ове подаце ће да остане локално али су потребан за добар операција од апликацију. Ово ноже да има негативан утицаја на вашу батерију.";
 
-CFBundleDisplayName = "ЕфМобил";
+CFBundleDisplayName = "ЕфМобил 2";

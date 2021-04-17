@@ -1,20 +1,3 @@
-/*
-Copyright (C) 2020 Groupe MINASTE
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-*/
 //
 //  SwitchTableViewCell.swift
 //  FMobile
@@ -30,7 +13,7 @@ class SwitchTableViewCell: UITableViewCell {
     var label = UILabel()
     var switchElement = UISwitch()
     var id = String()
-    var controller: TableViewController?
+    var controller: GeneralTableViewController?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -61,33 +44,44 @@ class SwitchTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func with(id: String = "", controller: TableViewController?, text: String, enabled: Bool, darkMode: Bool) -> SwitchTableViewCell {
+    func with(id: String = "", controller: GeneralTableViewController?, text: String, enabled: Bool) -> SwitchTableViewCell {
         self.id = id
         self.controller = controller
         label.text = text
         switchElement.isOn = enabled
         
-        if darkMode {
-            backgroundColor = CustomColor.darkBackground
-            label.textColor = CustomColor.darkText
-        } else {
-            backgroundColor = CustomColor.lightBackground
-            label.textColor = CustomColor.lightText
-        }
         return self
     }
     
     @objc func onChange(_ sender: Any) {
-        let datas = Foundation.UserDefaults.standard
+        // Save switch
+        let datas = UserDefaults(suiteName: "group.fr.plugn.fmobile") ?? Foundation.UserDefaults.standard
         datas.set(switchElement.isOn, forKey: id)
         datas.set(true, forKey: "didChangeSettings")
         datas.synchronize()
         
-        if id == "isDarkMode" {
-            NotificationCenter.default.post(name: switchElement.isOn ? .darkModeEnabled : .darkModeDisabled, object: nil)
-        }
-        
+        // Unwrap controller
         if let table = controller {
+            // If coverage map, show alert
+            if id == "coveragemap" && switchElement.isOn && !datas.bool(forKey: "coveragemap_noalert") {
+                let alert = UIAlertController(title: "coveragemap_alert_title".localized(), message: "coveragemap_alert_description".localized(), preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "coveragemap_alert_accept".localized(), style: .default) { _ in })
+                alert.addAction(UIAlertAction(title: "coveragemap_alert_accept2".localized(), style: .default) { _ in
+                    // Save "Do not show again"
+                    datas.set(true, forKey: "coveragemap_noalert")
+                    datas.synchronize()
+                })
+                alert.addAction(UIAlertAction(title: "coveragemap_alert_deny".localized(), style: .cancel) { _ in
+                    // Cancel switch
+                    datas.set(false, forKey: "coveragemap")
+                    datas.synchronize()
+                    table.loadUI()
+                    table.refreshSections()
+                })
+                table.present(alert, animated: true, completion: nil)
+            }
+            
+            // Reload UI
             table.loadUI()
             table.refreshSections()
         }

@@ -1,20 +1,3 @@
-/*
-Copyright (C) 2020 Groupe MINASTE
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-*/
 //
 //  SpeedtestProgressView.swift
 //  FMobile
@@ -35,9 +18,11 @@ class SpeedtestProgressView: UIView {
     var speedShape = CAShapeLayer()
     var speedtest: Speedtest?
     var max: Double
+    var statusChanged: ((Speedtest?) -> Void)
     
     override init(frame: CGRect) {
         max = 10
+        statusChanged = { _ in }
         super.init(frame: CGRect(origin: frame.origin, size: CGSize(width: frame.width, height: 250)))
     }
     
@@ -75,6 +60,7 @@ class SpeedtestProgressView: UIView {
         backgroundShape.lineCap = .round
         backgroundShape.strokeEnd = 1
         backgroundShape.fillColor = UIColor.clear.cgColor
+        backgroundShape.strokeColor = UIColor.systemGray.cgColor
         layer.addSublayer(backgroundShape)
         
         speedShape.path = UIBezierPath(arcCenter: center, radius: 100, startAngle: -1 * CGFloat.pi / 3, endAngle: 4 * CGFloat.pi / 3, clockwise: true).cgPath
@@ -82,6 +68,7 @@ class SpeedtestProgressView: UIView {
         speedShape.lineCap = .round
         speedShape.strokeEnd = 0
         speedShape.fillColor = UIColor.clear.cgColor
+        speedShape.strokeColor = UIColor.systemBlue.cgColor
         layer.addSublayer(speedShape)
     }
     
@@ -90,7 +77,13 @@ class SpeedtestProgressView: UIView {
     }
     
     @objc func start(_ sender: Any) {
-        if speedtest == nil {
+        if let speedtest = speedtest {
+            // Stop speedtest
+            speedtest.stop()
+            self.speedtest = nil
+            self.statusChanged(self.speedtest)
+        } else {
+            // Start speedtest
             speedtest = Speedtest()
             speedtest?.set(){ (_ megabytesPerSecond) in
                 DispatchQueue.main.async {
@@ -100,44 +93,25 @@ class SpeedtestProgressView: UIView {
                 }
             }
             
-            let datas = Foundation.UserDefaults.standard
+            let datas = UserDefaults(suiteName: "group.fr.plugn.fmobile") ?? Foundation.UserDefaults.standard
             
             var urlst = "http://test-debit.free.fr/1048576.rnd"
-            if(datas.value(forKey: "URLST") != nil){
+            if datas.value(forKey: "URLST") != nil {
                 urlst = datas.value(forKey: "URLST") as? String ?? "http://test-debit.free.fr/1048576.rnd"
             }
             
-            speedtest?.testDownloadSpeedWithTimout(timeout: 15.0, usingURL: urlst) { (speed, _) in
+            speedtest?.testDownloadSpeedWithTimout(timeout: 15.0, usingURL: urlst) { (speed, error) in
                 DispatchQueue.main.async {
                     self.speedShape.strokeEnd = CGFloat((speed ?? 0) < self.max ? ((speed ?? 0) / self.max) : 1.0)
                     (self.speed.text, self.unit.text) = (speed ?? 0).toSpeedtest()
                     
                     self.speedtest = nil
+                    self.statusChanged(self.speedtest)
                 }
             }
-        } else {
-            let alert = UIAlertController(title: "speedtest_in_progress".localized(), message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: nil))
-            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+            
+            self.statusChanged(self.speedtest)
         }
-    }
-    
-    func enableDarkMode() {
-        backgroundShape.strokeColor = CustomColor.darkShapeBackgroud.cgColor
-        speedShape.strokeColor = CustomColor.darkActive.cgColor
-        unit.textColor = CustomColor.darkText
-        speed.textColor = CustomColor.darkText
-        low.textColor = CustomColor.darkText
-        high.textColor = CustomColor.darkText
-    }
-    
-    func disableDarkMode() {
-        backgroundShape.strokeColor = CustomColor.lightShapeBackgroud.cgColor
-        speedShape.strokeColor = CustomColor.lightActive.cgColor
-        unit.textColor = CustomColor.lightText
-        speed.textColor = CustomColor.lightText
-        low.textColor = CustomColor.lightText
-        high.textColor = CustomColor.lightText
     }
     
     func adjustMax(for value: Double) {

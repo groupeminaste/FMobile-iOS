@@ -2,13 +2,40 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>fr.plugn.fmobile.heavycheck</string>
+		<string>fr.plugn.fmobile.iticheck</string>
+	</array>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<false/>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>fr_FR</string>
+	<string>fr</string>
 	<key>CFBundleDisplayName</key>
-	<string>FMobile</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundleAlternateIcons</key>
+		<dict>
+			<key>myradin-40</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>myradin-40</string>
+				</array>
+			</dict>
+		</dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array/>
+			<key>UIPrerenderedIcon</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>CFBundleIcons~ipad</key>
 	<dict>
 		<key>CFBundleAlternateIcons</key>
 		<dict>
@@ -32,6 +59,14 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>fr</string>
+		<string>sr</string>
+		<string>nl</string>
+		<string>es</string>
+		<string>en</string>
+	</array>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
@@ -47,7 +82,7 @@
 			<string>fr.plugn.fmobile</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fmobile-old</string>
+				<string>fmobile</string>
 			</array>
 		</dict>
 	</array>
@@ -55,11 +90,12 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>monreseau-freemobile</string>
-		<string>monreseau</string>
+		<string>fmobile</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MKDirectionsApplicationSupportedModes</key>
+	<array/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -89,10 +125,22 @@
 	<string>You must allow background location using \"Always\" in order to take advantage of this application. These data allow to check if you are localized in a non-covered zone, or covered by a Femto or ran-sharing antenna (read or save these coordinates for future verifications). They also allow to stop the app when you travel aboard. These data stay local but are mendatory for the good functionning of the app. This may have a negative impact on your phone's battery life.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>You must allow background location using \"Always\" in order to take advantage of this application. These data allow to check if you are localized in a non-covered zone, or covered by a Femto or ran-sharing antenna (read or save these coordinates for future verifications). They also allow to stop the app when you travel aboard. These data stay local but are mendatory for the good functionning of the app. This may have a negative impact on your phone's battery life.</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>CarrierIntent</string>
+		<string>GetCurrentCarrierIntent</string>
+		<string>GetCurrentMCCIntent</string>
+		<string>GetCurrentMNCIntent</string>
+		<string>GetSimCarrierIntent</string>
+		<string>GetSimMCCIntent</string>
+		<string>GetSimMNCIntent</string>
+		<string>IllegalRoamingIntent</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
 		<string>location</string>
+		<string>processing</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

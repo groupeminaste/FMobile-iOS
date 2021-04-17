@@ -1,20 +1,3 @@
-/*
-Copyright (C) 2020 Groupe MINASTE
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-*/
 //
 //  DataManager.swift
 //  FMobile
@@ -32,23 +15,26 @@ import UIKit
 class DataManager {
     
     // Configuration
-    let datas = Foundation.UserDefaults.standard
+    let datas = UserDefaults(suiteName: "group.fr.plugn.fmobile") ?? Foundation.UserDefaults.standard
     var modeRadin = false
     var allow013G = true
     var allow012G = true
     var femtoLOWDATA = false
     var femto = true
     var verifyonwifi = false
+    var coveragemap = false
     var stopverification = false
     var timecode = Date()
+    var g3timecode = Date()
     var lastnet = ""
+    var g3lastcompletion = "HOME"
     var count = 0
-    var wasEnabled = false
+    var wasEnabled = 0
     var isRunning = false
-    var lowbat = false
+    var perfmode = false
     var didChangeSettings = false
     var ntimer = Date().addingTimeInterval(-15 * 60)
-    var dispInfoNotif = true
+    var dispInfoNotif = false
     var allowCountryDetection = true
     var timeLastCountry = Date().addingTimeInterval(-70 * 60)
     var lastCountry = "FR"
@@ -58,6 +44,7 @@ class DataManager {
     var minimalSetup = true
     var modeExpert = false
     var statisticsAgreement = false
+    var syncNewSIM = Date().addingTimeInterval(30)
     
     // Carrier vars
     var simData = String()
@@ -69,6 +56,7 @@ class DataManager {
     var carrierNetwork = String()
     var carrierNetwork2 = String()
     var carrierName = String()
+    var fullCarrierName = String()
     var checkSimMCC = "999"
     var checkSimMNC = "99"
     
@@ -79,7 +67,7 @@ class DataManager {
     var targetMNC = "15"
     var itiMNC = "01"
     var nrDEC = true
-    var out2G = "yes"
+    var out2G = true
     var chasedMNC = ""
     var connectedMCC = ""
     var connectedMNC = ""
@@ -88,126 +76,153 @@ class DataManager {
     var itiName = "Orange F"
     var homeName = "Free"
     var stms = 0.768
+    var countriesData = [String]()
+    var countriesVoice = [String]()
+    var countriesVData = [String]()
+    var disableFMobileCore = false
+    
+    // Custom values
     var includedData = [String]()
     var includedVoice = [String]()
     var includedVData = [String]()
-    var disableFMobileCore = false
     
     init() {
-        print(Locale.current.languageCode ?? "...")
-        if datas.value(forKey: "modeRadin") != nil && Locale.current.languageCode == "fr" {
-            modeRadin = datas.value(forKey: "modeRadin") as? Bool ?? false
+        // Lecture des valeurs depuis la config
+        print(Locale.current.languageCode ?? "...");
+        if let modeRadin = datas.value(forKey: "modeRadin") as? Bool, Locale.current.languageCode == "fr" {
+            self.modeRadin = modeRadin
         }
-        if datas.value(forKey: "allow013G") != nil {
-            allow013G = datas.value(forKey: "allow013G") as? Bool ?? true
+        if let allow013G = datas.value(forKey: "allow013G") as? Bool {
+            self.allow013G = allow013G
         }
-        if datas.value(forKey: "allow012G") != nil {
-            allow012G = datas.value(forKey: "allow012G") as? Bool ?? true
+        if let allow012G = datas.value(forKey: "allow012G") as? Bool {
+            self.allow012G = allow012G
         }
-        if datas.value(forKey: "femtoLOWDATA") != nil {
-            femtoLOWDATA = datas.value(forKey: "femtoLOWDATA") as? Bool ?? false
+        if let femtoLOWDATA = datas.value(forKey: "femtoLOWDATA") as? Bool {
+            self.femtoLOWDATA = femtoLOWDATA
         }
-        if datas.value(forKey: "femto") != nil {
-            femto = datas.value(forKey: "femto") as? Bool ?? true
+        if let femto = datas.value(forKey: "femto") as? Bool {
+            self.femto = femto
         }
-        if datas.value(forKey: "verifyonwifi") != nil {
-            verifyonwifi = datas.value(forKey: "verifyonwifi") as? Bool ?? false
+        if let verifyonwifi = datas.value(forKey: "verifyonwifi") as? Bool {
+            self.verifyonwifi = verifyonwifi
         }
-        if datas.value(forKey: "stopverification") != nil {
-            stopverification = datas.value(forKey: "stopverification") as? Bool ?? false
+        if let coveragemap = datas.value(forKey: "coveragemap") as? Bool {
+            self.coveragemap = coveragemap
         }
-        if datas.value(forKey: "timecode") != nil {
-            timecode = datas.value(forKey: "timecode") as? Date ?? Date()
+        if let stopverification = datas.value(forKey: "stopverification") as? Bool {
+            self.stopverification = stopverification
         }
-        if datas.value(forKey: "lastnet") != nil {
-            lastnet = datas.value(forKey: "lastnet") as? String ?? ""
+        if let timecode = datas.value(forKey: "timecode") as? Date {
+            self.timecode = timecode
         }
-        if datas.value(forKey: "count") != nil {
-            count = datas.value(forKey: "count") as? Int ?? 0
+        if let g3timecode = datas.value(forKey: "g3timecode") as? Date {
+            self.g3timecode = g3timecode
         }
-        if datas.value(forKey: "wasEnabled") != nil {
-            wasEnabled = datas.value(forKey: "wasEnabled") as? Bool ?? false
+        if let lastnet = datas.value(forKey: "lastnet") as? String {
+            self.lastnet = lastnet
         }
-        if datas.value(forKey: "isRunning") != nil {
-            isRunning = datas.value(forKey: "isRunning") as? Bool ?? false
+        if let g3lastcompletion = datas.value(forKey: "g3lastcompletion") as? String {
+            self.g3lastcompletion = g3lastcompletion
         }
-        if datas.value(forKey: "lowbat") != nil {
-            lowbat = datas.value(forKey: "lowbat") as? Bool ?? false
+        if let count = datas.value(forKey: "count") as? Int {
+            self.count = count
         }
-        if datas.value(forKey: "didChangeSettings") != nil {
-            didChangeSettings = datas.value(forKey: "didChangeSettings") as? Bool ?? false
+        if let wasEnabled = datas.value(forKey: "wasEnabled") as? Int {
+            self.wasEnabled = wasEnabled
         }
-        if datas.value(forKey: "NTimer") != nil {
-            ntimer = datas.value(forKey: "NTimer") as? Date ?? Date().addingTimeInterval(-15 * 60)
+        if let isRunning = datas.value(forKey: "isRunning") as? Bool {
+            self.isRunning = isRunning
         }
-        if datas.value(forKey: "dispInfoNotif") != nil {
-            dispInfoNotif = datas.value(forKey: "dispInfoNotif") as? Bool ?? true
+        if let perfmode = datas.value(forKey: "perfmode") as? Bool {
+            self.perfmode = perfmode
         }
-        if datas.value(forKey: "allowCountryDetection") != nil {
-            femto = datas.value(forKey: "allowCountryDetection") as? Bool ?? true
+        if let didChangeSettings = datas.value(forKey: "didChangeSettings") as? Bool {
+            self.didChangeSettings = didChangeSettings
         }
-        if datas.value(forKey: "timeLastCountry") != nil {
-            timeLastCountry = datas.value(forKey: "timeLastCountry") as? Date ?? Date().addingTimeInterval(-70 * 60)
+        if let ntimer = datas.value(forKey: "NTimer") as? Date {
+            self.ntimer = ntimer
         }
-        if datas.value(forKey: "lastCountry") != nil {
-            lastCountry = datas.value(forKey: "lastCountry") as? String ?? "FR"
+        if let dispInfoNotif = datas.value(forKey: "dispInfoNotif") as? Bool {
+            self.dispInfoNotif = dispInfoNotif
         }
-        if(datas.value(forKey: "HP") != nil){
-            hp = datas.value(forKey: "HP") as? String ?? "WCDMA"
+        if let allowCountryDetection = datas.value(forKey: "allowCountryDetection") as? Bool {
+            self.allowCountryDetection = allowCountryDetection
         }
-        if(datas.value(forKey: "NRP") != nil){
-            nrp = datas.value(forKey: "NRP") as? String ?? "HSDPA"
+        if let timeLastCountry = datas.value(forKey: "timeLastCountry") as? Date {
+            self.timeLastCountry = timeLastCountry
         }
-        if(datas.value(forKey: "MCC") != nil){
-            targetMCC = datas.value(forKey: "MCC") as? String ?? "208"
+        if let lastCountry = datas.value(forKey: "lastCountry") as? String {
+            self.lastCountry = lastCountry
         }
-        if(datas.value(forKey: "MNC") != nil){
-            targetMNC = datas.value(forKey: "MNC") as? String ?? "15"
+        if let hp = datas.value(forKey: "HP") as? String {
+            self.hp = hp
         }
-        if(datas.value(forKey: "ITIMNC") != nil){
-            itiMNC = datas.value(forKey: "ITIMNC") as? String ?? "01"
+        if let nrp = datas.value(forKey: "NRP") as? String {
+            self.nrp = nrp
         }
-        if(datas.value(forKey: "OUT2G") != nil){
-            out2G = datas.value(forKey: "OUT2G") as? String ?? "yes"
+        if let targetMCC = datas.value(forKey: "MCC") as? String {
+            self.targetMCC = targetMCC
         }
-        if(datas.value(forKey: "ITINAME") != nil){
-            itiName = datas.value(forKey: "ITINAME") as? String ?? "Orange F"
+        if let targetMNC = datas.value(forKey: "MNC") as? String {
+            self.targetMNC = targetMNC
         }
-        if(datas.value(forKey: "HOMENAME") != nil){
-            homeName = datas.value(forKey: "HOMENAME") as? String ?? "Free"
+        if let itiMNC = datas.value(forKey: "ITIMNC") as? String {
+            self.itiMNC = itiMNC
         }
-        if(datas.value(forKey: "STMS") != nil){
-            stms = datas.value(forKey: "STMS") as? Double ?? 0.768
+        if let out2G = datas.value(forKey: "OUT2G") as? Bool {
+            self.out2G = out2G
         }
-        if(datas.value(forKey: "URL") != nil){
-            url = datas.value(forKey: "URL") as? String ?? "http://test-debit.free.fr/512.rnd"
+        if let itiName = datas.value(forKey: "ITINAME") as? String {
+            self.itiName = itiName
         }
-        if(datas.value(forKey: "URLST") != nil){
-            urlst = datas.value(forKey: "URLST") as? String ?? "http://test-debit.free.fr/1048576.rnd"
+        if let homeName = datas.value(forKey: "HOMENAME") as? String {
+            self.homeName = homeName
         }
-        if(datas.value(forKey: "setupDone") != nil){
-            setupDone = datas.value(forKey: "setupDone") as? Bool ?? false
+        if let stms = datas.value(forKey: "STMS") as? Double {
+            self.stms = stms
         }
-        if(datas.value(forKey: "minimalSetup") != nil){
-            minimalSetup = datas.value(forKey: "minimalSetup") as? Bool ?? true
+        if let url = datas.value(forKey: "URL") as? String {
+            self.url = url
         }
-        if(datas.value(forKey: "modeExpert") != nil){
-            modeExpert = datas.value(forKey: "modeExpert") as? Bool ?? false
+        if let urlst = datas.value(forKey: "URLST") as? String {
+            self.urlst = urlst
         }
-        if(datas.value(forKey: "includedData") != nil){
-            includedData = datas.value(forKey: "includedData") as? [String] ?? [String]()
+        if let setupDone = datas.value(forKey: "setupDone") as? Bool {
+            self.setupDone = setupDone
         }
-        if(datas.value(forKey: "includedVData") != nil){
-            includedVData = datas.value(forKey: "includedVData") as? [String] ?? [String]()
+        if let minimalSetup = datas.value(forKey: "minimalSetup") as? Bool {
+            self.minimalSetup = minimalSetup
         }
-        if(datas.value(forKey: "includedVoice") != nil){
-            includedVoice = datas.value(forKey: "includedVoice") as? [String] ?? [String]()
+        if let modeExpert = datas.value(forKey: "modeExpert") as? Bool {
+            self.modeExpert = modeExpert
         }
-        if(datas.value(forKey: "disableFMobileCore") != nil){
-            disableFMobileCore = datas.value(forKey: "disableFMobileCore") as? Bool ?? false
+        if let countriesData = datas.value(forKey: "countriesData") as? [String] {
+            self.countriesData = countriesData
         }
-        if(datas.value(forKey: "statisticsAgreement") != nil){
-            statisticsAgreement = datas.value(forKey: "statisticsAgreement") as? Bool ?? false
+        if let countriesVData = datas.value(forKey: "countriesVData") as? [String] {
+            self.countriesVData = countriesVData
+        }
+        if let countriesVoice = datas.value(forKey: "countriesVoice") as? [String] {
+            self.countriesVoice = countriesVoice
+        }
+        if let disableFMobileCore = datas.value(forKey: "disableFMobileCore") as? Bool {
+            self.disableFMobileCore = disableFMobileCore
+        }
+        if let statisticsAgreement = datas.value(forKey: "statisticsAgreement") as? Bool {
+            self.statisticsAgreement = statisticsAgreement
+        }
+        if let syncNewSIM = datas.value(forKey: "syncNewSIM") as? Date {
+            self.syncNewSIM = syncNewSIM
+        }
+        if let includedData = datas.value(forKey: "includedData") as? [String] {
+            self.includedData = includedData
+        }
+        if let includedVData = datas.value(forKey: "includedVData") as? [String] {
+            self.includedVData = includedVData
+        }
+        if let includedVoice = datas.value(forKey: "includedVoice") as? [String] {
+            self.includedVoice = includedVoice
         }
         
         // Arrondi des valeurs
@@ -220,7 +235,8 @@ class DataManager {
         } else if stms <= 3 {
             stms *= 1.250 // On arrondit à +25%
         }
-
+        
+        // Récupération des données depuis la SIM et les fichiers du système
         
         let operatorPListSymLinkPath = "/var/mobile/Library/Preferences/com.apple.operator.plist"
         let carrierPListSymLinkPath = "/var/mobile/Library/Preferences/com.apple.carrier.plist"
@@ -229,7 +245,6 @@ class DataManager {
         let fileManager = FileManager.default
         let operatorPListPath = try? fileManager.destinationOfSymbolicLink(atPath: operatorPListSymLinkPath)
         print(operatorPListPath ?? "UNKNOWN")
-        
         
         // Obtenir le fichier de configuration de la carte SIM
         let carrierPListPath = try? fileManager.destinationOfSymbolicLink(atPath: carrierPListSymLinkPath)
@@ -256,20 +271,16 @@ class DataManager {
         }
         
         carrier = "Carrier"
+        fullCarrierName = "Carrier"
         
         let url = URL(fileURLWithPath: operatorPListPath ?? "Error")
         do {
-            let test: NSDictionary
-            if #available(iOS 11.0, *) {
-                test = try NSDictionary(contentsOf: url, error: ())
-            } else {
-                // Fallback on earlier versions
-                test = NSDictionary(contentsOf: url) ?? NSDictionary()
-            }
+            let test = try NSDictionary(contentsOf: url, error: ())
             let array = test["StatusBarImages"] as? NSArray ?? NSArray.init(array: [0])
             let secondDict = NSDictionary(dictionary: array[0] as? Dictionary ?? NSDictionary() as? Dictionary<AnyHashable, Any> ?? Dictionary())
             
             carrier = (secondDict["StatusBarCarrierName"] as? String) ?? "Carrier"
+            fullCarrierName = (secondDict["CarrierName"] as? String) ?? "Carrier"
         } catch {
             print("Une erreur s'est produite : \(error)")
         }
@@ -278,13 +289,7 @@ class DataManager {
         carriersim = "Carrier"
         let urlcarrier = URL(fileURLWithPath: carrierPListPath ?? "Error")
         do {
-            let testsim: NSDictionary
-            if #available(iOS 11.0, *) {
-                testsim = try NSDictionary(contentsOf: urlcarrier, error: ())
-            } else {
-                // Fallback on earlier versions
-                testsim = NSDictionary(contentsOf: urlcarrier) ?? NSDictionary()
-            }
+            let testsim = try NSDictionary(contentsOf: urlcarrier, error: ())
             let arraysim = testsim["StatusBarImages"] as? NSArray ?? NSArray.init(array: [0])
             let secondDictsim = NSDictionary(dictionary: arraysim[0] as? Dictionary ?? NSDictionary() as? Dictionary<AnyHashable, Any> ?? Dictionary())
                     
@@ -292,6 +297,7 @@ class DataManager {
         } catch {
             print("Une erreur s'est produite : \(error)")
         }
+        
         
         
         connectedMCC = String(currentNetwork.prefix(3))
@@ -305,30 +311,20 @@ class DataManager {
         
         let info = CTTelephonyNetworkInfo()
         
-        if #available(iOS 12.1, *) {
         var simnum = 0
-            for (service, carrier) in info.serviceSubscriberCellularProviders ?? [:] {
-                simnum += 1
-                if simnum == 1{
-                    mycarrier = carrier
-                    carrierNetwork = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
-                } else if simnum == 2 {
-                    mycarrier2 = carrier
-                    carrierNetwork2 = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
-                }
-                let radio = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
-                print("For Carrier " + (carrier.carrierName ?? "null") + ", got " + radio)
-                print(service)
+        for (service, carrier) in info.serviceSubscriberCellularProviders ?? [:] {
+            simnum += 1
+            if simnum == 1{
+                mycarrier = carrier
+                carrierNetwork = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
+            } else if simnum == 2 {
+                mycarrier2 = carrier
+                carrierNetwork2 = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
             }
-        } else {
-            // Fallback on earlier versions
-            mycarrier = info.subscriberCellularProvider ?? CTCarrier()
-            carrierNetwork = info.currentRadioAccessTechnology ?? ""
-            mycarrier2 = CTCarrier()
-            carrierNetwork2 = ""
+            let radio = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
+            print("For Carrier " + (carrier.carrierName ?? "null") + ", got " + radio)
+            print(service)
         }
-        
-        
         
         if (mycarrier2.mobileCountryCode == targetMCC && mycarrier2.mobileNetworkCode == targetMNC) || (mycarrier2.mobileCountryCode == checkSimMCC && mycarrier2.mobileNetworkCode == checkSimMNC) {
             swap(&mycarrier2, &mycarrier)
@@ -347,7 +343,6 @@ class DataManager {
         ipadMNC = connectedMNC
         
         if UIDevice.current.userInterfaceIdiom == .pad {
-            
             if (connectedMCC == "---" && connectedMNC == "--"){
                 connectedMCC = mycarrier.mobileCountryCode ?? "---"
                 connectedMNC = mycarrier.mobileNetworkCode ?? "--"
@@ -357,12 +352,10 @@ class DataManager {
                 }
             }
             
-            if carrierName == "Carrier" && homeName != "null" && !homeName.isEmpty {
+            if connectedMCC == targetMCC && connectedMNC == targetMNC && carrierName == "Carrier" {
                 carrierName = homeName
             }
-            
         }
-        
         
         nrDEC = self.isNRDEC()
         print("nrDEC: \(nrDEC)")
@@ -373,26 +366,21 @@ class DataManager {
             chasedMNC = itiMNC
         }
         
+        // On fait le check européen (pays inclus EU)
+        europeanCheck()
     }
     
+    // Vérification d'un appel en cours
     static func isOnPhoneCall() -> Bool {
-        if #available(iOS 10.0, *) {
-            for call in CXCallObserver().calls {
-                if call.hasEnded == false {
-                    return true
-                }
-            }
-        } else {
-            let callCenter = CTCallCenter()
-            for call in callCenter.currentCalls ?? [] {
-                if call.callState == CTCallStateConnected {
-                    return true
-                }
+        for call in CXCallObserver().calls {
+            if call.hasEnded == false {
+                return true
             }
         }
         return false
     }
     
+    // Vérification de la connexion au wifi
     static func isWifiConnected() -> Bool {
         if let interface = CNCopySupportedInterfaces() {
             for i in 0 ..< CFArrayGetCount(interface) {
@@ -410,6 +398,7 @@ class DataManager {
         return false
     }
     
+    // Même chose avec des strings
     static func showWifiConnected() -> String {
         if let interface = CNCopySupportedInterfaces() {
             for i in 0 ..< CFArrayGetCount(interface) {
@@ -426,7 +415,6 @@ class DataManager {
         }
         return "null"
     }
-    
     
     static func isConnectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in()
@@ -463,8 +451,16 @@ class DataManager {
         // Obtenir le fichier de configuration de la carte SIM
         let carrierPListPath = try? fileManager.destinationOfSymbolicLink(atPath: carrierPListSymLinkPath)
         
-        let test = NSMutableDictionary(contentsOfFile: carrierPListPath ?? "Error")
-        let array = test?["SupportedPLMNs"] as? NSArray ?? NSArray.init(array: [0])
+        var array = NSArray.init(array: [0])
+        
+        let url = URL(fileURLWithPath: carrierPListPath ?? "Error")
+        do {
+            let test = try NSDictionary(contentsOf: url, error: ())
+            array = test["SupportedPLMNs"] as? NSArray ?? NSArray.init(array: [0])
+        } catch {
+            print("Une erreur est survenue : \(error)")
+        }
+        
         
         if array.count <= 1 {
             return true
@@ -484,26 +480,29 @@ class DataManager {
             
             // Obtenir le fichier de configuration de la carte SIM
             let carrierPListPath = try? fileManager.destinationOfSymbolicLink(atPath: carrierPListSymLinkPath)
-            
-            let test = NSMutableDictionary(contentsOfFile: carrierPListPath ?? "Error")
-            let array = test?["SupportedPLMNs"] as? NSArray ?? NSArray.init(array: [0])
-            
-            for index in 0..<array.count {
-                let value = array[index] as? String ?? "-----"
-                let plmnmcc = value.prefix(3)
-                let plmnmnc = value.suffix(2)
-                
-                if plmnmcc == targetMCC && plmnmnc == itiMNC {
-                    valueToReturn = true
+
+            let url = URL(fileURLWithPath: carrierPListPath ?? "Error")
+            do {
+                let test = try NSDictionary(contentsOf: url, error: ())
+                let array = test["SupportedPLMNs"] as? NSArray ?? NSArray.init(array: [0])
+                    
+                for index in 0..<array.count {
+                    let value = array[index] as? String ?? "-----"
+                    let plmnmcc = value.prefix(3)
+                    let plmnmnc = value.suffix(2)
+                        
+                    if plmnmcc == targetMCC && plmnmnc == itiMNC {
+                        valueToReturn = true
+                    }
                 }
+            } catch {
+                print("Une erreur est survenue : \(error)")
             }
         }
         return valueToReturn
     }
     
     func isNRDECstatus() -> Bool {
-        var valueToReturn = false
-        
         if simData != "-----" {
             let carrierPListSymLinkPath = "/var/mobile/Library/Preferences/com.apple.carrier.plist"
             
@@ -513,22 +512,31 @@ class DataManager {
             // Obtenir le fichier de configuration de la carte SIM
             let carrierPListPath = try? fileManager.destinationOfSymbolicLink(atPath: carrierPListSymLinkPath)
             
-            let test = NSMutableDictionary(contentsOfFile: carrierPListPath ?? "Error")
-            let array = test?["SupportedPLMNs"] as? NSArray ?? NSArray.init(array: [0])
-            
-            for index in 0..<array.count {
-                let value = array[index] as? String ?? "-----"
-                let plmnmcc = value.prefix(3)
-                let plmnmnc = value.suffix(2)
-                
-                if plmnmcc == targetMCC && plmnmnc == itiMNC {
-                    valueToReturn = true
+            let url = URL(fileURLWithPath: carrierPListPath ?? "Error")
+            do {
+                let test = try NSDictionary(contentsOf: url, error: ())
+                let array = test["SupportedPLMNs"] as? NSArray ?? []
+                    
+                for item in array {
+                    if let value = item as? String, (value.count == 5 || value.count == 6) {
+                        let plmnmcc = value.prefix(3)
+                        let plmnmnc = value.count == 6 ? value.suffix(3) : value.suffix(2)
+                            
+                        if plmnmcc == targetMCC && plmnmnc == itiMNC {
+                            return true
+                        }
+                    }
                 }
+
+            } catch {
+                print("Une erreur est survenue : \(error)")
             }
         }
-        return valueToReturn
+        
+        return false
     }
     
+    // Reset custom lists
     func resetCountryIncluded(){
         let emptyList = [String]()
         
@@ -539,66 +547,102 @@ class DataManager {
     }
     
     func zoneCheck() -> String {
-        let country = CarrierIdentification.getIsoCountryCode(connectedMCC).uppercased()
-        if country == CarrierIdentification.getIsoCountryCode(targetMCC).uppercased(){
-            return "HOME"
-        } else if country == "--"{
+        // Current country
+        let country = CarrierIdentification.getIsoCountryCode(connectedMCC, connectedMNC).uppercased()
+        
+        // Check for unknown
+        if country == "--"{
             return "UNKNOWN"
-        } else if country == "DE" || country == "AT" || country == "BE" || country == "BG" || country == "CY" || country == "HR" || country == "DK" || country == "ES" || country == "EE" || country == "FI" || country == "GI" || country == "GR" || country == "HU" || country == "IE" || country == "IS" || country == "IT" || country == "LV" || country == "LI" || country == "LT" || country == "LU" || country == "MT" || country == "NO" || country == "NL" || country == "PL" || country == "PT" || country == "CZ" || country == "RO" || country == "SK" || country == "SI" || country == "SE" || country == "GP" || country == "GF" || country == "MQ" || country == "YT" || country == "RE" || country == "BL" || country == "MF" {
+        }
+        
+        // Check if home
+        if country == CarrierIdentification.getIsoCountryCode(targetMCC, targetMNC).uppercased() {
+            return "HOME"
+        }
+        
+        // Check for all from config
+        if countriesVData.contains(country) {
             return "ALL"
         }
         
-        for includedCountry in includedData {
-            if country == includedCountry {
-                return "INTERNET"
-            }
-        }
-        
-        for includedCountry in includedVData {
-            if country == includedCountry {
-                return "ALL"
-            }
-        }
-        
-        for includedCountry in includedVoice {
-            if country == includedCountry {
-                return "CALLS"
-            }
-        }
-        
-        return "OUTZONE"
-    }
-    
-    func freeZoneCheck() -> String{
-        let country = CarrierIdentification.getIsoCountryCode(connectedMCC).uppercased()
-        if country == "FR"{
-            return "HOME"
-        } else if country == "--"{
-            return "UNKNOWN"
-        }
-        else if country == "DE" || country == "AT" || country == "BE" || country == "BG" || country == "CY" || country == "HR" || country == "DK" || country == "ES" || country == "EE" || country == "FI" || country == "GI" || country == "GR" || country == "HU" || country == "IE" || country == "IS" || country == "IT" || country == "LV" || country == "LI" || country == "LT" || country == "LU" || country == "MT" || country == "NO" || country == "NL" || country == "PL" || country == "PT" || country == "CZ" || country == "RO" || country == "GB" || country == "SK" || country == "SI" || country == "SE" || country == "GP" || country == "GF" || country == "MQ" || country == "YT" || country == "RE" || country == "BL" || country == "MF" || country == "ZA" || country == "AU" || country == "CA" || country == "US" || country == "IL" || country == "NZ" {
-            return "ALL"
-        } else if country == "PM" {
-            return "CALLS"
-        } else if  country == "DZ" || country == "AR" || country == "AM" || country == "BD" || country == "BY" || country == "BR" || country == "GE" || country == "GG" || country == "IM" || country == "IN" || country == "JE" || country == "KZ" || country == "MK" || country == "MY" || country == "MX" || country == "ME" || country == "UZ" || country == "PK" || country == "RU" || country == "RS" || country == "LK" || country == "CH" || country == "TH" || country == "TN" || country == "TR" || country == "UA" {
+        // Check for internet from config
+        if countriesData.contains(country) {
             return "INTERNET"
         }
+        
+        // Check for voice from config
+        if countriesVoice.contains(country) {
+            return "CALLS"
+        }
+        
+        // Check for all from custom
+        if includedVData.contains(country) {
+            return "ALL"
+        }
+        
+        // Check for internet from custom
+        if includedData.contains(country) {
+            return "INTERNET"
+        }
+        
+        // Check for voice from custom
+        if includedVData.contains(country) {
+            return "CALLS"
+        }
+        
+        // Out of countries
         return "OUTZONE"
     }
     
+    // Add a country in custom list
     func addCountryIncluded(country: String, list: Int){
         if list == 0 {
+            // Voice
             includedVoice.append(country)
             datas.set(includedVoice, forKey: "includedVoice")
             datas.synchronize()
         } else if list == 1 {
+            // Internet
             includedData.append(country)
             datas.set(includedData, forKey: "includedData")
             datas.synchronize()
         } else if list == 2 {
+            // All
             includedVData.append(country)
             datas.set(includedVData, forKey: "includedVData")
             datas.synchronize()
+        }
+    }
+    
+    // Check for identifier EU
+    func europeanCheck() {
+        // European list
+        let eu = ["FR", "DE", "AT", "BE", "BG", "CY", "HR", "DK", "ES", "EE", "FI", "GI", "GR", "HU", "IE", "IS", "IT", "LV", "LI", "LT", "LU", "MT", "NO", "NL", "PL", "PT", "CZ", "RO", "GB", "SK", "SI", "SE", "GP", "GF", "MQ", "YT", "RE", "BL", "MF"]
+        
+        // Country by MCC
+        let country = CarrierIdentification.getIsoCountryCode(targetMCC, targetMNC).uppercased()
+        
+        // Check european countries
+        if eu.contains(country) && !countriesVData.contains("EU") {
+            countriesVData.append("EU")
+        }
+        
+        // Check data
+        if countriesData.contains("EU") {
+            // We have it, add all elements
+            countriesData.append(contentsOf: eu)
+        }
+        
+        // Check voice
+        if countriesVoice.contains("EU") {
+            // We have it, add all elements
+            countriesVoice.append(contentsOf: eu)
+        }
+        
+        // Check all
+        if countriesVData.contains("EU") {
+            // We have it, add all elements
+            countriesVData.append(contentsOf: eu)
         }
     }
     
