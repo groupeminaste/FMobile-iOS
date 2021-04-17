@@ -82,6 +82,18 @@
 		ED58A663235F896100B40C8A /* GeneralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32477894216186C6003ADE47 /* GeneralTableViewController.swift */; };
 		ED653BA8233576A8002391B0 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ED653BAB233576A8002391B0 /* Intents.intentdefinition */; };
 		ED653BA9233576A8002391B0 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ED653BAB233576A8002391B0 /* Intents.intentdefinition */; };
+		ED6AFAB623DDF31C00D4F871 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AFAB523DDF31C00D4F871 /* NotificationNameExtension.swift */; };
+		ED6AFAB823DDF39700D4F871 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AFAB723DDF39700D4F871 /* UIViewControllerExtension.swift */; };
+		ED6AFAB923DDF39D00D4F871 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AFAB523DDF31C00D4F871 /* NotificationNameExtension.swift */; };
+		ED6AFABA23DDF39E00D4F871 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AFAB523DDF31C00D4F871 /* NotificationNameExtension.swift */; };
+		ED6AFABB23DDF39E00D4F871 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AFAB523DDF31C00D4F871 /* NotificationNameExtension.swift */; };
+		ED6AFABD23DDF3AD00D4F871 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AFAB723DDF39700D4F871 /* UIViewControllerExtension.swift */; };
+		ED6AFABE23DDF3AE00D4F871 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AFAB723DDF39700D4F871 /* UIViewControllerExtension.swift */; };
+		ED6AFABF23DDF3AE00D4F871 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AFAB723DDF39700D4F871 /* UIViewControllerExtension.swift */; };
+		ED6AFAC223DDF82400D4F871 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AFAC123DDF82400D4F871 /* CustomColor.swift */; };
+		ED6AFAC323DDF89900D4F871 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AFAC123DDF82400D4F871 /* CustomColor.swift */; };
+		ED6AFAC423DDF89A00D4F871 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AFAC123DDF82400D4F871 /* CustomColor.swift */; };
+		ED6AFAC523DDF89B00D4F871 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AFAC123DDF82400D4F871 /* CustomColor.swift */; };
 		ED6C35D222CD3C1E006D883E /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4F2CE522CD390600D56E63 /* IntentHandler.swift */; };
 		ED6C35D622CD4341006D883E /* CarrierIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6C35D522CD4341006D883E /* CarrierIntentHandler.swift */; };
 		ED6C35D722CD43C5006D883E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A597DE92251237800926DAD /* DataManager.swift */; };
@@ -335,6 +347,9 @@
 		ED4F2CE722CD390600D56E63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED58A660235F874100B40C8A /* ActivityViewCustomActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewCustomActivity.swift; sourceTree = "<group>"; };
 		ED653BAA233576A8002391B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/Intents.intentdefinition; sourceTree = "<group>"; };
+		ED6AFAB523DDF31C00D4F871 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
+		ED6AFAB723DDF39700D4F871 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		ED6AFAC123DDF82400D4F871 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		ED6C35D522CD4341006D883E /* CarrierIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierIntentHandler.swift; sourceTree = "<group>"; };
 		ED73E932233D8ABF002E3F9A /* myradin-40@3x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myradin-40@3x~ipad.png"; sourceTree = "<group>"; };
 		ED73E933233D8ABF002E3F9A /* myradin-40@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myradin-40@2x~ipad.png"; sourceTree = "<group>"; };
@@ -464,6 +479,7 @@
 				3247789A2161890A003ADE47 /* UIElementSwitch.swift */,
 				3247789E21618A29003ADE47 /* UIElementButton.swift */,
 				EDC576DD23DC8D9800975090 /* AnyCodable.swift */,
+				ED6AFAC123DDF82400D4F871 /* CustomColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -489,6 +505,8 @@
 				6A942CC72330D08700C8F7ED /* MKMapViewExtension.swift */,
 				ED10BA1522818D2A0005B1BE /* UITableViewExtension.swift */,
 				6AED7FE0228C9D4C00696969 /* StringExtension.swift */,
+				ED6AFAB523DDF31C00D4F871 /* NotificationNameExtension.swift */,
+				ED6AFAB723DDF39700D4F871 /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -926,9 +944,11 @@
 				ED58A663235F896100B40C8A /* GeneralTableViewController.swift in Sources */,
 				324778A721619751003ADE47 /* ButtonTableViewCell.swift in Sources */,
 				6AE4F7FE231BB6F40073759A /* TabBarController.swift in Sources */,
+				ED6AFAB823DDF39700D4F871 /* UIViewControllerExtension.swift in Sources */,
 				6A942CC62330CE2700C8F7ED /* CoverageMap.swift in Sources */,
 				ED0F8DBF22D69C3C0084B00F /* RoamingManager.swift in Sources */,
 				ED01AAE5215F80D200693C03 /* AppDelegate.swift in Sources */,
+				ED6AFAC223DDF82400D4F871 /* CustomColor.swift in Sources */,
 				6AC1BDC222AA629300C5B3CC /* APIRequest.swift in Sources */,
 				3247789B2161890A003ADE47 /* UIElementSwitch.swift in Sources */,
 				6A597DEE2251383F00926DAD /* UIDeviceExtension.swift in Sources */,
@@ -961,6 +981,7 @@
 				324778A521618DC8003ADE47 /* SwitchTableViewCell.swift in Sources */,
 				ED6C35DE22CD529D006D883E /* CarrierIntentHandler.swift in Sources */,
 				6AE8B9B021EFB1B200AB820C /* NotificationManager.swift in Sources */,
+				ED6AFAB623DDF31C00D4F871 /* NotificationNameExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -979,6 +1000,7 @@
 				ED896F9523CE1CA8002A9C9D /* UIElementSwitch.swift in Sources */,
 				ED896F8D23CE1C9A002A9C9D /* Section.swift in Sources */,
 				ED896FA723CE1CC8002A9C9D /* SwitchTableViewCell.swift in Sources */,
+				ED6AFAB923DDF39D00D4F871 /* NotificationNameExtension.swift in Sources */,
 				ED2649A721FEF61700C3F1F5 /* FMobileUITests.swift in Sources */,
 				ED896F6D23CE1C59002A9C9D /* APIRequest.swift in Sources */,
 				ED896F9923CE1CAF002A9C9D /* ActivityViewCustomActivity.swift in Sources */,
@@ -1002,8 +1024,10 @@
 				ED896FAF23CE1F78002A9C9D /* Intents.intentdefinition in Sources */,
 				ED896FA323CE1CC1002A9C9D /* SpeedtestProgressView.swift in Sources */,
 				ED896FA123CE1CBD002A9C9D /* MapViewController.swift in Sources */,
+				ED6AFABD23DDF3AD00D4F871 /* UIViewControllerExtension.swift in Sources */,
 				ED896F6F23CE1C5C002A9C9D /* APIResponseStatus.swift in Sources */,
 				ED896FAB23CE1F4B002A9C9D /* IntentHandler.swift in Sources */,
+				ED6AFAC323DDF89900D4F871 /* CustomColor.swift in Sources */,
 				ED896FA523CE1CC5002A9C9D /* SpeedtestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1023,6 +1047,7 @@
 				ED896F9623CE1CA9002A9C9D /* UIElementSwitch.swift in Sources */,
 				ED896F8E23CE1C9A002A9C9D /* Section.swift in Sources */,
 				ED896FA823CE1CC9002A9C9D /* SwitchTableViewCell.swift in Sources */,
+				ED6AFABA23DDF39E00D4F871 /* NotificationNameExtension.swift in Sources */,
 				ED2649B521FEF61F00C3F1F5 /* FMobileTests.swift in Sources */,
 				ED896F6E23CE1C5A002A9C9D /* APIRequest.swift in Sources */,
 				ED896F9A23CE1CAF002A9C9D /* ActivityViewCustomActivity.swift in Sources */,
@@ -1046,8 +1071,10 @@
 				ED896FB023CE1F79002A9C9D /* Intents.intentdefinition in Sources */,
 				ED896FA423CE1CC1002A9C9D /* SpeedtestProgressView.swift in Sources */,
 				ED896FA223CE1CBE002A9C9D /* MapViewController.swift in Sources */,
+				ED6AFABE23DDF3AE00D4F871 /* UIViewControllerExtension.swift in Sources */,
 				ED896F7023CE1C5C002A9C9D /* APIResponseStatus.swift in Sources */,
 				ED896FAC23CE1F4B002A9C9D /* IntentHandler.swift in Sources */,
+				ED6AFAC423DDF89A00D4F871 /* CustomColor.swift in Sources */,
 				ED896FA623CE1CC5002A9C9D /* SpeedtestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1092,8 +1119,10 @@
 			files = (
 				ED0F8DB622D68E6C0084B00F /* NotificationManager.swift in Sources */,
 				6AD8652D2336B5FB000B40C4 /* CarrierConfiguration.swift in Sources */,
+				ED6AFAC523DDF89B00D4F871 /* CustomColor.swift in Sources */,
 				EDC576E123DC8DA900975090 /* AnyCodable.swift in Sources */,
 				6AD8652F2336B619000B40C4 /* APIRequest.swift in Sources */,
+				ED6AFABF23DDF3AE00D4F871 /* UIViewControllerExtension.swift in Sources */,
 				ED0F8DC022D69C3C0084B00F /* RoamingManager.swift in Sources */,
 				6A2D900A233676BE00DCA100 /* CoveragePoint.swift in Sources */,
 				6AD865312336B62B000B40C4 /* APIResponseStatus.swift in Sources */,
@@ -1105,6 +1134,7 @@
 				6A597DEB22512ECE00926DAD /* Speedtest.swift in Sources */,
 				6A2D9008233676BB00DCA100 /* CoverageMap.swift in Sources */,
 				6A597DEC22512F7200926DAD /* CarrierIdentification.swift in Sources */,
+				ED6AFABB23DDF39E00D4F871 /* NotificationNameExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1370,17 +1400,17 @@
 				CODE_SIGN_ENTITLEMENTS = FMobile/FMobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 122;
+				CURRENT_PROJECT_VERSION = 123;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = FMobile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile;
 				PRODUCT_NAME = "FMobile 2";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1400,17 +1430,17 @@
 				CODE_SIGN_ENTITLEMENTS = FMobile/FMobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 122;
+				CURRENT_PROJECT_VERSION = 123;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = FMobile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile;
 				PRODUCT_NAME = "FMobile 2";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1512,7 +1542,7 @@
 				CODE_SIGN_ENTITLEMENTS = CustomDNS/CustomDNS.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 122;
+				CURRENT_PROJECT_VERSION = 123;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = CustomDNS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1521,7 +1551,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.CustomDNS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1536,7 +1566,7 @@
 				CODE_SIGN_ENTITLEMENTS = CustomDNS/CustomDNS.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 122;
+				CURRENT_PROJECT_VERSION = 123;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = CustomDNS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1545,7 +1575,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.CustomDNS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1560,7 +1590,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobileG3/FMobileG3.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 122;
+				CURRENT_PROJECT_VERSION = 123;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = FMobileG3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1569,7 +1599,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.FMobileG3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1586,7 +1616,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobileG3/FMobileG3.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 122;
+				CURRENT_PROJECT_VERSION = 123;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = FMobileG3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1595,7 +1625,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.FMobileG3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1612,7 +1642,7 @@
 				CODE_SIGN_ENTITLEMENTS = status/status.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 122;
+				CURRENT_PROJECT_VERSION = 123;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = status/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1621,7 +1651,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.status;
 				PRODUCT_NAME = "FMobile Fast Access";
@@ -1638,7 +1668,7 @@
 				CODE_SIGN_ENTITLEMENTS = status/status.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 122;
+				CURRENT_PROJECT_VERSION = 123;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = status/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1647,7 +1677,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.status;
 				PRODUCT_NAME = "FMobile Fast Access";

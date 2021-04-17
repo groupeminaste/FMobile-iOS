@@ -33,11 +33,27 @@ class LabelTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @available(iOS 13.0, *)
     func with(text: String, accessory: UITableViewCell.AccessoryType = .none) -> LabelTableViewCell {
         label.text = text
         accessoryType = accessory
         
         return self
     }
+    
+    @available(iOS, obsoleted: 13.0)
+    func with(text: String, accessory: UITableViewCell.AccessoryType = .none, darkMode: Bool) -> LabelTableViewCell {
+           label.text = text
+           accessoryType = accessory
+        
+           if darkMode {
+               backgroundColor = CustomColor.darkBackground
+               label.textColor = CustomColor.darkText
+           } else {
+               backgroundColor = CustomColor.lightBackground
+               label.textColor = CustomColor.lightText
+           }
+           return self
+       }
 
 }

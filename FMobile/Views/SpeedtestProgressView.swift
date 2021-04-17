@@ -114,6 +114,27 @@ class SpeedtestProgressView: UIView {
         }
     }
     
+    @available(iOS, obsoleted: 13.0)
+    func enableDarkMode() {
+        backgroundShape.strokeColor = CustomColor.darkShapeBackgroud.cgColor
+        speedShape.strokeColor = CustomColor.darkActive.cgColor
+        unit.textColor = CustomColor.darkText
+        speed.textColor = CustomColor.darkText
+        low.textColor = CustomColor.darkText
+        high.textColor = CustomColor.darkText
+    }
+    
+    @available(iOS, obsoleted: 13.0)
+    func disableDarkMode() {
+        backgroundShape.strokeColor = CustomColor.lightShapeBackgroud.cgColor
+        speedShape.strokeColor = CustomColor.lightActive.cgColor
+        unit.textColor = CustomColor.lightText
+        speed.textColor = CustomColor.lightText
+        low.textColor = CustomColor.lightText
+        high.textColor = CustomColor.lightText
+    }
+    
+    
     func adjustMax(for value: Double) {
         if value < 1 {
             self.max = 1

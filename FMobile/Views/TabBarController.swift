@@ -136,21 +136,44 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 13.0, *) {} else {
+            // Notifs de changements de couleur
+            NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
+            
+            isDarkMode() ? enableDarkMode() : disableDarkMode()
+        }
+        
         // Init general
         let general = UINavigationController(rootViewController: GeneralTableViewController(style: .grouped))
-        general.tabBarItem = UITabBarItem(title: "general_view_title".localized(), image: UIImage(systemName: "gear"), tag: 0)
+        if #available(iOS 13.0, *) {
+            general.tabBarItem = UITabBarItem(title: "general_view_title".localized(), image: UIImage(systemName: "gear"), tag: 0)
+        } else {
+            // Fallback on earlier versions
+            general.tabBarItem = UITabBarItem(title: "general_view_title".localized(), image: UIImage(named: "gear"), tag: 0)
+        }
         
         // Init map
-//        let map = UINavigationController(rootViewController: MapViewController())
-//        map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(systemName: "map"), tag: 1)
+        let map = UINavigationController(rootViewController: MapViewController())
+        if #available(iOS 13.0, *) {
+            map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(systemName: "map"), tag: 1)
+        } else {
+            // Fallback on earlier versions
+            map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(named: "map"), tag: 1)
+        }
         
         // Init speedtest
         let speedtest = UINavigationController(rootViewController: SpeedtestViewController())
-        speedtest.tabBarItem = UITabBarItem(title: "speedtest_view_title".localized(), image: UIImage(systemName: "timer"), tag: 2)
+        if #available(iOS 13.0, *) {
+            speedtest.tabBarItem = UITabBarItem(title: "speedtest_view_title".localized(), image: UIImage(systemName: "timer"), tag: 2)
+        } else {
+            // Fallback on earlier versions
+            speedtest.tabBarItem = UITabBarItem(title: "speedtest_view_title".localized(), image: UIImage(named: "timer"), tag: 2)
+        }
         
         // Add everything to tab bar
-//      viewControllers = [general, map, speedtest]
-        viewControllers = [general, speedtest]
+      viewControllers = [general, map, speedtest]
+//        viewControllers = [general, speedtest]
         
         // Load views
         for viewController in viewControllers ?? [] {
@@ -160,6 +183,26 @@ class TabBarController: UITabBarController {
                 let _ = viewController.view
             }
         }
+    }
+    
+    @available(iOS, obsoleted: 13.0)
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
+    }
+    
+    @available(iOS, obsoleted: 13.0)
+    @objc override func enableDarkMode() {
+        super.enableDarkMode()
+        tabBar.barTintColor = CustomColor.darkBackground
+        tabBar.tintColor = CustomColor.redButton
+    }
+    
+    @available(iOS, obsoleted: 13.0)
+    @objc override func disableDarkMode() {
+        super.disableDarkMode()
+        tabBar.barTintColor = CustomColor.lightBackground
+        tabBar.tintColor = CustomColor.blueButton
     }
     
 }

@@ -18,6 +18,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 13.0, *) {} else {
+            // Notifs de changements de couleur
+            NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
+            
+            isDarkMode() ? enableDarkMode() : disableDarkMode()
+        }
+        
         navigationItem.title = "map_view_title".localized()
 
         view.addSubview(map)
@@ -66,5 +74,27 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         return MKOverlayRenderer()
     }
+    
+    @available(iOS, obsoleted: 13.0)
+       deinit {
+           NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
+           NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
+       }
+       
+       @available(iOS, obsoleted: 13.0)
+       @objc override func enableDarkMode() {
+           super.enableDarkMode()
+           navigationController?.navigationBar.barTintColor = .black
+           navigationController?.navigationBar.tintColor = CustomColor.darkActive
+           navigationController?.navigationBar.barStyle = .blackTranslucent
+       }
+       
+       @available(iOS, obsoleted: 13.0)
+       @objc override func disableDarkMode() {
+           super.disableDarkMode()
+           navigationController?.navigationBar.barTintColor = .white
+           navigationController?.navigationBar.tintColor = CustomColor.lightActive
+           navigationController?.navigationBar.barStyle = .default
+       }
 
 }

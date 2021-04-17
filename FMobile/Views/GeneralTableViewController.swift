@@ -281,13 +281,11 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         var mcc = ""
         var mnc = ""
         var land = ""
-        var service = ""
         
         if siminventory.count > 0 {
             mcc = siminventory[0].1.mobileCountryCode ?? "---"
             mnc = siminventory[0].1.mobileNetworkCode ?? "--"
             land = siminventory[0].1.isoCountryCode ?? "--"
-            service = siminventory[0].0
         }
         
         // On fetch la configuration depuis le serveur
@@ -312,7 +310,6 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 dataManager.datas.set(configuration.countriesData, forKey: "countriesData")
                 dataManager.datas.set(configuration.countriesVoice, forKey: "countriesVoice")
                 dataManager.datas.set(configuration.countriesVData, forKey: "countriesVData")
-                dataManager.datas.set(service, forKey: "registeredService")
                 dataManager.datas.set(configuration.carrierServices, forKey: "carrierServices")
                 dataManager.datas.set(false, forKey: "isSettingUp")
                 dataManager.datas.synchronize()
@@ -331,13 +328,17 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                     dataManager.datas.set([String](), forKey: "countriesData")
                     dataManager.datas.set([String](), forKey: "countriesVoice")
                     dataManager.datas.set([String](), forKey: "countriesVData")
-                    dataManager.datas.set(service, forKey: "registeredService")
                     dataManager.datas.synchronize()
                     
                     let alert2 = UIAlertController(title: "checking_eligibility".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
                     let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 5, width: 50, height: 50))
                     loadingIndicator.hidesWhenStopped = true
-                    loadingIndicator.style = UIActivityIndicatorView.Style.medium
+                    if #available(iOS 13.0, *) {
+                        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+                    } else {
+                        // Fallback on earlier versions
+                        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+                    }
                     loadingIndicator.startAnimating();
                     alert2.view.addSubview(loadingIndicator)
                     
@@ -515,6 +516,15 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: "switchCell")
         tableView.register(ButtonTableViewCell.self, forCellReuseIdentifier: "buttonCell")
         
+        if #available(iOS 13.0, *) {} else {
+            // Ecoute les changements de couleurs
+            NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
+            
+            // On initialise les couleurs
+            isDarkMode() ? enableDarkMode() : disableDarkMode()
+        }
+        
         // On active certaines fonctionnalitees
         UIDevice.current.isBatteryMonitoringEnabled = true
         if #available(iOS 11.0, *) {
@@ -538,6 +548,56 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         dataManager.datas.set(true, forKey: "statusUL")
         dataManager.datas.set(Date().addingTimeInterval(-15 * 60), forKey: "NTimer")
         dataManager.datas.synchronize()
+    }
+    
+    @available(iOS, obsoleted: 13.0)
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
+    }
+    
+    @available(iOS, obsoleted: 13.0)
+    @objc override func darkModeEnabled(_ notification: Foundation.Notification) {
+        super.darkModeEnabled(notification)
+        self.tableView.reloadData()
+    }
+    
+    @available(iOS, obsoleted: 13.0)
+    @objc override func darkModeDisabled(_ notification: Foundation.Notification) {
+        super.darkModeDisabled(notification)
+        self.tableView.reloadData()
+    }
+    
+    @available(iOS, obsoleted: 13.0)
+    @objc override func enableDarkMode() {
+        super.enableDarkMode()
+        self.view.backgroundColor = CustomColor.darkTableBackground
+        self.tableView.backgroundColor = CustomColor.darkTableBackground
+        self.tableView.separatorColor = CustomColor.darkSeparator
+        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.backgroundColor = .black
+        self.navigationController?.navigationBar.barTintColor = .black
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        self.navigationController?.view.backgroundColor = CustomColor.darkBackground
+        self.navigationController?.navigationBar.tintColor = CustomColor.darkActive
+    }
+    
+    @available(iOS, obsoleted: 13.0)
+    @objc override func disableDarkMode() {
+        super.disableDarkMode()
+        self.view.backgroundColor = CustomColor.lightTableBackground
+        self.tableView.backgroundColor = CustomColor.lightTableBackground
+        self.tableView.separatorColor = CustomColor.lightSeparator
+        self.navigationController?.navigationBar.barStyle = .default
+        self.navigationController?.navigationBar.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        self.navigationController?.view.backgroundColor = CustomColor.lightBackground
+        self.navigationController?.navigationBar.tintColor = CustomColor.lightActive
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -611,7 +671,11 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         let alert = UIAlertController(title: "diagnostic_inprogress".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        if #available(iOS 13.0, *) {
+            loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        } else {
+            loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        }
         loadingIndicator.startAnimating();
         alert.view.addSubview(loadingIndicator)
         
@@ -631,9 +695,17 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         } else if dataManager.ipadMCC == "---" && UIDevice.current.userInterfaceIdiom == .pad {
             generation = "FMobile b\(appVersion) - Génération 1"
         } else if !dataManager.nrDEC || !dataManager.setupDone {
-            generation = "FMobile b\(appVersion) - Génération A3"
+            if #available(iOS 13.1, *) {
+                generation = "FMobile b\(appVersion) - Génération A3"
+            } else {
+                generation = "FMobile b\(appVersion) - Génération A2"
+            }
         } else {
-            generation = "FMobile b\(appVersion) - Génération 3"
+            if #available(iOS 13.1, *) {
+                generation = "FMobile b\(appVersion) - Génération 3"
+            } else {
+                generation = "FMobile b\(appVersion) - Génération 2"
+            }
         }
             
             let date = Date()
@@ -1089,14 +1161,22 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         } else if dataManager.ipadMCC == "---" && UIDevice.current.userInterfaceIdiom == .pad {
             generation = "generation".localized().format([String(appVersion), "1"])
         } else if !dataManager.nrDEC || !dataManager.setupDone {
-            generation = "generation".localized().format([String(appVersion), "A3"])
+            if #available(iOS 13.1, *) {
+                generation = "generation".localized().format([String(appVersion), "A3"])
+            } else {
+                generation = "generation".localized().format([String(appVersion), "A2"])
+            }
         } else {
-            generation = "generation".localized().format([String(appVersion), "3"])
+            if #available(iOS 13.1, *) {
+                generation = "generation".localized().format([String(appVersion), "3"])
+            } else {
+                generation = "generation".localized().format([String(appVersion), "2"])
+            }
         }
         
         let sta = dataManager.modeRadin ? "État du réseau radin" : "status".localized()
         let prefsnet = dataManager.modeRadin ? "Préférences radines" : "netprefs".localized()
-//      let prefsstats = dataManager.modeRadin ? "Statistiques radines" : "statsprefs".localized()
+        let prefsstats = dataManager.modeRadin ? "Statistiques radines" : "statsprefs".localized()
         let iti3G = dataManager.modeRadin ? "Itinérance Delta autorisée" : "allow3g".localized()
         let iti2G = dataManager.modeRadin ? "Itinérance tupperware autorisée" : "allow2g".localized()
         let wifiaut = dataManager.modeRadin ? "Vérifier sur ma Radinbox" : "verifywifi".localized()
@@ -1262,6 +1342,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             }]
         }
         
+        if #available(iOS 13.2, *) {
         net.elements += [UIElementLabel(id: "connected3", text: "") { () -> String in
             
             let locationAccuracy = self.locationManager.location?.horizontalAccuracy ?? -1
@@ -1280,6 +1361,26 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 return "⚫️⚫️⚫️⚫️⚫️ - 🟩 GPS"
             }
         }]
+        } else {
+            net.elements += [UIElementLabel(id: "connected3", text: "") { () -> String in
+                
+                let locationAccuracy = self.locationManager.location?.horizontalAccuracy ?? -1
+                print("GPS : \(locationAccuracy)")
+                if locationAccuracy < 0 {
+                    return "⚪️⚪️⚪️⚪️⚪️ - ⚫️ GPS"
+                } else if locationAccuracy > 600 {
+                    return "⚫️⚪️⚪️⚪️⚪️ - 🔴 GPS"
+                } else if locationAccuracy > 300 {
+                    return "⚫️⚫️⚪️⚪️⚪️ - 🔶 GPS"
+                } else if locationAccuracy > 150 {
+                    return "⚫️⚫️⚫️⚪️⚪️ - ⚠️ GPS"
+                } else if locationAccuracy > 50 {
+                    return "⚫️⚫️⚫️⚫️⚪️ - ✅ GPS"
+                } else {
+                    return "⚫️⚫️⚫️⚫️⚫️ - ✅ GPS"
+                }
+            }]
+        }
         
         let wifistat = DataManager.showWifiConnected()
         
@@ -1347,9 +1448,9 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         }
         
         // Section stats
-//        let stats = Section(name: prefsstats, elements: [
-//            UIElementSwitch(id: "coveragemap", text: "coveragemap_switch".localized(), d: false)
-//        ])
+        let stats = Section(name: prefsstats, elements: [
+            UIElementSwitch(id: "coveragemap", text: "coveragemap_switch".localized(), d: false)
+        ])
         
         // Section background
         let back = Section(name: bkg, elements: [
@@ -1393,17 +1494,19 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             if service.2 == "copy_callcode" {
                 conso.elements += [
                     UIElementButton(id: "", text: service.2.localized()) { (button) in
-                    UIPasteboard.general.string = service.1
-                
-                    let alert = UIAlertController(title: "code_copied_confirmation".localized(), message: nil, preferredStyle: UIAlertController.Style.alert)
-                    
-                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
-                    
-                    self.delay(1){
-                        UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
-                    }
-                }
-                ]
+
+                       let ussdCode = "tel://\(service.1)"
+                       let app = UIApplication.shared
+                       
+                       if let encoded = ussdCode.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+                           let u = encoded//"tel://\(encoded)"
+                           if let url = URL(string:u) {
+                               if app.canOpenURL(url) {
+                                   app.open(url, options: [:], completionHandler: { (finished) in })
+                               }
+                           }
+                       }
+                }]
             } else if service.2 == "open_official_app" || service.2 == "call_service" || service.2 == "call_conso" {
                 conso.elements += [
                     UIElementButton(id: "", text: service.2.localized().format([service.0])) { (button) in
@@ -1421,17 +1524,19 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             } else if service.2 == "copy" {
                 conso.elements += [
                     UIElementButton(id: "", text: service.2.localized().format([service.0])) { (button) in
-                    UIPasteboard.general.string = service.1
                 
-                    let alert = UIAlertController(title: "code_copied_confirmation".localized(), message: nil, preferredStyle: UIAlertController.Style.alert)
-                    
-                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
-                    
-                    self.delay(1){
-                        UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
-                    }
-                }
-                ]
+                        let ussdCode = "tel://\(service.1)"
+                        let app = UIApplication.shared
+                        
+                        if let encoded = ussdCode.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+                            let u = encoded//"tel://\(encoded)"
+                            if let url = URL(string:u) {
+                                if app.canOpenURL(url) {
+                                    app.open(url, options: [:], completionHandler: { (finished) in })
+                                }
+                            }
+                        }
+                    }]
             }
         }
         
@@ -1506,7 +1611,6 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 dataManager.datas.set(false, forKey: "coveragemap_noalert")
                 dataManager.datas.set(false, forKey: "locationAuthorizationAvoided")
                 dataManager.datas.set(false, forKey: "locationAuthorizationBadsetup")
-                dataManager.datas.set("", forKey: "registeredService")
                 dataManager.datas.synchronize()
                 self.updateSetup(dataManager, false)
                 self.loadUI()
@@ -1518,6 +1622,10 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             UIElementSwitch(id: "dispInfoNotif", text: "disp_notifications".localized(), d: false),
             UIElementSwitch(id: "modeExpert", text: "expert_mode".localized(), d: false),
         ], footer: Locale.current.languageCode == "fr" ? "Le mode Radin est un clin d'oeil à Xavier Radiniel (@XRadiniel sur l'oiseau bleu), un compte parodique autour de la galaxie Niel. Il modifie l'interface de l'application mais n'apporte aucune fonctionalité supplémentaire." : "\n\n")
+        
+        if #available(iOS 13.0, *) {} else {
+            avance.elements += [UIElementSwitch(id: "isDarkMode", text: "dark_mode".localized(), d: true)]
+        }
         
         if Locale.current.languageCode == "fr" {
             avance.elements += [UIElementSwitch(id: "modeRadin", text: "Mode Radin", d: false)]
@@ -1562,8 +1670,8 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             sections += [pref]
         }
         
-//      sections += [stats, back, cnt, femto]
-        sections += [back, cnt, femto]
+      sections += [stats, back, cnt, femto]
+        //sections += [back, cnt, femto]
         
         if !conso.elements.isEmpty {
             sections += [conso]
@@ -1603,7 +1711,12 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         let element = sections[indexPath.section].elements[indexPath.row]
         
         if let e = element as? UIElementLabel {
-            return (tableView.dequeueReusableCell(withIdentifier: "labelCell", for: indexPath) as! LabelTableViewCell).with(text: e.text)
+            if #available(iOS 13.0, *) {
+                return (tableView.dequeueReusableCell(withIdentifier: "labelCell", for: indexPath) as! LabelTableViewCell).with(text: e.text)
+            } else {
+                // Fallback on earlier versions
+                return (tableView.dequeueReusableCell(withIdentifier: "labelCell", for: indexPath) as! LabelTableViewCell).with(text: e.text, darkMode: isDarkMode())
+            }
         } else if let e = element as? UIElementSwitch {
             let datas = UserDefaults(suiteName: "group.fr.plugn.fmobile") ?? Foundation.UserDefaults.standard
             var enable = e.d
@@ -1612,9 +1725,19 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 enable = value
             }
             
-            return (tableView.dequeueReusableCell(withIdentifier: "switchCell", for: indexPath) as! SwitchTableViewCell).with(id: e.id, controller: self, text: e.text, enabled: enable)
+            if #available(iOS 13.0, *) {
+                return (tableView.dequeueReusableCell(withIdentifier: "switchCell", for: indexPath) as! SwitchTableViewCell).with(id: e.id, controller: self, text: e.text, enabled: enable)
+            } else {
+                // Fallback on earlier versions
+                return (tableView.dequeueReusableCell(withIdentifier: "switchCell", for: indexPath) as! SwitchTableViewCell).with(id: e.id, controller: self, text: e.text, enabled: enable, darkMode: isDarkMode())
+            }
         } else if let e = element as? UIElementButton {
-            return (tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as! ButtonTableViewCell).with(title: e.text, alignment: .left, handler: e.handler)
+            if #available(iOS 13.0, *) {
+                return (tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as! ButtonTableViewCell).with(title: e.text, alignment: .left, handler: e.handler)
+            } else {
+                // Fallback on earlier versions
+                return (tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as! ButtonTableViewCell).with(title: e.text, alignment: .left, handler: e.handler, darkMode: isDarkMode())
+            }
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell", for: indexPath)

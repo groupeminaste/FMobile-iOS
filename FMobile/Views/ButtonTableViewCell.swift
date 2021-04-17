@@ -35,11 +35,28 @@ class ButtonTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @available(iOS 13.0, *)
     func with(title: String, alignment: UIControl.ContentHorizontalAlignment = .center, handler: @escaping (UIButton) -> Void) -> ButtonTableViewCell {
         self.handler = handler
         button.setTitle(title, for: .normal)
         button.contentHorizontalAlignment = alignment
         
+        return self
+    }
+    
+    @available(iOS, obsoleted: 13.0)
+    func with(title: String, alignment: UIControl.ContentHorizontalAlignment = .center, handler: @escaping (UIButton) -> Void, darkMode: Bool) -> ButtonTableViewCell {
+        self.handler = handler
+        button.setTitle(title, for: .normal)
+        button.contentHorizontalAlignment = alignment
+        
+        if darkMode {
+            backgroundColor = CustomColor.darkBackground
+            button.setTitleColor(CustomColor.darkActive, for: .normal)
+        } else {
+            backgroundColor = CustomColor.lightBackground
+            button.setTitleColor(CustomColor.lightActive, for: .normal)
+        }
         return self
     }
     

@@ -14,8 +14,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1223"
-            endingLineNumber = "1223"
+            startingLineNumber = "1224"
+            endingLineNumber = "1224"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>

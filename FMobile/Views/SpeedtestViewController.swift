@@ -16,6 +16,14 @@ class SpeedtestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 13.0, *) {} else {
+            // Notifs de changements de couleur
+            NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
+            
+            isDarkMode() ? enableDarkMode() : disableDarkMode()
+        }
+        
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = false
         }
@@ -23,7 +31,9 @@ class SpeedtestViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "speedtest_start".localized(), style: .plain, target: self, action: #selector(start(_:)))
         
         // Initialisation des views
-        view.backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        }
         view.addSubview(progress)
         view.addSubview(desc)
         
@@ -48,6 +58,32 @@ class SpeedtestViewController: UIViewController {
         desc.textAlignment = .center
         desc.font = UIFont.systemFont(ofSize: 14)
         desc.text = "speedtest_description".localized()
+    }
+    
+    @available(iOS, obsoleted: 13.0)
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
+    }
+    
+    @available(iOS, obsoleted: 13.0)
+    @objc override func enableDarkMode() {
+        super.enableDarkMode()
+        progress.enableDarkMode()
+        desc.textColor = CustomColor.darkText2
+        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.tintColor = CustomColor.darkActive
+        navigationController?.navigationBar.barStyle = .black
+    }
+    
+    @available(iOS, obsoleted: 13.0)
+    @objc override func disableDarkMode() {
+        super.disableDarkMode()
+        progress.disableDarkMode()
+        desc.textColor = CustomColor.lightText2
+        navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.tintColor = CustomColor.lightActive
+        navigationController?.navigationBar.barStyle = .default
     }
     
     @objc func start(_ sender: Any) {

@@ -103,7 +103,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 let alert = UIAlertController(title: "Préparation en cours...", message: nil, preferredStyle: UIAlertController.Style.alert)
                 let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 3, y: 5, width: 50, height: 50))
                 loadingIndicator.hidesWhenStopped = true
-                loadingIndicator.style = UIActivityIndicatorView.Style.medium
+                if #available(iOS 13.0, *) {
+                    loadingIndicator.style = UIActivityIndicatorView.Style.medium
+                } else {
+                    loadingIndicator.style = UIActivityIndicatorView.Style.gray
+                }
                 loadingIndicator.startAnimating();
                 alert.view.addSubview(loadingIndicator)
                 
@@ -220,7 +224,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         
                         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 3, y: 5, width: 50, height: 50))
                         loadingIndicator.hidesWhenStopped = true
-                        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+                        if #available(iOS 13.0, *) {
+                            loadingIndicator.style = UIActivityIndicatorView.Style.medium
+                        } else {
+                            // Fallback on earlier versions
+                            loadingIndicator.style = UIActivityIndicatorView.Style.gray
+                        }
                         loadingIndicator.startAnimating();
                         
                         alert.view.addSubview(loadingIndicator)
@@ -334,7 +343,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // GESTION DE L'ARRIERE PLAN
     // -----
     
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        RoamingManager.engineRunning()
+        completionHandler(.newData)
+    }
     
+    @available(iOS 13.0, *)
     func scheduleAppRefresh(){
         print("Will start schedule App Refresh")
         
@@ -349,6 +363,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("App Refresh schedule done.")
     }
     
+    @available(iOS 13.0, *)
     func scheduleAppExecution(){
         print("Will start schedule App Execution")
         let request = BGProcessingTaskRequest(identifier: "fr.plugn.fmobile.heavycheck")
@@ -365,6 +380,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("App Execution schedule done.")
     }
     
+    @available(iOS 13.0, *)
     func handleAppExecution(task: BGProcessingTask) {
         scheduleAppExecution()
         scheduleAppRefresh()
@@ -379,6 +395,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         task.setTaskCompleted(success: true)
     }
     
+    @available(iOS 13.0, *)
     func handleAppRefresh(task: BGAppRefreshTask) {
         scheduleAppRefresh()
         scheduleAppExecution()
@@ -393,6 +410,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         task.setTaskCompleted(success: true)
     }
     
+    @available(iOS 13.0, *)
     private func registerBackgroundTasks() {
         let test = BGTaskScheduler.shared.register(forTaskWithIdentifier: "fr.plugn.fmobile.iticheck", using: nil) { task in
             self.handleAppRefresh(task: task as! BGAppRefreshTask)
@@ -412,7 +430,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         CarrierIntentHandler.donateInteraction()
         
-        registerBackgroundTasks()
+        if #available(iOS 13.0, *) {
+            registerBackgroundTasks()
+        }
         
         //CustomDNS().refreshManager()
         
@@ -452,11 +472,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         DispatchQueue.global(qos: .background).async {
             
-            print("Did enter background")
-            self.scheduleAppRefresh()
-            print("STEP 1/2 OK")
-            self.scheduleAppExecution()
-            print("STEP 2/2 OK")
+            if #available(iOS 13.0, *) {
+                print("Did enter background")
+                self.scheduleAppRefresh()
+                print("STEP 1/2 OK")
+                self.scheduleAppExecution()
+                print("STEP 2/2 OK")
+            }
             
             let dataManager = DataManager()
             

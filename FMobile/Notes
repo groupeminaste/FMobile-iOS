@@ -37,3 +37,7 @@ func freeZoneCheck() -> String{
      }
      return "OUTZONE"
  }
+
+
+
+0000000100000001 match test with registered 0000000100000001

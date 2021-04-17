@@ -44,6 +44,7 @@ class SwitchTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @available(iOS 13.0, *)
     func with(id: String = "", controller: GeneralTableViewController?, text: String, enabled: Bool) -> SwitchTableViewCell {
         self.id = id
         self.controller = controller
@@ -52,6 +53,24 @@ class SwitchTableViewCell: UITableViewCell {
         
         return self
     }
+    
+    @available(iOS, obsoleted: 13.0)
+    func with(id: String = "", controller: GeneralTableViewController?, text: String, enabled: Bool, darkMode: Bool) -> SwitchTableViewCell {
+        self.id = id
+        self.controller = controller
+        label.text = text
+        switchElement.isOn = enabled
+        
+        if darkMode {
+            backgroundColor = CustomColor.darkBackground
+            label.textColor = CustomColor.darkText
+        } else {
+            backgroundColor = CustomColor.lightBackground
+            label.textColor = CustomColor.lightText
+        }
+        return self
+    }
+    
     
     @objc func onChange(_ sender: Any) {
         // Save switch
@@ -79,6 +98,12 @@ class SwitchTableViewCell: UITableViewCell {
                     table.refreshSections()
                 })
                 table.present(alert, animated: true, completion: nil)
+            }
+            
+            if #available(iOS 13.0, *) {} else {
+                if id == "isDarkMode" {
+                    NotificationCenter.default.post(name: switchElement.isOn ? .darkModeEnabled : .darkModeDisabled, object: nil)
+                }
             }
             
             // Reload UI

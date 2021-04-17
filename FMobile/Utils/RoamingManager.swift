@@ -117,21 +117,6 @@ class RoamingManager {
         dataManager.datas.set(true, forKey: "isSettingUp")
         dataManager.datas.synchronize()
         
-        let info = CTTelephonyNetworkInfo()
-        var siminventory = [(String, CTCarrier, String)]()
-        for (service, carrier) in info.serviceSubscriberCellularProviders ?? [:] {
-            
-            let radio = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
-            siminventory.append((service, carrier, radio))
-            
-        }
-        
-        var service = ""
-        if siminventory.count > 0 {
-            service = siminventory[0].0
-        }
-
-        
         
         // On fetch la configuration depuis le serveur
         CarrierConfiguration.fetch(forMCC: dataManager.mycarrier.mobileCountryCode ?? "", andMNC: dataManager.mycarrier.mobileNetworkCode ?? "") { configuration in
@@ -155,7 +140,6 @@ class RoamingManager {
                 dataManager.datas.set(configuration.countriesData, forKey: "countriesData")
                 dataManager.datas.set(configuration.countriesVoice, forKey: "countriesVoice")
                 dataManager.datas.set(configuration.countriesVData, forKey: "countriesVData")
-                dataManager.datas.set(service, forKey: "registeredService")
                 dataManager.datas.set(configuration.carrierServices, forKey: "carrierServices")
                 dataManager.datas.set(false, forKey: "isSettingUp")
                 dataManager.datas.synchronize()

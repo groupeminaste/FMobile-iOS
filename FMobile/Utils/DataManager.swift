@@ -82,7 +82,7 @@ class DataManager {
     var countriesVoice = [String]()
     var countriesVData = [String]()
     var disableFMobileCore = false
-    var registeredService = String()
+    var registeredService = "0000000100000001"
     var carrierServices = [(String, String, String)]()
     
     // Custom values
@@ -91,9 +91,9 @@ class DataManager {
     var includedVData = [String]()
     
     // European lists
-    let europe = ["FR", "DE", "AT", "BE", "BG", "CY", "HR", "DK", "ES", "EE", "FI", "GI", "GR", "HU", "IE", "IS", "IT", "LV", "LI", "LT", "LU", "MT", "NO", "NL", "PL", "PT", "CZ", "RO", "GB", "SK", "SI", "SE", "GP", "GF", "MQ", "YT", "RE", "BL", "MF"]
+    let europe = ["FR", "DE", "AT", "BE", "BG", "CY", "HR", "DK", "ES", "EE", "FI", "GI", "GR", "HU", "IE", "IS", "IT", "LV", "LI", "LT", "LU", "MT", "NO", "NL", "PL", "PT", "CZ", "RO", "SK", "SI", "SE", "GP", "GF", "MQ", "YT", "RE", "BL", "MF"]
     
-    let europeland = ["FR", "DE", "AT", "BE", "BG", "CY", "HR", "DK", "ES", "EE", "FI", "GI", "GR", "HU", "IE", "IS", "IT", "LV", "LI", "LT", "LU", "MT", "NO", "NL", "PL", "PT", "CZ", "RO", "GB", "SK", "SI", "SE"]
+    let europeland = ["FR", "DE", "AT", "BE", "BG", "CY", "HR", "DK", "ES", "EE", "FI", "GI", "GR", "HU", "IE", "IS", "IT", "LV", "LI", "LT", "LU", "MT", "NO", "NL", "PL", "PT", "CZ", "RO", "SK", "SI", "SE"]
     
     init() {
         // Lecture des valeurs depuis la config
@@ -233,9 +233,9 @@ class DataManager {
         if let isSettingUp = datas.value(forKey: "isSettingUp") as? Bool {
             self.isSettingUp = isSettingUp
         }
-        if let registeredService = datas.value(forKey: "registeredService") as? String {
-            self.registeredService = registeredService
-        }
+//        if let registeredService = datas.value(forKey: "registeredService") as? String {
+//            self.registeredService = registeredService
+//        }
         if let carrierServices = datas.value(forKey: "carrierServices") as? [[String]] {
             var newCarrierS = [(String, String, String)]()
             
@@ -361,9 +361,11 @@ class DataManager {
             
             print("\(siminventory[1].0) match test with registered \(registeredService)")
         
-            if (mycarrier2.mobileCountryCode == targetMCC && mycarrier2.mobileNetworkCode == targetMNC) || (mycarrier2.mobileCountryCode == checkSimMCC && mycarrier2.mobileNetworkCode == checkSimMNC) || (siminventory[1].0 == registeredService) {
-            swap(&mycarrier2, &mycarrier)
-            swap(&carrierNetwork2, &carrierNetwork)
+//            if (mycarrier2.mobileCountryCode == targetMCC && mycarrier2.mobileNetworkCode == targetMNC) || (mycarrier2.mobileCountryCode == checkSimMCC && mycarrier2.mobileNetworkCode == checkSimMNC) || (siminventory[1].0 == registeredService) {
+            
+            if siminventory[1].0 == registeredService {
+                swap(&mycarrier2, &mycarrier)
+                swap(&carrierNetwork2, &carrierNetwork)
             }
         
         }
