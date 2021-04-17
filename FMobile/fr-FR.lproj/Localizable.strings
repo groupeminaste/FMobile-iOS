@@ -80,7 +80,7 @@
 "femto_footer" = "Pour détecter automatiquement un boîtier Femto, l'app télécharge un petit fichier afin d'effectuer un test de rapidité du réseau. En mode économie de données, l'app attend votre permission pour le télécharger.";
 "reset_offline_zones" = "Réinitialiser les zones non couvertes";
 "extra_cost_protection" = "Protection contre le hors-forfait involontaire";
-"land_footer" = "En activant cette option, l'app vérifie en arrière plan dans quelle zone tarifaire (pays) vous vous situez. Si vos données cellulaires sont activées alors que vous êtes dans une zone hors-forfait, vous receverez plusieurs notifications vous invitant à couper vos données. Cette option est disponible uniquement pour une sélection d'opérateurs.";
+"land_footer" = "En activant cette option, l'app vérifie en arrière plan dans quelle zone tarifaire (pays) vous vous situez. Si vos données cellulaires sont activées alors que vous êtes dans une zone hors-forfait, vous receverez plusieurs notifications vous invitant à couper vos données.";
 "cost_protection_title" = "Protection hors-forfait";
 "carrier_services" = "Services opérateurs";
 "suivi_conso_20815" = "Obtenir le suivi détaillé de consommation";
@@ -154,6 +154,16 @@
 "location_wrong_setting" = "Mauvaise configuration pour l'accès à la localisation";
 "location_ws_agree" = "Forcer temporairement le réglage \"App active\"";
 "location_ws_agree_forever" = "Mémoriser et forcer le réglage \"App active\"";
+"airplane_mode_enabled" = "Mode avion activé";
+"add_europe" = "Ajouter l'Union Européenne ?";
+"add_europe_description" = "Le pays %@ que vous essayez d'ajouter est membre de l'UE. Voulez-vous ajouter l'UE plutot que le pays individuel ?";
+"add_europe_only" = "Ajouter l'Union Européenne";
+"add_country_only" = "Ajouter %@ uniquement";
+"exit_roaming" = "Sortir de l'itinérance nationale";
+"send_diagnostic_to_developer" = "Envoyer au développeur";
+"email_default_content" = "<p>Expliquez en détail le problème que vous rencontrez ici : </p>";
+"diagnostic_email" = "Diagnostic FMobile %@ - b%@";
+"mail_not_available" = "L'application Mail n'est pas disponible actuellement.";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Test de débit";

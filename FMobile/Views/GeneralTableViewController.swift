@@ -13,7 +13,6 @@ import CoreData
 import CoreTelephony
 import NetworkExtension
 import SystemConfiguration
-import SystemConfiguration.CaptiveNetwork
 import UserNotifications
 import Foundation
 import CallKit
@@ -53,6 +52,21 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         }
         print(error)
         // Notify the user of any errors.
+    }
+    
+    func addCountry(country: String, dataManager: DataManager = DataManager()) {
+        let alert = UIAlertController(title: "new_country".localized(), message: "new_country_description".localized().format([country]), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "included_voice".localized(), style: .default) { (UIAlertAction) in
+            dataManager.addCountryIncluded(country: country, list: 0)
+        })
+        alert.addAction(UIAlertAction(title: "included_internet".localized(), style: .default) { (UIAlertAction) in
+            dataManager.addCountryIncluded(country: country, list: 1)
+        })
+        alert.addAction(UIAlertAction(title: "included_all".localized(), style: .default) { (UIAlertAction) in
+            dataManager.addCountryIncluded(country: country, list: 2)
+        })
+        alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
+        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
     func resetAllRecords(in entity : String) {
@@ -489,8 +503,6 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         super.viewDidAppear(animated)
         
         let dataManager = DataManager()
-        dataManager.datas.set(false, forKey: "isRunning")
-        dataManager.datas.synchronize()
         
         var version = 0
         if dataManager.datas.value(forKey: "version") != nil {
@@ -592,7 +604,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             let year = Calendar.current.component(.year, from: date)
             let dispDate = "\(day)/\(month)/\(year) à \(hour):\(minutes):\(seconds)"
 
-            let str = "Fichier de diagnostic FMobile\n\nModèle : \(UIDevice.current.modelName)\nVersion de l'OS : \(UIDevice.current.systemVersion)\nMoteur : \(generation)\nRésultat du moteur G2 : \(resultg2)\nRésultat du moteur G3 : \(resultg3)\nDernier completion G3 : \(dataManager.g3lastcompletion)\nRésultat du moteur G3 international : \(dataManager.zoneCheck())\nDate : \(dispDate)\nsetupDone : \(dataManager.setupDone)\nMinimal setup : \(dataManager.minimalSetup)\n\nDétail du forfait :\nDestinations incluses (ALL) : \(dataManager.countriesVData)\nDestinations incluses (VOIX) : \(dataManager.countriesVoice)\nDestinations incluses (DATA) : \(dataManager.countriesData)\nOptions incluses (ALL) : \(dataManager.includedVData)\nOptions incluses (VOIX) : \(dataManager.includedVoice)\nOption incluses (DATA) : \(dataManager.includedData)\n\nConfiguration :\nmodeRadin : \(dataManager.modeRadin)\nallow013G : \(dataManager.allow013G)\nallow012G : \(dataManager.allow012G)\nfemtoLOWDATA : \(dataManager.femtoLOWDATA)\nfemto : \(dataManager.femto)\nverifyonwifi : \(dataManager.verifyonwifi)\nstopverification : \(dataManager.stopverification)\ntimecode : \(dataManager.timecode)\ntimecode G3: \(dataManager.g3timecode)\nlastnet : \(dataManager.lastnet)\ncount : \(dataManager.count)\nwasEnabled : \(dataManager.wasEnabled)\nisRunning : \(dataManager.isRunning)\nperfmode : \(dataManager.perfmode)\ndidChangeSettings : \(dataManager.didChangeSettings)\nntimer : \(dataManager.ntimer)\ndispInfoNotif : \(dataManager.dispInfoNotif)\nallowCountryDetection : \(dataManager.allowCountryDetection)\ntimeLastCountry : \(dataManager.timeLastCountry)\nlastCountry : \(dataManager.lastCountry)\n\nStatut opérateur :\nsimData : \(dataManager.simData)\ncurrentNetwork : \(dataManager.currentNetwork)\ncarrier: \(dataManager.carrier)\ncarrierNetwork : \(dataManager.carrierNetwork)\ncarrierNetwork2 : \(dataManager.carrierNetwork2)\ncarrierName : \(dataManager.carrierName)\n\nConfiguration opérateur :\nhp : \(dataManager.hp)\nnrp : \(dataManager.nrp)\ntargetMCC : \(dataManager.targetMCC)\ntargetMNC : \(dataManager.targetMNC)\nitiMNC : \(dataManager.itiMNC)\nnrDEC : \(dataManager.nrDEC)\nout2G : \(dataManager.out2G)\nchasedMNC : \(dataManager.chasedMNC)\nconnectedMCC : \(dataManager.connectedMCC)\nconnectedMNC : \(dataManager.connectedMNC)\nipadMCC : \(dataManager.ipadMCC)\nipadMNC : \(dataManager.ipadMNC)\nitiName : \(dataManager.itiName)\nhomeName : \(dataManager.homeName)\nstms : \(dataManager.stms)\n\nCommunications :\nWi-Fi : \(DataManager.isWifiConnected())\nCellulaire : \(DataManager.isConnectedToNetwork())\nCommunication en cours : \(DataManager.isOnPhoneCall())"
+            let str = "Fichier de diagnostic FMobile\n\nModèle : \(UIDevice.current.modelName)\nVersion de l'OS : \(UIDevice.current.systemVersion)\nMoteur : \(generation)\nRésultat du moteur G2 : \(resultg2)\nRésultat du moteur G3 : \(resultg3)\nDernier completion G3 : \(dataManager.g3lastcompletion)\nRésultat du moteur G3 international : \(dataManager.zoneCheck())\nDate : \(dispDate)\nsetupDone : \(dataManager.setupDone)\nMinimal setup : \(dataManager.minimalSetup)\n\nDétail du forfait :\nDestinations incluses (ALL) : \(dataManager.countriesVData)\nDestinations incluses (VOIX) : \(dataManager.countriesVoice)\nDestinations incluses (DATA) : \(dataManager.countriesData)\nOptions incluses (ALL) : \(dataManager.includedVData)\nOptions incluses (VOIX) : \(dataManager.includedVoice)\nOption incluses (DATA) : \(dataManager.includedData)\n\nConfiguration :\nmodeRadin : \(dataManager.modeRadin)\nallow013G : \(dataManager.allow013G)\nallow012G : \(dataManager.allow012G)\nfemtoLOWDATA : \(dataManager.femtoLOWDATA)\nfemto : \(dataManager.femto)\nverifyonwifi : \(dataManager.verifyonwifi)\nstopverification : \(dataManager.stopverification)\ntimecode : \(dataManager.timecode)\ntimecode G3: \(dataManager.g3timecode)\nlastnet : \(dataManager.lastnet)\ncount : \(dataManager.count)\nwasEnabled : \(dataManager.wasEnabled)\nperfmode : \(dataManager.perfmode)\ndidChangeSettings : \(dataManager.didChangeSettings)\nntimer : \(dataManager.ntimer)\ndispInfoNotif : \(dataManager.dispInfoNotif)\nallowCountryDetection : \(dataManager.allowCountryDetection)\ntimeLastCountry : \(dataManager.timeLastCountry)\nlastCountry : \(dataManager.lastCountry)\n\nStatut opérateur :\nsimData : \(dataManager.simData)\ncurrentNetwork : \(dataManager.currentNetwork)\ncarrier: \(dataManager.carrier)\ncarrierNetwork : \(dataManager.carrierNetwork)\ncarrierNetwork2 : \(dataManager.carrierNetwork2)\ncarrierName : \(dataManager.carrierName)\n\nConfiguration opérateur :\nhp : \(dataManager.hp)\nnrp : \(dataManager.nrp)\ntargetMCC : \(dataManager.targetMCC)\ntargetMNC : \(dataManager.targetMNC)\nitiMNC : \(dataManager.itiMNC)\nnrDEC : \(dataManager.nrDEC)\nout2G : \(dataManager.out2G)\nchasedMNC : \(dataManager.chasedMNC)\nconnectedMCC : \(dataManager.connectedMCC)\nconnectedMNC : \(dataManager.connectedMNC)\nipadMCC : \(dataManager.ipadMCC)\nipadMNC : \(dataManager.ipadMNC)\nitiName : \(dataManager.itiName)\nhomeName : \(dataManager.homeName)\nstms : \(dataManager.stms)\n\nCommunications :\nWi-Fi : \(DataManager.isWifiConnected())\nCellulaire : \(DataManager.isConnectedToNetwork())\nMode avion : \(dataManager.airplanemode)\nCommunication en cours : \(DataManager.isOnPhoneCall())"
             let filename = self.getDocumentsDirectory().appendingPathComponent("diagnostic.txt")
         
         do {
@@ -602,7 +614,6 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         }
         
             self.delay(3.29){
-            UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
             // Create the Array which includes the files you want to share
             var filesToShare = [Any]()
             
@@ -612,12 +623,20 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             // self.present(activityViewController, animated: true, completion: nil)
             
            //let internalDiagnostic = URL(fileURLWithPath: "/System/Library/Carrier Bundles/iPhone/20815/carrier.plist")
-            
+                
             filesToShare.append(filename)
             //filesToShare.append(internalDiagnostic)
             
+                print(filesToShare.first as? URL ?? "FILE LOST")
+                
+                let myCustomActivity = ActivityViewCustomActivity(title: "send_diagnostic_to_developer".localized(), imageName: "IMG_0867-1024", filesToShare: filesToShare) {
+                   print("processWillBegin...")
+                }
+            
+                UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
+            
             // Make the activityViewContoller which shows the share-view
-            let ls = UIActivityViewController(activityItems: filesToShare, applicationActivities: nil)
+            let ls = UIActivityViewController(activityItems: filesToShare, applicationActivities: [myCustomActivity])
             ls.popoverPresentationController?.sourceView = source
             ls.popoverPresentationController?.sourceRect = source.frame
 
@@ -1131,7 +1150,10 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         
         // Reste de la section status
         net.elements += [UIElementLabel(id: "connected", text: "") { () -> String in
-                if dataManager.carrierNetwork == "null" || dataManager.carrierNetwork.isEmpty  {
+            if dataManager.airplanemode {
+                return dataManager.modeRadin ? "Mode jet radin activé" : "airplane_mode_enabled".localized()
+            }
+                else if dataManager.carrierNetwork == "null" || dataManager.carrierNetwork.isEmpty  {
                     if countryCode == "null" || countryCode.isEmpty {
                         return dataManager.modeRadin ? "Pas de connexion radine" : "not_connected".localized()
                     } else {
@@ -1141,28 +1163,55 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                     return dataManager.modeRadin ? "\(dataManager.carrierNetwork)" : "connected".localized().format([dataManager.carrierNetwork])
                 }
             }]
+        
+        if ((dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.minimalSetup) || (dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC)) && ((!dataManager.allow013G && (lastnetr == "HSDPAE" || lastnetr == "HSDPAO" || lastnetr == "WCDMAO" || lastnetr == "WCDMAE")) || !dataManager.allow012G && dataManager.out2G && lastnetr == "Edge") && DataManager.isConnectedToNetwork() {
+            net.elements += [UIElementButton(id: "", text: "exit_roaming".localized()) { (button) in
+                dataManager.wasEnabled += 1
+                dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
+                if dataManager.nrp == "HSDPA" {
+                    dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
+                } else {
+                    dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
+                }
+                dataManager.datas.set(Date(), forKey: "timecode")
+                dataManager.datas.synchronize()
+                if #available(iOS 12.0, *) {
+                guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
+                    UIApplication.shared.open(link)
+                } else {
+                    self.oldios()
+                }
+                }]
+        }
+        
         let zone = dataManager.zoneCheck()
         if dataManager.connectedMCC != dataManager.targetMCC && (zone == "OUTZONE" || zone == "CALLS") && CarrierIdentification.getIsoCountryCode(String(dataManager.connectedMCC), String(dataManager.connectedMNC)) != "--" && countryCode != "null" && dataManager.setupDone {
             net.elements += [UIElementButton(id: "", text: "country_included_button".localized().format([CarrierIdentification.getIsoCountryCode(String(dataManager.connectedMCC), String(dataManager.connectedMNC))])) { (button) in
                 
                 let country = CarrierIdentification.getIsoCountryCode(String(dataManager.connectedMCC), String(dataManager.connectedMNC))
                 
-                let alert = UIAlertController(title: "new_country".localized(), message: "new_country_description".localized().format([country]), preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "included_voice".localized(), style: .default) { (UIAlertAction) in
-                    dataManager.addCountryIncluded(country: country, list: 0)
-                })
-                alert.addAction(UIAlertAction(title: "included_internet".localized(), style: .default) { (UIAlertAction) in
-                    dataManager.addCountryIncluded(country: country, list: 1)
-                })
-                alert.addAction(UIAlertAction(title: "included_all".localized(), style: .default) { (UIAlertAction) in
-                    dataManager.addCountryIncluded(country: country, list: 2)
-                })
-                alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
-                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                if dataManager.europeland.contains(country) {
+                    let addEuropeAlert = UIAlertController(title: "add_europe".localized(), message: "add_europe_description".localized().format([country]), preferredStyle: .alert)
+                    addEuropeAlert.addAction(UIAlertAction(title: "add_europe_only".localized(), style: .default) { (UIAlertAction) in
+                        self.addCountry(country: "UE", dataManager: dataManager)
+                    })
+                    addEuropeAlert.addAction(UIAlertAction(title: "add_country_only".localized().format([country]), style: .default) { (UIAlertAction) in
+                        self.addCountry(country: country, dataManager: dataManager)
+                    })
+                    addEuropeAlert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
+                    
+                    UIApplication.shared.windows.first?.rootViewController?.present(addEuropeAlert, animated: true, completion: nil)
+                    
+                } else {
+                    self.addCountry(country: country, dataManager: dataManager)
+                }
             }]
         }
         if ((device >= 8 && UIDevice.current.modelName.contains("iPad")) || (device >= 11 && UIDevice.current.modelName.contains("iPhone"))) && (countryCode2 != "null" && !countryCode2.isEmpty) {
             net.elements += [UIElementLabel(id: "connected2", text: "") { () -> String in
+                if dataManager.airplanemode {
+                    return dataManager.modeRadin ? "Mode jet radin activé" : "airplane_mode_enabled".localized()
+                }
                 if dataManager.carrierNetwork2 == "null" || dataManager.carrierNetwork2.isEmpty {
                     return dataManager.modeRadin ? "Pas de connexion eSIM radine" : "esim_not_connected".localized()
                 } else {

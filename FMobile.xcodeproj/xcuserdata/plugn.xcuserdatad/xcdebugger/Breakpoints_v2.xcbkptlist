@@ -1562,8 +1562,8 @@
             timestampString = "581796934.57734"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
             landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1579,42 +1579,8 @@
             timestampString = "581796934.577409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
-            landmarkName = "init()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C9D42B1F-9A3B-4F34-AD6F-0AB277D91D85"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/DataManager.swift"
-            timestampString = "581796934.577468"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
-            landmarkName = "init()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BD180AB5-7035-4BB6-961D-CF6E8371304B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/DataManager.swift"
-            timestampString = "581796934.5775239"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
             landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1715,8 +1681,8 @@
             timestampString = "581796934.579198"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "WIFIDIS()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1732,8 +1698,8 @@
             timestampString = "581796934.579273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "WIFIDIS()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1749,8 +1715,8 @@
             timestampString = "581796934.579336"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "WIFIDIS()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1766,10 +1732,10 @@
             timestampString = "581796934.579391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "AppDelegate"
-            landmarkType = "3">
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "WIFIDIS()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1783,8 +1749,8 @@
             timestampString = "581796934.579447"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1800,8 +1766,8 @@
             timestampString = "581796934.579505"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1817,8 +1783,8 @@
             timestampString = "581796934.57956"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -1833,8 +1799,8 @@
                   urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "253"
-                  endingLineNumber = "253"
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
                   offsetFromSymbolStart = "5156">
                </Location>
                <Location
@@ -1848,8 +1814,8 @@
                   urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "253"
-                  endingLineNumber = "253"
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
                   offsetFromSymbolStart = "5572">
                </Location>
             </Locations>
@@ -1866,8 +1832,8 @@
             timestampString = "581796934.5796191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1883,8 +1849,8 @@
             timestampString = "581796934.579706"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1900,8 +1866,8 @@
             timestampString = "581796934.579767"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1917,8 +1883,8 @@
             timestampString = "581796934.579825"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -1933,8 +1899,8 @@
                   urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "260"
-                  endingLineNumber = "260"
+                  startingLineNumber = "264"
+                  endingLineNumber = "264"
                   offsetFromSymbolStart = "5360">
                </Location>
                <Location
@@ -1948,8 +1914,8 @@
                   urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "261"
-                  endingLineNumber = "261"
+                  startingLineNumber = "265"
+                  endingLineNumber = "265"
                   offsetFromSymbolStart = "64">
                </Location>
             </Locations>
@@ -1966,8 +1932,8 @@
             timestampString = "581796934.579883"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1983,8 +1949,8 @@
             timestampString = "581796934.5799429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2000,8 +1966,8 @@
             timestampString = "581796934.580009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2017,8 +1983,8 @@
             timestampString = "581796934.58009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2034,8 +2000,8 @@
             timestampString = "581796934.580142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2051,8 +2017,8 @@
             timestampString = "581796934.5802439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2068,8 +2034,8 @@
             timestampString = "581796934.580312"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2560,8 +2526,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "697"
-            endingLineNumber = "697"
+            startingLineNumber = "726"
+            endingLineNumber = "726"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2576,8 +2542,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "699"
-            endingLineNumber = "699"
+            startingLineNumber = "728"
+            endingLineNumber = "728"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2592,8 +2558,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "701"
-            endingLineNumber = "701"
+            startingLineNumber = "730"
+            endingLineNumber = "730"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2608,8 +2574,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "702"
-            endingLineNumber = "702"
+            startingLineNumber = "731"
+            endingLineNumber = "731"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2624,8 +2590,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "700"
-            endingLineNumber = "700"
+            startingLineNumber = "729"
+            endingLineNumber = "729"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2640,8 +2606,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "705"
-            endingLineNumber = "705"
+            startingLineNumber = "734"
+            endingLineNumber = "734"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2656,8 +2622,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "706"
-            endingLineNumber = "706"
+            startingLineNumber = "735"
+            endingLineNumber = "735"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2672,8 +2638,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "707"
-            endingLineNumber = "707"
+            startingLineNumber = "736"
+            endingLineNumber = "736"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2688,8 +2654,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "708"
-            endingLineNumber = "708"
+            startingLineNumber = "737"
+            endingLineNumber = "737"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2752,8 +2718,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "651"
-            endingLineNumber = "651"
+            startingLineNumber = "680"
+            endingLineNumber = "680"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2768,8 +2734,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "652"
-            endingLineNumber = "652"
+            startingLineNumber = "681"
+            endingLineNumber = "681"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2784,8 +2750,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "653"
-            endingLineNumber = "653"
+            startingLineNumber = "682"
+            endingLineNumber = "682"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2800,8 +2766,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "654"
-            endingLineNumber = "654"
+            startingLineNumber = "683"
+            endingLineNumber = "683"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2816,8 +2782,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "661"
-            endingLineNumber = "661"
+            startingLineNumber = "690"
+            endingLineNumber = "690"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
             <Locations>
@@ -2864,8 +2830,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "662"
-            endingLineNumber = "662"
+            startingLineNumber = "691"
+            endingLineNumber = "691"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2880,8 +2846,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "664"
-            endingLineNumber = "664"
+            startingLineNumber = "693"
+            endingLineNumber = "693"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2896,8 +2862,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "673"
-            endingLineNumber = "673"
+            startingLineNumber = "702"
+            endingLineNumber = "702"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2912,8 +2878,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "677"
-            endingLineNumber = "677"
+            startingLineNumber = "706"
+            endingLineNumber = "706"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2928,8 +2894,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "678"
-            endingLineNumber = "678"
+            startingLineNumber = "707"
+            endingLineNumber = "707"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2944,8 +2910,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "679"
-            endingLineNumber = "679"
+            startingLineNumber = "708"
+            endingLineNumber = "708"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2960,8 +2926,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "684"
-            endingLineNumber = "684"
+            startingLineNumber = "713"
+            endingLineNumber = "713"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2976,8 +2942,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "683"
-            endingLineNumber = "683"
+            startingLineNumber = "712"
+            endingLineNumber = "712"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2992,8 +2958,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "615"
-            endingLineNumber = "615"
+            startingLineNumber = "612"
+            endingLineNumber = "612"
             landmarkName = "diag(source:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3008,8 +2974,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "622"
-            endingLineNumber = "622"
+            startingLineNumber = "619"
+            endingLineNumber = "619"
             landmarkName = "diag(source:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3024,8 +2990,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "632"
-            endingLineNumber = "632"
+            startingLineNumber = "661"
+            endingLineNumber = "661"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3040,9 +3006,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "627"
-            endingLineNumber = "627"
-            landmarkName = "diag(source:)"
+            startingLineNumber = "656"
+            endingLineNumber = "656"
+            landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3056,8 +3022,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "624"
-            endingLineNumber = "624"
+            startingLineNumber = "621"
+            endingLineNumber = "621"
             landmarkName = "diag(source:)"
             landmarkType = "7">
             <Locations>
@@ -3104,8 +3070,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "656"
-            endingLineNumber = "656"
+            startingLineNumber = "685"
+            endingLineNumber = "685"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3120,8 +3086,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "776"
-            endingLineNumber = "776"
+            startingLineNumber = "805"
+            endingLineNumber = "805"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3136,8 +3102,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "838"
-            endingLineNumber = "838"
+            startingLineNumber = "867"
+            endingLineNumber = "867"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3152,8 +3118,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "839"
-            endingLineNumber = "839"
+            startingLineNumber = "868"
+            endingLineNumber = "868"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3168,8 +3134,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "841"
-            endingLineNumber = "841"
+            startingLineNumber = "870"
+            endingLineNumber = "870"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3184,8 +3150,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "890"
-            endingLineNumber = "890"
+            startingLineNumber = "919"
+            endingLineNumber = "919"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3200,8 +3166,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "892"
-            endingLineNumber = "892"
+            startingLineNumber = "921"
+            endingLineNumber = "921"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3216,8 +3182,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "891"
-            endingLineNumber = "891"
+            startingLineNumber = "920"
+            endingLineNumber = "920"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3232,8 +3198,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "898"
-            endingLineNumber = "898"
+            startingLineNumber = "927"
+            endingLineNumber = "927"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3248,8 +3214,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "893"
-            endingLineNumber = "893"
+            startingLineNumber = "922"
+            endingLineNumber = "922"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3264,8 +3230,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "899"
-            endingLineNumber = "899"
+            startingLineNumber = "928"
+            endingLineNumber = "928"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3280,8 +3246,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "894"
-            endingLineNumber = "894"
+            startingLineNumber = "923"
+            endingLineNumber = "923"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3296,232 +3262,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "895"
-            endingLineNumber = "895"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "772B900A-78F9-42F5-BC5F-0EAC080073C6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1132"
-            endingLineNumber = "1132"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "772B900A-78F9-42F5-BC5F-0EAC080073C6 - ab80f065b1117865"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FMobile_2.GeneralTableViewController.loadUI(FMobile_2.DataManager) -&gt; ()"
-                  moduleName = "FMobile 2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Views/GeneralTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1119"
-                  endingLineNumber = "1119"
-                  offsetFromSymbolStart = "104128">
-               </Location>
-               <Location
-                  uuid = "772B900A-78F9-42F5-BC5F-0EAC080073C6 - 182b6496ae53c6a3"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #12 () -&gt; Swift.String in FMobile_2.GeneralTableViewController.loadUI(FMobile_2.DataManager) -&gt; ()"
-                  moduleName = "FMobile 2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Views/GeneralTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1120"
-                  endingLineNumber = "1120"
-                  offsetFromSymbolStart = "216">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "59585934-184D-41D7-B4A7-656E3F8A33CC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1133"
-            endingLineNumber = "1133"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "59585934-184D-41D7-B4A7-656E3F8A33CC - ab80f065b1117865"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FMobile_2.GeneralTableViewController.loadUI(FMobile_2.DataManager) -&gt; ()"
-                  moduleName = "FMobile 2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Views/GeneralTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1119"
-                  endingLineNumber = "1119"
-                  offsetFromSymbolStart = "104128">
-               </Location>
-               <Location
-                  uuid = "59585934-184D-41D7-B4A7-656E3F8A33CC - 182b6496ae53c6a3"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #12 () -&gt; Swift.String in FMobile_2.GeneralTableViewController.loadUI(FMobile_2.DataManager) -&gt; ()"
-                  moduleName = "FMobile 2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Views/GeneralTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1120"
-                  endingLineNumber = "1120"
-                  offsetFromSymbolStart = "216">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "59868AF7-D66F-43A8-9C1A-34D1ED7D0FAC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1134"
-            endingLineNumber = "1134"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8A027B79-9262-410F-B0C2-BC6D99069A40"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1135"
-            endingLineNumber = "1135"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4C3458AF-399B-4EC1-AD65-71128A5ED7E2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1136"
-            endingLineNumber = "1136"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C2C5C6F0-C3E0-4250-9FAD-2A5A22791DD2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1137"
-            endingLineNumber = "1137"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C1A9A38C-BCB5-4456-A80B-889E36A5F964"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1141"
-            endingLineNumber = "1141"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E50F7FF8-B2CE-4008-BE5B-3E6F581572E6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1142"
-            endingLineNumber = "1142"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EDE53EC2-55C4-4587-9D14-BABFC48A14BA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1144"
-            endingLineNumber = "1144"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "89CBAF63-852F-436F-87E2-436675C56DEE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1143"
-            endingLineNumber = "1143"
+            startingLineNumber = "924"
+            endingLineNumber = "924"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3568,8 +3310,8 @@
             filePath = "FMobile/Utils/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "618"
-            endingLineNumber = "618"
+            startingLineNumber = "634"
+            endingLineNumber = "634"
             landmarkName = "europeanCheck()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3584,8 +3326,8 @@
             filePath = "FMobile/Utils/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "621"
-            endingLineNumber = "621"
+            startingLineNumber = "637"
+            endingLineNumber = "637"
             landmarkName = "europeanCheck()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3600,8 +3342,8 @@
             filePath = "FMobile/Utils/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "624"
-            endingLineNumber = "624"
+            startingLineNumber = "640"
+            endingLineNumber = "640"
             landmarkName = "europeanCheck()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3616,8 +3358,8 @@
             filePath = "FMobile/Utils/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "625"
-            endingLineNumber = "625"
+            startingLineNumber = "641"
+            endingLineNumber = "641"
             landmarkName = "europeanCheck()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3632,8 +3374,8 @@
             filePath = "FMobile/Utils/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "629"
-            endingLineNumber = "629"
+            startingLineNumber = "645"
+            endingLineNumber = "645"
             landmarkName = "europeanCheck()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3648,8 +3390,8 @@
             filePath = "FMobile/Utils/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "631"
-            endingLineNumber = "631"
+            startingLineNumber = "647"
+            endingLineNumber = "647"
             landmarkName = "europeanCheck()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3664,8 +3406,8 @@
             filePath = "FMobile/Utils/RoamingManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "797"
-            endingLineNumber = "797"
+            startingLineNumber = "803"
+            endingLineNumber = "803"
             landmarkName = "engine(locations:g3engine:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3680,8 +3422,8 @@
             filePath = "FMobile/Utils/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "622"
-            endingLineNumber = "622"
+            startingLineNumber = "638"
+            endingLineNumber = "638"
             landmarkName = "europeanCheck()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3696,9 +3438,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "491"
-            endingLineNumber = "491"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "490"
+            endingLineNumber = "490"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3712,9 +3454,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "492"
-            endingLineNumber = "492"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "491"
+            endingLineNumber = "491"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3728,9 +3470,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "493"
-            endingLineNumber = "493"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "492"
+            endingLineNumber = "492"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3744,9 +3486,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "495"
-            endingLineNumber = "495"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "494"
+            endingLineNumber = "494"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3760,9 +3502,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "496"
-            endingLineNumber = "496"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "495"
+            endingLineNumber = "495"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3776,9 +3518,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "497"
-            endingLineNumber = "497"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "496"
+            endingLineNumber = "496"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3792,9 +3534,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "498"
-            endingLineNumber = "498"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "497"
+            endingLineNumber = "497"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3808,9 +3550,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "499"
-            endingLineNumber = "499"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "498"
+            endingLineNumber = "498"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3824,9 +3566,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "501"
-            endingLineNumber = "501"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "500"
+            endingLineNumber = "500"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3840,10 +3582,10 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "502"
-            endingLineNumber = "502"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
+            startingLineNumber = "501"
+            endingLineNumber = "501"
+            landmarkName = "GeneralTableViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3856,8 +3598,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "504"
-            endingLineNumber = "504"
+            startingLineNumber = "503"
+            endingLineNumber = "503"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3866,22 +3608,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5C148CC3-3FF1-4CAD-8F05-A96465EDEE05"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "506"
-            endingLineNumber = "506"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "778F3565-9718-41CB-A9F0-B4A2BCC30041"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -3897,7 +3623,23 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "407362F4-4434-498D-A2BB-317E14D44EB3"
+            uuid = "778F3565-9718-41CB-A9F0-B4A2BCC30041"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FMobile/Views/GeneralTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "504"
+            endingLineNumber = "504"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EFC61BB8-DD16-4B98-9AC3-453A6CED5473"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -3913,7 +3655,23 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4C9AAA28-87E8-43FD-9355-92230BEAB613"
+            uuid = "818EF218-6522-46B1-AB0F-4C592373606F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FMobile/Views/GeneralTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "506"
+            endingLineNumber = "506"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EAD749DC-9062-4CE7-8CA9-3E2C82A75569"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -3929,23 +3687,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EFC61BB8-DD16-4B98-9AC3-453A6CED5473"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "510"
-            endingLineNumber = "510"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "818EF218-6522-46B1-AB0F-4C592373606F"
+            uuid = "4664B826-E62E-4419-A852-475D62C5435E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -3961,7 +3703,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EAD749DC-9062-4CE7-8CA9-3E2C82A75569"
+            uuid = "12DCBD9A-C8AE-4CBB-92AE-52810F44486B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -3977,38 +3719,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4664B826-E62E-4419-A852-475D62C5435E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "512"
-            endingLineNumber = "512"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "12DCBD9A-C8AE-4CBB-92AE-52810F44486B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "514"
-            endingLineNumber = "514"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "4F24819A-7B37-4807-A7E9-48F4A52BCF42"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -4016,9 +3726,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "489"
-            endingLineNumber = "489"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "488"
+            endingLineNumber = "488"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4032,9 +3742,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "459"
-            endingLineNumber = "459"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "458"
+            endingLineNumber = "458"
+            landmarkName = "update(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4048,9 +3758,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "461"
-            endingLineNumber = "461"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "460"
+            endingLineNumber = "460"
+            landmarkName = "update(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4064,9 +3774,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "462"
-            endingLineNumber = "462"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
+            landmarkName = "update(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4080,9 +3790,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "463"
-            endingLineNumber = "463"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "462"
+            endingLineNumber = "462"
+            landmarkName = "update(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4096,9 +3806,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "464"
-            endingLineNumber = "464"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "463"
+            endingLineNumber = "463"
+            landmarkName = "update(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4112,9 +3822,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "467"
-            endingLineNumber = "467"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "466"
+            endingLineNumber = "466"
+            landmarkName = "update(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4128,9 +3838,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "468"
-            endingLineNumber = "468"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "467"
+            endingLineNumber = "467"
+            landmarkName = "update(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4144,9 +3854,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "469"
-            endingLineNumber = "469"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "468"
+            endingLineNumber = "468"
+            landmarkName = "update(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4160,9 +3870,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "470"
-            endingLineNumber = "470"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "469"
+            endingLineNumber = "469"
+            landmarkName = "update(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4176,8 +3886,24 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "472"
-            endingLineNumber = "472"
+            startingLineNumber = "471"
+            endingLineNumber = "471"
+            landmarkName = "GeneralTableViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F1208592-7CDD-4FBF-92F4-6C11C3661974"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FMobile/Views/GeneralTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "473"
+            endingLineNumber = "473"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4185,7 +3911,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F1208592-7CDD-4FBF-92F4-6C11C3661974"
+            uuid = "D407A913-0D2E-4BA7-BDC3-410C445E7D68"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -4201,15 +3927,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D407A913-0D2E-4BA7-BDC3-410C445E7D68"
+            uuid = "8135AD83-E94E-4BA9-8682-1617EEB62FD7"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "475"
-            endingLineNumber = "475"
+            startingLineNumber = "476"
+            endingLineNumber = "476"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4217,7 +3943,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8135AD83-E94E-4BA9-8682-1617EEB62FD7"
+            uuid = "F3AAD7F1-E9BC-4E4B-9527-BD714DD0562D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -4233,7 +3959,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F3AAD7F1-E9BC-4E4B-9527-BD714DD0562D"
+            uuid = "5B317ED7-BFC5-43A7-AD99-CBF5D29975B9"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -4249,15 +3975,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5B317ED7-BFC5-43A7-AD99-CBF5D29975B9"
-            shouldBeEnabled = "No"
+            uuid = "29A29B1D-778A-463B-B0CD-27BFE9DBC452"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "479"
-            endingLineNumber = "479"
+            startingLineNumber = "481"
+            endingLineNumber = "481"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4265,7 +3991,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "29A29B1D-778A-463B-B0CD-27BFE9DBC452"
+            uuid = "76406352-F747-4053-8A04-6AA9993BBF6D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -4281,7 +4007,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "76406352-F747-4053-8A04-6AA9993BBF6D"
+            uuid = "3255DD7E-8004-45D3-BD65-FE41FB30F438"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -4297,7 +4023,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3255DD7E-8004-45D3-BD65-FE41FB30F438"
+            uuid = "787D60C4-B642-406F-80BE-B4911DD6FFAF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -4306,22 +4032,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "484"
             endingLineNumber = "484"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "787D60C4-B642-406F-80BE-B4911DD6FFAF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "485"
-            endingLineNumber = "485"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4368,9 +4078,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
+            landmarkName = "registerBackgroundTasks()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4384,8 +4094,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
+            startingLineNumber = "413"
+            endingLineNumber = "413"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4400,8 +4110,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
+            startingLineNumber = "412"
+            endingLineNumber = "412"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
             <Locations>
@@ -4416,8 +4126,8 @@
                   urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "392"
-                  endingLineNumber = "392"
+                  startingLineNumber = "396"
+                  endingLineNumber = "396"
                   offsetFromSymbolStart = "80">
                </Location>
                <Location
@@ -4431,8 +4141,8 @@
                   urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "393"
-                  endingLineNumber = "393"
+                  startingLineNumber = "397"
+                  endingLineNumber = "397"
                   offsetFromSymbolStart = "172">
                </Location>
             </Locations>
@@ -4448,8 +4158,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "398"
-            endingLineNumber = "398"
+            startingLineNumber = "414"
+            endingLineNumber = "414"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4464,9 +4174,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "389"
-            endingLineNumber = "389"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
+            landmarkName = "registerBackgroundTasks()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4480,8 +4190,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "394"
-            endingLineNumber = "394"
+            startingLineNumber = "410"
+            endingLineNumber = "410"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4496,9 +4206,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "376"
-            endingLineNumber = "376"
-            landmarkName = "registerBackgroundTasks()"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
+            landmarkName = "handleAppRefresh(task:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -4512,8 +4222,8 @@
                   urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "372"
-                  endingLineNumber = "372"
+                  startingLineNumber = "376"
+                  endingLineNumber = "376"
                   offsetFromSymbolStart = "96">
                </Location>
                <Location
@@ -4522,102 +4232,6 @@
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (__C.BGTask) -&gt; () in FMobile_2.AppDelegate.(registerBackgroundTasks in _79750DFABD6FB5C2CF04A48CCFF893E7)() -&gt; ()"
-                  moduleName = "FMobile 2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "373"
-                  endingLineNumber = "373"
-                  offsetFromSymbolStart = "104">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2B71F347-70E0-445B-A8A7-60B553F73479"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "387"
-            endingLineNumber = "387"
-            landmarkName = "registerBackgroundTasks()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "75DD774C-83E5-4FFE-96B4-34224D963163"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "378"
-            endingLineNumber = "378"
-            landmarkName = "registerBackgroundTasks()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "05FD50AE-C805-4E6C-BD36-C70C76CF23A1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
-            landmarkName = "AppDelegate"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E7B2C0EB-23FB-4275-AC82-7DD72E427DBD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "380"
-            endingLineNumber = "380"
-            landmarkName = "registerBackgroundTasks()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E7B2C0EB-23FB-4275-AC82-7DD72E427DBD - e1873c2df00c1dde"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FMobile_2.AppDelegate.(registerBackgroundTasks in _79750DFABD6FB5C2CF04A48CCFF893E7)() -&gt; ()"
-                  moduleName = "FMobile 2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "376"
-                  endingLineNumber = "376"
-                  offsetFromSymbolStart = "444">
-               </Location>
-               <Location
-                  uuid = "E7B2C0EB-23FB-4275-AC82-7DD72E427DBD - 5b6b3de53e7bf818"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.BGTask) -&gt; () in FMobile_2.AppDelegate.(registerBackgroundTasks in _79750DFABD6FB5C2CF04A48CCFF893E7)() -&gt; ()"
                   moduleName = "FMobile 2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
@@ -4633,6 +4247,102 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "2B71F347-70E0-445B-A8A7-60B553F73479"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FMobile/Utils/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
+            landmarkName = "registerBackgroundTasks()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "75DD774C-83E5-4FFE-96B4-34224D963163"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FMobile/Utils/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
+            landmarkName = "handleAppRefresh(task:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "05FD50AE-C805-4E6C-BD36-C70C76CF23A1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FMobile/Utils/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
+            landmarkName = "handleAppRefresh(task:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E7B2C0EB-23FB-4275-AC82-7DD72E427DBD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FMobile/Utils/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
+            landmarkName = "registerBackgroundTasks()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E7B2C0EB-23FB-4275-AC82-7DD72E427DBD - e1873c2df00c1dde"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FMobile_2.AppDelegate.(registerBackgroundTasks in _79750DFABD6FB5C2CF04A48CCFF893E7)() -&gt; ()"
+                  moduleName = "FMobile 2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "380"
+                  endingLineNumber = "380"
+                  offsetFromSymbolStart = "444">
+               </Location>
+               <Location
+                  uuid = "E7B2C0EB-23FB-4275-AC82-7DD72E427DBD - 5b6b3de53e7bf818"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.BGTask) -&gt; () in FMobile_2.AppDelegate.(registerBackgroundTasks in _79750DFABD6FB5C2CF04A48CCFF893E7)() -&gt; ()"
+                  moduleName = "FMobile 2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "381"
+                  endingLineNumber = "381"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             uuid = "B1A14E34-344A-403E-8575-6532D79387C9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -4640,8 +4350,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
+            startingLineNumber = "397"
+            endingLineNumber = "397"
             landmarkName = "registerBackgroundTasks()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4656,8 +4366,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
             landmarkName = "registerBackgroundTasks()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4672,10 +4382,10 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "318"
-            endingLineNumber = "318"
-            landmarkName = "scheduleAppRefresh()"
-            landmarkType = "7">
+            startingLineNumber = "334"
+            endingLineNumber = "334"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4688,10 +4398,10 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
-            landmarkName = "scheduleAppRefresh()"
-            landmarkType = "7">
+            startingLineNumber = "333"
+            endingLineNumber = "333"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4704,10 +4414,10 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
-            landmarkName = "scheduleAppRefresh()"
-            landmarkType = "7">
+            startingLineNumber = "335"
+            endingLineNumber = "335"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4720,10 +4430,10 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
-            landmarkName = "scheduleAppRefresh()"
-            landmarkType = "7">
+            startingLineNumber = "336"
+            endingLineNumber = "336"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4736,10 +4446,10 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
-            landmarkName = "scheduleAppRefresh()"
-            landmarkType = "7">
+            startingLineNumber = "337"
+            endingLineNumber = "337"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4752,8 +4462,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "323"
-            endingLineNumber = "323"
+            startingLineNumber = "339"
+            endingLineNumber = "339"
             landmarkName = "scheduleAppRefresh()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4768,8 +4478,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
             landmarkName = "scheduleAppRefresh()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4784,8 +4494,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
             landmarkName = "scheduleAppRefresh()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4800,8 +4510,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
             landmarkName = "scheduleAppRefresh()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4816,8 +4526,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
+            startingLineNumber = "342"
+            endingLineNumber = "342"
             landmarkName = "scheduleAppRefresh()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4832,8 +4542,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
             landmarkName = "scheduleAppRefresh()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4848,8 +4558,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "328"
-            endingLineNumber = "328"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
             landmarkName = "scheduleAppRefresh()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4864,8 +4574,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "329"
-            endingLineNumber = "329"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
             landmarkName = "scheduleAppRefresh()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4880,9 +4590,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "331"
-            endingLineNumber = "331"
-            landmarkName = "scheduleAppExecution()"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
+            landmarkName = "scheduleAppRefresh()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4896,9 +4606,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "333"
-            endingLineNumber = "333"
-            landmarkName = "scheduleAppExecution()"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
+            landmarkName = "scheduleAppRefresh()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4912,9 +4622,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "334"
-            endingLineNumber = "334"
-            landmarkName = "scheduleAppExecution()"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
+            landmarkName = "scheduleAppRefresh()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4928,10 +4638,10 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "335"
-            endingLineNumber = "335"
-            landmarkName = "scheduleAppExecution()"
-            landmarkType = "7">
+            startingLineNumber = "351"
+            endingLineNumber = "351"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4944,8 +4654,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
             landmarkName = "scheduleAppExecution()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4960,8 +4670,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
             landmarkName = "scheduleAppExecution()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4976,8 +4686,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "337"
-            endingLineNumber = "337"
+            startingLineNumber = "353"
+            endingLineNumber = "353"
             landmarkName = "scheduleAppExecution()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4992,8 +4702,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "339"
-            endingLineNumber = "339"
+            startingLineNumber = "355"
+            endingLineNumber = "355"
             landmarkName = "scheduleAppExecution()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5008,8 +4718,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "340"
-            endingLineNumber = "340"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
             landmarkName = "scheduleAppExecution()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5024,8 +4734,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
+            startingLineNumber = "357"
+            endingLineNumber = "357"
             landmarkName = "scheduleAppExecution()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5040,8 +4750,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "343"
-            endingLineNumber = "343"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
             landmarkName = "scheduleAppExecution()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5056,8 +4766,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "342"
-            endingLineNumber = "342"
+            startingLineNumber = "358"
+            endingLineNumber = "358"
             landmarkName = "scheduleAppExecution()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5072,8 +4782,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
+            startingLineNumber = "360"
+            endingLineNumber = "360"
             landmarkName = "scheduleAppExecution()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5088,8 +4798,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
             landmarkName = "scheduleAppExecution()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5104,9 +4814,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "347"
-            endingLineNumber = "347"
-            landmarkName = "handleAppExecution(task:)"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
+            landmarkName = "scheduleAppExecution()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5120,9 +4830,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
-            landmarkName = "handleAppExecution(task:)"
+            startingLineNumber = "365"
+            endingLineNumber = "365"
+            landmarkName = "scheduleAppExecution()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5136,9 +4846,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "348"
-            endingLineNumber = "348"
-            landmarkName = "handleAppExecution(task:)"
+            startingLineNumber = "364"
+            endingLineNumber = "364"
+            landmarkName = "scheduleAppExecution()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5152,10 +4862,10 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
-            landmarkName = "handleAppExecution(task:)"
-            landmarkType = "7">
+            startingLineNumber = "367"
+            endingLineNumber = "367"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "47A9D30A-C6FB-4C9A-A1F0-0EAB87206D13 - cfe6c4544daf9df9"
@@ -5168,8 +4878,8 @@
                   urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "347"
-                  endingLineNumber = "347"
+                  startingLineNumber = "351"
+                  endingLineNumber = "351"
                   offsetFromSymbolStart = "180">
                </Location>
                <Location
@@ -5183,8 +4893,8 @@
                   urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "348"
-                  endingLineNumber = "348"
+                  startingLineNumber = "352"
+                  endingLineNumber = "352"
                   offsetFromSymbolStart = "64">
                </Location>
             </Locations>
@@ -5200,8 +4910,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "352"
-            endingLineNumber = "352"
+            startingLineNumber = "368"
+            endingLineNumber = "368"
             landmarkName = "handleAppExecution(task:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5216,8 +4926,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
+            startingLineNumber = "369"
+            endingLineNumber = "369"
             landmarkName = "handleAppExecution(task:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5232,8 +4942,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "354"
-            endingLineNumber = "354"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
             landmarkName = "handleAppExecution(task:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5248,8 +4958,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "356"
-            endingLineNumber = "356"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
             landmarkName = "handleAppExecution(task:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5264,8 +4974,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "359"
-            endingLineNumber = "359"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
             landmarkName = "handleAppExecution(task:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5280,8 +4990,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
             landmarkName = "handleAppExecution(task:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5296,9 +5006,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "361"
-            endingLineNumber = "361"
-            landmarkName = "handleAppRefresh(task:)"
+            startingLineNumber = "377"
+            endingLineNumber = "377"
+            landmarkName = "handleAppExecution(task:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5312,9 +5022,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "375"
-            endingLineNumber = "375"
-            landmarkName = "registerBackgroundTasks()"
+            startingLineNumber = "391"
+            endingLineNumber = "391"
+            landmarkName = "handleAppRefresh(task:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5328,8 +5038,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "384"
-            endingLineNumber = "384"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
             landmarkName = "registerBackgroundTasks()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5344,8 +5054,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "385"
-            endingLineNumber = "385"
+            startingLineNumber = "401"
+            endingLineNumber = "401"
             landmarkName = "registerBackgroundTasks()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5360,8 +5070,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "386"
-            endingLineNumber = "386"
+            startingLineNumber = "402"
+            endingLineNumber = "402"
             landmarkName = "registerBackgroundTasks()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5376,9 +5086,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "362"
-            endingLineNumber = "362"
-            landmarkName = "handleAppRefresh(task:)"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
+            landmarkName = "handleAppExecution(task:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5392,9 +5102,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "364"
-            endingLineNumber = "364"
-            landmarkName = "handleAppRefresh(task:)"
+            startingLineNumber = "380"
+            endingLineNumber = "380"
+            landmarkName = "handleAppExecution(task:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -5408,8 +5118,8 @@
                   urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "361"
-                  endingLineNumber = "361"
+                  startingLineNumber = "365"
+                  endingLineNumber = "365"
                   offsetFromSymbolStart = "180">
                </Location>
                <Location
@@ -5423,8 +5133,8 @@
                   urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "362"
-                  endingLineNumber = "362"
+                  startingLineNumber = "366"
+                  endingLineNumber = "366"
                   offsetFromSymbolStart = "64">
                </Location>
             </Locations>
@@ -5440,9 +5150,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
-            landmarkName = "handleAppRefresh(task:)"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
+            landmarkName = "handleAppExecution(task:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5456,10 +5166,10 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "365"
-            endingLineNumber = "365"
-            landmarkName = "handleAppRefresh(task:)"
-            landmarkType = "7">
+            startingLineNumber = "381"
+            endingLineNumber = "381"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "112FF029-B66C-4A52-B042-E6D538727510 - 8a3e75025422d9ed"
@@ -5472,8 +5182,8 @@
                   urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "361"
-                  endingLineNumber = "361"
+                  startingLineNumber = "365"
+                  endingLineNumber = "365"
                   offsetFromSymbolStart = "180">
                </Location>
                <Location
@@ -5487,8 +5197,8 @@
                   urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "362"
-                  endingLineNumber = "362"
+                  startingLineNumber = "366"
+                  endingLineNumber = "366"
                   offsetFromSymbolStart = "64">
                </Location>
             </Locations>
@@ -5504,8 +5214,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "366"
-            endingLineNumber = "366"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
             landmarkName = "handleAppRefresh(task:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5520,8 +5230,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "368"
-            endingLineNumber = "368"
+            startingLineNumber = "384"
+            endingLineNumber = "384"
             landmarkName = "handleAppRefresh(task:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5536,8 +5246,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "367"
-            endingLineNumber = "367"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
             landmarkName = "handleAppRefresh(task:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5552,8 +5262,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
+            startingLineNumber = "385"
+            endingLineNumber = "385"
             landmarkName = "handleAppRefresh(task:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5568,8 +5278,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "370"
-            endingLineNumber = "370"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
             landmarkName = "handleAppRefresh(task:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5584,8 +5294,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
+            startingLineNumber = "387"
+            endingLineNumber = "387"
             landmarkName = "handleAppRefresh(task:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5600,8 +5310,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
             landmarkName = "handleAppRefresh(task:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5616,8 +5326,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
             landmarkName = "handleAppRefresh(task:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5632,9 +5342,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "332"
-            endingLineNumber = "332"
-            landmarkName = "scheduleAppExecution()"
+            startingLineNumber = "348"
+            endingLineNumber = "348"
+            landmarkName = "scheduleAppRefresh()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5648,10 +5358,10 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "425"
-            endingLineNumber = "425"
-            landmarkName = "applicationDidEnterBackground(_:)"
-            landmarkType = "7">
+            startingLineNumber = "441"
+            endingLineNumber = "441"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5664,10 +5374,10 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "426"
-            endingLineNumber = "426"
-            landmarkName = "applicationDidEnterBackground(_:)"
-            landmarkType = "7">
+            startingLineNumber = "442"
+            endingLineNumber = "442"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5680,8 +5390,8 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "440"
-            endingLineNumber = "440"
+            startingLineNumber = "456"
+            endingLineNumber = "456"
             landmarkName = "applicationDidEnterBackground(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5696,9 +5406,9 @@
             filePath = "FMobile/Utils/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "422"
-            endingLineNumber = "422"
-            landmarkName = "applicationDidEnterBackground(_:)"
+            startingLineNumber = "438"
+            endingLineNumber = "438"
+            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

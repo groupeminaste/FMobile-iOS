@@ -187,13 +187,7 @@ class RoamingManager {
         print(abs(dataManager.timecode.timeIntervalSinceNow))
         print(now)
         
-        if dataManager.isRunning {
-            print("ALREADY RUNNING...")
-            dataManager.datas.set("RUNNING", forKey: "g3lastcompletion")
-            dataManager.datas.synchronize()
-            completionHandler("RUNNING")
-            return
-        } else if dataManager.carrierNetwork != dataManager.lastnet {
+        if dataManager.carrierNetwork != dataManager.lastnet {
             print("THE NETWORK HAS CHANGED! PERFORMING NEW CHECK.")
             dataManager.lastnet = dataManager.carrierNetwork
             dataManager.timecode = now
@@ -401,7 +395,7 @@ class RoamingManager {
                                 return
                             }
                         }
-                        
+                        return
                         
                     } else {
                         if dataManager.nrp == "WCDMA"{
@@ -618,6 +612,12 @@ class RoamingManager {
             if DataManager.isOnPhoneCall() {
                 print("IN CALL...")
                 completionHandler("INCALL")
+                return
+            }
+            
+            if dataManager.airplanemode {
+                print("Airplane mode enabled")
+                completionHandler("AIRPLANEMODE")
                 return
             }
             

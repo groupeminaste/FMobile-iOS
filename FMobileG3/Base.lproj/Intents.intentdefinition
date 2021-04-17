@@ -9,7 +9,7 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>s5yDy2</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>19A582a</string>
+	<string>19A602</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
 	<string>11A1027</string>
 	<key>INIntentDefinitionToolsVersion</key>
@@ -29,6 +29,8 @@
 			<string>Get the status of a National Roaming connection. Returns 0/1.</string>
 			<key>INIntentDescriptionID</key>
 			<string>37NcUM</string>
+			<key>INIntentIneligibleForSuggestions</key>
+			<true/>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
 				<key></key>
@@ -45,24 +47,6 @@
 			</dict>
 			<key>INIntentName</key>
 			<string>CarrierIntent</string>
-			<key>INIntentParameterCombinations</key>
-			<dict>
-				<key></key>
-				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string>Get the status of a National Roaming connection.</string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>0s1Ssy</string>
-					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
-					<true/>
-					<key>INIntentParameterCombinationTitle</key>
-					<string>Get National Romaing Status</string>
-					<key>INIntentParameterCombinationTitleID</key>
-					<string>mh97LU</string>
-				</dict>
-			</dict>
 			<key>INIntentResponse</key>
 			<dict>
 				<key>INIntentResponseCodes</key>
@@ -95,7 +79,7 @@
 					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
-				<integer>6</integer>
+				<integer>9</integer>
 				<key>INIntentResponseOutput</key>
 				<string>carrier</string>
 				<key>INIntentResponseParameters</key>
@@ -107,23 +91,12 @@
 						<string>Z5Q5Us</string>
 						<key>INIntentResponseParameterDisplayPriority</key>
 						<integer>1</integer>
-						<key>INIntentResponseParameterMetadata</key>
-						<dict>
-							<key>INIntentResponseParameterMetadataFalseDisplayName</key>
-							<string>your home network</string>
-							<key>INIntentResponseParameterMetadataFalseDisplayNameID</key>
-							<string>I171dw</string>
-							<key>INIntentResponseParameterMetadataTrueDisplayName</key>
-							<string>a natinoal roaming network</string>
-							<key>INIntentResponseParameterMetadataTrueDisplayNameID</key>
-							<string>2tWd7V</string>
-						</dict>
 						<key>INIntentResponseParameterName</key>
 						<string>carrier</string>
 						<key>INIntentResponseParameterTag</key>
-						<integer>6</integer>
+						<integer>9</integer>
 						<key>INIntentResponseParameterType</key>
-						<string>Boolean</string>
+						<string>Integer</string>
 					</dict>
 				</array>
 			</dict>
@@ -149,6 +122,8 @@
 			<string>Checks forbidden roaming status</string>
 			<key>INIntentDescriptionID</key>
 			<string>dOs4t4</string>
+			<key>INIntentIneligibleForSuggestions</key>
+			<true/>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
 				<key></key>
@@ -165,24 +140,6 @@
 			</dict>
 			<key>INIntentName</key>
 			<string>IllegalRoamingIntent</string>
-			<key>INIntentParameterCombinations</key>
-			<dict>
-				<key></key>
-				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string>Check for illegal roaming usage</string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>fhCJVM</string>
-					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
-					<true/>
-					<key>INIntentParameterCombinationTitle</key>
-					<string>Illegal Roaming Status Check</string>
-					<key>INIntentParameterCombinationTitleID</key>
-					<string>bGliKc</string>
-				</dict>
-			</dict>
 			<key>INIntentResponse</key>
 			<dict>
 				<key>INIntentResponseCodes</key>
@@ -215,7 +172,7 @@
 					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
-				<integer>2</integer>
+				<integer>3</integer>
 				<key>INIntentResponseOutput</key>
 				<string>roaming</string>
 				<key>INIntentResponseParameters</key>
@@ -227,23 +184,12 @@
 						<string>h19Zqc</string>
 						<key>INIntentResponseParameterDisplayPriority</key>
 						<integer>1</integer>
-						<key>INIntentResponseParameterMetadata</key>
-						<dict>
-							<key>INIntentResponseParameterMetadataFalseDisplayName</key>
-							<string>a legal network</string>
-							<key>INIntentResponseParameterMetadataFalseDisplayNameID</key>
-							<string>ohhgC9</string>
-							<key>INIntentResponseParameterMetadataTrueDisplayName</key>
-							<string>a forbidden roaming network</string>
-							<key>INIntentResponseParameterMetadataTrueDisplayNameID</key>
-							<string>cTVs12</string>
-						</dict>
 						<key>INIntentResponseParameterName</key>
 						<string>roaming</string>
 						<key>INIntentResponseParameterTag</key>
-						<integer>2</integer>
+						<integer>3</integer>
 						<key>INIntentResponseParameterType</key>
-						<string>Boolean</string>
+						<string>Integer</string>
 					</dict>
 				</array>
 			</dict>

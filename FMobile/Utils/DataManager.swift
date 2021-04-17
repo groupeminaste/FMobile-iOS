@@ -30,7 +30,6 @@ class DataManager {
     var g3lastcompletion = "HOME"
     var count = 0
     var wasEnabled = 0
-    var isRunning = false
     var perfmode = false
     var didChangeSettings = false
     var ntimer = Date().addingTimeInterval(-15 * 60)
@@ -57,6 +56,7 @@ class DataManager {
     var carrierNetwork2 = String()
     var carrierName = String()
     var fullCarrierName = String()
+    var airplanemode = false
     var checkSimMCC = "999"
     var checkSimMNC = "99"
     
@@ -85,6 +85,11 @@ class DataManager {
     var includedData = [String]()
     var includedVoice = [String]()
     var includedVData = [String]()
+    
+    // European lists
+    let europe = ["FR", "DE", "AT", "BE", "BG", "CY", "HR", "DK", "ES", "EE", "FI", "GI", "GR", "HU", "IE", "IS", "IT", "LV", "LI", "LT", "LU", "MT", "NO", "NL", "PL", "PT", "CZ", "RO", "GB", "SK", "SI", "SE", "GP", "GF", "MQ", "YT", "RE", "BL", "MF"]
+    
+    let europeland = ["FR", "DE", "AT", "BE", "BG", "CY", "HR", "DK", "ES", "EE", "FI", "GI", "GR", "HU", "IE", "IS", "IT", "LV", "LI", "LT", "LU", "MT", "NO", "NL", "PL", "PT", "CZ", "RO", "GB", "SK", "SI", "SE"]
     
     init() {
         // Lecture des valeurs depuis la config
@@ -130,9 +135,6 @@ class DataManager {
         }
         if let wasEnabled = datas.value(forKey: "wasEnabled") as? Int {
             self.wasEnabled = wasEnabled
-        }
-        if let isRunning = datas.value(forKey: "isRunning") as? Bool {
-            self.isRunning = isRunning
         }
         if let perfmode = datas.value(forKey: "perfmode") as? Bool {
             self.perfmode = perfmode
@@ -299,6 +301,19 @@ class DataManager {
         }
         
         
+        let urlairplane = URL(fileURLWithPath: "/var/preferences/SystemConfiguration/com.apple.radios.plist")
+        do {
+            let test = try NSDictionary(contentsOf: urlairplane, error: ())
+            airplanemode = test["AirplaneMode"] as? Bool ?? false
+         if airplanemode {
+            print("The device is in Airplane mode.")
+         } else {
+             print("The device is not in Airplane mode.")
+         }
+        } catch {
+            print("Une erreur s'est produite : \(error)")
+        }
+        
         
         connectedMCC = String(currentNetwork.prefix(3))
         connectedMNC = String(currentNetwork.count == 6 ? currentNetwork.suffix(3) : currentNetwork.suffix(2))
@@ -352,7 +367,7 @@ class DataManager {
                 }
             }
             
-            if connectedMCC == targetMCC && connectedMNC == targetMNC && carrierName == "Carrier" {
+            if carrierName == "Carrier" && homeName != "null" && !homeName.isEmpty {
                 carrierName = homeName
             }
         }
@@ -616,33 +631,43 @@ class DataManager {
     
     // Check for identifier EU
     func europeanCheck() {
-        // European list
-        let eu = ["FR", "DE", "AT", "BE", "BG", "CY", "HR", "DK", "ES", "EE", "FI", "GI", "GR", "HU", "IE", "IS", "IT", "LV", "LI", "LT", "LU", "MT", "NO", "NL", "PL", "PT", "CZ", "RO", "GB", "SK", "SI", "SE", "GP", "GF", "MQ", "YT", "RE", "BL", "MF"]
         
         // Country by MCC
         let country = CarrierIdentification.getIsoCountryCode(targetMCC, targetMNC).uppercased()
         
         // Check european countries
-        if eu.contains(country) && !countriesVData.contains("EU") {
+        if europe.contains(country) && !countriesVData.contains("EU") {
             countriesVData.append("EU")
         }
         
         // Check data
         if countriesData.contains("EU") {
             // We have it, add all elements
-            countriesData.append(contentsOf: eu)
+            countriesData.append(contentsOf: europe)
+        }
+        
+        if countriesData.contains("UE") {
+            countriesData.append(contentsOf: europeland)
         }
         
         // Check voice
         if countriesVoice.contains("EU") {
             // We have it, add all elements
-            countriesVoice.append(contentsOf: eu)
+            countriesVoice.append(contentsOf: europe)
+        }
+        
+        if countriesVoice.contains("UE") {
+            countriesVoice.append(contentsOf: europeland)
         }
         
         // Check all
         if countriesVData.contains("EU") {
             // We have it, add all elements
-            countriesVData.append(contentsOf: eu)
+            countriesVData.append(contentsOf: europe)
+        }
+        
+        if countriesVData.contains("UE") {
+            countriesVData.append(contentsOf: europeland)
         }
     }
     

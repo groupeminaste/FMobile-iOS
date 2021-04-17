@@ -80,7 +80,7 @@
 "femto_footer" = "Para detectar automáticamente un cuadro Femto, la aplicación descarga un pequeño archivo para verificar la velocidad de la conexión. Si el modo de guardado de datos está habilitado, la aplicación esperará su permiso para descargarlo.";
 "reset_offline_zones" = "Restablecer las zonas no cubiertas";
 "extra_cost_protection" = "Protección extraintencionada de costos";
-"land_footer" = "Al habilitar esta opción, la aplicación verifica en segundo plano en qué zona de precio (país) se encuentra. Si sus datos celulares están habilitados mientras se encuentra en un destino que no está incluido en su plan, recibirá múltiples notificaciones invitándole a deshabilitar sus datos celulares. Esta opción solo está disponible para los transportistas seleccionados.";
+"land_footer" = "Al habilitar esta opción, la aplicación verifica en segundo plano en qué zona de precio (país) se encuentra. Si sus datos celulares están habilitados mientras se encuentra en un destino que no está incluido en su plan, recibirá múltiples notificaciones invitándole a deshabilitar sus datos celulares.";
 "cost_protection_title" = "Protección contra costes adicionales";
 "carrier_services" = "Servicios de su operador";
 "suivi_conso_20815" = "Obtenga el seguimiento detallado del consumo";
@@ -155,6 +155,16 @@
 "location_wrong_setting" = "Configuración incorrecta para acceso a la localización";
 "location_ws_agree" = "Forzar temporalmente la config. \"Cuando en uso\"";
 "location_ws_agree_forever" = "Memorizar y forzar la config. \"Cuando en uso\"";
+"airplane_mode_enabled" = "Modo avión habilitado";
+"add_europe" = "¿Añadir la Unión Europea?";
+"add_europe_description" = "El país %@ que está intentando agregar es parte de la UE. ¿Desea agregar la UE en lugar de ese país individual?";
+"add_europe_only" = "Añadir la Unión Europea";
+"add_country_only" = "Añadir %@ solamente";
+"exit_roaming" = "Salir de la itinerancia nacional";
+"send_diagnostic_to_developer" = "Enviar al desarrollador";
+"email_default_content" = "<p>Explica en detalle el problema que estás encontrando aquí: </p>";
+"diagnostic_email" = "Diagnóstico FMobile %@ - b%@";
+"mail_not_available" = "La aplicación de correo no está disponible actualmente.";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Prueba de velocidad";

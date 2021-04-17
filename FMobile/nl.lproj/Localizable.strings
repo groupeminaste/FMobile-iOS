@@ -80,7 +80,7 @@
 "femto_footer" = "Om automatisch een Femto box te detecteren, downloadt de app een klein bestand om een netwerksnelheidstest uit te voeren. In de modus voor het opslaan van gegevens wacht de app op uw toestemming om deze te downloaden.";
 "reset_offline_zones" = "Onafgedekte gebieden terugzetten";
 "extra_cost_protection" = "Bescherming tegen onbedoelde te hoge prijzen";
-"land_footer" = "Door deze optie te activeren, controleert de app op de achtergrond in welke tariefzone (land) u zich bevindt. Als uw mobiele gegevens zijn geactiveerd terwijl u zich in een off-package gebied bevindt, ontvangt u verschillende meldingen die u uitnodigen om uw gegevens te knippen. Deze optie is alleen beschikbaar voor een selectie van operators.";
+"land_footer" = "Door deze optie te activeren, controleert de app op de achtergrond in welke tariefzone (land) u zich bevindt. Als uw mobiele gegevens zijn geactiveerd terwijl u zich in een off-package gebied bevindt, ontvangt u verschillende meldingen die u uitnodigen om uw gegevens te knippen.";
 "cost_protection_title" = "Bescherming buiten het pakket om";
 "carrier_services" = "Exploitant diensten";
 "suivi_conso_20815" = "Gedetailleerde opvolging van het verbruik";
@@ -155,6 +155,16 @@
 "location_wrong_setting" = "Verkeerde instelling voor locatietoegang";
 "location_ws_agree" = "Instelling \"Wanneer in gebruik\" tijdelijk forceren";
 "location_ws_agree_forever" = "Instelling \"Wanneer in gebruik\" permanent forceren";
+"airplane_mode_enabled" = "Vliegtuigmodus ingeschakeld";
+"add_europe" = "De Europese Unie toevoegen?";
+"add_europe_description" = "Het land %@ dat u probeert toe te voegen, maakt deel uit van de EU. Wilt u de EU toevoegen in plaats van dat individuele land?";
+"add_europe_only" = "Voeg de Europese Unie toe";
+"add_country_only" = "Alleen %@ toevoegen";
+"exit_roaming" = "Nationale roaming verlaten";
+"send_diagnostic_to_developer" = "Stuur naar de ontwikkelaar";
+"email_default_content" = "<p>Leg in detail het probleem uit dat u hier tegenkomt: </p>";
+"diagnostic_email" = "Diagnostische FMobile %@ - b%@";
+"mail_not_available" = "De Mail-app is momenteel niet beschikbaar.";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Stroomtest";

@@ -116,7 +116,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                             print("ITI 35")
                             dataManager.wasEnabled += 1
                             dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                            dataManager.datas.set(true, forKey: "isRunning")
+                            if dataManager.nrp == "HSDPA" {
+                                dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
+                            } else {
+                                dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
+                            }
+                            dataManager.datas.set(Date(), forKey: "timecode")
                             dataManager.datas.synchronize()
                             if #available(iOS 12.0, *) {
                             guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
@@ -178,7 +183,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if dataManager.minimalSetup && dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC != dataManager.targetMNC {
                 dataManager.wasEnabled += 1
                 dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                dataManager.datas.set(true, forKey: "isRunning")
+                if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA {
+                    dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
+                } else {
+                    dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
+                }
+                dataManager.datas.set(Date(), forKey: "timecode")
                 dataManager.datas.synchronize()
                 if #available(iOS 12.0, *) {
                 guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
@@ -224,7 +234,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 if speed ?? 0 < dataManager.stms {
                                     dataManager.wasEnabled += 1
                                     dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                                    dataManager.datas.set(true, forKey: "isRunning")
+                                    if dataManager.nrp == "HSDPA" {
+                                        dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
+                                    } else {
+                                        dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
+                                    }
+                                    dataManager.datas.set(Date(), forKey: "timecode")
                                     dataManager.datas.synchronize()
                                     if #available(iOS 12.0, *) {
                                     guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
@@ -270,7 +285,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     } else {
                         dataManager.wasEnabled += 1
                         dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                        dataManager.datas.set(true, forKey: "isRunning")
+                        if dataManager.nrp == "HSDPA" {
+                            dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
+                        } else {
+                            dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
+                        }
+                        dataManager.datas.set(Date(), forKey: "timecode")
                         dataManager.datas.synchronize()
                         if #available(iOS 12.0, *) {
                         guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
@@ -282,7 +302,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 } else if dataManager.carrierNetwork == "CTRadioAccessTechnologyEdge" && !dataManager.allow012G && dataManager.out2G {
                     dataManager.wasEnabled += 1
                     dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                    dataManager.datas.set(true, forKey: "isRunning")
+                    dataManager.datas.set("EDGE", forKey: "g3lastcompletion")
+                    dataManager.datas.set(Date(), forKey: "timecode")
                     dataManager.datas.synchronize()
                     if #available(iOS 12.0, *) {
                     guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }

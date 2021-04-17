@@ -80,7 +80,7 @@
 "femto_footer" = "In order to automatically detect a Femto box, the app downloads a small file to check the speed of the connection. If the data saving mode is enabled, the app will wait for your permission to download it.";
 "reset_offline_zones" = "Reset the non-covered zones";
 "extra_cost_protection" = "Unintended extra-cost protection";
-"land_footer" = "By enabling this option, the app checks in background in which price zone (country) you are located. If your cellular data are enabled while you are in a destination that is not included in your plan, you will recieve multiple notifications inviting you to disable your cellular data. This option is only available for selected carriers.";
+"land_footer" = "By enabling this option, the app checks in background in which price zone (country) you are located. If your cellular data are enabled while you are in a destination that is not included in your plan, you will recieve multiple notifications inviting you to disable your cellular data.";
 "cost_protection_title" = "Extra-costs protection";
 "carrier_services" = "Carrier services";
 "suivi_conso_20815" = "Get the detailed consumption tracking";
@@ -155,6 +155,16 @@
 "location_wrong_setting" = "Wrong setup for location access";
 "location_ws_agree" = "Temporarily force \"When In Use\" setting";
 "location_ws_agree_forever" = "Permanently force \"When In Use\" setting";
+"airplane_mode_enabled" = "Airplane mode enabled";
+"add_europe" = "Add the European Union?";
+"add_europe_description" = "The country %@ you are trying to add is part of the EU. Do you want to add the EU instead of that individual country?";
+"add_europe_only" = "Add the European Union";
+"add_country_only" = "Add %@ only";
+"exit_roaming" = "Exit the national roaming";
+"send_diagnostic_to_developer" = "Send to the developer";
+"email_default_content" = "<p>Explain in details the problem you are encoutering here: </p>";
+"diagnostic_email" = "FMobile %@ diagnistics - b%@";
+"mail_not_available" = "The Mail app is currently unavailable.";
 
 
     // SpeedtestViewController
