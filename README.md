@@ -13,7 +13,7 @@ You will probably want to remove the fmobile4() function in order to remove the 
 
 
 
-FMobile 2 use another Shortcut to operate that is no longer available for download, you will need to rename the RRFM shortcut above to ANIRC.
+FMobile 2 uses another Shortcut to operate, named ANIRC that replaces the old RRFM shortcut, and that is available for download here: https://www.icloud.com/shortcuts/3cdfd9f060694195a1dfa16c4226832e.
 
 
 You may use the FMobile Series 1 and 2 code as you want, but please mention us (FMobile or the Groupe MINASTE) somewhere in your app if you use a big portion of our code (not mendatory but highly appreciated).
