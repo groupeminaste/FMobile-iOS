@@ -70,17 +70,12 @@
 		ED2649A721FEF61700C3F1F5 /* FMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2649A621FEF61700C3F1F5 /* FMobileUITests.swift */; };
 		ED2649B521FEF61F00C3F1F5 /* FMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2649B421FEF61F00C3F1F5 /* FMobileTests.swift */; };
 		ED34CE6323D4F69400672C6E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED34CE6223D4F69400672C6E /* NetworkExtension.framework */; };
-		ED34CE6D23D5020800672C6E /* DNSProxyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34CE6C23D5020700672C6E /* DNSProxyProvider.swift */; };
-		ED34CE7223D5020800672C6E /* CustomDNS.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ED34CE6A23D5020700672C6E /* CustomDNS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		ED34CE7623D5021F00672C6E /* DomainsTLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34CE6423D4F90100672C6E /* DomainsTLD.swift */; };
-		ED34CE7723D5022300672C6E /* CustomDNS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34CE6023D4F5A700672C6E /* CustomDNS.swift */; };
-		ED34CE7823D503D500672C6E /* CustomDNS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34CE6023D4F5A700672C6E /* CustomDNS.swift */; };
 		ED34CE7923D5041400672C6E /* DomainsTLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34CE6423D4F90100672C6E /* DomainsTLD.swift */; };
-		ED34CE7A23D5067D00672C6E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED34CE6223D4F69400672C6E /* NetworkExtension.framework */; };
+		ED4DDA2F24048E3C0026AE21 /* UIElementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4DDA2D24048E3C0026AE21 /* UIElementApp.swift */; };
+		ED4DDA3424048E9A0026AE21 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4DDA3324048E990026AE21 /* AppTableViewCell.swift */; };
 		ED4F2CEA22CD390600D56E63 /* FMobileG3.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ED4F2CE322CD390600D56E63 /* FMobileG3.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ED58A662235F890F00B40C8A /* ActivityViewCustomActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED58A660235F874100B40C8A /* ActivityViewCustomActivity.swift */; };
 		ED58A663235F896100B40C8A /* GeneralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32477894216186C6003ADE47 /* GeneralTableViewController.swift */; };
-		ED653BA8233576A8002391B0 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ED653BAB233576A8002391B0 /* Intents.intentdefinition */; };
 		ED653BA9233576A8002391B0 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ED653BAB233576A8002391B0 /* Intents.intentdefinition */; };
 		ED6AFAB623DDF31C00D4F871 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AFAB523DDF31C00D4F871 /* NotificationNameExtension.swift */; };
 		ED6AFAB823DDF39700D4F871 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AFAB723DDF39700D4F871 /* UIViewControllerExtension.swift */; };
@@ -112,6 +107,8 @@
 		ED7D773E220C949A007844D7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3F18C2220C7E7E003C701B /* CoreData.framework */; platformFilter = ios; };
 		ED7D773F220C949A007844D7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3F18C0220C7E75003C701B /* UIKit.framework */; platformFilter = ios; };
 		ED7D7740220C949A007844D7 /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3F18BE220C7E58003C701B /* CallKit.framework */; platformFilter = ios; };
+		ED88B7BE241AFA1500BE35CB /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ED653BAB233576A8002391B0 /* Intents.intentdefinition */; };
+		ED88B7BF241AFA2C00BE35CB /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ED653BAB233576A8002391B0 /* Intents.intentdefinition */; };
 		ED896F6B23CE1C4C002A9C9D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A597DE92251237800926DAD /* DataManager.swift */; };
 		ED896F6C23CE1C4C002A9C9D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A597DE92251237800926DAD /* DataManager.swift */; };
 		ED896F6D23CE1C59002A9C9D /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1BDC022AA629300C5B3CC /* APIRequest.swift */; };
@@ -216,13 +213,6 @@
 			remoteGlobalIDString = ED01AAE0215F80D100693C03;
 			remoteInfo = FMobile;
 		};
-		ED34CE7023D5020800672C6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ED01AAD9215F80D100693C03 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ED34CE6923D5020700672C6E;
-			remoteInfo = CustomDNS;
-		};
 		ED4F2CE822CD390600D56E63 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ED01AAD9215F80D100693C03 /* Project object */;
@@ -247,7 +237,6 @@
 			dstSubfolderSpec = 13;
 			files = (
 				EDA1B982223C0B790015A05B /* FMobile Fast Access.appex in Embed App Extensions */,
-				ED34CE7223D5020800672C6E /* CustomDNS.appex in Embed App Extensions */,
 				ED4F2CEA22CD390600D56E63 /* FMobileG3.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -284,7 +273,7 @@
 		6AED7FDD228C9D2500696969 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6AED7FDF228C9D2700696969 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6AED7FE0228C9D4C00696969 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		ED01AAE1215F80D200693C03 /* FMobile 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FMobile 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED01AAE1215F80D200693C03 /* FMobile 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FMobile 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED01AAE4215F80D200693C03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED01AAEE215F80D300693C03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED01AAF1215F80D300693C03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -324,13 +313,8 @@
 		ED2649B221FEF61F00C3F1F5 /* FMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2649B421FEF61F00C3F1F5 /* FMobileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMobileTests.swift; sourceTree = "<group>"; };
 		ED2649B621FEF61F00C3F1F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED34CE6023D4F5A700672C6E /* CustomDNS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDNS.swift; sourceTree = "<group>"; };
 		ED34CE6223D4F69400672C6E /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		ED34CE6423D4F90100672C6E /* DomainsTLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainsTLD.swift; sourceTree = "<group>"; };
-		ED34CE6A23D5020700672C6E /* CustomDNS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CustomDNS.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED34CE6C23D5020700672C6E /* DNSProxyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSProxyProvider.swift; sourceTree = "<group>"; };
-		ED34CE6E23D5020800672C6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED34CE6F23D5020800672C6E /* CustomDNS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CustomDNS.entitlements; sourceTree = "<group>"; };
 		ED387D5321FE255000643E69 /* FreeWay.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FreeWay.gpx; sourceTree = "<group>"; };
 		ED387D5521FE277100643E69 /* CityRun.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CityRun.gpx; sourceTree = "<group>"; };
 		ED3F18BE220C7E58003C701B /* CallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallKit.framework; path = System/Library/Frameworks/CallKit.framework; sourceTree = SDKROOT; };
@@ -342,6 +326,8 @@
 		ED3F18CA220C7EA5003C701B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ED3F18CC220C7EAD003C701B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		ED443FC6234B861C0099B9EC /* Notes */ = {isa = PBXFileReference; lastKnownFileType = text; name = Notes; path = FMobile/Notes; sourceTree = SOURCE_ROOT; };
+		ED4DDA2D24048E3C0026AE21 /* UIElementApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIElementApp.swift; sourceTree = "<group>"; };
+		ED4DDA3324048E990026AE21 /* AppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
 		ED4F2CE322CD390600D56E63 /* FMobileG3.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FMobileG3.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED4F2CE522CD390600D56E63 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		ED4F2CE722CD390600D56E63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -358,13 +344,13 @@
 		ED7925AB239C2BC0007AAC7A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ED7925AC239C2BC1007AAC7A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED7925AD239C2BC1007AAC7A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		ED7925AF239C2FC9007AAC7A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intents.strings; sourceTree = "<group>"; };
 		ED7925B1239C2FDC007AAC7A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Intents.strings; sourceTree = "<group>"; };
 		ED7925B3239C64A1007AAC7A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Intents.strings; sourceTree = "<group>"; };
 		ED7925B5239C6865007AAC7A /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/Intents.strings; sourceTree = "<group>"; };
 		ED7925B7239C6CFE007AAC7A /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Intents.strings; sourceTree = "<group>"; };
 		ED7925B9239C7189007AAC7A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Intents.strings; sourceTree = "<group>"; };
 		ED7B58A7224A7E2D00CDBB61 /* CarrierIdentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierIdentification.swift; sourceTree = "<group>"; };
+		ED88B7C1241B002300BE35CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intents.strings; sourceTree = "<group>"; };
 		ED8E94A722C2DE5200E57F27 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		ED8E94A922C2DE7000E57F27 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED8E94AA22C2DEB600E57F27 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -434,14 +420,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED34CE6723D5020700672C6E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ED34CE7A23D5067D00672C6E /* NetworkExtension.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ED4F2CE022CD390600D56E63 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -463,12 +441,14 @@
 		324778A021618D2A003ADE47 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ED4DDA2D24048E3C0026AE21 /* UIElementApp.swift */,
 				ED01AAE4215F80D200693C03 /* AppDelegate.swift */,
 				ED7B58A7224A7E2D00CDBB61 /* CarrierIdentification.swift */,
 				6AE4F803231BC7AA0073759A /* CarrierConfiguration.swift */,
 				6A942CC12330040E00C8F7ED /* CoverageManager.swift */,
 				6A942CC52330CE2700C8F7ED /* CoverageMap.swift */,
 				6A942CC32330054900C8F7ED /* CoveragePoint.swift */,
+				ED34CE6423D4F90100672C6E /* DomainsTLD.swift */,
 				ED0F8DBE22D69C3C0084B00F /* RoamingManager.swift */,
 				6A597DE92251237800926DAD /* DataManager.swift */,
 				6AE8B9AF21EFB1B200AB820C /* NotificationManager.swift */,
@@ -519,6 +499,7 @@
 				32477894216186C6003ADE47 /* GeneralTableViewController.swift */,
 				324778A221618D66003ADE47 /* LabelTableViewCell.swift */,
 				6AE4F7FF231BBF040073759A /* MapViewController.swift */,
+				ED4DDA3324048E990026AE21 /* AppTableViewCell.swift */,
 				6AED7FD8228C8EDC00696969 /* SpeedtestProgressView.swift */,
 				6AC3560B21DE80A5008DF77A /* SpeedtestViewController.swift */,
 				324778A421618DC8003ADE47 /* SwitchTableViewCell.swift */,
@@ -544,7 +525,6 @@
 				ED2649B321FEF61F00C3F1F5 /* FMobileTests */,
 				EDA1B979223C0B790015A05B /* status */,
 				ED4F2CE422CD390600D56E63 /* FMobileG3 */,
-				ED34CE6B23D5020700672C6E /* CustomDNS */,
 				ED01AAE2215F80D200693C03 /* Products */,
 				EDBCBBB3216272D800D066F9 /* Frameworks */,
 			);
@@ -553,12 +533,11 @@
 		ED01AAE2215F80D200693C03 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ED01AAE1215F80D200693C03 /* FMobile 2.app */,
+				ED01AAE1215F80D200693C03 /* FMobile 3.app */,
 				ED2649A421FEF61700C3F1F5 /* FMobileUITests.xctest */,
 				ED2649B221FEF61F00C3F1F5 /* FMobileTests.xctest */,
 				EDA1B976223C0B790015A05B /* FMobile Fast Access.appex */,
 				ED4F2CE322CD390600D56E63 /* FMobileG3.appex */,
-				ED34CE6A23D5020700672C6E /* CustomDNS.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -616,24 +595,12 @@
 			path = AlternateIcon;
 			sourceTree = "<group>";
 		};
-		ED34CE6B23D5020700672C6E /* CustomDNS */ = {
-			isa = PBXGroup;
-			children = (
-				ED34CE6423D4F90100672C6E /* DomainsTLD.swift */,
-				ED34CE6023D4F5A700672C6E /* CustomDNS.swift */,
-				ED34CE6C23D5020700672C6E /* DNSProxyProvider.swift */,
-				ED34CE6E23D5020800672C6E /* Info.plist */,
-				ED34CE6F23D5020800672C6E /* CustomDNS.entitlements */,
-			);
-			path = CustomDNS;
-			sourceTree = "<group>";
-		};
 		ED4F2CE422CD390600D56E63 /* FMobileG3 */ = {
 			isa = PBXGroup;
 			children = (
 				ED0F8DB022D6533D0084B00F /* FMobileG3.entitlements */,
-				ED4F2CE522CD390600D56E63 /* IntentHandler.swift */,
 				ED653BAB233576A8002391B0 /* Intents.intentdefinition */,
+				ED4F2CE522CD390600D56E63 /* IntentHandler.swift */,
 				ED6C35D522CD4341006D883E /* CarrierIntentHandler.swift */,
 				ED4F2CE722CD390600D56E63 /* Info.plist */,
 			);
@@ -687,11 +654,10 @@
 			dependencies = (
 				EDA1B981223C0B790015A05B /* PBXTargetDependency */,
 				ED4F2CE922CD390600D56E63 /* PBXTargetDependency */,
-				ED34CE7123D5020800672C6E /* PBXTargetDependency */,
 			);
 			name = FMobile;
 			productName = FMobile;
-			productReference = ED01AAE1215F80D200693C03 /* FMobile 2.app */;
+			productReference = ED01AAE1215F80D200693C03 /* FMobile 3.app */;
 			productType = "com.apple.product-type.application";
 		};
 		ED2649A321FEF61700C3F1F5 /* FMobileUITests */ = {
@@ -729,23 +695,6 @@
 			productName = FMobileTests;
 			productReference = ED2649B221FEF61F00C3F1F5 /* FMobileTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		ED34CE6923D5020700672C6E /* CustomDNS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ED34CE7323D5020800672C6E /* Build configuration list for PBXNativeTarget "CustomDNS" */;
-			buildPhases = (
-				ED34CE6623D5020700672C6E /* Sources */,
-				ED34CE6723D5020700672C6E /* Frameworks */,
-				ED34CE6823D5020700672C6E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CustomDNS;
-			productName = CustomDNS;
-			productReference = ED34CE6A23D5020700672C6E /* CustomDNS.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 		ED4F2CE222CD390600D56E63 /* FMobileG3 */ = {
 			isa = PBXNativeTarget;
@@ -823,9 +772,6 @@
 						CreatedOnToolsVersion = 10.2;
 						TestTargetID = ED01AAE0215F80D100693C03;
 					};
-					ED34CE6923D5020700672C6E = {
-						CreatedOnToolsVersion = 11.3.1;
-					};
 					ED4F2CE222CD390600D56E63 = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -868,7 +814,6 @@
 				ED2649B121FEF61F00C3F1F5 /* FMobileTests */,
 				EDA1B975223C0B790015A05B /* status */,
 				ED4F2CE222CD390600D56E63 /* FMobileG3 */,
-				ED34CE6923D5020700672C6E /* CustomDNS */,
 			);
 		};
 /* End PBXProject section */
@@ -907,13 +852,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED34CE6823D5020700672C6E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ED4F2CE122CD390600D56E63 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -940,7 +878,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED34CE7823D503D500672C6E /* CustomDNS.swift in Sources */,
+				ED88B7BF241AFA2C00BE35CB /* Intents.intentdefinition in Sources */,
 				ED58A663235F896100B40C8A /* GeneralTableViewController.swift in Sources */,
 				324778A721619751003ADE47 /* ButtonTableViewCell.swift in Sources */,
 				6AE4F7FE231BB6F40073759A /* TabBarController.swift in Sources */,
@@ -958,6 +896,7 @@
 				ED20ABEF21E53C9E00C77529 /* DATA.xcdatamodeld in Sources */,
 				6AED7FE1228C9D4C00696969 /* StringExtension.swift in Sources */,
 				3247789F21618A29003ADE47 /* UIElementButton.swift in Sources */,
+				ED4DDA2F24048E3C0026AE21 /* UIElementApp.swift in Sources */,
 				6A597DE8225122B300926DAD /* DictionaryExtension.swift in Sources */,
 				ED58A662235F890F00B40C8A /* ActivityViewCustomActivity.swift in Sources */,
 				6A942CC42330054900C8F7ED /* CoveragePoint.swift in Sources */,
@@ -965,9 +904,9 @@
 				6A597DEA2251237800926DAD /* DataManager.swift in Sources */,
 				ED10BA1622818D2A0005B1BE /* UITableViewExtension.swift in Sources */,
 				6AED7FD9228C8EDC00696969 /* SpeedtestProgressView.swift in Sources */,
-				ED653BA8233576A8002391B0 /* Intents.intentdefinition in Sources */,
 				ED6C35D922CD4FF5006D883E /* IntentHandler.swift in Sources */,
 				6AE4F800231BBF040073759A /* MapViewController.swift in Sources */,
+				ED4DDA3424048E9A0026AE21 /* AppTableViewCell.swift in Sources */,
 				EDC576DE23DC8D9800975090 /* AnyCodable.swift in Sources */,
 				6AE4F804231BC7AA0073759A /* CarrierConfiguration.swift in Sources */,
 				ED7B58A8224A7E2D00CDBB61 /* CarrierIdentification.swift in Sources */,
@@ -1079,16 +1018,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED34CE6623D5020700672C6E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ED34CE7623D5021F00672C6E /* DomainsTLD.swift in Sources */,
-				ED34CE7723D5022300672C6E /* CustomDNS.swift in Sources */,
-				ED34CE6D23D5020800672C6E /* DNSProxyProvider.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ED4F2CDF22CD390600D56E63 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1120,6 +1049,7 @@
 				ED0F8DB622D68E6C0084B00F /* NotificationManager.swift in Sources */,
 				6AD8652D2336B5FB000B40C4 /* CarrierConfiguration.swift in Sources */,
 				ED6AFAC523DDF89B00D4F871 /* CustomColor.swift in Sources */,
+				ED88B7BE241AFA1500BE35CB /* Intents.intentdefinition in Sources */,
 				EDC576E123DC8DA900975090 /* AnyCodable.swift in Sources */,
 				6AD8652F2336B619000B40C4 /* APIRequest.swift in Sources */,
 				ED6AFABF23DDF3AE00D4F871 /* UIViewControllerExtension.swift in Sources */,
@@ -1150,11 +1080,6 @@
 			isa = PBXTargetDependency;
 			target = ED01AAE0215F80D100693C03 /* FMobile */;
 			targetProxy = ED2649B721FEF61F00C3F1F5 /* PBXContainerItemProxy */;
-		};
-		ED34CE7123D5020800672C6E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ED34CE6923D5020700672C6E /* CustomDNS */;
-			targetProxy = ED34CE7023D5020800672C6E /* PBXContainerItemProxy */;
 		};
 		ED4F2CE922CD390600D56E63 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1213,7 +1138,6 @@
 			children = (
 				ED653BAA233576A8002391B0 /* Base */,
 				EDAC7D88234D5B8E00BCF531 /* fr-FR */,
-				ED7925AF239C2FC9007AAC7A /* en */,
 				ED7925B1239C2FDC007AAC7A /* de */,
 				ED7925B3239C64A1007AAC7A /* fr */,
 				ED7925B5239C6865007AAC7A /* sr */,
@@ -1223,6 +1147,7 @@
 				ED23BF6023C4FAFC00982197 /* hr */,
 				ED23BF6523C4FB1600982197 /* bs */,
 				ED23BF6A23C4FB3100982197 /* bs-Cyrl */,
+				ED88B7C1241B002300BE35CB /* en */,
 			);
 			name = Intents.intentdefinition;
 			sourceTree = "<group>";
@@ -1326,7 +1251,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1382,7 +1307,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1400,7 +1325,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobile/FMobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 123;
+				CURRENT_PROJECT_VERSION = 134;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -1410,9 +1335,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile;
-				PRODUCT_NAME = "FMobile 2";
+				PRODUCT_NAME = "FMobile 3";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTS_UIKITFORMAC = NO;
@@ -1430,7 +1355,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobile/FMobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 123;
+				CURRENT_PROJECT_VERSION = 134;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -1440,9 +1365,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile;
-				PRODUCT_NAME = "FMobile 2";
+				PRODUCT_NAME = "FMobile 3";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTS_UIKITFORMAC = NO;
@@ -1536,61 +1461,13 @@
 			};
 			name = Release;
 		};
-		ED34CE7423D5020800672C6E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = CustomDNS/CustomDNS.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 123;
-				DEVELOPMENT_TEAM = ZL9396WK65;
-				INFOPLIST_FILE = CustomDNS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 2.2;
-				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.CustomDNS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		ED34CE7523D5020800672C6E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = CustomDNS/CustomDNS.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 123;
-				DEVELOPMENT_TEAM = ZL9396WK65;
-				INFOPLIST_FILE = CustomDNS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 2.2;
-				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.CustomDNS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		ED4F2CEB22CD390600D56E63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = FMobileG3/FMobileG3.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 123;
+				CURRENT_PROJECT_VERSION = 134;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = FMobileG3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1599,7 +1476,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.FMobileG3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1616,7 +1493,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobileG3/FMobileG3.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 123;
+				CURRENT_PROJECT_VERSION = 134;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = FMobileG3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1625,7 +1502,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.FMobileG3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1642,7 +1519,7 @@
 				CODE_SIGN_ENTITLEMENTS = status/status.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 123;
+				CURRENT_PROJECT_VERSION = 134;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = status/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1651,7 +1528,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 3.0;
 				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.status;
 				PRODUCT_NAME = "FMobile Fast Access";
@@ -1668,7 +1545,7 @@
 				CODE_SIGN_ENTITLEMENTS = status/status.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 123;
+				CURRENT_PROJECT_VERSION = 134;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = status/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1677,7 +1554,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 3.0;
 				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.status;
 				PRODUCT_NAME = "FMobile Fast Access";
@@ -1723,15 +1600,6 @@
 			buildConfigurations = (
 				ED2649BA21FEF61F00C3F1F5 /* Debug */,
 				ED2649BB21FEF61F00C3F1F5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ED34CE7323D5020800672C6E /* Build configuration list for PBXNativeTarget "CustomDNS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ED34CE7423D5020800672C6E /* Debug */,
-				ED34CE7523D5020800672C6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -9,7 +9,17 @@
 import Foundation
 import Intents
 
+@available(iOS 12.0, *)
 class CarrierIntentHandler: NSObject, CarrierIntentHandling, IllegalRoamingIntentHandling, GetCurrentMCCIntentHandling, GetCurrentMNCIntentHandling, GetSimMCCIntentHandling, GetSimMNCIntentHandling, GetCurrentCarrierIntentHandling, GetSimCarrierIntentHandling, FlightModeIntentHandling, IsWifiConnectedIntentHandling, IsNetworkConnectedIntentHandling {
+    
+    static func deleteInteraction() {
+        INInteraction.deleteAll { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        print("Deleted Intents!")
+    }
     
     static func donateInteraction() {
         let carrierIntent = CarrierIntent()
@@ -24,17 +34,17 @@ class CarrierIntentHandler: NSObject, CarrierIntentHandling, IllegalRoamingInten
         let isWifiConnectedIntent = IsWifiConnectedIntent()
         let isNetworkConnectedIntent = IsNetworkConnectedIntent()
         
-        let interaction = INInteraction(intent: carrierIntent, response: nil)
-        let interaction2 = INInteraction(intent: roamingIntent, response: nil)
-        let interaction3 = INInteraction(intent: mccIntent, response: nil)
-        let interaction4 = INInteraction(intent: mncIntent, response: nil)
-        let interaction5 = INInteraction(intent: simMccIntent, response: nil)
-        let interaction6 = INInteraction(intent: simMncIntent, response: nil)
-        let interaction7 = INInteraction(intent: currentCarrierIntent, response: nil)
-        let interaction8 = INInteraction(intent: simCarrierIntent, response: nil)
-        let interaction9 = INInteraction(intent: flightModeIntent, response: nil)
-        let interaction10 = INInteraction(intent: isWifiConnectedIntent, response: nil)
-        let interaction11 = INInteraction(intent: isNetworkConnectedIntent, response: nil)
+        let interaction = INInteraction(intent: carrierIntent, response: CarrierIntentResponse())
+        let interaction2 = INInteraction(intent: roamingIntent, response: IllegalRoamingIntentResponse())
+        let interaction3 = INInteraction(intent: mccIntent, response: GetCurrentMCCIntentResponse())
+        let interaction4 = INInteraction(intent: mncIntent, response: GetCurrentMNCIntentResponse())
+        let interaction5 = INInteraction(intent: simMccIntent, response: GetSimMCCIntentResponse())
+        let interaction6 = INInteraction(intent: simMncIntent, response: GetSimMNCIntentResponse())
+        let interaction7 = INInteraction(intent: currentCarrierIntent, response: GetCurrentCarrierIntentResponse())
+        let interaction8 = INInteraction(intent: simCarrierIntent, response: GetSimCarrierIntentResponse())
+        let interaction9 = INInteraction(intent: flightModeIntent, response: FlightModeIntentResponse())
+        let interaction10 = INInteraction(intent: isWifiConnectedIntent, response: IsWifiConnectedIntentResponse())
+        let interaction11 = INInteraction(intent: isNetworkConnectedIntent, response: IsNetworkConnectedIntentResponse())
         
         
         interaction.donate { error in
@@ -124,12 +134,14 @@ class CarrierIntentHandler: NSObject, CarrierIntentHandling, IllegalRoamingInten
             
             var performOperations = false
             
-            if result == "HPLUS" || result == "WCDMA" || result == "EDGE" {
+            if result == "LTE" || result == "HPLUS" || result == "WCDMA" || result == "EDGE" {
                 performOperations = true
             } else if result == "POSSHPLUS" {
                 NotificationManager.sendNotification(for: .alertPossibleHPlus)
             } else if result == "POSSWCDMA" {
                 NotificationManager.sendNotification(for: .alertPossibleWCDMA)
+            } else if result == "POSSLTE" {
+                NotificationManager.sendNotification(for: .alertPossibleLTE)
             }
             
             completion(CarrierIntentResponse.success(carrier: performOperations ? 1 : 0))

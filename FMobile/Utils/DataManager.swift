@@ -17,6 +17,8 @@ class DataManager {
     // Configuration
     let datas = UserDefaults(suiteName: "group.fr.plugn.fmobile") ?? Foundation.UserDefaults.standard
     var modeRadin = false
+    var allow015G = true
+    var allow014G = true
     var allow013G = true
     var allow012G = true
     var femtoLOWDATA = false
@@ -82,8 +84,10 @@ class DataManager {
     var countriesVoice = [String]()
     var countriesVData = [String]()
     var disableFMobileCore = false
-    var registeredService = "0000000100000001"
+    let registeredService = "0000000100000001"
     var carrierServices = [(String, String, String)]()
+    var roamLTE = false
+    var roam5G = false
     
     // Custom values
     var includedData = [String]()
@@ -106,6 +110,12 @@ class DataManager {
         }
         if let allow012G = datas.value(forKey: "allow012G") as? Bool {
             self.allow012G = allow012G
+        }
+        if let allow014G = datas.value(forKey: "allow014G") as? Bool {
+            self.allow014G = allow014G
+        }
+        if let allow015G = datas.value(forKey: "allow015G") as? Bool {
+            self.allow015G = allow015G
         }
         if let femtoLOWDATA = datas.value(forKey: "femtoLOWDATA") as? Bool {
             self.femtoLOWDATA = femtoLOWDATA
@@ -232,6 +242,12 @@ class DataManager {
         }
         if let isSettingUp = datas.value(forKey: "isSettingUp") as? Bool {
             self.isSettingUp = isSettingUp
+        }
+        if let roamLTE = datas.value(forKey: "roamLTE") as? Bool {
+            self.roamLTE = roamLTE
+        }
+        if let roam5G = datas.value(forKey: "roam5G") as? Bool {
+            self.roam5G = roam5G
         }
 //        if let registeredService = datas.value(forKey: "registeredService") as? String {
 //            self.registeredService = registeredService
@@ -378,10 +394,9 @@ class DataManager {
             carrierName = carriersim
         }
         
-        ipadMCC = connectedMCC
-        ipadMNC = connectedMNC
-        
-        if UIDevice.current.userInterfaceIdiom == .pad {
+        if carrierName == "Carrier" && homeName != "null" && !homeName.isEmpty {
+            carrierName = homeName
+            
             if (connectedMCC == "---" && connectedMNC == "--"){
                 connectedMCC = mycarrier.mobileCountryCode ?? "---"
                 connectedMNC = mycarrier.mobileNetworkCode ?? "--"
@@ -390,11 +405,10 @@ class DataManager {
                     carrier = homeName
                 }
             }
-            
-            if carrierName == "Carrier" && homeName != "null" && !homeName.isEmpty {
-                carrierName = homeName
-            }
         }
+        
+        ipadMCC = connectedMCC
+        ipadMNC = connectedMNC
         
         nrDEC = self.isNRDEC()
         print("nrDEC: \(nrDEC)")
@@ -529,6 +543,51 @@ class DataManager {
         return "null"
     }
     
+    static func getShortcutURL(international: Bool = false) -> URL? {
+        // NORMAL SHPRTCUTS
+        let anirc12 = "shortcuts://run-shortcut?name=ANIRC12&input=text&text=NAT"
+        let anirc = "shortcuts://run-shortcut?name=ANIRC"
+        
+        // INTERNATIONAL ROAMING SHORTCUT
+        let anirc12inter = "shortcuts://run-shortcut?name=ANIRC12&input=text&text=INTER"
+        
+        if international {
+            if #available(iOS 13.0, *) {
+                if let url = URL(string: anirc) {
+                    return url
+                }
+            } else if #available(iOS 12.0, *){
+                if let url = URL(string: anirc12inter) {
+                    return url
+                }
+            }
+        } else {
+            if #available(iOS 13.0, *) {
+                if let url = URL(string: anirc) {
+                    return url
+                }
+            } else if #available(iOS 12.0, *){
+                if let url = URL(string: anirc12) {
+                    return url
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    static func getSimInventory() -> [(String, CTCarrier, String)] {
+        let info = CTTelephonyNetworkInfo()
+        var siminventory = [(String, CTCarrier, String)]()
+        for (service, carrier) in info.serviceSubscriberCellularProviders ?? [:] {
+            
+            let radio = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
+            siminventory.append((service, carrier, radio))
+            
+        }
+        return siminventory
+    }
+    
     static func isConnectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
@@ -540,19 +599,19 @@ class DataManager {
             }
         }
         
-        var flags : SCNetworkReachabilityFlags = []
-        
-        if defaultRouteReachability == nil {
-            return false
+        if let defaultRouteReachability = defaultRouteReachability {
+            var flags : SCNetworkReachabilityFlags = []
+
+            if !SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) {
+                return false
+            }
+            
+            let isReachable = flags.contains(.reachable)
+            let needsConnection = flags.contains(.connectionRequired)
+            return (isReachable && !needsConnection)
         }
         
-        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
-            return false
-        }
-        
-        let isReachable = flags.contains(.reachable)
-        let needsConnection = flags.contains(.connectionRequired)
-        return (isReachable && !needsConnection)
+        return false
     }
     
     static func isEligibleForMinimalSetup() -> Bool {

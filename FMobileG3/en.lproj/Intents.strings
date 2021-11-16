@@ -6,6 +6,8 @@
 
 "37NcUM" = "Gets the status of a National Roaming connection. Returns 0/1.";
 
+"4EJB3z" = "Get SIM Carrier";
+
 "4PBnst" = "${carrier}";
 
 "4bknAw" = "Error";
@@ -24,6 +26,8 @@
 
 "9AoR98" = "${flightMode}";
 
+"9BJ3lX" = "Cellular Connection Status";
+
 "9G9ZgU" = "${carrier}";
 
 "BmKG1n" = "Get Current MCC";
@@ -31,6 +35,8 @@
 "CabRuh" = "${mnc}";
 
 "Cxh6DA" = "Get Current MNC";
+
+"DWAzah" = "Get SIM card MNC";
 
 "DdmfiG" = "Error";
 
@@ -41,6 +47,8 @@
 "IT1l2g" = "Get Airplane Mode Status";
 
 "InqGrV" = "Get SIM Carrier";
+
+"IqyWoq" = "Get Forbidden Roaming Status";
 
 "JmoZDF" = "Get Current Carrier";
 
@@ -68,6 +76,8 @@
 
 "TKk3SA" = "Airplane Mode Status";
 
+"UH9up1" = "Get Current MCC";
+
 "VO77Ks" = "${mcc}";
 
 "VhFC6Z" = "Error";
@@ -80,6 +90,10 @@
 
 "Z5Q5Us" = "National Roaming";
 
+"ahmmhB" = "Get Current MNC";
+
+"aqaQK8" = "Get SIM card MCC";
+
 "bUv2SI" = "MCC";
 
 "c2PAzW" = "MNC";
@@ -89,6 +103,8 @@
 "cj3edn" = "${flightMode}";
 
 "cwTJKe" = "${roaming}";
+
+"d2ttat" = "Get Current Carrier";
 
 "dOs4t4" = "Checks forbidden roaming status";
 
@@ -111,6 +127,10 @@
 "hJqUW5" = "${wifi}";
 
 "i1UfNg" = "Wi-Fi Connection Status";
+
+"i7nWTq" = "Get National Romaing Status";
+
+"i8YIPA" = "Airplane Mode Status";
 
 "iWygLe" = "Checks if the device is connected to Wi-Fi";
 
@@ -165,6 +185,8 @@
 "vv5HI8" = "Error";
 
 "wU6jLX" = "${mnc}";
+
+"xpTgr7" = "Wi-Fi Connection Status";
 
 "xqcFOJ" = "${carrier}";
 

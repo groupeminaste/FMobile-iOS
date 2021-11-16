@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ED01AAE0215F80D100693C03"
-               BuildableName = "FMobile 2.app"
+               BuildableName = "FMobile 3.app"
                BlueprintName = "FMobile"
                ReferencedContainer = "container:FMobile.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED01AAE0215F80D100693C03"
-            BuildableName = "FMobile 2.app"
+            BuildableName = "FMobile 3.app"
             BlueprintName = "FMobile"
             ReferencedContainer = "container:FMobile.xcodeproj">
          </BuildableReference>
@@ -74,7 +74,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED01AAE0215F80D100693C03"
-            BuildableName = "FMobile 2.app"
+            BuildableName = "FMobile 3.app"
             BlueprintName = "FMobile"
             ReferencedContainer = "container:FMobile.xcodeproj">
          </BuildableReference>
@@ -91,7 +91,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED01AAE0215F80D100693C03"
-            BuildableName = "FMobile 2.app"
+            BuildableName = "FMobile 3.app"
             BlueprintName = "FMobile"
             ReferencedContainer = "container:FMobile.xcodeproj">
          </BuildableReference>

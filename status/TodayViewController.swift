@@ -41,9 +41,47 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let country = CarrierIdentification.getIsoCountryCode(dataManager.connectedMCC, dataManager.connectedMNC)
         var status = ""
         
-        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+        if (dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && (dataManager.allow014G || (dataManager.modeExpert ? false : !dataManager.roamLTE))) {
             dataManager.carrierNetwork = "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             status = "✅"
+        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && dataManager.isNRDECstatus(){
+                status = "⚠️"
+            } else {
+                status = "✅"
+            }
+            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && !DataManager.isWifiConnected() && dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && dataManager.isNRDECstatus() {
+                text?.text = "Veuillez patienter..."
+                dataManager.carrierNetwork = "\(dataManager.carrier) 4G (LTE) [Vérification...]"
+                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
+                    DispatchQueue.main.async {
+                        if speed ?? 0 < dataManager.stms {
+                            dataManager.carrierNetwork = "\(dataManager.itiName) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
+                            if #available(iOS 12.0, *) {
+                            guard let link = DataManager.getShortcutURL() else { return }
+                            self.extensionContext?.open(link, completionHandler: { success in
+                                print("fun=success=\(success)")
+                            })
+                            }
+                        } else {
+                            dataManager.carrierNetwork = "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country)"
+                        }
+                        self.text?.reloadInputViews()
+                    }
+                }
+            } else if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.itiMNC {
+                dataManager.carrierNetwork = "\(dataManager.itiName) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
+                if #available(iOS 12.0, *) {
+                guard let link = DataManager.getShortcutURL() else { return }
+                self.extensionContext?.open(link, completionHandler: { success in
+                    print("fun=success=\(success)")
+                })
+                }
+                self.text?.reloadInputViews()
+            } else {
+               dataManager.carrierNetwork = "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+            }
+            
         } else if dataManager.carrierNetwork == CTRadioAccessTechnologyWCDMA {
             if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && dataManager.carrierNetwork == dataManager.nrp && dataManager.isNRDECstatus(){
                 status = "⚠️"
@@ -58,7 +96,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                         if speed ?? 0 < dataManager.stms {
                             dataManager.carrierNetwork = "\(dataManager.itiName) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
                             if #available(iOS 12.0, *) {
-                            guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
+                            guard let link = DataManager.getShortcutURL() else { return }
                             self.extensionContext?.open(link, completionHandler: { success in
                                 print("fun=success=\(success)")
                             })
@@ -72,7 +110,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             } else if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.itiMNC {
                 dataManager.carrierNetwork = "\(dataManager.itiName) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
                 if #available(iOS 12.0, *) {
-                guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
+                guard let link = DataManager.getShortcutURL() else { return }
                 self.extensionContext?.open(link, completionHandler: { success in
                     print("fun=success=\(success)")
                 })
@@ -96,7 +134,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                         if speed ?? 0 < dataManager.stms {
                             dataManager.carrierNetwork = "\(dataManager.itiName) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
                             if #available(iOS 12.0, *) {
-                            guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
+                            guard let link = DataManager.getShortcutURL() else { return }
                             self.extensionContext?.open(link, completionHandler: { success in
                                 print("fun=success=\(success)")
                             })
@@ -110,7 +148,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             } else if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.itiMNC {
                 dataManager.carrierNetwork = "\(dataManager.itiName) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
                 if #available(iOS 12.0, *) {
-                guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
+                guard let link = DataManager.getShortcutURL() else { return }
                 self.extensionContext?.open(link, completionHandler: { success in
                     print("fun=success=\(success)")
                 })

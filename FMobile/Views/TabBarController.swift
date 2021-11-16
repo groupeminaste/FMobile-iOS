@@ -153,14 +153,14 @@ class TabBarController: UITabBarController {
             general.tabBarItem = UITabBarItem(title: "general_view_title".localized(), image: UIImage(named: "gear"), tag: 0)
         }
         
-        // Init map
-        let map = UINavigationController(rootViewController: MapViewController())
-        if #available(iOS 13.0, *) {
-            map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(systemName: "map"), tag: 1)
-        } else {
-            // Fallback on earlier versions
-            map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(named: "map"), tag: 1)
-        }
+//        // Init map
+//        let map = UINavigationController(rootViewController: MapViewController())
+//        if #available(iOS 13.0, *) {
+//            map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(systemName: "map"), tag: 1)
+//        } else {
+//            // Fallback on earlier versions
+//            map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(named: "map"), tag: 1)
+//        }
         
         // Init speedtest
         let speedtest = UINavigationController(rootViewController: SpeedtestViewController())
@@ -172,8 +172,8 @@ class TabBarController: UITabBarController {
         }
         
         // Add everything to tab bar
-      viewControllers = [general, map, speedtest]
-//        viewControllers = [general, speedtest]
+//      viewControllers = [general, map, speedtest]
+        viewControllers = [general, speedtest]
         
         // Load views
         for viewController in viewControllers ?? [] {

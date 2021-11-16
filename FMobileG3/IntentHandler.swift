@@ -8,6 +8,7 @@
 
 import Intents
 
+@available(iOS 12.0, *)
 class IntentHandler: INExtension {
     
     override func handler(for intent: INIntent) -> Any {

@@ -78,6 +78,22 @@ class NotificationManager {
             case .alertEdge:
                 content.title = "detected_edge_roaming".localized()
                 content.body = "detected_roaming_description".localized()
+            
+            case .alertLTE:
+                content.title = "detected_lte_roaming".localized()
+                content.body = "detected_roaming_description".localized()
+            
+            case .alertPossibleLTE:
+                content.title = "possible_lte_roaming".localized()
+                content.body = "possible_roaming_descriprion".localized()
+            
+            case .alert5G:
+                content.title = "detected_5g_roaming".localized()
+                content.body = "detected_roaming_descriprion".localized()
+            
+            case .alertPossible5G:
+                content.title = "possible_5g_roaming".localized()
+                content.body = "possible_roaming_descriprion".localized()
                 
 //            case .runningVerification:
 //                content.title = "roaming_protect_enabled".localized()
@@ -183,7 +199,7 @@ class NotificationManager {
 
 enum NotificationType {
     
-    case allow2G3G, allow2G, allow3G, allowNone, allowDisabled, alertHPlus, alertPossibleHPlus, alertWCDMA, alertPossibleWCDMA, alertEdge, halt, locFailed, saved, batteryLow, newCountryNothingFree, newCountryBasicFree, newCountryInternetFree, newCountryAllFree, newCountryNothing, newCountryBasic, newCountryInternet, newCountryAll, alertDataDrain, alertDataDrainG3, newSIM, update, custom
+    case allow2G3G, allow2G, allow3G, allowNone, allowDisabled, alertHPlus, alertPossibleHPlus, alertWCDMA, alertPossibleWCDMA, alertEdge, alertLTE, alertPossibleLTE, alert5G, alertPossible5G, halt, locFailed, saved, batteryLow, newCountryNothingFree, newCountryBasicFree, newCountryInternetFree, newCountryAllFree, newCountryNothing, newCountryBasic, newCountryInternet, newCountryAll, alertDataDrain, alertDataDrainG3, newSIM, update, custom
     
 }
 

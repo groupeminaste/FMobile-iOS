@@ -31,6 +31,8 @@ class CarrierConfiguration: Codable {
     var countriesVData: [String]?
     var carrierServices: [[String]]?
     var iPadOverwrite: [String:AnyCodable]?
+    var roamLTE: Bool?
+    var roam5G: Bool?
     
     // On fetch le fichier et retourne les valeurs
     static func fetch(forMCC mcc: String, andMNC mnc: String, completionHandler: @escaping (CarrierConfiguration?) -> ()) {
@@ -94,6 +96,12 @@ class CarrierConfiguration: Codable {
                     }
                     if let carrierServices = configuration.iPadOverwrite?["carrierServices"]?.value() as? [[String]] {
                         configuration.carrierServices = carrierServices
+                    }
+                    if let roamLTE = configuration.iPadOverwrite?["roamLTE"]?.value() as? Bool {
+                        configuration.roamLTE = roamLTE
+                    }
+                    if let roam5G = configuration.iPadOverwrite?["roam5G"]?.value() as? Bool {
+                        configuration.roam5G = roam5G
                     }
                 }
                 

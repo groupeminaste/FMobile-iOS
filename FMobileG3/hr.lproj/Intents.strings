@@ -12,7 +12,7 @@
 
 "4e5VzK" = "Vrati trenutno povezani mreže MCC";
 
-"5ELEwW" = "Avionski Mod Status";
+"5ELEwW" = "Zrakoplovni Mod Status";
 
 "5I4WMR" = "Vrati SIM kartica MNC";
 
@@ -38,7 +38,7 @@
 
 "GRNv06" = "${mnc}";
 
-"IT1l2g" = "Dohvati Avionski Mod Status";
+"IT1l2g" = "Dohvati Zrakoplovni Mod Status";
 
 "InqGrV" = "Dohvati SIM operater";
 
@@ -66,7 +66,7 @@
 
 "R5EoMD" = "Greška";
 
-"TKk3SA" = "Avionski Mod Status";
+"TKk3SA" = "Zrakoplovni Mod Status";
 
 "VO77Ks" = "${mcc}";
 
@@ -116,7 +116,7 @@
 
 "inubuu" = "Dohvati trenutan operater";
 
-"jJtlw3" = "Avionski Mod Status";
+"jJtlw3" = "Zrakoplovni Mod Status";
 
 "jRXlKB" = "${wifi}";
 
@@ -146,11 +146,11 @@
 
 "pxK0cA" = "${carrier}";
 
-"qW6cQD" = "Dohvari Zabranjeni Roaming Status";
+"qW6cQD" = "Dohvati Zabranjeni Roaming Status";
 
 "riTDBK" = "Greška";
 
-"s0YZwR" = "Dohvari Zabranjeni Roaming Status";
+"s0YZwR" = "Dohvati Zabranjeni Roaming Status";
 
 "s4kvV0" = "Mobilni Podaci povezanje";
 
@@ -173,3 +173,25 @@
 "yTa07U" = "${mcc}";
 
 "yzYR7B" = "Operater";
+
+"4EJB3z" = "Dohvati SIM operater";
+
+"9BJ3lX" = "Mobilni Podaci Status";
+
+"DWAzah" = "Dohvati SIM kartica MNC";
+
+"IqyWoq" = "Dohvati Zabranjeni Roaming Status";
+
+"UH9up1" = "Dohvati trenutan MCC";
+
+"ahmmhB" = "Dohvati trenutan MNC";
+
+"aqaQK8" = "Dohvati SIM kartica MCC";
+
+"d2ttat" = "Dohvati trenutan operater";
+
+"i7nWTq" = "Dohvati Nacionalni Roaming Status";
+
+"i8YIPA" = "Zrakoplovni Mod Status";
+
+"xpTgr7" = "Wi-Fi Povezanje Status";

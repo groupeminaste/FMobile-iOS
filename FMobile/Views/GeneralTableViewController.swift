@@ -26,6 +26,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
     var sections = [Section]()
     var timer: Timer?
     var timernet: Timer?
+    var timersim: Timer?
     var alertInit = false
     let locationManager = CLLocationManager()
     
@@ -269,14 +270,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         dataManager.datas.set(true, forKey: "isSettingUp")
         dataManager.datas.synchronize()
         
-        let info = CTTelephonyNetworkInfo()
-        var siminventory = [(String, CTCarrier, String)]()
-        for (service, carrier) in info.serviceSubscriberCellularProviders ?? [:] {
-            
-            let radio = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
-            siminventory.append((service, carrier, radio))
-            
-        }
+        let siminventory = DataManager.getSimInventory()
         
         var mcc = ""
         var mnc = ""
@@ -311,6 +305,8 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 dataManager.datas.set(configuration.countriesVoice, forKey: "countriesVoice")
                 dataManager.datas.set(configuration.countriesVData, forKey: "countriesVData")
                 dataManager.datas.set(configuration.carrierServices, forKey: "carrierServices")
+                dataManager.datas.set(configuration.roamLTE, forKey: "roamLTE")
+                dataManager.datas.set(configuration.roam5G, forKey: "roam5G")
                 dataManager.datas.set(false, forKey: "isSettingUp")
                 dataManager.datas.synchronize()
                 // Fin de la configuration depuis le serveur
@@ -515,6 +511,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         tableView.register(LabelTableViewCell.self, forCellReuseIdentifier: "labelCell")
         tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: "switchCell")
         tableView.register(ButtonTableViewCell.self, forCellReuseIdentifier: "buttonCell")
+        tableView.register(AppTableViewCell.self, forCellReuseIdentifier: "appCell")
         
         if #available(iOS 13.0, *) {} else {
             // Ecoute les changements de couleurs
@@ -720,8 +717,9 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             if dataManager.siminventory.count > 0 {
                 service = dataManager.siminventory[0].0
             }
+            let locationAccuracy = self.locationManager.location?.horizontalAccuracy ?? -1
 
-            let str = "Fichier de diagnostic FMobile\n\nModèle : \(UIDevice.current.modelName)\nVersion de l'OS : \(UIDevice.current.systemVersion)\nMoteur : \(generation)\nRésultat du moteur G2 : \(resultg2)\nRésultat du moteur G3 : \(resultg3)\nDernier completion G3 : \(dataManager.g3lastcompletion)\nRésultat du moteur G3 international : \(dataManager.zoneCheck())\nDate : \(dispDate)\nsetupDone : \(dataManager.setupDone)\nMinimal setup : \(dataManager.minimalSetup)\n\nDétail du forfait :\nDestinations incluses (ALL) : \(dataManager.countriesVData)\nDestinations incluses (VOIX) : \(dataManager.countriesVoice)\nDestinations incluses (DATA) : \(dataManager.countriesData)\nOptions incluses (ALL) : \(dataManager.includedVData)\nOptions incluses (VOIX) : \(dataManager.includedVoice)\nOption incluses (DATA) : \(dataManager.includedData)\n\nConfiguration :\nmodeRadin : \(dataManager.modeRadin)\nallow013G : \(dataManager.allow013G)\nallow012G : \(dataManager.allow012G)\nfemtoLOWDATA : \(dataManager.femtoLOWDATA)\nfemto : \(dataManager.femto)\nverifyonwifi : \(dataManager.verifyonwifi)\nstopverification : \(dataManager.stopverification)\ntimecode : \(dataManager.timecode)\ntimecode G3: \(dataManager.g3timecode)\nlastnet : \(dataManager.lastnet)\ncount : \(dataManager.count)\nwasEnabled : \(dataManager.wasEnabled)\nperfmode : \(dataManager.perfmode)\ndidChangeSettings : \(dataManager.didChangeSettings)\nntimer : \(dataManager.ntimer)\ndispInfoNotif : \(dataManager.dispInfoNotif)\nallowCountryDetection : \(dataManager.allowCountryDetection)\ntimeLastCountry : \(dataManager.timeLastCountry)\nlastCountry : \(dataManager.lastCountry)\n\nStatut opérateur :\nsimData : \(dataManager.simData)\ncurrentNetwork : \(dataManager.currentNetwork)\ncarrier: \(dataManager.carrier)\ncarrierNetwork : \(dataManager.carrierNetwork)\ncarrierNetwork2 : \(dataManager.carrierNetwork2)\ncarrierName : \(dataManager.carrierName)\n\nConfiguration opérateur :\nhp : \(dataManager.hp)\nnrp : \(dataManager.nrp)\ntargetMCC : \(dataManager.targetMCC)\ntargetMNC : \(dataManager.targetMNC)\nitiMNC : \(dataManager.itiMNC)\nnrDEC : \(dataManager.nrDEC)\nout2G : \(dataManager.out2G)\nchasedMNC : \(dataManager.chasedMNC)\nconnectedMCC : \(dataManager.connectedMCC)\nconnectedMNC : \(dataManager.connectedMNC)\nipadMCC : \(dataManager.ipadMCC)\nipadMNC : \(dataManager.ipadMNC)\nitiName : \(dataManager.itiName)\nhomeName : \(dataManager.homeName)\nstms : \(dataManager.stms)\nregisteredService : \(dataManager.registeredService)\nservice : \(service)\nsiminventory : \(dataManager.siminventory)\nCarrier services : \(dataManager.carrierServices)\n\nCommunications :\nWi-Fi : \(DataManager.isWifiConnected())\nCellulaire : \(DataManager.isConnectedToNetwork())\nMode avion : \(dataManager.airplanemode)\nCommunication en cours : \(DataManager.isOnPhoneCall())"
+            let str = "Fichier de diagnostic FMobile\n\nModèle : \(UIDevice.current.modelName)\nVersion de l'OS : \(UIDevice.current.systemVersion)\nMoteur : \(generation)\nRésultat du moteur G2 : \(resultg2)\nRésultat du moteur G3 : \(resultg3)\nDernier completion G3 : \(dataManager.g3lastcompletion)\nRésultat du moteur G3 international : \(dataManager.zoneCheck())\nDate : \(dispDate)\nsetupDone : \(dataManager.setupDone)\nMinimal setup : \(dataManager.minimalSetup)\n\nDétail du forfait :\nDestinations incluses (ALL) : \(dataManager.countriesVData)\nDestinations incluses (VOIX) : \(dataManager.countriesVoice)\nDestinations incluses (DATA) : \(dataManager.countriesData)\nOptions incluses (ALL) : \(dataManager.includedVData)\nOptions incluses (VOIX) : \(dataManager.includedVoice)\nOption incluses (DATA) : \(dataManager.includedData)\n\nConfiguration :\nmodeRadin : \(dataManager.modeRadin)\nallow013G : \(dataManager.allow013G)\nallow012G : \(dataManager.allow012G)\nallow014G : \(dataManager.allow014G)\nallow015G : \(dataManager.allow015G)\nfemtoLOWDATA : \(dataManager.femtoLOWDATA)\nfemto : \(dataManager.femto)\nverifyonwifi : \(dataManager.verifyonwifi)\nstopverification : \(dataManager.stopverification)\ntimecode : \(dataManager.timecode)\ntimecode G3: \(dataManager.g3timecode)\nlastnet : \(dataManager.lastnet)\ncount : \(dataManager.count)\nwasEnabled : \(dataManager.wasEnabled)\nperfmode : \(dataManager.perfmode)\ndidChangeSettings : \(dataManager.didChangeSettings)\nntimer : \(dataManager.ntimer)\ndispInfoNotif : \(dataManager.dispInfoNotif)\nallowCountryDetection : \(dataManager.allowCountryDetection)\ntimeLastCountry : \(dataManager.timeLastCountry)\nlastCountry : \(dataManager.lastCountry)\n\nStatut opérateur :\nsimData : \(dataManager.simData)\ncurrentNetwork : \(dataManager.currentNetwork)\ncarrier: \(dataManager.carrier)\ncarrierNetwork : \(dataManager.carrierNetwork)\ncarrierNetwork2 : \(dataManager.carrierNetwork2)\ncarrierName : \(dataManager.carrierName)\n\nConfiguration opérateur :\nhp : \(dataManager.hp)\nnrp : \(dataManager.nrp)\ntargetMCC : \(dataManager.targetMCC)\ntargetMNC : \(dataManager.targetMNC)\nitiMNC : \(dataManager.itiMNC)\nnrDEC : \(dataManager.nrDEC)\nout2G : \(dataManager.out2G)\nchasedMNC : \(dataManager.chasedMNC)\nconnectedMCC : \(dataManager.connectedMCC)\nconnectedMNC : \(dataManager.connectedMNC)\nipadMCC : \(dataManager.ipadMCC)\nipadMNC : \(dataManager.ipadMNC)\nitiName : \(dataManager.itiName)\nhomeName : \(dataManager.homeName)\nstms : \(dataManager.stms)\nregisteredService : \(dataManager.registeredService)\nservice : \(service)\nsiminventory : \(dataManager.siminventory)\nCarrier services : \(dataManager.carrierServices)\nroamLTE : \(dataManager.roamLTE)\nroam5G : \(dataManager.roam5G)\n\nCommunications :\nWi-Fi : \(DataManager.isWifiConnected())\nCellulaire : \(DataManager.isConnectedToNetwork())\nMode avion : \(dataManager.airplanemode)\nCommunication en cours : \(DataManager.isOnPhoneCall())\nPrécision de localisation : \(locationAccuracy)"
             let filename = self.getDocumentsDirectory().appendingPathComponent("diagnostic.txt")
         
         do {
@@ -842,12 +840,75 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             
         }
         
-        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+        if (dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && (dataManager.allow014G || (dataManager.modeExpert ? false : !dataManager.roamLTE))) {
             dataManager.carrierNetwork = dataManager.modeRadin ? "4G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
                 "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 4G"
             lastnetr = "LTE"
             dataManager.datas.set(lastnetr, forKey: "lastnetr")
             dataManager.datas.synchronize()
+        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && !DataManager.isWifiConnected() && dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && dataManager.nrDEC {
+                    
+                    if dataManager.femto {
+                        print(abs(timecoder.timeIntervalSinceNow))
+                        
+                        if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "LTEO" {
+                            DispatchQueue.main.async {
+                                dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta S radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                                    "\(dataManager.itiName) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 4G \("itinerance".localized())"
+                                self.refreshSections()
+                                print("CACHE ORANGE F")
+                            }
+                        } else if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "LTEF" {
+                            DispatchQueue.main.async {
+                                dataManager.carrierNetwork = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                                    "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 4G (Femto)"
+                                self.refreshSections()
+                                print("CACHE FEMTO")
+                            }
+                        } else {
+                            Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
+                                DispatchQueue.main.async {
+                                    if speed ?? 0 < dataManager.stms{
+                                        dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta S radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                                            "\(dataManager.itiName) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 4G \("itinerance".localized())"
+                                        lastnetr = "LTEO"
+                                    } else {
+                                        dataManager.carrierNetwork = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                                            "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 4G (Femto)"
+                                        lastnetr = "LTEF"
+                                    }
+                                    timecoder = Date()
+                                    dataManager.datas.set(lastnetr, forKey: "lastnetr")
+                                    dataManager.datas.set(timecoder, forKey: "timecoder")
+                                    dataManager.datas.synchronize()
+                                    self.refreshSections()
+                                }
+                            }
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta S radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                                "\(dataManager.itiName) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 4G \("itinerance".localized())"
+                            self.refreshSections()
+                            lastnetr = "LTEE"
+                            dataManager.datas.set(lastnetr, forKey: "lastnetr")
+                            dataManager.datas.synchronize()
+                        }
+                    }
+                    
+                } else {
+                    lastnetr = "LTE"
+                    dataManager.datas.set(lastnetr, forKey: "lastnetr")
+                    dataManager.datas.synchronize()
+                }
+                if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                    dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta S radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                    "\(dataManager.itiName) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 4G \("itinerance".localized())"
+                } else {
+                dataManager.carrierNetwork = dataManager.modeRadin ? "4G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                    "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 4G"
+                }
         } else if dataManager.carrierNetwork == CTRadioAccessTechnologyWCDMA {
             if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && !DataManager.isWifiConnected() && dataManager.carrierNetwork == dataManager.nrp && dataManager.nrDEC {
                 
@@ -1063,7 +1124,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         print(dataManager.carrierNetwork)
         print(dataManager.carrierNetwork2)
         
-        if countryCode == "null" && mobileNetworkName == "null" && dataManager.carrierNetwork == "null" && !alertInit {
+        if !dataManager.setupDone && countryCode == "null" && mobileNetworkName == "null" && dataManager.carrierNetwork == "" && !alertInit {
             delay(0.05) {
                 let alert = UIAlertController(title: "insert_sim_title".localized(), message:"insert_sim_description".localized(), preferredStyle: UIAlertController.Style.alert)
                 
@@ -1071,9 +1132,8 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 
                 UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
             }
+            alertInit = true
         }
-        
-        alertInit = true
         
         var disp: String
         if countryCode == "null" || countryCode.isEmpty {
@@ -1176,7 +1236,9 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         
         let sta = dataManager.modeRadin ? "État du réseau radin" : "status".localized()
         let prefsnet = dataManager.modeRadin ? "Préférences radines" : "netprefs".localized()
-        let prefsstats = dataManager.modeRadin ? "Statistiques radines" : "statsprefs".localized()
+//        let prefsstats = dataManager.modeRadin ? "Statistiques radines" : "statsprefs".localized()
+//        let iti5G = dataManager.modeRadin ? "Itinérance Utopique autorisée" : "allow5g".localized()
+        let iti4G = dataManager.modeRadin ? "Itinérance Delta^4 autorisée" : "allow4g".localized()
         let iti3G = dataManager.modeRadin ? "Itinérance Delta autorisée" : "allow3g".localized()
         let iti2G = dataManager.modeRadin ? "Itinérance tupperware autorisée" : "allow2g".localized()
         let wifiaut = dataManager.modeRadin ? "Vérifier sur ma Radinbox" : "verifywifi".localized()
@@ -1248,7 +1310,59 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             } else {
                 net.elements += [
                     UIElementButton(id: "", text: "activate".localized()) { (button) in
-                        self.updateSetup(dataManager, true)
+                        
+                        var siminventory = DataManager.getSimInventory()
+                        var mcc = "--"
+                        var mnc = "---"
+                        
+                        if siminventory.count > 0 {
+                            mcc = siminventory[0].1.mobileCountryCode ?? "---"
+                            mnc = siminventory[0].1.mobileNetworkCode ?? "--"
+                        }
+                            var simready = (mcc == "---" || mcc == "null" || mcc.isEmpty || mnc == "--" || mnc == "null" || mnc.isEmpty)
+                            
+                            if simready {
+                                
+                                let alert = UIAlertController(title: "\("insert_sim_title".localized())...", message:nil, preferredStyle: .alert)
+                                
+                                alert.addAction(UIAlertAction(title: "cancel".localized(), style: .destructive) { (UIAlertAction) in
+                                    return
+                                })
+                                
+                                alert.addAction(UIAlertAction(title: "ignore".localized(), style: .default) { (UIAlertAction) in
+                                    self.timersim?.invalidate()
+                                    self.updateSetup(dataManager, true)
+                                    return
+                                })
+                                
+                                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                                //self.present(alert, animated: true, completion: nil)
+                                
+                                self.timersim = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
+                                    
+                                    siminventory = DataManager.getSimInventory()
+                                    
+                                    if siminventory.count > 0 {
+                                        mcc = siminventory[0].1.mobileCountryCode ?? "---"
+                                        mnc = siminventory[0].1.mobileNetworkCode ?? "--"
+                                    }
+
+                                    simready = (mcc == "---" || mcc == "null" || mcc.isEmpty || mnc == "--" || mnc == "null" || mnc.isEmpty)
+                                    if !simready {
+                                        self.timersim?.invalidate()
+                                        self.delay(5) {
+                                            UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
+                                            self.updateSetup(dataManager, true)
+                                        }
+                                        
+                                    }
+                                }
+                                
+                            } else {
+                                self.updateSetup(dataManager, true)
+                        }
+                        
+                        
                     }
                 ]
             }
@@ -1286,11 +1400,13 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 }
             }]
         
-        if ((dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.minimalSetup) || (dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC)) && ((!dataManager.allow013G && (lastnetr == "HSDPA" || lastnetr == "HSDPAE" || lastnetr == "HSDPAO" || lastnetr == "WCDMAO" || lastnetr == "WCDMAE" || lastnetr == "WCDMA")) || !dataManager.allow012G && dataManager.out2G && lastnetr == "Edge") && DataManager.isConnectedToNetwork() {
+        if ((dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.minimalSetup) || (dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC)) && (((!dataManager.allow013G || !dataManager.allow014G) && (lastnetr == "LTEE" || lastnetr == "LTEO" || lastnetr == "HSDPA" || lastnetr == "HSDPAE" || lastnetr == "HSDPAO" || lastnetr == "WCDMAO" || lastnetr == "WCDMAE" || lastnetr == "WCDMA")) || (!dataManager.allow012G && dataManager.out2G && lastnetr == "Edge") || (!dataManager.allow014G && dataManager.roamLTE && lastnetr == "LTE")) && DataManager.isConnectedToNetwork() {
             net.elements += [UIElementButton(id: "", text: "exit_roaming".localized()) { (button) in
                 dataManager.wasEnabled += 1
                 dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
+                if dataManager.currentNetwork == CTRadioAccessTechnologyLTE {
+                    dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                } else if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
                     dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                 } else {
                     dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
@@ -1298,7 +1414,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 dataManager.datas.set(Date(), forKey: "timecode")
                 dataManager.datas.synchronize()
                 if #available(iOS 12.0, *) {
-                guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
+                guard let link = DataManager.getShortcutURL() else { return }
                     UIApplication.shared.open(link)
                 } else {
                     self.oldios()
@@ -1438,19 +1554,26 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
 //        }
         
         // Section préférences
-        let pref = Section(name: prefsnet, elements: [
-            UIElementSwitch(id: "allow013G", text: iti3G, d: true),
-            UIElementSwitch(id: "allow012G", text: iti2G, d: true)
-        ], footer: wififoo)
+        let pref = Section(name: prefsnet, elements: [], footer: wififoo)
+        
+//        if dataManager.roam5G || dataManager.modeExpert {
+//            pref.elements += [UIElementSwitch(id: "allow015G", text: iti5G, d: true)]
+//        }
+        if dataManager.roamLTE || dataManager.modeExpert {
+            pref.elements += [UIElementSwitch(id: "allow014G", text: iti4G, d: true)]
+        }
+        
+        pref.elements += [UIElementSwitch(id: "allow013G", text: iti3G, d: true),
+                          UIElementSwitch(id: "allow012G", text: iti2G, d: true)]
         
         if dataManager.modeExpert {
             pref.elements += [UIElementSwitch(id: "verifyonwifi", text: wifiaut, d: false)]
         }
         
         // Section stats
-        let stats = Section(name: prefsstats, elements: [
-            UIElementSwitch(id: "coveragemap", text: "coveragemap_switch".localized(), d: false)
-        ])
+//        let stats = Section(name: prefsstats, elements: [
+//            UIElementSwitch(id: "coveragemap", text: "coveragemap_switch".localized(), d: false)
+//        ])
         
         // Section background
         let back = Section(name: bkg, elements: [
@@ -1597,8 +1720,12 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         // Section avancé
         let avance = Section(name: "advanced".localized(), elements: [
             UIElementButton(id: "", text: "reset_network".localized()) { (button) in
-                guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
+                if #available(iOS 12.0, *) {
+                guard let link = DataManager.getShortcutURL() else { return }
                 UIApplication.shared.open(link)
+                } else {
+                    self.oldios()
+                }
             },
             UIElementButton(id: "", text: "perform_diagnostic".localized()) { (button) in
                 self.diag(source: button)
@@ -1664,14 +1791,16 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             }
         ], footer: "donate_description".localized())
         
+//        plus.elements += [UIElementApp(name: T##String, desc: T##String, icon: T##UIImage, completionHandler: T##(UIButton) -> Void)]
+        
         sections += [net]
         
         if !dataManager.disableFMobileCore || dataManager.modeExpert {
             sections += [pref]
         }
         
-      sections += [stats, back, cnt, femto]
-        //sections += [back, cnt, femto]
+//      sections += [stats, back, cnt, femto]
+        sections += [back, cnt, femto]
         
         if !conso.elements.isEmpty {
             sections += [conso]
@@ -1738,23 +1867,65 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 // Fallback on earlier versions
                 return (tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as! ButtonTableViewCell).with(title: e.text, alignment: .left, handler: e.handler, darkMode: isDarkMode())
             }
-        }
+        }  else if let e = element as? UIElementApp {
+                   if #available(iOS 13.0, *) {
+                       return (tableView.dequeueReusableCell(withIdentifier: "appCell", for: indexPath) as! AppTableViewCell).with(name: e.name, desc: e.desc, icon: e.icon, handler: e.handler)
+                   } else {
+                       // Fallback on earlier versions
+                       return (tableView.dequeueReusableCell(withIdentifier: "appCell", for: indexPath) as! AppTableViewCell).with(name: e.name, desc: e.desc, icon: e.icon, handler: e.handler, darkMode: isDarkMode())
+                   }
+               }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell", for: indexPath)
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let element = sections[indexPath.section].elements[indexPath.row]
         
         if let e = element as? UIElementButton {
             let cell = tableView.cellForRow(at: indexPath as IndexPath) as? ButtonTableViewCell
             e.handler(cell?.button ?? UIButton())
         }
+        
+        if let e = element as? UIElementApp {
+            let cell = tableView.cellForRow(at: indexPath as IndexPath) as? AppTableViewCell
+            e.handler(cell?.button ?? UIButton())
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        let element = sections[indexPath.section].elements[indexPath.row]
+
+        if element is UIElementApp {
+            return 85
+        }
+        return 48
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if #available(iOS 13.0, *) {} else {
+            let header = view as! UITableViewHeaderFooterView
+            
+            if isDarkMode() {
+                header.textLabel?.textColor = CustomColor.darkText2
+            } else {
+                header.textLabel?.textColor = CustomColor.lightText2
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        if #available(iOS 13.0, *) {} else {
+            let footer = view as! UITableViewHeaderFooterView
+            
+            if isDarkMode() {
+                footer.textLabel?.textColor = CustomColor.darkText2
+            } else {
+                footer.textLabel?.textColor = CustomColor.lightText2
+            }
+        }
+        
     }
 
 }

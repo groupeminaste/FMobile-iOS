@@ -106,6 +106,12 @@ class SwitchTableViewCell: UITableViewCell {
                 }
             }
             
+            if id == "allow015G" && !switchElement.isOn {
+                let alert = UIAlertController(title: "5G_unsupported".localized(), message: "5G_unsupported_description".localized(), preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: nil))
+                table.present(alert, animated: true, completion: nil)
+            }
+            
             // Reload UI
             table.loadUI()
             table.refreshSections()

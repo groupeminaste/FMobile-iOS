@@ -7,7 +7,7 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 2";
+"fmobile" = "FMobile 3";
 "reset_zones_done" = "Rückstellung erfolgt";
 "reset_zones_done_description" = "Alle Femto- und Ransharingzonen wurden zurückgesetzt.";
 "close" = "Schließen";
@@ -52,8 +52,8 @@
 "first_start_title" = "Erster Start";
 "first_start_description" = "Willkommen auf FMobile! Beginnen Sie mit Lerninhalten, bevor Sie die App nutzen. Das Video-Tutorial und die Shortcuts finden Sie jederzeit im Hilfe-Bereich von FMobile. Wenn Sie es nicht mehr benötigen, schließen Sie dieses Fenster mit \"Nicht mehr anzeigen\".";
 "itinerance" = "Roaming";
-"insert_sim_title" = "Legen Sie eine SIM-Karte ein";
-"insert_sim_description" = "Bitte legen Sie eine SIM-Karte ein und entsperren Sie sie, um FMobile zu nutzen. Sobald die SIM-Karte eingelegt ist, folgen Sie den Anweisungen des Anwendungs-Setups (automatische Konfiguration verfügbar bei ausgewählten Netzbetreibern).";
+"insert_sim_title" = "Bitte legen Sie eine SIM-Karte ein";
+"insert_sim_description" = "Bitte legen Sie eine SIM-Karte ein und entsperren Sie sie, um FMobile zu nutzen.";
 "no_sim" = "Keine gültige SIM-Karte erkannt";
 "sim_card" = "SIM-Karte:";
 "no_esim" = "Kein aktiviertes eSIM";
@@ -63,6 +63,8 @@
 "netprefs" = "Netzwerkeinstellungen";
 "allow3g" = "3G-National-Roaming zulassen";
 "allow2g" = "2G-National-Roaming zulassen";
+"allow4g" = "4G-National-Roaming zulassen";
+"allow5g" = "5G-National-Roaming zulassen";
 "verifywifi" = "Überprüfen auch auf WLAN";
 "wififooter" = "Wenn Sie diese Option aktivieren, werden die Roaming-Verifikationen auch dann durchgeführt, wenn Sie mit einem WLAN-Netzwerk verbunden sind. Um die Akkulaufzeit zu optimieren (außer bei Verwendung der A3-Generation), wird es empfohlen, diese Option deaktiviert zu lassen.";
 "statsprefs" = "Statistische Einstellungen";
@@ -150,7 +152,7 @@
 "old_ios_warning" = "iOS %@ fehlt es wichtigen Funktionen!";
 "old_ios_description" = "Diese App funktioniert am besten mit der Apple Shortcuts App, die nur unter iOS 12 und höher verfügbar ist. Bitte aktualisieren Sie Ihr iOS-Gerät auf iOS 12 oder eine spätere Version. Wenn Ihr iOS-Gerät mit iOS 13 kompatibel ist, können Sie auch die FMobile App auf die neueste Version für iOS 13 aktualisieren. Auf Ihrer iOS-Version sind die Vorgänge zum Beenden des Roaming manuell.";
 "location_denied" = "Standortzugriff verweigert";
-"location_denied_description" = "FMobile 2 muss aus technischen und praktischen Gründen Zugang zu Ihrem Standort haben, um im Hintergrund laufen zu können. Sie haben sich entschieden, den permanenten Zugriff auf Ihre Standortdaten zu verweigern. Bitte beachten Sie, dass ohne Ihre ausdrückliche Zustimmung keine Ihrer personenbezogenen Daten an Dritte weitergegeben werden. Das Setzen des Standortzugriffs auf \"Immer\" gilt nicht als ausdrückliche Zustimmung: Es erlaubt der App nur, dass sie normal auf Ihrem Gerät und lokal funktioniert. Beachten Sie, dass FMobile 2 viel von seiner Effizienz verliert, wenn Sie den Standortzugang nicht auf \"Immer\" setzen.";
+"location_denied_description" = "FMobile 3 muss aus technischen und praktischen Gründen Zugang zu Ihrem Standort haben, um im Hintergrund laufen zu können. Sie haben sich entschieden, den permanenten Zugriff auf Ihre Standortdaten zu verweigern. Bitte beachten Sie, dass ohne Ihre ausdrückliche Zustimmung keine Ihrer personenbezogenen Daten an Dritte weitergegeben werden. Das Setzen des Standortzugriffs auf \"Immer\" gilt nicht als ausdrückliche Zustimmung: Es erlaubt der App nur, dass sie normal auf Ihrem Gerät und lokal funktioniert. Beachten Sie, dass FMobile 3 viel von seiner Effizienz verliert, wenn Sie den Standortzugang nicht auf \"Immer\" setzen.";
 "location_denied_change" = "Location-Einstellung auf \"Immer\" stellen.";
 "location_denied_agree" = "Temporäre Zwangsv. des Standortzugr.";
 "location_denied_agree_forever" = "Permanente Zwangsv. des Standortzugr.";
@@ -167,7 +169,9 @@
 "email_default_content" = "<p>Erklären Sie im Detail, auf welches Problem Sie hier stoßen: </p>";
 "diagnostic_email" = "FMobile %@ Diagnose - b%@";
 "mail_not_available" = "Die Mail-App ist derzeit nicht verfügbar.";
-
+"5G_unsupported" = "⚠️ 5G nicht kompatibel";
+"5G_unsupported_description" = "FMobile ist noch nicht bereit, 5G-Roaming zu verwalten. Wir werden FMobile so bald wie möglich aktualisieren, um die Unterstützung dieser Technologie zu bringen. Ihre Einstellung ist jetzt gespeichert und wird angewendet, sobald wir die 5G-Unterstützung aktivieren.";
+"ignore" = "Ignorieren";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Geschwindigkeitstest";
@@ -193,6 +197,10 @@
 "detected_wcdma_roaming" = "WCDMA (3G) ROAMING ERKANNT!";
 "possible_wcdma_roaming" = "WCDMA (3G) ROAMING MÖGLICH!";
 "detected_edge_roaming" = "EDGE (2G) ROAMING ERKANNT!";
+"detected_lte_roaming" = "LTE (4G) ROAMING ERKANNT!";
+"possible_lte_roaming" = "LTE (4G) ROAMING MÖGLICH!";
+"detected_5g_roaming" = "5G ROAMING ERKANNT!";
+"possible_5g_roaming" = "5G ROAMING MÖGLICH!";
 "performance_mode_auto_enabled" = "Performance+ Modus automatisch deaktiviert";
 "performance_mode_auto_enabled_subtitle" = "Sie haben die App beendet.";
 "performance_mode_auto_enabled_description" = "Die App wird weiterhin im Hintergrund ohne den Perfomance+ Modus betrieben.";
@@ -221,8 +229,8 @@
 "disconnect_from_wifi" = "Trennen Sie sich von der WLAN-Verbindung";
 "preparation_inprogress" = "Vorbereitung läuft...";
 "end_phonecall" = "Bitte beenden Sie Ihren Anruf und versuchen Sie es erneut";
-"data_drain_notification_description" = "Deaktivieren Sie Ihre Mobilfunkdaten sofort, Ihr Verbrauch wird überlastet. %@ %@";
-"data_drain_notification_description_g3" = "FMobile 2 hat gerade Ihre Mobilfunkdaten deaktiviert, um Roaming-Gebühren zu vermeiden. %@ %@";
+"data_drain_notification_description" = "Klicken Sie um Ihre Mobilfunkdaten sofort zu Deaktivieren, Ihr Verbrauch wird überlastet. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 3 hat gerade Ihre Mobilfunkdaten deaktiviert, um Roaming-Gebühren zu vermeiden. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@): Willkommen!";
 
 "general_view_title" = "Einstellungen";

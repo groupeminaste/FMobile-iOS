@@ -18,7 +18,7 @@ class Speedtest: NSObject, URLSessionDelegate, URLSessionDataDelegate {
     
     var startTime: CFAbsoluteTime! = nil
     var stopTime: CFAbsoluteTime! = nil
-    var bytesReceived: Int!
+    var bytesReceived = 0
     
     let configuration = URLSessionConfiguration.ephemeral
     
@@ -78,9 +78,9 @@ class Speedtest: NSObject, URLSessionDelegate, URLSessionDataDelegate {
     }
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        bytesReceived! += data.count
+        bytesReceived += data.count
         stopTime = CFAbsoluteTimeGetCurrent()
-        print("\(bytesReceived!) bytes received...")
+        print("\(bytesReceived) bytes received...")
         if let progress = progress {
             progress(speed())
         }

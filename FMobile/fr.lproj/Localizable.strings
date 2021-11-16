@@ -7,7 +7,7 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 2";
+"fmobile" = "FMobile 3";
 "reset_zones_done" = "Réinitialisation effectuée";
 "reset_zones_done_description" = "Toutes les zones de Femto et ran-sharing ont étés réinitialisés.";
 "close" = "Fermer";
@@ -52,8 +52,8 @@
 "first_start_title" = "Premier démarrage";
 "first_start_description" = "Bienvenue sur FMobile ! Commencez par apprendre les bases avant d'utiliser l'application. Vous retrouverez le tutoriel vidéo et les raccourcis à tout moment dans la section aide de FMobile. Quand vous n'en avez plus besoin, fermez la fenêtre avec \"Ne plus afficher\".";
 "itinerance" = "itinérance";
-"insert_sim_title" = "Insérez une carte SIM";
-"insert_sim_description" = "Veuillez insérer et déverrouiller une carte SIM valide pour commencer à utiliser FMobile. Une fois la carte SIM insérée, suivez les instructions de configuration (configuration automatique est disponible pour une sélection d'opérateurs.";
+"insert_sim_title" = "Veuillez insérer une carte SIM";
+"insert_sim_description" = "Veuillez insérer et déverrouiller une carte SIM valide pour commencer à utiliser FMobile.";
 "no_sim" = "Aucune carte SIM valide détectée";
 "sim_card" = "Carte SIM :";
 "no_esim" = "Aucune eSIM activée";
@@ -63,6 +63,8 @@
 "netprefs" = "Préférences réseau";
 "allow3g" = "Autoriser l'itinérance nationale 3G";
 "allow2g" = "Autoriser l'itinérance nationale 2G";
+"allow4g" = "Autoriser l'itinérance nationale 4G";
+"allow5g" = "Autoriser l'itinérance nationale 5G";
 "verifywifi" = "Vérifier même sur Wi-Fi";
 "wififooter" = "En activant cette option, les vérifications de l'itinérance auront lieu même lorsque vous êtes connecté à un réseau WiFi. Afin d'optimiser la batterie (sauf pour la génération A3), il est recommandé de garder cette option désactivée.";
 "statsprefs" = "Préferences statistiques";
@@ -149,7 +151,7 @@
 "old_ios_warning" = "iOS %@ manque de fonctinonalités importantes !";
 "old_ios_description" = "Cette application fonctionne au mieux avec l'application Raccourcis d'Apple, qui n'est disponible que dans iOS 12 et plus. Merci de mettre à jour votre appareil vers iOS 12 ou version supérieure. Si votre appareil supporte iOS 13, vous pourrez également mettre à jour FMobile vers sa dernière version créée pour iOS 13. Sur votre version actuelle, les opérations pour sortir de l'itinérance sont manuelles.";
 "location_denied" = "Accès à la localisation refusé";
-"location_denied_description" = "FMobile 2 doit avoir accès à votre localisation pour des raisons techniques et pratiques, afin de pouvoir s'éxécuter en arrière-plan. Vous avez décidé de refuser l'accès permanent à la localisation. Notez que vos données personnelles ne sortiront de votre appareil sans votre consentement explicite. Choisir \"Toujours\" comme réglage d'accès à la localisation n'est pas considéré comme un consentement explicite à quelconque collecte de données : cela permet uniquement à l'application de fonctionner normalement sur votre appareil, localement. Soyez averti que FMobile 2 va perdre beaucoup de son efficacité si vous ne réglez pas l'accès à la localisation sur \"Toujours\".";
+"location_denied_description" = "FMobile 3 doit avoir accès à votre localisation pour des raisons techniques et pratiques, afin de pouvoir s'éxécuter en arrière-plan. Vous avez décidé de refuser l'accès permanent à la localisation. Notez que vos données personnelles ne sortiront de votre appareil sans votre consentement explicite. Choisir \"Toujours\" comme réglage d'accès à la localisation n'est pas considéré comme un consentement explicite à quelconque collecte de données : cela permet uniquement à l'application de fonctionner normalement sur votre appareil, localement. Soyez averti que FMobile 3 va perdre beaucoup de son efficacité si vous ne réglez pas l'accès à la localisation sur \"Toujours\".";
 "location_denied_change" = "Mettre l'accès à localisation sur \"Toujours\"";
 "location_denied_agree" = "Forcer le refus d'accès à la localisation";
 "location_denied_agree_forever" = "Mémoriser et forcer le refus d'accès...";
@@ -166,6 +168,9 @@
 "email_default_content" = "<p>Expliquez en détail le problème que vous rencontrez ici : </p>";
 "diagnostic_email" = "Diagnostic FMobile %@ - b%@";
 "mail_not_available" = "L'application Mail n'est pas disponible actuellement.";
+"5G_unsupported" = "⚠️ 5G incompatible";
+"5G_unsupported_description" = "FMobile n'est pas encore prêt à gérer l'itinérance 5G. Nous mettrons à jour FMobile dès que possible pour apporter le support de cette technologie. Votre réglage est maintenant enregistré, et sera appliqué dès que nous aurons activé le support de la 5G.";
+"ignore" = "Ignorer";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Test de débit";
@@ -191,6 +196,10 @@
 "detected_wcdma_roaming" = "ITINÉRANCE WCDMA (3G) DÉTECTÉE !";
 "possible_wcdma_roaming" = "ITINÉRANCE WCDMA (3G) PROBABLE !";
 "detected_edge_roaming" = "ITINÉRANCE EDGE (2G) DÉTECTÉE !";
+"detected_lte_roaming" = "ITINÉRANCE LTE (4G) DÉTECTÉE !";
+"possible_lte_roaming" = "ITINÉRANCE LTE (4G) PROBABLE !";
+"detected_5g_roaming" = "ITINÉRANCE 5G DÉTECTÉE !";
+"possible_5g_roaming" = "ITINÉRANCE 5G PROBABLE !";
 "performance_mode_auto_enabled" = "Mode Performance+ désactivé automatiquement";
 "performance_mode_auto_enabled_subtitle" = "Vous avez quitté l'application.";
 "performance_mode_auto_enabled_description" = "L'application va continuer de fonctionner en arrière-plan sans le mode Performance+.";
@@ -219,8 +228,8 @@
 "disconnect_from_wifi" = "Déconnectez-vous du Wi-Fi";
 "preparation_inprogress" = "Préparation en cours...";
 "end_phonecall" = "Veuillez terminer votre conversation puis réessayez";
-"data_drain_notification_description" = "Désactivez immédiatement les données cellulaires, votre consommation est surtaxée. %@ %@";
-"data_drain_notification_description_g3" = "FMobile 2 vient de désactiver vos données cellulaires pour éviter la surfacturation. %@ %@";
+"data_drain_notification_description" = "Cliquez pour désactiver immédiatement les données cellulaires, votre consommation est surtaxée. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 3 vient de désactiver vos données cellulaires pour éviter la surfacturation. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@) : Bienvenue !";
 
 "general_view_title" = "Réglages";

@@ -141,6 +141,8 @@ class RoamingManager {
                 dataManager.datas.set(configuration.countriesVoice, forKey: "countriesVoice")
                 dataManager.datas.set(configuration.countriesVData, forKey: "countriesVData")
                 dataManager.datas.set(configuration.carrierServices, forKey: "carrierServices")
+                dataManager.datas.set(configuration.roamLTE, forKey: "roamLTE")
+                dataManager.datas.set(configuration.roam5G, forKey: "roam5G")
                 dataManager.datas.set(false, forKey: "isSettingUp")
                 dataManager.datas.synchronize()
                 // Fin de la configuration depuis le serveur
@@ -192,26 +194,9 @@ class RoamingManager {
     // La fonction qui vérifie si on doit appeler netfetch() ou pas (WiFi, à l'étranger...)
     static func process(_ dataManager: DataManager = DataManager(), _ g3engine: Bool = false, completionHandler: @escaping (String) -> ()) {
         if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC {
-            if DataManager.isWifiConnected() {
-                if dataManager.verifyonwifi {
-                    // Le contrôle d'itinérance démarre.
-                    netfetch(dataManager, g3engine, completionHandler: completionHandler)
-                    return
-                } else {
-                    // L'utilisateur est connecté au WiFi et est chez Free, et a demandé à ne pas controler le WiFi
-                    print("L'utilisateur a désactivé le contrôle en WiFi")
-                    dataManager.datas.set("WIFI", forKey: "g3lastcompletion")
-                    dataManager.datas.synchronize()
-                    completionHandler("WIFI")
-                    return
-                }
-            } else {
-                // L'utilisateur est chez Free et n'est pas connecté au WiFi.
                 // Le contrôle d'itinérance démarre.
-                print("L'utilisateur est bien sur le bon réseau et n'est pas en WiFi")
                 netfetch(dataManager, g3engine, completionHandler: completionHandler)
                 return
-            }
         } else {
             // L'utilisateur est chez un autre opérateur
             print("L'utilisateur n'est pas connecté sur son réseau propre.")
@@ -319,7 +304,7 @@ class RoamingManager {
                 completionHandler("NOTTIME")
                 return
             } else {
-                if dataManager.g3lastcompletion == "HPLUS" || dataManager.g3lastcompletion == "WCDMA" || dataManager.g3lastcompletion == "EDGE" || abs(dataManager.g3timecode.timeIntervalSinceNow) < 2*60 {
+                if dataManager.g3lastcompletion == "LTE" || dataManager.g3lastcompletion == "HPLUS" || dataManager.g3lastcompletion == "WCDMA" || dataManager.g3lastcompletion == "EDGE" || abs(dataManager.g3timecode.timeIntervalSinceNow) < 2*60 {
                     completionHandler(dataManager.g3lastcompletion)
                     return
                 }
@@ -338,9 +323,9 @@ class RoamingManager {
         print("Network changed, set to \(dataManager.carrierNetwork) at \(now)")
         
         // Début des vérifications
-        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && (dataManager.allow014G || (dataManager.modeExpert ? false : !dataManager.roamLTE)) {
             // L'utilisateur est en 4G, tout va bien
-            print("LTE: No need to reset.")
+            print("HOME LTE: No need to reset.")
             CoverageManager.sendCurrentCoverageData(dataManager)
             dataManager.datas.set("HOME", forKey: "g3lastcompletion")
             dataManager.datas.synchronize()
@@ -348,16 +333,16 @@ class RoamingManager {
             return
         } else if dataManager.carrierNetwork == dataManager.hp {
             // L'utilisateur est en 3G RP, tout va bien
-            print("WCDMA: No need to reset.")
+            print("HOME WCDMA: No need to reset.")
             CoverageManager.sendCurrentCoverageData(dataManager)
             dataManager.datas.set("HOME", forKey: "g3lastcompletion")
             dataManager.datas.synchronize()
             completionHandler("HOME")
             return
-        } else if dataManager.carrierNetwork == dataManager.nrp {
+        } else if dataManager.carrierNetwork == dataManager.nrp || dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
             // L'utilisateur est en 3G+ en Itinérance, vérification si autorisée
-            if !dataManager.allow013G{
-                print("H+ non autorisée.")
+            if (dataManager.carrierNetwork == dataManager.nrp && !dataManager.allow013G) || (dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && !dataManager.allow014G) {
+                print("H+ ou LTE non autorisée.")
                 if !dataManager.femtoLOWDATA && dataManager.femto && !DataManager.isWifiConnected() {
                     
                     if dataManager.nrDEC {
@@ -366,7 +351,14 @@ class RoamingManager {
                                 print(speed ?? 0)
                                 if speed ?? 0 < dataManager.stms {
                                     print("SPEEDTEST IN BACKGROUND SUCCESSFUL!")
-                                    if dataManager.nrp == CTRadioAccessTechnologyWCDMA {
+                                    if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                                        dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                                        dataManager.datas.synchronize()
+                                        completionHandler("LTE")
+                                        return
+                                    }
+                                    else if dataManager.nrp == CTRadioAccessTechnologyWCDMA {
                                         CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
                                         dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
                                         dataManager.datas.synchronize()
@@ -442,7 +434,14 @@ class RoamingManager {
                         return
                         
                     } else {
-                        if dataManager.nrp == CTRadioAccessTechnologyWCDMA {
+                        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                            CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                            dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                            dataManager.datas.synchronize()
+                            completionHandler("LTE")
+                            return
+                        }
+                        else if dataManager.nrp == CTRadioAccessTechnologyWCDMA {
                             CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
                             dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
@@ -465,19 +464,29 @@ class RoamingManager {
                     
                 } else {
                     if dataManager.femto {
-                    if dataManager.nrp == CTRadioAccessTechnologyWCDMA {
-                        dataManager.datas.set("POSSWCDMA", forKey: "g3lastcompletion")
-                        dataManager.datas.synchronize()
-                        completionHandler("POSSWCDMA")
-                        return
-                    } else if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
-                        dataManager.datas.set("POSSHPLUS", forKey: "g3lastcompletion")
-                        dataManager.datas.synchronize()
-                        completionHandler("POSSHPLUS")
-                        return
-                    }
+                        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                            dataManager.datas.set("POSSLTE", forKey: "g3lastcompletion")
+                            dataManager.datas.synchronize()
+                            completionHandler("POSSLTE")
+                            return
+                        } else if dataManager.nrp == CTRadioAccessTechnologyWCDMA {
+                            dataManager.datas.set("POSSWCDMA", forKey: "g3lastcompletion")
+                            dataManager.datas.synchronize()
+                            completionHandler("POSSWCDMA")
+                            return
+                        } else if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
+                            dataManager.datas.set("POSSHPLUS", forKey: "g3lastcompletion")
+                            dataManager.datas.synchronize()
+                            completionHandler("POSSHPLUS")
+                            return
+                        }
                     } else {
-                        if dataManager.nrp == CTRadioAccessTechnologyWCDMA {
+                        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                            dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                            dataManager.datas.synchronize()
+                            completionHandler("LTE")
+                            return
+                        } else if dataManager.nrp == CTRadioAccessTechnologyWCDMA {
                             dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("WCDMA")
@@ -495,14 +504,14 @@ class RoamingManager {
                     //                    }
                 }
             } else {
-                print("H+ autorisée")
+                print("H+ ou LTE autorisée")
                 dataManager.datas.set("STOP", forKey: "g3lastcompletion")
                 dataManager.datas.synchronize()
                 completionHandler("STOP")
                 return
             }
         } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge && dataManager.out2G {
-            if !dataManager.allow012G{
+            if !dataManager.allow012G {
                 print("2G non autorisée")
                 CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
                 dataManager.datas.set("EDGE", forKey: "g3lastcompletion")
@@ -538,6 +547,16 @@ class RoamingManager {
         }
         completionHandler(false)
         return
+    }
+    
+    static func directDataDCheck(_ dataManager: DataManager = DataManager()) -> Bool {
+        
+        let zone = dataManager.zoneCheck()
+        
+        if DataManager.isConnectedToNetwork() && !DataManager.isWifiConnected() && dataManager.connectedMCC != dataManager.targetMCC && (zone == "OUTZONE" || zone == "CALLS") {
+            return true
+        }
+        return false
     }
     
     static func newCountryCheck(_ dataManager: DataManager = DataManager()){
@@ -590,7 +609,9 @@ class RoamingManager {
     static func engineRunning(locations: [CLLocation] = [CLLocation]()){
         let dataManager = DataManager()
         engine(locations: locations, g3engine: false) { result in
-            if result == "HPLUS" {
+            if result == "LTE" {
+                NotificationManager.sendNotification(for: .alertLTE)
+            } else if result == "HPLUS" {
                 NotificationManager.sendNotification(for: .alertHPlus)
             } else if result == "POSSHPLUS" {
                 NotificationManager.sendNotification(for: .alertPossibleHPlus)
@@ -598,6 +619,8 @@ class RoamingManager {
                 NotificationManager.sendNotification(for: .alertWCDMA)
             } else if result == "POSSWCDMA" {
                 NotificationManager.sendNotification(for: .alertPossibleWCDMA)
+            } else if result == "POSSLTE" {
+                NotificationManager.sendNotification(for: .alertPossibleLTE)
             } else if result == "EDGE" {
                 NotificationManager.sendNotification(for: .alertEdge)
             } else if result == "NEWSIM" {
@@ -720,8 +743,17 @@ class RoamingManager {
                 return
             }
             
-            if dataManager.carrierNetwork == dataManager.hp || dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
-                print("LTE/3G => SKIP")
+            if DataManager.isWifiConnected() && !dataManager.verifyonwifi {
+                // L'utilisateur est connecté au WiFi et est chez Free, et a demandé à ne pas controler le WiFi
+                print("L'utilisateur a désactivé le contrôle en WiFi")
+                dataManager.datas.set("WIFI", forKey: "g3lastcompletion")
+                dataManager.datas.synchronize()
+                completionHandler("WIFI")
+                return
+            }
+            
+            if dataManager.carrierNetwork == dataManager.hp || (dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && (dataManager.allow014G || (dataManager.modeExpert ? false : !dataManager.roamLTE))) {
+                print("HOME LTE/3G => SKIP")
                 dataManager.lastnet = dataManager.carrierNetwork
                 dataManager.count = 0
                 dataManager.wasEnabled = 0
@@ -750,18 +782,30 @@ class RoamingManager {
                 let currlon = locations.last?.coordinate.longitude ?? 0
                 
                 if currlat == 0 && currlon == 0 {
-                    if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA {
+                    if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && !dataManager.allow014G {
+                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                        dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                        dataManager.datas.synchronize()
+                        completionHandler("LTE")
+                        return
+                    }
+                    else if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA && !dataManager.allow013G {
                         CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
                         dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
                         completionHandler("HPLUS")
                         return
-                    } else if dataManager.carrierNetwork == CTRadioAccessTechnologyWCDMA {
+                    } else if dataManager.carrierNetwork == CTRadioAccessTechnologyWCDMA && !dataManager.allow013G {
                         CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
                         dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
                         completionHandler("WCDMA")
                         return
+                    } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge && !dataManager.allow012G {
+                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                        dataManager.datas.set("EDGE", forKey: "g3lastcompletion")
+                        dataManager.datas.synchronize()
+                        completionHandler("EDGE")
                     }
                     
                     //                    if dataManager.statisticsAgreement{
@@ -802,18 +846,30 @@ class RoamingManager {
                     }
                     
                     if !detected {
-                        if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA {
+                        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && !dataManager.allow014G {
+                            CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                            dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                            dataManager.datas.synchronize()
+                            completionHandler("LTE")
+                            return
+                        }
+                        else if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA && !dataManager.allow013G {
                             CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
                             dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("HPLUS")
                             return
-                        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyWCDMA {
+                        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyWCDMA && !dataManager.allow013G {
                             CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
                             dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("WCDMA")
                             return
+                        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge && !dataManager.allow012G {
+                            CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                            dataManager.datas.set("EDGE", forKey: "g3lastcompletion")
+                            dataManager.datas.synchronize()
+                            completionHandler("EDGE")
                         }
                         //                        if dataManager.statisticsAgreement{
                         //                            AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
@@ -827,18 +883,30 @@ class RoamingManager {
                     }
                 } catch {
                     print("Failed")
-                    if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA {
+                    if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && !dataManager.allow014G {
+                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                        dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                        dataManager.datas.synchronize()
+                        completionHandler("LTE")
+                        return
+                    }
+                    else if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA && !dataManager.allow013G {
                         CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
                         dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
                         completionHandler("HPLUS")
                         return
-                    } else if dataManager.carrierNetwork == CTRadioAccessTechnologyWCDMA {
+                    } else if dataManager.carrierNetwork == CTRadioAccessTechnologyWCDMA && !dataManager.allow013G {
                         CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
                         dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
                         completionHandler("WCDMA")
                         return
+                    } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge && !dataManager.allow012G {
+                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                        dataManager.datas.set("EDGE", forKey: "g3lastcompletion")
+                        dataManager.datas.synchronize()
+                        completionHandler("EDGE")
                     }
                     //                    if dataManager.statisticsAgreement{
                     //                        AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)

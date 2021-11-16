@@ -7,7 +7,7 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 2";
+"fmobile" = "FMobile 3";
 "reset_zones_done" = "Resetovanje završio";
 "reset_zones_done_description" = "Svaki Femto i ran-šering zone su sad resetovan.";
 "close" = "Zatvori";
@@ -52,8 +52,8 @@
 "first_start_title" = "Prvi početak";
 "first_start_description" = "Dobro došli na FMobile! Počnite da naučite kako se koristi aplikaciji. Možete da nađite video tutorijal i prečace na svaku vremenu u pomoć sekcija od FMobile. Ako vam nije više potreban, zatvorite ovu prozor sa \"Nikad više pokazati\".";
 "itinerance" = "roaming";
-"insert_sim_title" = "Ubacite SIM karticu";
-"insert_sim_description" = "Molimo vas da unesite i otključajte SIM karticu da bi koristili FMobile. Kada ste stavili karticu, pratite aplikacije konfiguracija (automatićna konfiguracija dostupna za neki operateri).";
+"insert_sim_title" = "Molimo vas da ubacite SIM karticu";
+"insert_sim_description" = "Molimo vas da unesite i otključajte SIM karticu da bi koristili FMobile.";
 "no_sim" = "Nema važeću SIM kartica";
 "sim_card" = "SIM kartica:";
 "no_esim" = "Nema aktivirana e-SIM";
@@ -63,6 +63,8 @@
 "netprefs" = "Mreže podešavanje";
 "allow3g" = "Dozvoli 3G nacionalnom roamingu";
 "allow2g" = "Dozvoli 2G nacionalnom roamingu";
+"allow4g" = "Dozvoli 4G nacionalnom roamingu";
+"allow5g" = "Dozvoli 5G nacionalnom roamingu";
 "verifywifi" = "Provera iako na Wi-Fi";
 "wififooter" = "Ako aktivirate ovaj opcija, roamingu verifikacije će da se dešava iako ste povezan na jedan Wi-Fi mrežu. Da optimizacije baterija (osim za generacija A3), preporučeno je da ostavite ovog opciju isključen.";
 "statsprefs" = "Statističke Postavke";
@@ -149,7 +151,7 @@
 "old_ios_warning" = "iOS %@ fali važne funkcije!";
 "old_ios_description" = "Ovu aplikaciju radi najbolje sa Apel Prećaci aplikaciju, ko je samo dostupna od iOS 12 ili kasnije. Molimo vas da ažurirajte vašu iOS aparat na iOS 12 ili bilo koja kasnija verzija. Ako vaš aparat može da instalira iOS 13, možete osto da instalirajte najnova FMobile aplikaciju ko radi samo za iOS 13. Na vašu iOS verzija, sve operacije da izlazite iz roaming mrežu su manuelne.";
 "location_denied" = "Lokacija pristup odbijen";
-"location_denied_description" = "FMobile 2 mora imati pristup vašoj lokaciji iz tehničkih i praktičnih razloga, kako bi se mogao pokrenuti u pozadini. Odlučili ste da odbijete stalni pristup podacima vaše lokacije. Imajte na umu da nijedan vaš lični podatak nikada neće biti poslat bilo gde bez vašeg izričitog pristanka. Postavljanje pristupa lokaciji \"Uvek\" ne smatra se izričitim pristankom: samo omogućava aplikaciji da normalno radi na vašem uređaju, lokalno. Morate da znate da će FMobile 2 izgubiti veliku efikasnost ako ne postavite pristup lokaciji na \"Uvek\".";
+"location_denied_description" = "FMobile 3 mora imati pristup vašoj lokaciji iz tehničkih i praktičnih razloga, kako bi se mogao pokrenuti u pozadini. Odlučili ste da odbijete stalni pristup podacima vaše lokacije. Imajte na umu da nijedan vaš lični podatak nikada neće biti poslat bilo gde bez vašeg izričitog pristanka. Postavljanje pristupa lokaciji \"Uvek\" ne smatra se izričitim pristankom: samo omogućava aplikaciji da normalno radi na vašem uređaju, lokalno. Morate da znate da će FMobile 3 izgubiti veliku efikasnost ako ne postavite pristup lokaciji na \"Uvek\".";
 "location_denied_change" = "Promeni lokacija postava na \"Uvek\"";
 "location_denied_agree" = "Privremeno prisiliti zabraniti pristup";
 "location_denied_agree_forever" = "Trajno prisiliti zabraniti pristup lokaciji";
@@ -166,6 +168,9 @@
 "email_default_content" = "<p>Objasnite tačno problem što imate ovde: </p>";
 "diagnostic_email" = "FMobile diagnostika %@ - b%@";
 "mail_not_available" = "Mejl aplikacija nije trenutno dostupna.";
+"5G_unsupported" = "⚠️ 5G nije kompatibilan";
+"5G_unsupported_description" = "FMobile nije još spreman da upravlja 5G romingu. Ažuririćemo FMobile najranije što možemo da donesimo upravlju ovu tehnologiju. Vaš postavka je sada saćuvana, i biče u korišćenje od kada aktiviraćemo 5G upravlju.";
+"ignore" = "Ignoriraj";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Test brzina";
@@ -191,6 +196,10 @@
 "detected_wcdma_roaming" = "WCDMA (3G) ROAMING OTKRITAN!";
 "possible_wcdma_roaming" = "WCDMA (3G) ROAMING MOGUČE!";
 "detected_edge_roaming" = "EDGE (2G) ROAMING OTKRITAN!";
+"detected_lte_roaming" = "LTE (4G) ROAMING OTKRITAN!";
+"possible_lte_roaming" = "LTE (4G) ROAMING MOGUČE!";
+"detected_5g_roaming" = "5G ROAMING OTKRITAN!";
+"possible_5g_roaming" = "5G ROAMING MOGUČE!";
 "performance_mode_auto_enabled" = "Performance+ mod automatićno deaktivirano";
 "performance_mode_auto_enabled_subtitle" = "Zatvorili ste aplikaciju";
 "performance_mode_auto_enabled_description" = "Aplikaciju će dalje da radi u pozadinu bez Performance+ mod.";
@@ -220,8 +229,8 @@
 "disconnect_from_wifi" = "Isključi Wi-Fi";
 "preparation_inprogress" = "Priprema u toku...";
 "end_phonecall" = "Molimo vas da završite vaš telefon razgovor i da ponovite";
-"data_drain_notification_description" = "Isključite odmah vaše mobilne podace, vaša potrošona je preopterećen. %@ %@";
-"data_drain_notification_description_g3" = "FMobile 2 je vam sada isključio vaše mobilne podace, da vaša potrošona ne bude preopterećen. %@ %@";
+"data_drain_notification_description" = "Pretisnite da Isključite odmah vaše mobilne podace, vaša potrošona je preopterećen. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 3 je vam sada isključio vaše mobilne podace, da vaša potrošona ne bude preopterećen. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@): Dobro došli!";
 
 

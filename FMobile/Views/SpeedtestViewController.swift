@@ -70,20 +70,22 @@ class SpeedtestViewController: UIViewController {
     @objc override func enableDarkMode() {
         super.enableDarkMode()
         progress.enableDarkMode()
-        desc.textColor = CustomColor.darkText2
+        desc.textColor = CustomColor.darkText
         navigationController?.navigationBar.barTintColor = .black
         navigationController?.navigationBar.tintColor = CustomColor.darkActive
         navigationController?.navigationBar.barStyle = .black
+        view.backgroundColor = CustomColor.darkTableBackground
     }
     
     @available(iOS, obsoleted: 13.0)
     @objc override func disableDarkMode() {
         super.disableDarkMode()
         progress.disableDarkMode()
-        desc.textColor = CustomColor.lightText2
+        desc.textColor = CustomColor.lightText
         navigationController?.navigationBar.barTintColor = .white
         navigationController?.navigationBar.tintColor = CustomColor.lightActive
         navigationController?.navigationBar.barStyle = .default
+        view.backgroundColor = CustomColor.lightBackground
     }
     
     @objc func start(_ sender: Any) {

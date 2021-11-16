@@ -7,7 +7,7 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 2";
+"fmobile" = "FMobile 3";
 "reset_zones_done" = "Reset uitgevoerd";
 "reset_zones_done_description" = "Alle Femto en randzones zijn gereset.";
 "close" = "Sluit";
@@ -53,7 +53,7 @@
 "first_start_description" = "Welkom op FMobile! Begin met het leren van de basisprincipes alvorens de toepassing te gebruiken. U vindt de video tutorial en snelkoppelingen op elk moment in de FMobile helpsectie. Als je het niet langer nodig hebt, sluit het raam met \"Niet meer weergeven\"";
 "itinerance" = "roaming";
 "insert_sim_title" = "Een SIM-kaart plaatsen";
-"insert_sim_description" = "Plaats en ontgrendel een geldige SIM-kaart om FMobile te kunnen gebruiken. Zodra de SIM-kaart is geplaatst, volgt u de configuratie-instructies (automatische configuratie is beschikbaar voor een aantal operatoren.";
+"insert_sim_description" = "Plaats en ontgrendel een geldige SIM-kaart om FMobile te kunnen gebruiken.";
 "no_sim" = "Geen geldige SIM-kaart gedetecteerd";
 "sim_card" = "SIM-kaart :";
 "no_esim" = "Geen eSIM ingeschakeld";
@@ -63,6 +63,8 @@
 "netprefs" = "Netwerkvoorkeuren";
 "allow3g" = "3G nationale roaming toestaan";
 "allow2g" = "2G nationale roaming toestaan";
+"allow4g" = "4G nationale roaming toestaan";
+"allow5g" = "5G nationale roaming toestaan";
 "verifywifi" = "Controleer zelfs op Wi-Fi";
 "wififooter" = "Door deze optie in te schakelen, vindt de controle op roaming plaats, zelfs wanneer u verbonden bent met een WiFi-netwerk. Om de batterij te optimaliseren (met uitzondering van de A3-generatie), is het raadzaam om deze optie uitgeschakeld te houden.";
 "statsprefs" = "Statistische voorkeuren";
@@ -150,7 +152,7 @@
 "old_ios_warning" = "iOS% @ mist belangrijke functies!";
 "old_ios_description" = "Deze apps werken het beste met de Apple Shortcuts-app, die alleen beschikbaar is op iOS 12 en hoger. Werk uw iOS-apparaat bij naar iOS 12 of een latere versie. Als uw iOS-apparaat iOS 13 kan uitvoeren, kunt u ook de FMobile-app bijwerken naar de nieuwste versie die is gemaakt voor iOS 13. Op uw iOS-versie zijn de bewerkingen om Roaming af te sluiten handmatig.";
 "location_denied" = "Locatietoegang geweigerd";
-"location_denied_description" = "FMobile 2 moet om technische en praktische redenen toegang hebben tot uw locatie om op de achtergrond te kunnen werken. U hebt besloten de permanente toegang tot uw locatiegegevens te weigeren. Houd er rekening mee dat geen van uw persoonlijke gegevens ooit ergens naartoe zal worden verzonden zonder uw uitdrukkelijke toestemming. Het instellen van de locatietoegang op \"Altijd\" wordt niet beschouwd als een expliciete toestemming: het laat de app alleen normaal op uw apparaat werken, lokaal. Houd er rekening mee dat FMobile 2 veel van zijn efficiëntie verliest als u de locatietoegang niet instelt op \"Altijd\".";
+"location_denied_description" = "FMobile 3 moet om technische en praktische redenen toegang hebben tot uw locatie om op de achtergrond te kunnen werken. U hebt besloten de permanente toegang tot uw locatiegegevens te weigeren. Houd er rekening mee dat geen van uw persoonlijke gegevens ooit ergens naartoe zal worden verzonden zonder uw uitdrukkelijke toestemming. Het instellen van de locatietoegang op \"Altijd\" wordt niet beschouwd als een expliciete toestemming: het laat de app alleen normaal op uw apparaat werken, lokaal. Houd er rekening mee dat FMobile 3 veel van zijn efficiëntie verliest als u de locatietoegang niet instelt op \"Altijd\".";
 "location_denied_change" = "Wijzig de locatie-instelling in \"Altijd\"";
 "location_denied_agree" = "Toegang tot locatie tijdelijk forceren";
 "location_denied_agree_forever" = "Toegang tot locatie permanent forceren";
@@ -167,6 +169,9 @@
 "email_default_content" = "<p>Leg in detail het probleem uit dat u hier tegenkomt: </p>";
 "diagnostic_email" = "Diagnostische FMobile %@ - b%@";
 "mail_not_available" = "De Mail-app is momenteel niet beschikbaar.";
+"5G_unsupported" = "⚠️ 5G niet compatibel";
+"5G_unsupported_description" = "FMobile is nog niet klaar om 5G roaming te beheren. We zullen FMobile zo snel mogelijk updaten om deze technologie te ondersteunen. Uw instelling is nu opgeslagen, en zal worden toegepast zodra we de 5G ondersteuning activeren.";
+"ignore" = "Negeren";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Stroomtest";
@@ -192,6 +197,10 @@
 "detected_wcdma_roaming" = "WCDMA ROAMING (3G) GEDETECTEERD!";
 "possible_wcdma_roaming" = "WCDMA ROAMING (3G) WAARSCHIJNLIJK!";
 "detected_edge_roaming" = "EDGE ROAMING (2G) GEDETECTEERD!";
+"detected_lte_roaming" = "LTE ROAMING (4G) GEDETECTEERD!";
+"possible_lte_roaming" = "LTE ROAMING (4G) WAARSCHIJNLIJK!";
+"detected_5g_roaming" = "5G ROAMING GEDETECTEERD!";
+"possible_5g_roaming" = "5G ROAMING WAARSCHIJNLIJK!";
 "performance_mode_auto_enabled" = "Performance+ modus automatisch gedeactiveerd";
 "performance_mode_auto_enabled_subtitle" = "Je hebt de applicatie verlaten.";
 "performance_mode_auto_enabled_description" = "De toepassing zal op de achtergrond blijven draaien zonder de Performance+ modus.";
@@ -220,8 +229,8 @@
 "disconnect_from_wifi" = "De verbinding met Wi-Fi verbreken";
 "preparation_inprogress" = "De voorbereiding is in volle gang...";
 "end_phonecall" = "Beëindig uw gesprek en probeer het opnieuw";
-"data_drain_notification_description" = "Deactiveer onmiddellijk de cellulaire gegevens, uw verbruik wordt overbelast. %@ %@";
-"data_drain_notification_description_g3" = "FMobile 2 heeft zojuist uw mobiele gegevens gedeactiveerd om overladen te voorkomen. %@ %@";
+"data_drain_notification_description" = "Klik om de cellulaire gegevens onmiddellijk te deactiveren, uw verbruik wordt overbelast. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 3 heeft zojuist uw mobiele gegevens gedeactiveerd om overladen te voorkomen. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@) : Welkom!";
 
 "general_view_title" = "Instellingen";

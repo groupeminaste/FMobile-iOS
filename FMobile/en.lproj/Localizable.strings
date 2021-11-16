@@ -7,7 +7,7 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 2";
+"fmobile" = "FMobile 3";
 "reset_zones_done" = "Reset done";
 "reset_zones_done_description" = "All Femto and ran-sharing zones has been reset.";
 "close" = "Close";
@@ -52,8 +52,8 @@
 "first_start_title" = "First start";
 "first_start_description" = "Welcome to FMobile! Start by learning bases before using the app. You can find the video tutorial and shortcuts at any time in help section of FMobile. When you no longer need it, close this window with \"Do not show again\".";
 "itinerance" = "roaming";
-"insert_sim_title" = "Insert a SIM card";
-"insert_sim_description" = "Please insert and unlock a SIM card to start using FMobile. Once the SIM card is inserted, follow the application setup (automatic configuration available for selected carriers).";
+"insert_sim_title" = "Please insert a SIM card";
+"insert_sim_description" = "Please insert and unlock a SIM card to start using FMobile.";
 "no_sim" = "No valid SIM card detected";
 "sim_card" = "SIM card:";
 "no_esim" = "No activated eSIM";
@@ -63,6 +63,8 @@
 "netprefs" = "Network preferences";
 "allow3g" = "Allow 3G national roaming";
 "allow2g" = "Allow 2G national roaming";
+"allow4g" = "Allow 4G national roaming";
+"allow5g" = "Allow 5G national roaming";
 "verifywifi" = "Verify even on Wi-Fi";
 "wififooter" = "By enabling this option, the roaming verifications will take place even when you are connected to a WiFi network. In order to optimize the battery life (except when using the A3 generation), it is recommended to keep this option disabled.";
 "statsprefs" = "Statistic preferences";
@@ -150,7 +152,7 @@
 "old_ios_warning" = "iOS %@ is missing important features!";
 "old_ios_description" = "This apps works best with the Apple Shortcuts app, which is only available on iOS 12 and later. Please update your iOS device to iOS 12 or any later version. If your iOS device can run iOS 13, you will also be able to update the FMobile app to its latest version made for iOS 13. On your iOS version, the operations to exit roaming are manual.";
 "location_denied" = "Location access denied";
-"location_denied_description" = "FMobile 2 needs to have access your location for technical and practical reasons, in order to be able to run in the background. You decided to deny the permanent access to your location data. Please note that none of your personal data will ever be sent anywhere without your explicit consent. Setting the location access to \"Always\" is not considered as an explicit consent: it only allows the app to operate normally on your device, locally. Be aware that FMobile 2 will lose a lot of its efficiency if you don't set the location access to \"Always\".";
+"location_denied_description" = "FMobile 3 needs to have access your location for technical and practical reasons, in order to be able to run in the background. You decided to deny the permanent access to your location data. Please note that none of your personal data will ever be sent anywhere without your explicit consent. Setting the location access to \"Always\" is not considered as an explicit consent: it only allows the app to operate normally on your device, locally. Be aware that FMobile 3 will lose a lot of its efficiency if you don't set the location access to \"Always\".";
 "location_denied_change" = "Change the location setting to \"Always\"";
 "location_denied_agree" = "Temporarily force deny location access";
 "location_denied_agree_forever" = "Permanently force deny location access";
@@ -167,7 +169,9 @@
 "email_default_content" = "<p>Explain in details the problem you are encoutering here: </p>";
 "diagnostic_email" = "FMobile %@ diagnostic - b%@";
 "mail_not_available" = "The Mail app is currently unavailable.";
-
+"5G_unsupported" = "⚠️ 5G not compatible";
+"5G_unsupported_description" = "FMobile isn't yet ready to manage 5G roaming. We will update FMobile as soon as we can to bring the support of this technology. Your setting is now saved, and will be applied as soon as we activate the 5G support.";
+"ignore" = "Ignore";
 
     // SpeedtestViewController
 "speedtest_view_title" = "Speedtest";
@@ -193,6 +197,10 @@
 "detected_wcdma_roaming" = "WCDMA (3G) ROAMING DETECTED!";
 "possible_wcdma_roaming" = "WCDMA (3G) ROAMING POSSIBLE!";
 "detected_edge_roaming" = "EDGE (2G) ROAMING DETECTED!";
+"detected_lte_roaming" = "LTE (4G) ROAMING DETECTED!";
+"possible_lte_roaming" = "LTE (4G) ROAMING POSSIBLE!";
+"detected_5g_roaming" = "5G ROAMING DETECTED!";
+"possible_5g_roaming" = "5G ROAMING POSSIBLE!";
 "performance_mode_auto_enabled" = "Performance+ mode automatically disabled";
 "performance_mode_auto_enabled_subtitle" = "You have quit the application.";
 "performance_mode_auto_enabled_description" = "The application will continue to operate in background without the Perfomance+ mode.";
@@ -221,8 +229,8 @@
 "disconnect_from_wifi" = "Disconnect from Wi-Fi";
 "preparation_inprogress" = "Preparation in progress...";
 "end_phonecall" = "Please end your phone call and retry";
-"data_drain_notification_description" = "Disable your cellular data immediately, your consumption is overcharged. %@ %@";
-"data_drain_notification_description_g3" = "FMobile 2 just disabled your Cellular Data to avoid roaming fees. %@ %@";
+"data_drain_notification_description" = "Click to disable your cellular data immediately, your consumption is overcharged. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 3 just disabled your Cellular Data to avoid roaming fees. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@): Welcome!";
 
 "general_view_title" = "Settings";

@@ -120,7 +120,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                             print("ITI 35")
                             dataManager.wasEnabled += 1
                             dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                            if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
+                            if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                                dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                            } else if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
                                 dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                             } else {
                                 dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
@@ -128,7 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                             dataManager.datas.set(Date(), forKey: "timecode")
                             dataManager.datas.synchronize()
                             if #available(iOS 12.0, *) {
-                            guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
+                            guard let link = DataManager.getShortcutURL() else { return }
                                 UIApplication.shared.open(link)
                             } else {
                                 self.oldios()
@@ -184,10 +186,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         case UNNotificationDefaultActionIdentifier:
             let dataManager = DataManager()
             
+            let result = RoamingManager.directDataDCheck(dataManager)
+                if result == true {
+                    if #available(iOS 13.0, *) {} else {
+                    let country = CarrierIdentification.getIsoCountryCode(String(dataManager.connectedMCC), String(dataManager.connectedMNC)).uppercased()
+                        NotificationManager.sendNotification(for: .alertDataDrainG3, with: "data_drain_notification_description_g3".localized().format([dataManager.carrier, country]))
+                    }
+                    if #available(iOS 12.0, *) {
+                    guard let link = DataManager.getShortcutURL(international: true) else { return }
+                        UIApplication.shared.open(link)
+                    } else {
+                        self.oldios()
+                    }
+                    completionHandler()
+                    return
+            }
+                
+                
+            
+            
             if dataManager.minimalSetup && dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC != dataManager.targetMNC {
                 dataManager.wasEnabled += 1
                 dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA {
+                if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                    dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                } else if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA {
                     dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                 } else {
                     dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
@@ -195,11 +218,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 dataManager.datas.set(Date(), forKey: "timecode")
                 dataManager.datas.synchronize()
                 if #available(iOS 12.0, *) {
-                guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
+                guard let link = DataManager.getShortcutURL() else { return }
                     UIApplication.shared.open(link)
                 } else {
                     self.oldios()
                 }
+                completionHandler()
                 return
             }
             
@@ -243,7 +267,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 if speed ?? 0 < dataManager.stms {
                                     dataManager.wasEnabled += 1
                                     dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                                    if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
+                                    if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                                        dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                                    } else if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
                                         dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                                     } else {
                                         dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
@@ -251,7 +277,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                     dataManager.datas.set(Date(), forKey: "timecode")
                                     dataManager.datas.synchronize()
                                     if #available(iOS 12.0, *) {
-                                    guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
+                                        guard let link = DataManager.getShortcutURL() else { completionHandler(); return }
                                         UIApplication.shared.open(link)
                                     } else {
                                         self.oldios()
@@ -264,10 +290,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                         let longitude = locationManager.location?.coordinate.longitude ?? 0
                                         
                                         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                                            completionHandler()
                                             return
                                         }
                                         let context = appDelegate.persistentContainer.viewContext
                                         guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
+                                            completionHandler()
                                             return
                                         }
                                         let newCoo = NSManagedObject(entity: entity, insertInto: context)
@@ -294,6 +322,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     } else {
                         dataManager.wasEnabled += 1
                         dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
+                        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                            dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                        }
                         if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
                             dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                         } else {
@@ -302,8 +333,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         dataManager.datas.set(Date(), forKey: "timecode")
                         dataManager.datas.synchronize()
                         if #available(iOS 12.0, *) {
-                        guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
-                        UIApplication.shared.open(link)
+                            guard let link = DataManager.getShortcutURL() else { completionHandler(); return }
+                            UIApplication.shared.open(link)
                         } else {
                             self.oldios()
                         }
@@ -315,8 +346,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     dataManager.datas.set(Date(), forKey: "timecode")
                     dataManager.datas.synchronize()
                     if #available(iOS 12.0, *) {
-                    guard let link = URL(string: "shortcuts://run-shortcut?name=ANIRC") else { return }
-                    UIApplication.shared.open(link)
+                        guard let link = DataManager.getShortcutURL() else { completionHandler(); return }
+                        UIApplication.shared.open(link)
                     } else {
                         self.oldios()
                     }
@@ -427,8 +458,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         
-        CarrierIntentHandler.donateInteraction()
+        if #available(iOS 12.0, *) {
+            //CarrierIntentHandler.deleteInteraction()
+            CarrierIntentHandler.donateInteraction()
+        }
         
         if #available(iOS 13.0, *) {
             registerBackgroundTasks()
