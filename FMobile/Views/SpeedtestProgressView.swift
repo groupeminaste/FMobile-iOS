@@ -100,7 +100,7 @@ class SpeedtestProgressView: UIView {
                 urlst = datas.value(forKey: "URLST") as? String ?? "http://test-debit.free.fr/1048576.rnd"
             }
             
-            speedtest?.testDownloadSpeedWithTimout(timeout: 15.0, usingURL: urlst) { (speed, error) in
+            speedtest?.testDownloadSpeedWithTimout(timeout: 15.0, usingURL: urlst) { (speed, _) in
                 DispatchQueue.main.async {
                     self.speedShape.strokeEnd = CGFloat((speed ?? 0) < self.max ? ((speed ?? 0) / self.max) : 1.0)
                     (self.speed.text, self.unit.text) = (speed ?? 0).toSpeedtest()

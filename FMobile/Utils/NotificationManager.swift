@@ -8,6 +8,7 @@
 
 import Foundation
 import UserNotifications
+import NotificationCenter
 
 class NotificationManager {
     
@@ -22,6 +23,7 @@ class NotificationManager {
      *
      */
     static func sendNotification(for type: NotificationType, with arg: String = "", with arg2: String = "") {
+        if #available(iOS 10.0, *) {
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
             
             guard settings.authorizationStatus == .authorized else { return }
@@ -161,11 +163,11 @@ class NotificationManager {
                 content.body = "all_included".localized()
                 
             case .alertDataDrain:
-                content.title = "alert_paid_data_drain".localized()
+                content.title = "🛂⚠️🛑 \("alert_paid_data_drain".localized()) 🛑⚠️🆘"
                 content.body = arg
             
             case .alertDataDrainG3:
-                content.title = "alert_paid_data_drain_g3".localized()
+                content.title = "🛂⚠️🛑 \("alert_paid_data_drain_g3".localized()) 🛑⚠️🆘"
                 content.body = arg
             
             case .newSIM:
@@ -192,6 +194,166 @@ class NotificationManager {
             
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
             
+        }
+        } else {
+            // Fall back for earlier versions
+            let notification = UILocalNotification()
+            var time = 3
+            
+            
+                        switch type {
+                            
+                                    case .allow2G3G:
+                            notification.alertTitle = "\("roaming_protect_disabled".localized()) - \("3g_2g_allowed".localized())"
+                            notification.alertBody = "roaming_notification_description".localized()
+                            
+                        case .allow2G:
+                            notification.alertTitle = "\("roaming_protect_enabled".localized()) - \("3g_control_enabled".localized())"
+                            notification.alertBody = "roaming_notification_description".localized()
+                            
+                        case .allow3G:
+                            notification.alertTitle = "\("roaming_protect_enabled".localized()) - \("2g_control_enabled".localized())"
+                            notification.alertBody = "roaming_notification_description".localized()
+                            
+                        case .allowNone:
+                            notification.alertTitle = "\("roaming_protect_enabled".localized()) - \("3g_2g_control_enabled".localized())"
+                            notification.alertBody = "roaming_notification_description".localized()
+                            
+                        case .allowDisabled:
+                            notification.alertTitle = "\("roaming_protect_disabled".localized()) - \("not_controlling".localized())"
+                            notification.alertBody = "roaming_notification_description".localized()
+                            
+                        case .alertHPlus:
+                            notification.alertTitle = "detected_hplus_roaming".localized()
+                            notification.alertBody = "detected_roaming_description".localized()
+                            
+                        case .alertPossibleHPlus:
+                            notification.alertTitle = "possible_hplus_roaming".localized()
+                            notification.alertBody = "possible_roaming_description".localized()
+                            
+                        case .alertWCDMA:
+                            notification.alertTitle = "detected_wcdma_roaming".localized()
+                            notification.alertBody = "detected_roaming_description".localized()
+                            
+                        case .alertPossibleWCDMA:
+                            notification.alertTitle = "possible_wcdma_roaming".localized()
+                            notification.alertBody = "possible_roaming_description".localized()
+                            
+                        case .alertEdge:
+                            notification.alertTitle = "detected_edge_roaming".localized()
+                            notification.alertBody = "detected_roaming_description".localized()
+                        
+                        case .alertLTE:
+                            notification.alertTitle = "detected_lte_roaming".localized()
+                            notification.alertBody = "detected_roaming_description".localized()
+                        
+                        case .alertPossibleLTE:
+                            notification.alertTitle = "possible_lte_roaming".localized()
+                            notification.alertBody = "possible_roaming_descriprion".localized()
+                        
+                        case .alert5G:
+                            notification.alertTitle = "detected_5g_roaming".localized()
+                            notification.alertBody = "detected_roaming_descriprion".localized()
+                        
+                        case .alertPossible5G:
+                            notification.alertTitle = "possible_5g_roaming".localized()
+                            notification.alertBody = "possible_roaming_descriprion".localized()
+                            
+            //            case .runningVerification:
+            //                notification.alertTitle = "roaming_protect_enabled".localized()
+            //                content.subtitle = "checking_roaming".localized()
+            //                notification.alertBody = "roaming_notification_description".localized()
+            //                time = 1
+                            
+                        case .halt:
+                                notification.alertTitle = "\("low_energy_auto_enabled".localized()) - \("low_energy_auto_enabled_subtitle".localized())"
+                                notification.alertBody = "low_energy_auto_enabled_description".localized()
+                                time = 10
+                                
+                            case .locFailed:
+                                notification.alertTitle = "\("location_error_title".localized()) - \("location_error_subtitle".localized())"
+                                notification.alertBody = "location_error_description".localized()
+                                time = 2
+                        
+                        case .saved:
+                            notification.alertTitle = "no_network_zone_auto_saved".localized()
+                            notification.alertBody = "no_network_zone_auto_saved_description".localized()
+                            time = 1
+                            
+                        case .batteryLow:
+                            notification.alertTitle = "performance_mode_mode_enabled_title".localized()
+                            notification.alertBody = "performance_mode_mode_enabled_description".localized()
+                            time = 8
+
+            //            case .restarting:
+            //                notification.alertTitle = "performance_mode_mode_auto_disabled".localized()
+            //                notification.alertBody = "performance_mode_mode_auto_disabled_description".localized()
+            //                time = 1
+                            
+                        case .newCountryNothingFree:
+                            notification.alertTitle = arg
+                            notification.alertBody = "nothing_included_20815".localized()
+                            
+                        case .newCountryBasicFree:
+                            notification.alertTitle = arg
+                            notification.alertBody = "basic_included_20815".localized()
+                            
+                        case .newCountryInternetFree:
+                            notification.alertTitle = arg
+                            notification.alertBody = "internet_included_20815".localized()
+                            
+                        case .newCountryAllFree:
+                            notification.alertTitle = arg
+                            notification.alertBody = "all_included_20815".localized()
+                        
+                        case .newCountryNothing:
+                            notification.alertTitle = arg
+                            notification.alertBody = "nothing_included".localized()
+                            
+                        case .newCountryBasic:
+                            notification.alertTitle = arg
+                            notification.alertBody = "basic_included".localized()
+                            
+                        case .newCountryInternet:
+                            notification.alertTitle = arg
+                            notification.alertBody = "internet_included".localized()
+                            
+                        case .newCountryAll:
+                            notification.alertTitle = arg
+                            notification.alertBody = "all_included".localized()
+                            
+                        case .alertDataDrain:
+                            notification.alertTitle = "🛂⚠️🛑 \("alert_paid_data_drain".localized()) 🛑⚠️🆘"
+                            notification.alertBody = arg
+                        
+                        case .alertDataDrainG3:
+                            notification.alertTitle = "🛂⚠️🛑 \("alert_paid_data_drain_g3".localized()) 🛑⚠️🆘"
+                            notification.alertBody = arg
+                        
+                        case .newSIM:
+                            notification.alertTitle = "new_sim_card_detected".localized()
+                            notification.alertBody = "new_sim_card_detected_description".localized()
+                            
+            //            case .iPad:
+            //                notification.alertTitle = "ipad_carrier_alert".localized()
+            //                notification.alertBody = "ipad_carrier_alert_description".localized()
+                            
+                        case .update:
+                            notification.alertTitle = "update_done".localized()
+                            notification.alertBody = arg
+                        
+                        case .custom:
+                            notification.alertTitle = arg
+                            notification.alertBody = arg2
+                        }
+            
+            
+            notification.fireDate = NSDate(timeIntervalSinceNow: TimeInterval(time)) as Date
+            notification.soundName = UILocalNotificationDefaultSoundName
+            
+            #if FMOBILE3
+            UIApplication.shared.scheduleLocalNotification(notification)
+            #endif
         }
     }
     

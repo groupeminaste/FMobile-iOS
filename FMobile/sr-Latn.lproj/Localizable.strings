@@ -7,7 +7,7 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 3";
+"fmobile" = "FMobile 4";
 "reset_zones_done" = "Resetovanje završio";
 "reset_zones_done_description" = "Svaki Femto i ran-šering zone su sad resetovan.";
 "close" = "Zatvori";
@@ -32,23 +32,23 @@
 "form_mnc" = "Roaming MN-Kod (npr: 01)";
 "form_femto" = "NR tehno. Femto+objedinj.? (yes/no)";
 "form_out2g" = "Dom mreže bez 2G? (yes/no)";
-"detecting_autoconfig" = "Proveri auto. konfig...";
+"detecting_autoconfig" = "Proveri auto. konfig…";
 "choose_setup" = "Izaberite konfiguracija";
 "choose_setup_description" = "FMobile nije našao nijedan automatski kinfiguracija za vašu operater. Možete da koristite FMobile na minimalni konfiguracija bez registracija od informacije, ili, možete isto da koristite FMobile na standardni konfiguracija, i da dajete standardne informacije na vašu operater i svoj roaming mreže. Za puno operateri, minimalni konfiguracija treba da bude u redu, ali neki operateri sa jednu komplikovan roaming struktura trebaju da koristiću standardni konfiguracija.";
 "use_minimal_setup" = "Koristi minimalni konfiguraciju";
-"checking_eligibility" = "Provera kvalifik...";
+"checking_eligibility" = "Provera kvalifik…";
 "compatibility_issues" = "Kvalifikovanost greške";
 "compatibility_error_message" = "FMobile je detektovao da minimalni konfiguracija može da ne radi na vašu aparatu. Možete da ga nastavite sa snaga, ili da koristite standardni konfiguracija umesto.";
 "force_minimal_setup" = "Prisilite minimalna konfiguracija";
 "run_standard_setup" = "Koristite standardni konfiguracija umesto";
 "use_standard_setup" = "Koristite standardni konfiguracija";
-"warning_title" = "⚠️ ODGOVORNOST";
-"warning_description" = "VAŽNO: Ovu aplikaciju je besplatna i bez garanciju. Vi ste potpuno odgovorni na nju, a to znaće da sve potencijalne štete od ovu aplikaciju su na vašu ekskluzivna odgovor (korišteni telefonski kredit, struja potrošnja, pregrevanje, itd...). Morate vi da kontrolirate mobilne podaci potrošnje i da ga isključite kada putujete. Nemojte da meni šaljite vaše račni na emajlom, nećete nikako naknada da dobijete (ovo verovatno mora da bude logično za puno ljudi, ali ovo se već jedanput desio...).";
+"warning_title" = "ODGOVORNOST";
+"warning_description" = "VAŽNO: Ovu aplikaciju je besplatna i bez garanciju. Vi ste potpuno odgovorni na nju, a to znaće da sve potencijalne štete od ovu aplikaciju su na vašu ekskluzivna odgovor (korišteni telefonski kredit, struja potrošnja, pregrevanje, itd…). Morate vi da kontrolirate mobilne podaci potrošnje i da ga isključite kada putujete. Nemojte da meni šaljite vaše račni na emajlom, nećete nikako naknada da dobijete (ovo verovatno mora da bude logično za puno ljudi, ali ovo se već jedanput desio…)";
 "uninstall" = "Obriši aplikaciju";
 "accept_conditions" = "Slažem se sa ove uslove";
 "first_update_succeeded" = "Inicijalna ažuriranja je uspela.";
 "update_succeeded" = "Ažuriranja od build %@ do build %@ je uspela. Sve je konfigzran, ne morate ništa viže da radite.";
-"diagnostic_inprogress" = "Dijagnostika u toku...";
+"diagnostic_inprogress" = "Dijagnostika u toku…";
 "first_start_title" = "Prvi početak";
 "first_start_description" = "Dobro došli na FMobile! Počnite da naučite kako se koristi aplikaciji. Možete da nađite video tutorijal i prečace na svaku vremenu u pomoć sekcija od FMobile. Ako vam nije više potreban, zatvorite ovu prozor sa \"Nikad više pokazati\".";
 "itinerance" = "roaming";
@@ -68,9 +68,12 @@
 "verifywifi" = "Provera iako na Wi-Fi";
 "wififooter" = "Ako aktivirate ovaj opcija, roamingu verifikacije će da se dešava iako ste povezan na jedan Wi-Fi mrežu. Da optimizacije baterija (osim za generacija A3), preporučeno je da ostavite ovog opciju isključen.";
 "statsprefs" = "Statističke Postavke";
+"privacy" = "Privatnost";
+"diag_privacy" = "Ako koristite mapu pokrivanja ili koristite neke neprekrivene zone, možda biste želeli da u dijagnostičku datoteku uvrstite svoje GPS koordinate kako biste brže rešili problem. Kako su ovo senzibilni podaci, možete odlučiti da ih ne uključujete ako smatrate da su ove informacije irelevantne. Nakon što je dijagnostika završena, koristite namjensku opciju \"Pošalji programeru\" da biste je direktno prenijeli. Da li želite da te podatke uključite u dijagnostičku?";
 "coveragemap_switch" = "Učestovati u Svetski Pokrivena Mapa";
-"coveragemap_alert_title" = "Privatnost";
-"coveragemap_alert_description" = "Učestovanje u Svetski Pokrivane Mapa je potputno anoniman. Podaci koje pošaljete ne podliježu pravima prenosivosti, pristupa ili brisanja. Samo ove podaci će FMobile da šalje na svaku obične verifikacije: Operaterski Kod (MSS, MNS), SIM kartica Kod (MSS, MNS), Lokacija, povezana tehnologija. Ne čuvamo bilo koj oblik identifikacija korisnika, ne možemo da znamo ko je poslao koj podaci, i ne možemo da vam pratimo. Kada šaljite ove podaci, oni odmah su dospitni na mapi, ako je operater deklarisano kod FMobile. Uvek možete da gledate mapi, isto kad nju ne učestovate.";
+"coveragemapLowData_switch" = "Sačekaj Wi-Fi pre poslanje";
+"coveragemap_alert_title" = "Mapa pokrivanost: privatnost";
+"coveragemap_alert_description" = "Učestovanje u Svetski Mapa Pokrivenosti je potputno anoniman. Podaci koje pošaljete ne podliježu pravima prenosivosti, pristupa ili brisanja. Samo ove podaci će FMobile da šalje na svaku obične verifikacije: Operaterski Kod (MCC, MNC), SIM kartica Kod (MCC, MNC), Lokacija, povezana tehnologija. Ne čuvamo bilo koj oblik identifikacija korisnika, ne možemo da znamo ko je poslao koj podaci, i ne možemo da vam pratimo. Kada šaljite ove podaci, oni odmah su dospitni na mapi, ako je operater deklarisano kod FMobile. Uvek možete da gledate mapi, isto kad nju ne učestovate.";
 "coveragemap_alert_accept" = "Slažem se";
 "coveragemap_alert_accept2" = "Slažem se, nemoj više pokazati";
 "coveragemap_alert_deny" = "Ne slažem se";
@@ -80,7 +83,7 @@
 "background" = "Pozadinu";
 "lowdata_mode" = "Režim ekonomičnosti podataka";
 "femto_footer" = "Da bi automatitćno detektovao Femto boks, aplikacija preuzmi malu datoteka da bi proverili brzinu u vašu vezu. Ako je režim ekonomičnosti podataka aktivirana, aplikacija će da očetka vašu dozvola za preuzimanje.";
-"reset_offline_zones" = "Izbriši ne pokrivane zone";
+"reset_offline_zones" = "Izbriši ne pokrivene zone";
 "extra_cost_protection" = "Neželjene preopterećenje sigurnost";
 "land_footer" = "Ukoliko aktivirajte ovu opciju, aplikaciju će u pozadinz da provera u koju cene zona (zemlja) ste. Ako vašu mobilne podace su aktivirani i da ste u jednu destinaciju ko nije u vašu paket, dobićete više obaveštenje da vi pozivao da isključite podaci.";
 "cost_protection_title" = "Preopterećenje sigurnost";
@@ -95,11 +98,11 @@
 "land_g1" = "Proveri zemlju u pozadinu";
 "land_footer_g1" = "Ukoliko aktivirajte ovu opciju, FMobile će da provera u pozadinu ako ste još u vašu dom zemlju da bi prestao roaming verifikacije kada putujete. Vaš aktualni operatera nije još kompatiblno sa druga generacija FMobileom na iPadu, ali ako kompatiblan operatera je dostupan, FMobile će autočatićno da aktivira drugi generacije funkcije ovde.";
 "background_loc_g1" = "Pozadina lokacija";
-"activation" = "🕗 FMobilski motor se aktivira...";
-"activate" = "⚠️ Aktivirajte FMobilski motor";
-"updating" = "🕗 FMobilski motor se ažurira...";
+"activation" = "FMobilski motor se aktivira…";
+"activate" = "Aktivirajte FMobilski motor";
+"updating" = "FMobilski motor se ažurira…";
 "not_connected" = "Niste povezan";
-"not_connected_searching" = "Pretraženje za %@...";
+"not_connected_searching" = "Pretraženje za %@…";
 "connected" = "Povezan: %@";
 "country_included_button" = "Ovu zemlju %@ je inkluzivan u moj paket";
 "new_country" = "Novi inkluzivan zemlju";
@@ -113,7 +116,7 @@
 "set_no_network" = "Napati ovog zonu kao ne pokriveno";
 "no_network_zone_saved" = "Ne pokrivana zonu napatio";
 "no_network_zone_saved_description" = "Nećete više dobiti roaming obaveštenje u ovz zonu.";
-"reset_countries_included" = "Obriši sve zemlje od moju paket.";
+"reset_countries_included" = "Obriši sve zemlje od moju paket";
 "reset_countries_done_title" = "Zemlje izbrisano";
 "reset_countries_done_description" = "Zemlje od vašu paketu su sada isbrisani.";
 "open_official_app" = "Otvori oficijalna aplikacija %@";
@@ -140,18 +143,29 @@
 "disp_notifications" = "Prikaži informativne obaveštenje";
 "expert_mode" = "Ekspert mod";
 "dark_mode" = "Crni mod";
-"copy_field_test" = "Kopiraj Fild Test kod u klipbordu.";
+"copy_field_test" = "Kopiraj Fild Test kod u klipbordu";
 "field_test_copied_confirmation" = "Kod uspešno kopiran!";
 "select_url" = "Personalizovane URL za test brzinu";
-"about" = "U aplikaciju";
-"about_description" = "Aplikacija i Prečace napraveno od Mihajlo Nas\nKInt/KIsk, test brzinu i optimizacija od Natan Fale\nLogo od Bruno (@brunopaiva_152)\n\nOva aplikacija je developirana od nezavisne developere, i je dostupna besplatna bez nikakvu garanciju.\n\nGroupe MINASTE (inkluzivna svoju aplikacija FMobile) nije, ni u kom slučaju, povezan sa bilo koja operateri.\n\n© 2020 Groupe MINASTE";
-"donate_paypal" = "Dodajte sa PayPal";
+"about" = "O aplikaciju";
+"about_description" = "Aplikacija i Prečace napraveno od Mihajlo Nas\nKInt/KIsk, mapa pokrivanost, test brzinu i optimizacija od Natan Fale\nLogo od Bruno (@brunopaiva_15)\n\nOva aplikacija je developirana od nezavisne developere, i je dostupna besplatna bez nikakvu garanciju.\n\nGroupe MINASTE (inkluzivna svoju aplikacija FMobile) nije, ni u kom slučaju, povezan sa bilo koja operateri.\n\n© 2020 Groupe MINASTE";
+"donate" = "Dodajte";
+"select_donation" = "Izaberite donaciju";
+"donate_helloasso" = "Dodajte sa HelloAsso";
+"donate_iap" = "Dodajte Apple iAP";
+"donate_warning" = "VAŽNO OBAVEŠTENJE ZA FRANCUSKE GRAĐANE";
+"donate_warning_french_citizenship" = "FMobilom upravlja Groupe MINASTE, francuska neprofitna organizacija zakona-1901. Ako ste državljanin Francuske Republike i plaćate porez u Francuskoj, molimo vas da ga donirate putem državne donacijske platforme HelloAsso, pružajući državne priznate potvrde o donaciji. Ako država zahteva da dokažete svoje donacije, nastavite putem HelloAsso (samo EUR). U suprotnom, možete proći kroz Apple iAP, bez davanja sertifikata i uzimanje 30% od iznosa koji donirate.";
+"donate_thank_you" = "Hvala!";
+"donate_thank_you_description" = "Grupa MINASTE zahvaljuje na donaciji. Nadamo se da ćete biti u potpunosti zadovoljni njegovom upotrebom za poboljšanje naših usluga.";
+"donate_aborted" = "Donacija prekinuta";
+"donate_aborted_description" = "Donacija je prekinuta. Niste naplaćen.";
+"donate_unable" = "Ovde ne možete više davati donacije.";
+"donate_unable_description" = "Da pređemo na stvar.\nOvde ne možete davati donacije.\n\nApple nas sprečava da prihvatimo donacije jer nas, prema svojim smernicama, forsiraju da koristimo kupovinu putem aplikacija. Zaustavimo vas, naravno da je porez od 30% ovog platnog sistema veoma frustrirajući za malu neprofitnu organizaciju, a mi ne smatramo da je moralno prihvatljivo da Apple postane bogatiji kroz neprofitni sektor, ali ovo je nije tačka blokiranja.\n\nMi smo neprofitna organizacija francuskog zakona-1901 i moramo da dostavimo potvrde o donaciji sa vašim identitetom građanima Francuske republike za potrebe poreske deklaracije. Apple iAP šalje samo običan račun, koji se ne može koristiti kao zvanični državni dokument.\n\nNapravili smo korak u pravcu Applea, uključivanjem oba sistema u aplikaciju, tražeći od francuskih građana da pređu na nacionalnu platformu za donacije HelloAsso. Oni su i dalje odbili, jer žele 100% donacija da prođu putem iAP-a, što ne možemo pravno zbog našeg neprofitnog statusa.\n\nZbog nedostatka saradnje i razumevanja naše situacije od kompanije Apple, odlučili smo da uklonite donacije putem aplikacije, uključujući iAP, za ceo svet. Možete se zahvaliti Apple-u zbog smernica koje vam sprečavaju da pomognete neprofitnoj građi drugih 100% besplatnih usluga za vas, ali najvažnije nam je u svakom trenutku da uživate u besplatnoj aplikaciji i da ona ima pravu korisnost za vas.\n\nNe brinite za donaciju, preživećemo bez obzira na to šta štap Apple baci na naše točkove bicikla.";
 "donate_description" = "Bez obzira šta, FMobile ostaće besplatna i bez reklame. Jednu dodaj je jednu mogućnost da mene hvalite za aplikaciju, isto ako sam već srećan ako meni samo dajte vaše povratke. Vi ćete da pomognete finansiranje od moj Ekstopi projekt. Molim vas da kompletno testirate aplikaciju i da budete 100% sigurni da hoćete da ostavite jednu vrh pre nego to radite.";
 "ok" = "Važi";
 "old_ios_warning" = "iOS %@ fali važne funkcije!";
 "old_ios_description" = "Ovu aplikaciju radi najbolje sa Apel Prećaci aplikaciju, ko je samo dostupna od iOS 12 ili kasnije. Molimo vas da ažurirajte vašu iOS aparat na iOS 12 ili bilo koja kasnija verzija. Ako vaš aparat može da instalira iOS 13, možete osto da instalirajte najnova FMobile aplikaciju ko radi samo za iOS 13. Na vašu iOS verzija, sve operacije da izlazite iz roaming mrežu su manuelne.";
 "location_denied" = "Lokacija pristup odbijen";
-"location_denied_description" = "FMobile 3 mora imati pristup vašoj lokaciji iz tehničkih i praktičnih razloga, kako bi se mogao pokrenuti u pozadini. Odlučili ste da odbijete stalni pristup podacima vaše lokacije. Imajte na umu da nijedan vaš lični podatak nikada neće biti poslat bilo gde bez vašeg izričitog pristanka. Postavljanje pristupa lokaciji \"Uvek\" ne smatra se izričitim pristankom: samo omogućava aplikaciji da normalno radi na vašem uređaju, lokalno. Morate da znate da će FMobile 3 izgubiti veliku efikasnost ako ne postavite pristup lokaciji na \"Uvek\".";
+"location_denied_description" = "FMobile 4 mora imati pristup vašoj lokaciji iz tehničkih i praktičnih razloga, kako bi se mogao pokrenuti u pozadini. Odlučili ste da odbijete stalni pristup podacima vaše lokacije. Imajte na umu da nijedan vaš lični podatak nikada neće biti poslat bilo gde bez vašeg izričitog pristanka. Postavljanje pristupa lokaciji \"Uvek\" ne smatra se izričitim pristankom: samo omogućava aplikaciji da normalno radi na vašem uređaju, lokalno. Morate da znate da će FMobile 4 izgubiti veliku efikasnost ako ne postavite pristup lokaciji na \"Uvek\".";
 "location_denied_change" = "Promeni lokacija postava na \"Uvek\"";
 "location_denied_agree" = "Privremeno prisiliti zabraniti pristup";
 "location_denied_agree_forever" = "Trajno prisiliti zabraniti pristup lokaciji";
@@ -168,17 +182,15 @@
 "email_default_content" = "<p>Objasnite tačno problem što imate ovde: </p>";
 "diagnostic_email" = "FMobile diagnostika %@ - b%@";
 "mail_not_available" = "Mejl aplikacija nije trenutno dostupna.";
-"5G_unsupported" = "⚠️ 5G nije kompatibilan";
+"5G_unsupported" = "5G nije kompatibilan";
 "5G_unsupported_description" = "FMobile nije još spreman da upravlja 5G romingu. Ažuririćemo FMobile najranije što možemo da donesimo upravlju ovu tehnologiju. Vaš postavka je sada saćuvana, i biče u korišćenje od kada aktiviraćemo 5G upravlju.";
 "ignore" = "Ignoriraj";
-
     // SpeedtestViewController
 "speedtest_view_title" = "Test brzina";
 "speedtest_start" = "Započni";
 "speedtest_stop" = "Prestani";
 "speedtest_description" = "Srce od test brzinu je napravio od Natan Fale, i izmenjeno od Mihajlo Nas. On će da preuzmi jednu veliki datoteku za 15s. Ovu test brzinu nije isti kao ovaj za srce od FMobile korišćeno detekcija roamingu na starije motor generacije, ko je optimizovan za brzi detekcija u manje od 1s i sa jednu Internet korišćenje blizu nula.";
 "speedtest_in_progress" = "Jedan test brzina je već u toku!";
-
     // NotificationManager
 "roaming_protect_disabled" = "Roaming sigurnost isključen!";
 "3g_2g_allowed" = "3G i 2G roaming dozvoljeno";
@@ -188,7 +200,7 @@
 "2g_control_enabled" = "2G nadzor aktiviran.";
 "3g_2g_control_enabled" = "3G i 2G nadzor aktiviran.";
 "not_controlling" = "Nadzor nije aktiviran.";
-"checking_roaming" = "Verifikacija u toku...";
+"checking_roaming" = "Verifikacija u toku…";
 "detected_hplus_roaming" = "H+ (3G) ROAMING OTKRITAN!";
 "detected_roaming_description" = "Pritisnite na obaveštenje da se vratite na vašu dom mrežu.";
 "possible_hplus_roaming" = "H+ (3G) ROAMING MOGUČE!";
@@ -201,7 +213,7 @@
 "detected_5g_roaming" = "5G ROAMING OTKRITAN!";
 "possible_5g_roaming" = "5G ROAMING MOGUČE!";
 "performance_mode_auto_enabled" = "Performance+ mod automatićno deaktivirano";
-"performance_mode_auto_enabled_subtitle" = "Zatvorili ste aplikaciju";
+"performance_mode_auto_enabled_subtitle" = "Zatvorili ste aplikaciju.";
 "performance_mode_auto_enabled_description" = "Aplikaciju će dalje da radi u pozadinu bez Performance+ mod.";
 "location_error_title" = "Pozadinu lokacija nije dozvoljeno!";
 "location_error_subtitle" = "Zemlje identifikacija nije uspela!";
@@ -218,23 +230,31 @@
 "basic_included" = "Pozive, SMS i MMS su inkluzivno u vašom paket u ovom zemlju. Internet nije dostupan.";
 "internet_included" = "Internet je inklzivno u vašom paket! Pozive, SMS i MMS nisu inkluzivno.";
 "all_included" = "Pozive, SMS, MMS i Internet su inklzivno u vašom paket!";
-"alert_paid_data_drain" = "🛂⚠️🛑 PREOPTEREĆENJE U TOKU 🛑⚠️🆘";
-"alert_paid_data_drain_g3" = "🛂⚠️🛑 PREOPTEREĆENJE SPAŠEN 🛑⚠️🆘";
+"alert_paid_data_drain" = "PREOPTEREĆENJE U TOKU";
+"alert_paid_data_drain_g3" = "PREOPTEREĆENJE SPAŠEN!";
 "new_sim_card_detected" = "SIM kartica konfiguracija promenjeno!";
 "new_sim_card_detected_description" = "Molimo konfigurajte vašu novu SIM kartica u FMobile aplikaciju.";
 "update_done" = "Ažuriranja gotovo!";
-"statistics_agreement" = "Participer à l'enquête 208 16";
-
+"statistics_agreement" = "Učestvuje u istraživanju 208 16";
     //AppDelegate
 "disconnect_from_wifi" = "Isključi Wi-Fi";
-"preparation_inprogress" = "Priprema u toku...";
+"preparation_inprogress" = "Priprema u toku…";
 "end_phonecall" = "Molimo vas da završite vaš telefon razgovor i da ponovite";
 "data_drain_notification_description" = "Pretisnite da Isključite odmah vaše mobilne podace, vaša potrošona je preopterećen. %@ %@";
-"data_drain_notification_description_g3" = "FMobile 3 je vam sada isključio vaše mobilne podace, da vaša potrošona ne bude preopterećen. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 4 je vam sada isključio vaše mobilne podace, da vaša potrošona ne bude preopterećen. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@): Dobro došli!";
-
-
 "general_view_title" = "Podešavanje";
-"map_view_title" = "Pokrivane Mapi";
-
-
+"map_view_title" = "Mapa pokrivenosti";
+"map_info_legend_unknown" = "Nepoznatan";
+"map_info_legend_nonetwork" = "Bez usluga";
+"map_info_legend_lte_r" = "4G (Roaming)";
+"map_info_legend_3g_r" = "3G (Roaming)";
+"map_info_legend_edge_r" = "EDGE (Roaming)";
+"map_info_legend_gprs_r" = "GPRS (Roaming)";
+"map_info_legend_lte" = "4G";
+"map_info_legend_3g" = "3G";
+"map_info_legend_edge" = "EDGE";
+"map_info_legend_gprs" = "GPRS";
+"map_info_legend" = "Legenda mapa";
+"map_info_carrier" = "Prikazan operater";
+"map_info_title" = "Informacije mapa";

@@ -45,15 +45,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             dataManager.carrierNetwork = "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             status = "✅"
         } else if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
-            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && dataManager.isNRDECstatus(){
+            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && dataManager.isNRDECstatus(){
                 status = "⚠️"
             } else {
                 status = "✅"
             }
-            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && !DataManager.isWifiConnected() && dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && dataManager.isNRDECstatus() {
+            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && !DataManager.isWifiConnected() && dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && dataManager.isNRDECstatus() {
                 text?.text = "Veuillez patienter..."
                 dataManager.carrierNetwork = "\(dataManager.carrier) 4G (LTE) [Vérification...]"
-                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
+                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                     DispatchQueue.main.async {
                         if speed ?? 0 < dataManager.stms {
                             dataManager.carrierNetwork = "\(dataManager.itiName) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
@@ -91,7 +91,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && !DataManager.isWifiConnected() && dataManager.carrierNetwork == dataManager.nrp && dataManager.isNRDECstatus() {
                 text?.text = "Veuillez patienter..."
                 dataManager.carrierNetwork = "\(dataManager.carrier) 3G (WCDMA) [Vérification...]"
-                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
+                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                     DispatchQueue.main.async {
                         if speed ?? 0 < dataManager.stms {
                             dataManager.carrierNetwork = "\(dataManager.itiName) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
@@ -129,7 +129,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && !DataManager.isWifiConnected() && dataManager.carrierNetwork == dataManager.nrp && dataManager.isNRDECstatus() {
                 text?.text = "Veuillez patienter..."
                 dataManager.carrierNetwork = "\(dataManager.carrier) 3G (HSDPA) [Vérification...]"
-                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
+                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                     DispatchQueue.main.async {
                         if speed ?? 0 < dataManager.stms {
                             dataManager.carrierNetwork = "\(dataManager.itiName) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"

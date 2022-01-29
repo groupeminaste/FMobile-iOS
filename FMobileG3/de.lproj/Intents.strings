@@ -1,197 +1,99 @@
 "07Bqfc" = "Fehler";
-
 "2Ic8Is" = "SIM-Karte MNC abrufen";
-
 "2O0Z0J" = "${roaming}";
-
 "37NcUM" = "Ermittelt den Status einer National Roaming-Verbindung. Liefert 0/1.";
-
 "4PBnst" = "${carrier}";
-
 "4bknAw" = "Fehler";
-
 "4e5VzK" = "Liefert den aktuellen MCC des angeschlossenen Netzwerks";
-
 "5ELEwW" = "Status des Flugzeugmodus";
-
 "5I4WMR" = "Liefert der SIM-Karte MNC";
-
 "6OSdTz" = "Fehler";
-
 "6csoSr" = "Liefert der SIM-Karte MCC";
-
 "8F2iON" = "Status der Mobilen Netz Verbindung";
-
 "9AoR98" = "${flightMode}";
-
 "9G9ZgU" = "${carrier}";
-
 "BmKG1n" = "Aktuelles MCC abrufen";
-
 "CabRuh" = "${mnc}";
-
 "Cxh6DA" = "Aktuelles MNC abrufen";
-
 "DdmfiG" = "Fehler";
-
 "FpX2L5" = "Aktuelles MNC abrufen";
-
 "GRNv06" = "${mnc}";
-
 "IT1l2g" = "Flugmodus-Status abfragen";
-
 "InqGrV" = "SIM betreiber abrufen";
-
 "JmoZDF" = "Aktuelles Carrier abrufen";
-
 "K6bzVl" = "SIM-Karte MCC abrufen";
-
 "KSVtAz" = "${cellular}";
-
 "KT4ceM" = "Ruft den aktuell verbundenen betreiber-Namen ab";
-
 "L3RtsF" = "${carrier}";
-
 "L6r1je" = "Fehler";
-
 "LNAh5b" = "Fehler";
-
 "OJuy1p" = "MCC";
-
 "OK3cDF" = "Aktuelles MCC abrufen";
-
 "PLYmzh" = "Fehler";
-
 "Q5Jwtl" = "Nationalen Roaming-Status abrufen";
-
 "R5EoMD" = "Fehler";
-
 "TKk3SA" = "Flugmodus Status";
-
 "VO77Ks" = "${mcc}";
-
 "VhFC6Z" = "Fehler";
-
 "Xk66YZ" = "${carrier}";
-
 "YmE9lQ" = "WLAN Verbindung Status";
-
 "Yvwa99" = "Ruft den Namen des SIM-Kartenträgers ab";
-
 "Z5Q5Us" = "Nationales Roaming";
-
 "bUv2SI" = "MCC";
-
 "c2PAzW" = "MNC";
-
 "c4k2kQ" = "SIM-Karte MCC abrufen";
-
 "cj3edn" = "${flightMode}";
-
 "cwTJKe" = "${roaming}";
-
 "dOs4t4" = "Überprüft den Status des verbotenen Roaming";
-
 "daFk7V" = "SIM-Karte MNC abrufen";
-
 "ewYgMQ" = "${mnc}";
-
 "fLwUtT" = "${cellular}";
-
 "fiYRii" = "${mcc}";
-
 "g1HYTa" = "Fehler";
-
 "gGtAtZ" = "Fehler";
-
 "h19Zqc" = "Roaming";
-
 "hDW63j" = "Fehler";
-
 "hJqUW5" = "${wifi}";
-
 "i1UfNg" = "WLAN Verbindung Status";
-
 "iWygLe" = "Überprüft ob das Gerät mit WLAN verbunden ist";
-
 "inubuu" = "Aktuelles Betreiber abrufen";
-
 "jJtlw3" = "Flugmodus Status";
-
 "jRXlKB" = "${wifi}";
-
 "jUD9k1" = "Fehler";
-
 "jacx6j" = "MNC";
-
 "k8b7Vd" = "Fehler";
-
 "keKkJG" = "Fehler";
-
 "kjbMlw" = "Überprüft ob das Gerät mit Mobilen Netz verbunden ist";
-
 "m20RCM" = "Status der Mobilen Netz Verbindung";
-
 "npPdKC" = "${mcc}";
-
 "o3DgJm" = "Fehler";
-
 "oNUcPB" = "Liefert den aktuellen MCC des angeschlossenen Netzwerks";
-
 "pHYkHd" = "Betreiber";
-
 "pQRBZP" = "SIM betreiber abrufen";
-
 "paFIqg" = "Fehler";
-
 "pxK0cA" = "${carrier}";
-
 "qW6cQD" = "Status für verbotenes Roaming abrufen";
-
 "riTDBK" = "Fehler";
-
 "s0YZwR" = "Status für verbotenes Roaming abrufen";
-
 "s4kvV0" = "Mobiles Netz Verbindung";
-
 "sLkT1i" = "Fehler";
-
 "shaxdE" = "Fehler";
-
 "tv807z" = "Nationalen Roaming-Status abrufen";
-
 "uOCw3O" = "Fehler";
-
 "vv5HI8" = "Fehler";
-
 "wU6jLX" = "${mnc}";
-
 "xqcFOJ" = "${carrier}";
-
 "y9r5ho" = "WLAN Verbindung";
-
 "yTa07U" = "${mcc}";
-
 "yzYR7B" = "Betreiber";
-
 "4EJB3z" = "SIM betreiber abrufen";
-
 "9BJ3lX" = "Status der Mobilen Netz Verbindung";
-
 "DWAzah" = "SIM-Karte MNC abrufen";
-
 "IqyWoq" = "Status für verbotenes Roaming abrufen";
-
-"UH9up1" = "Get Current MCC";
-
-"ahmmhB" = "Get Current MNC";
-
+"UH9up1" = "Aktuelles MCC abrufen";
+"ahmmhB" = "Aktuelles MNC abrufen";
 "aqaQK8" = "SIM-Karte MCC abrufen";
-
 "d2ttat" = "Aktuelles Betreiber abrufen";
-
 "i7nWTq" = "Nationalen Roaming-Status abrufen";
-
 "i8YIPA" = "Flugmodus Status";
-
 "xpTgr7" = "WLAN Verbindung Status";

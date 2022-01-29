@@ -42,4 +42,11 @@ extension String {
         }
     }
     
+    func fromJSON<T>(as type: T.Type) -> T? where T: Decodable {
+        if let data = data(using: .utf8), let object = try? JSONDecoder().decode(type, from: data) {
+            return object
+        }
+        return nil
+    }
+    
 }

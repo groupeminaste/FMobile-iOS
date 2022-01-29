@@ -17,6 +17,7 @@ import Foundation
 import CoreLocation
 import CallKit
 import BackgroundTasks
+import APIRequest
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, CLLocationManagerDelegate {
@@ -71,11 +72,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         saveContext()
         
         DispatchQueue.global(qos: .background).async {
-        let dataManager = DataManager()
-        
-        if dataManager.dispInfoNotif && dataManager.perfmode{
-            NotificationManager.sendNotification(for: .halt)
-        }
+            let dataManager = DataManager()
+            
+            if dataManager.dispInfoNotif && dataManager.perfmode{
+                NotificationManager.sendNotification(for: .halt)
+            }
         }
     }
     
@@ -108,12 +109,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 } else {
                     loadingIndicator.style = UIActivityIndicatorView.Style.gray
                 }
-                loadingIndicator.startAnimating();
+                loadingIndicator.startAnimating()
                 alert.view.addSubview(loadingIndicator)
                 
                 self.window?.rootViewController?.present(alert, animated: true, completion: nil)
                 
-                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
+                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                     DispatchQueue.main.async {
                         print(speed ?? 0)
                         if speed ?? 0 < dataManager.stms {
@@ -143,11 +144,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 let latitude = locationManager.location?.coordinate.latitude ?? 0
                                 let longitude = locationManager.location?.coordinate.longitude ?? 0
                                 
-                                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                                    return
+                                let context: NSManagedObjectContext
+                                if #available(iOS 10.0, *) {
+                                    context = RoamingManager.persistentContainer.viewContext
+                                } else {
+                                    // Fallback on earlier versions
+                                    context = RoamingManager.managedObjectContext
                                 }
-                                let context = appDelegate.persistentContainer.viewContext
-                                guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
+                                guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context), locationManager.location?.horizontalAccuracy ?? -1 >= 0 && locationManager.location?.horizontalAccuracy ?? -1 >= 500 else {
                                     return
                                 }
                                 let newCoo = NSManagedObject(entity: entity, insertInto: context)
@@ -155,12 +159,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 newCoo.setValue(latitude, forKey: "lat")
                                 newCoo.setValue(longitude, forKey: "lon")
                                 
-                                do {
-                                    try context.save()
-                                    print("COORDINATES SAVED!")
-                                } catch {
-                                    print("Failed saving")
-                                }
+                                context.performAndWait({
+                                    do {
+                                        try context.save()
+                                        print("COORDINATES SAVED!")
+                                    } catch {
+                                        print("Failed saving")
+                                    }
+                                })
                             }
                         }
                         self.delay(0.3){
@@ -177,6 +183,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // GESTION DES NOTIFICATIONS
     // -----
     
+    @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         // Determine the user action
         switch response.actionIdentifier {
@@ -232,13 +239,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     if dataManager.verifyonwifi && DataManager.isWifiConnected() && dataManager.nrDEC && dataManager.femto {
                         let alerteW = UIAlertController(title: "disconnect_from_wifi".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
                         
-                        alerteW.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel) { (UIAlertAction) in
+                        alerteW.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel) { (_) in
                             self.timer?.invalidate()
                         })
                         
                         self.window?.rootViewController?.present(alerteW, animated: true, completion: nil)
                         
-                        timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
+                        timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
                             self.WIFIDIS()
                         }
                         
@@ -254,13 +261,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                             // Fallback on earlier versions
                             loadingIndicator.style = UIActivityIndicatorView.Style.gray
                         }
-                        loadingIndicator.startAnimating();
+                        loadingIndicator.startAnimating()
                         
                         alert.view.addSubview(loadingIndicator)
                         
                         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
                         
-                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
+                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                             print("THIS SHOULD NOT BE CALLED...")
                             DispatchQueue.main.async {
                                 print(speed ?? 0)
@@ -289,12 +296,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                         let latitude = locationManager.location?.coordinate.latitude ?? 0
                                         let longitude = locationManager.location?.coordinate.longitude ?? 0
                                         
-                                        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                                            completionHandler()
-                                            return
-                                        }
-                                        let context = appDelegate.persistentContainer.viewContext
-                                        guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
+                                        let context = RoamingManager.persistentContainer.viewContext
+                                        guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context), locationManager.location?.horizontalAccuracy ?? -1 >= 0 && locationManager.location?.horizontalAccuracy ?? -1 >= 500 else {
                                             completionHandler()
                                             return
                                         }
@@ -303,12 +306,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                         newCoo.setValue(latitude, forKey: "lat")
                                         newCoo.setValue(longitude, forKey: "lon")
                                         
-                                        do {
-                                            try context.save()
-                                            print("COORDINATES SAVED!")
-                                        } catch {
-                                            print("Failed saving")
-                                        }
+                                        context.performAndWait({
+                                            do {
+                                                try context.save()
+                                                print("COORDINATES SAVED!")
+                                            } catch {
+                                                print("Failed saving")
+                                            }
+                                        })
                                         
                                     }
                                     
@@ -457,6 +462,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // On init l'API
+        APIConfiguration.check()
+        
         // Override point for customization after application launch.
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         
@@ -471,6 +479,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         //CustomDNS().refreshManager()
         
+        if #available(iOS 10.0, *) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             if granted {
                 print("Notifications permission granted.")
@@ -483,6 +492,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         let notifications = UNNotificationCategory(identifier: "protectionItineranceActivee", actions: [], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([notifications])
+        } else {
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil))
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+
         
         // On init l'UI
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -492,6 +506,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
+    @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .badge, .sound])
     }
@@ -567,47 +582,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // -----
     // GESTION DE CORE DATA
     // -----
-
-    lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
-        let container = NSPersistentContainer(name: "DATA")
-        
-        guard let storeUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.fr.plugn.fmobile")?.appendingPathComponent("DATA.sqlite") else { return NSPersistentContainer() }
-        
-        
-        let description = NSPersistentStoreDescription()
-        description.shouldInferMappingModelAutomatically = true
-        description.shouldMigrateStoreAutomatically = true
-        description.url = storeUrl
-        
-        container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: storeUrl)]
-        
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
-
+    
     func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        if #available(iOS 10.0, *) {
+            let context = RoamingManager.persistentContainer.viewContext
+            if context.hasChanges {
+                context.performAndWait({
+                do {
+                    try context.save()
+                } catch {
+                    // Replace this implementation with code to handle the error appropriately.
+                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                }
+                })
+            }
+        } else {
+            // iOS 9.0 and below - however you were previously handling it
+            if RoamingManager.managedObjectContext.hasChanges {
+                RoamingManager.managedObjectContext.performAndWait({
+                    do {
+                        try RoamingManager.managedObjectContext.save()
+                    } catch {
+                        // Replace this implementation with code to handle the error appropriately.
+                        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                        let nserror = error as NSError
+                        NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                        abort()
+                    }
+                })
             }
         }
     }
-
 }
-

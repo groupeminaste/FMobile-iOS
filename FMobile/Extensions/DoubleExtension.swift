@@ -23,4 +23,38 @@ extension Double {
         return ("\(self.rounded(toPlaces: 1))", "Mbps")
     }
     
+    func simplify(withLetters: Bool = true) -> String {
+        if self.isInfinite {
+            return "∞"
+        }
+        
+        if withLetters {
+            if self >= 1_000_000_000 {
+                return "\((self / 1_000_000_000).simplifyToOneDecimal())G"
+            }
+            
+            if self >= 1_000_000 {
+                return "\((self / 1_000_000).simplifyToOneDecimal())M"
+            }
+            
+            if self >= 1_000 {
+                return "\((self / 1_000).simplifyToOneDecimal())K"
+            }
+        }
+        
+        return self.simplifyToOneDecimal()
+    }
+    
+    func oneDecimal() -> Double {
+        return (floor(self * 10) / 10)
+    }
+    
+    func simplifyToOneDecimal() -> String {
+        let oneDecimal = self.oneDecimal()
+        if floor(oneDecimal) == oneDecimal {
+            return String.localizedStringWithFormat("%d", Int(oneDecimal))
+        }
+        return String.localizedStringWithFormat("%.01f", oneDecimal)
+    }
+    
 }

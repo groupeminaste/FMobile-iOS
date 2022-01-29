@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "APIRequest",
+        "repositoryURL": "https://github.com/GroupeMINASTE/APIRequest.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "150058a0a4763e085215f636bb872909531b424f",
+          "version": "1.2.1"
+        }
+      },
+      {
+        "package": "DonateViewController",
+        "repositoryURL": "https://github.com/GroupeMINASTE/DonateViewController",
+        "state": {
+          "branch": null,
+          "revision": "cffb75ad3711584534aafb1fd53afe045b21e343",
+          "version": "1.1.4"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

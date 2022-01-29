@@ -59,7 +59,7 @@ class RoamingManager {
                                 dataManager.datas.set(placemark.isoCountryCode?.uppercased() ?? "ABO", forKey: "lastCountry")
                                 dataManager.datas.set(Date(), forKey: "timeLastCountry")
                                 dataManager.datas.synchronize()
-                                CoverageManager.sendCurrentCoverageData(dataManager)
+                                CoverageManager.addCurrentCoverageData(dataManager, aboard: directDataDCheck())
                                 dataManager.datas.set("ABOARD", forKey: "g3lastcompletion")
                                 dataManager.datas.synchronize()
                                 completionHandler("ABOARD")
@@ -67,6 +67,7 @@ class RoamingManager {
                             }
                             
                         }
+                        CoverageManager.addCurrentCoverageData(dataManager)
                         completionHandler("ESCAPED_GEOCODE")
                         return
                         
@@ -86,7 +87,7 @@ class RoamingManager {
                         return
                     } else {
                         print("Selon le cache, l'utilisateur est à l'étranger")
-                        CoverageManager.sendCurrentCoverageData(dataManager)
+                        CoverageManager.addCurrentCoverageData(dataManager, aboard: directDataDCheck())
                         dataManager.datas.set("ABOARD", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
                         completionHandler("ABOARD")
@@ -146,6 +147,7 @@ class RoamingManager {
                 dataManager.datas.set(false, forKey: "isSettingUp")
                 dataManager.datas.synchronize()
                 // Fin de la configuration depuis le serveur
+                CoverageManager.addCurrentCoverageData(dataManager)
             }
         }
         
@@ -193,14 +195,14 @@ class RoamingManager {
     
     // La fonction qui vérifie si on doit appeler netfetch() ou pas (WiFi, à l'étranger...)
     static func process(_ dataManager: DataManager = DataManager(), _ g3engine: Bool = false, completionHandler: @escaping (String) -> ()) {
-        if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC {
+        if (dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.itiMNC && dataManager.carrierNetwork == CTRadioAccessTechnologyLTE) || (dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.carrierNetwork != CTRadioAccessTechnologyLTE) {
                 // Le contrôle d'itinérance démarre.
                 netfetch(dataManager, g3engine, completionHandler: completionHandler)
                 return
         } else {
             // L'utilisateur est chez un autre opérateur
             print("L'utilisateur n'est pas connecté sur son réseau propre.")
-            CoverageManager.sendCurrentCoverageData(dataManager)
+            CoverageManager.addCurrentCoverageData(dataManager)
             dataManager.datas.set("OTHERCARRIER", forKey: "g3lastcompletion")
             dataManager.datas.synchronize()
             completionHandler("OTHERCARRIER")
@@ -252,8 +254,15 @@ class RoamingManager {
                     let longitude = locationManager.location?.coordinate.longitude ?? 0
                     
                     if latitude != 0 && longitude != 0 {
-                        let context = persistentContainer.viewContext
-                            guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
+                        let context: NSManagedObjectContext
+                        if #available(iOS 10.0, *) {
+                            context = persistentContainer.viewContext
+                        } else {
+                            // Fallback on earlier versions
+                            context = managedObjectContext
+                        }
+                            guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context), locationManager.location?.horizontalAccuracy ?? -1 >= 0 && locationManager.location?.horizontalAccuracy ?? -1 >= 500 else {
+                                CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                                 completionHandler("ERROR")
                                 return
                             }
@@ -261,14 +270,16 @@ class RoamingManager {
                             
                             newCoo.setValue(latitude, forKey: "lat")
                             newCoo.setValue(longitude, forKey: "lon")
-                            
-                            do {
-                                try context.save()
-                                print("COORDINATES SAVED!")
-                                NotificationManager.sendNotification(for: .saved)
-                            } catch {
-                                print("Failed saving")
-                            }
+                        
+                            context.performAndWait({
+                                do {
+                                    try context.save()
+                                    print("COORDINATES SAVED!")
+                                    NotificationManager.sendNotification(for: .saved)
+                                } catch {
+                                    print("Failed saving")
+                                }
+                            })
                             
                         }
                     }
@@ -285,6 +296,7 @@ class RoamingManager {
                 dataManager.datas.set(dataManager.count, forKey: "count")
                 dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
                 dataManager.datas.set("NOTCOVERED", forKey: "g3lastcompletion")
+                CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                 dataManager.datas.synchronize()
                 completionHandler("NOTCOVERED")
                 return
@@ -301,10 +313,12 @@ class RoamingManager {
         } else {
             if (!g3engine) {
                 print("IT'S NOT TIME YET!")
+                CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                 completionHandler("NOTTIME")
                 return
             } else {
-                if dataManager.g3lastcompletion == "LTE" || dataManager.g3lastcompletion == "HPLUS" || dataManager.g3lastcompletion == "WCDMA" || dataManager.g3lastcompletion == "EDGE" || abs(dataManager.g3timecode.timeIntervalSinceNow) < 2*60 {
+                if (dataManager.g3lastcompletion == "LTE" || dataManager.g3lastcompletion == "HPLUS" || dataManager.g3lastcompletion == "WCDMA" || dataManager.g3lastcompletion == "EDGE") && abs(dataManager.g3timecode.timeIntervalSinceNow) < 2*60 {
+                    CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                     completionHandler(dataManager.g3lastcompletion)
                     return
                 }
@@ -326,7 +340,7 @@ class RoamingManager {
         if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && (dataManager.allow014G || (dataManager.modeExpert ? false : !dataManager.roamLTE)) {
             // L'utilisateur est en 4G, tout va bien
             print("HOME LTE: No need to reset.")
-            CoverageManager.sendCurrentCoverageData(dataManager)
+            CoverageManager.addCurrentCoverageData(dataManager)
             dataManager.datas.set("HOME", forKey: "g3lastcompletion")
             dataManager.datas.synchronize()
             completionHandler("HOME")
@@ -334,7 +348,7 @@ class RoamingManager {
         } else if dataManager.carrierNetwork == dataManager.hp {
             // L'utilisateur est en 3G RP, tout va bien
             print("HOME WCDMA: No need to reset.")
-            CoverageManager.sendCurrentCoverageData(dataManager)
+            CoverageManager.addCurrentCoverageData(dataManager)
             dataManager.datas.set("HOME", forKey: "g3lastcompletion")
             dataManager.datas.synchronize()
             completionHandler("HOME")
@@ -343,29 +357,29 @@ class RoamingManager {
             // L'utilisateur est en 3G+ en Itinérance, vérification si autorisée
             if (dataManager.carrierNetwork == dataManager.nrp && !dataManager.allow013G) || (dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && !dataManager.allow014G) {
                 print("H+ ou LTE non autorisée.")
-                if !dataManager.femtoLOWDATA && dataManager.femto && !DataManager.isWifiConnected() {
+                if !dataManager.femtoLOWDATA && (dataManager.femto || dataManager.carrierNetwork == CTRadioAccessTechnologyLTE) && !DataManager.isWifiConnected() {
                     
                     if dataManager.nrDEC {
-                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, error) in
+                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                             DispatchQueue.main.async {
                                 print(speed ?? 0)
                                 if speed ?? 0 < dataManager.stms {
                                     print("SPEEDTEST IN BACKGROUND SUCCESSFUL!")
                                     if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
-                                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                                        CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                                         dataManager.datas.set("LTE", forKey: "g3lastcompletion")
                                         dataManager.datas.synchronize()
                                         completionHandler("LTE")
                                         return
                                     }
                                     else if dataManager.nrp == CTRadioAccessTechnologyWCDMA {
-                                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                                        CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                                         dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
                                         dataManager.datas.synchronize()
                                         completionHandler("WCDMA")
                                         return
                                     } else if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
-                                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                                        CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                                         dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                                         dataManager.datas.synchronize()
                                         completionHandler("HPLUS")
@@ -383,8 +397,15 @@ class RoamingManager {
                                         let latitude = locationManager.location?.coordinate.latitude ?? 0
                                         let longitude = locationManager.location?.coordinate.longitude ?? 0
                                         
-                                        let context = persistentContainer.viewContext
-                                        guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
+                                        let context: NSManagedObjectContext
+                                        if #available(iOS 10.0, *) {
+                                            context = persistentContainer.viewContext
+                                        } else {
+                                            // Fallback on earlier versions
+                                            context = managedObjectContext
+                                        }
+                                        guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context), locationManager.location?.horizontalAccuracy ?? -1 >= 0 && locationManager.location?.horizontalAccuracy ?? -1 >= 500 else {
+                                            CoverageManager.addCurrentCoverageData(dataManager)
                                             dataManager.datas.set("NOTCOVERED", forKey: "g3lastcompletion")
                                             dataManager.datas.synchronize()
                                             completionHandler("NOTCOVERED")
@@ -397,26 +418,29 @@ class RoamingManager {
                                             newCoo.setValue(latitude, forKey: "lat")
                                             newCoo.setValue(longitude, forKey: "lon")
                                             
-                                            CoverageManager.sendCurrentCoverageData(dataManager)
-                                            
-                                            do {
-                                                try context.save()
-                                                print("COORDINATES SAVED!")
-                                                NotificationManager.sendNotification(for: .saved)
-                                                print("SPEEDTEST IN BACKGROUND SUCCESSFUL!")
-                                                dataManager.datas.set("NOTCOVERED", forKey: "g3lastcompletion")
-                                                dataManager.datas.synchronize()
-                                                completionHandler("NOTCOVERED")
-                                                return
-                                            } catch {
-                                                print("Failed saving")
-                                                dataManager.datas.set("NOTCOVERED", forKey: "g3lastcompletion")
-                                                dataManager.datas.synchronize()
-                                                completionHandler("NOTCOVERED")
-                                                return
-                                            }
+                                            context.performAndWait({
+                                                do {
+                                                    try context.save()
+                                                    print("COORDINATES SAVED!")
+                                                    NotificationManager.sendNotification(for: .saved)
+                                                    print("SPEEDTEST IN BACKGROUND SUCCESSFUL!")
+                                                    CoverageManager.addCurrentCoverageData(dataManager)
+                                                    dataManager.datas.set("NOTCOVERED", forKey: "g3lastcompletion")
+                                                    dataManager.datas.synchronize()
+                                                    completionHandler("NOTCOVERED")
+                                                    return
+                                                } catch {
+                                                    print("Failed saving")
+                                                    CoverageManager.addCurrentCoverageData(dataManager)
+                                                    dataManager.datas.set("NOTCOVERED", forKey: "g3lastcompletion")
+                                                    dataManager.datas.synchronize()
+                                                    completionHandler("NOTCOVERED")
+                                                    return
+                                                }
+                                            })
                                         } else {
                                             print("No valid coordinates")
+                                            CoverageManager.addCurrentCoverageData(dataManager)
                                             dataManager.datas.set("NOTCOVERED", forKey: "g3lastcompletion")
                                             dataManager.datas.synchronize()
                                             completionHandler("NOTCOVERED")
@@ -427,6 +451,7 @@ class RoamingManager {
                                     }
                                     
                                 }
+                                CoverageManager.addCurrentCoverageData(dataManager)
                                 completionHandler("ESCAPED_SPEEDTEST")
                                 return
                             }
@@ -434,21 +459,21 @@ class RoamingManager {
                         return
                         
                     } else {
-                        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
-                            CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && dataManager.targetMNC == dataManager.itiMNC {
+                            CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                             dataManager.datas.set("LTE", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("LTE")
                             return
                         }
                         else if dataManager.nrp == CTRadioAccessTechnologyWCDMA {
-                            CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                            CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                             dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("WCDMA")
                             return
                         } else if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
-                            CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                            CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                             dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("HPLUS")
@@ -463,35 +488,42 @@ class RoamingManager {
                     
                     
                 } else {
+                    if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && dataManager.targetMNC == dataManager.itiMNC {
+                        CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
+                        dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                        dataManager.datas.synchronize()
+                        completionHandler("LTE")
+                        return
+                    } else if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                        CoverageManager.addCurrentCoverageData(dataManager)
+                        dataManager.datas.set("POSSLTE", forKey: "g3lastcompletion")
+                        dataManager.datas.synchronize()
+                        completionHandler("POSSLTE")
+                        return
+                    }
                     if dataManager.femto {
-                        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
-                            dataManager.datas.set("POSSLTE", forKey: "g3lastcompletion")
-                            dataManager.datas.synchronize()
-                            completionHandler("POSSLTE")
-                            return
-                        } else if dataManager.nrp == CTRadioAccessTechnologyWCDMA {
+                        if dataManager.nrp == CTRadioAccessTechnologyWCDMA {
+                            CoverageManager.addCurrentCoverageData(dataManager)
                             dataManager.datas.set("POSSWCDMA", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("POSSWCDMA")
                             return
                         } else if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
+                            CoverageManager.addCurrentCoverageData(dataManager)
                             dataManager.datas.set("POSSHPLUS", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("POSSHPLUS")
                             return
                         }
                     } else {
-                        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
-                            dataManager.datas.set("LTE", forKey: "g3lastcompletion")
-                            dataManager.datas.synchronize()
-                            completionHandler("LTE")
-                            return
-                        } else if dataManager.nrp == CTRadioAccessTechnologyWCDMA {
+                        if dataManager.nrp == CTRadioAccessTechnologyWCDMA {
+                            CoverageManager.addCurrentCoverageData(dataManager)
                             dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("WCDMA")
                             return
                         } else if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
+                            CoverageManager.addCurrentCoverageData(dataManager)
                             dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("HPLUS")
@@ -505,6 +537,7 @@ class RoamingManager {
                 }
             } else {
                 print("H+ ou LTE autorisée")
+                CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                 dataManager.datas.set("STOP", forKey: "g3lastcompletion")
                 dataManager.datas.synchronize()
                 completionHandler("STOP")
@@ -513,7 +546,7 @@ class RoamingManager {
         } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge && dataManager.out2G {
             if !dataManager.allow012G {
                 print("2G non autorisée")
-                CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                 dataManager.datas.set("EDGE", forKey: "g3lastcompletion")
                 dataManager.datas.synchronize()
                 completionHandler("EDGE")
@@ -525,7 +558,7 @@ class RoamingManager {
             } else {
                 print("2G autorisée ou incompatible")
                 if dataManager.out2G {
-                    CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                    CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                 }
                 dataManager.datas.set("STOP", forKey: "g3lastcompletion")
                 dataManager.datas.synchronize()
@@ -533,6 +566,7 @@ class RoamingManager {
                 return
             }
         }
+        CoverageManager.addCurrentCoverageData(dataManager)
         completionHandler("ERROR")
         return
     }
@@ -736,7 +770,7 @@ class RoamingManager {
                 print("Country != land!")
                 print(country)
                 print(land)
-                CoverageManager.sendCurrentCoverageData(dataManager)
+                CoverageManager.addCurrentCoverageData(dataManager, aboard: directDataDCheck())
                 dataManager.datas.set("ABOARD", forKey: "g3lastcompletion")
                 dataManager.datas.synchronize()
                 completionHandler("ABOARD")
@@ -748,6 +782,21 @@ class RoamingManager {
                 print("L'utilisateur a désactivé le contrôle en WiFi")
                 dataManager.datas.set("WIFI", forKey: "g3lastcompletion")
                 dataManager.datas.synchronize()
+                
+                if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMCC == dataManager.itiMNC {
+                    CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
+                } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge && dataManager.out2G {
+                    CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
+                } else if dataManager.carrierNetwork == dataManager.nrp {
+                    if dataManager.femto {
+                        CoverageManager.addCurrentCoverageData(dataManager)
+                    } else {
+                        CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
+                    }
+                } else {
+                    CoverageManager.addCurrentCoverageData(dataManager)
+                }
+                
                 completionHandler("WIFI")
                 return
             }
@@ -762,7 +811,7 @@ class RoamingManager {
                 dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
                 dataManager.datas.set("HOME", forKey: "g3lastcompletion")
                 dataManager.datas.synchronize()
-                CoverageManager.sendCurrentCoverageData(dataManager)
+                CoverageManager.addCurrentCoverageData(dataManager)
                 completionHandler("HOME")
                 return
             }
@@ -774,6 +823,7 @@ class RoamingManager {
                     print("l'utilisateur va à une vitesse ne le permettant pas de rester accroché à une antenne Free (route de campagne/autoroute/TGV).")
                     dataManager.datas.set("TOOFAST", forKey: "g3lastcompletion")
                     dataManager.datas.synchronize()
+                    CoverageManager.addCurrentCoverageData(dataManager)
                     completionHandler("TOOFAST")
                     return
                 }
@@ -781,37 +831,38 @@ class RoamingManager {
                 let currlat = locations.last?.coordinate.latitude ?? 0
                 let currlon = locations.last?.coordinate.longitude ?? 0
                 
-                if currlat == 0 && currlon == 0 {
+                if currlat == 0 || currlon == 0 {
                     if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && !dataManager.allow014G {
-                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                        CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                         dataManager.datas.set("LTE", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
                         completionHandler("LTE")
                         return
                     }
                     else if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA && !dataManager.allow013G {
-                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                        CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                         dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
                         completionHandler("HPLUS")
                         return
                     } else if dataManager.carrierNetwork == CTRadioAccessTechnologyWCDMA && !dataManager.allow013G {
-                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                        CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                         dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
                         completionHandler("WCDMA")
                         return
                     } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge && !dataManager.allow012G {
-                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                        CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                         dataManager.datas.set("EDGE", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
                         completionHandler("EDGE")
+                        return
                     }
                     
                     //                    if dataManager.statisticsAgreement{
                     //                        AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
                     //                    }
-                    CoverageManager.sendCurrentCoverageData(dataManager)
+                    CoverageManager.addCurrentCoverageData(dataManager)
                     dataManager.datas.set("HOME", forKey: "g3lastcompletion")
                     dataManager.datas.synchronize()
                     completionHandler("HOME")
@@ -820,7 +871,13 @@ class RoamingManager {
                 
                 let currlocation = CLLocation(latitude: CLLocationDegrees(currlat), longitude: CLLocationDegrees(currlon))
                 
-                let context = persistentContainer.viewContext
+                let context: NSManagedObjectContext
+                if #available(iOS 10.0, *) {
+                    context = persistentContainer.viewContext
+                } else {
+                    // Fallback on earlier versions
+                    context = managedObjectContext
+                }
                 
                 let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Locations")
                 request.returnsObjectsAsFaults = false
@@ -841,41 +898,52 @@ class RoamingManager {
                         if distance < 300 {
                             detected = true
                             print("Close to recognized hotspot, not initiating.")
+                            if locations.last?.horizontalAccuracy ?? -1 >= 0 && locations.last?.horizontalAccuracy ?? -1 >= 500 {
+                                detected = false
+                            }
                             break
                         }
                     }
                     
                     if !detected {
                         if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && !dataManager.allow014G {
-                            CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                            CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                             dataManager.datas.set("LTE", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("LTE")
                             return
                         }
                         else if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA && !dataManager.allow013G {
-                            CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                            CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                             dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("HPLUS")
                             return
                         } else if dataManager.carrierNetwork == CTRadioAccessTechnologyWCDMA && !dataManager.allow013G {
-                            CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                            CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                             dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("WCDMA")
                             return
                         } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge && !dataManager.allow012G {
-                            CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                            CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                             dataManager.datas.set("EDGE", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("EDGE")
+                            return
                         }
+                        
+                        CoverageManager.addCurrentCoverageData(dataManager)
+                        dataManager.datas.set("HOME", forKey: "g3lastcompletion")
+                        dataManager.datas.synchronize()
+                        completionHandler("HOME")
+                        return
                         //                        if dataManager.statisticsAgreement{
                         //                            AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
                         //                        }
                     } else {
                         print("detected one nearby hotspot, STOPING OPERATIONS.")
+                        CoverageManager.addCurrentCoverageData(dataManager)
                         dataManager.datas.set("NOTCOVERED", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
                         completionHandler("NOTCOVERED")
@@ -884,30 +952,36 @@ class RoamingManager {
                 } catch {
                     print("Failed")
                     if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && !dataManager.allow014G {
-                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                        CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                         dataManager.datas.set("LTE", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
                         completionHandler("LTE")
                         return
                     }
                     else if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA && !dataManager.allow013G {
-                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                        CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                         dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
                         completionHandler("HPLUS")
                         return
                     } else if dataManager.carrierNetwork == CTRadioAccessTechnologyWCDMA && !dataManager.allow013G {
-                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                        CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                         dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
                         completionHandler("WCDMA")
                         return
                     } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge && !dataManager.allow012G {
-                        CoverageManager.sendCurrentCoverageData(dataManager, isRoaming: true)
+                        CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                         dataManager.datas.set("EDGE", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
                         completionHandler("EDGE")
+                        return
                     }
+                    CoverageManager.addCurrentCoverageData(dataManager)
+                    dataManager.datas.set("HOME", forKey: "g3lastcompletion")
+                    dataManager.datas.synchronize()
+                    completionHandler("HOME")
+                    return
                     //                    if dataManager.statisticsAgreement{
                     //                        AppDelegate.sendLocationToServer(latitude: locations.last?.coordinate.latitude ?? 0, longitude: locations.last?.coordinate.longitude ?? 0)
                     //                    }
@@ -916,13 +990,14 @@ class RoamingManager {
             }
                 
             else if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC {
-                if (dataManager.carrierNetwork == dataManager.nrp && !dataManager.allow013G) || (dataManager.carrierNetwork == CTRadioAccessTechnologyEdge && !dataManager.allow012G && dataManager.out2G) {
+                if (dataManager.carrierNetwork == dataManager.nrp && !dataManager.allow013G) || (dataManager.carrierNetwork == CTRadioAccessTechnologyEdge && !dataManager.allow012G && dataManager.out2G) || dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && (!dataManager.allow014G && (dataManager.modeExpert ? true : dataManager.roamLTE)) {
                     let speed = locations.last?.speed ?? 0
                     print("The current speed is ", speed * 3.6, "km/h.")
                     if speed * 3.6 > 80 {
                         print("l'utilisateur va à une vitesse ne le permettant pas de rester accroché à une antenne Free (route de campagne/autoroute/TGV).")
                         dataManager.datas.set("TOOFAST", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
+                        CoverageManager.addCurrentCoverageData(dataManager)
                         completionHandler("TOOFAST")
                         return
                     }
@@ -930,14 +1005,20 @@ class RoamingManager {
                     let currlat = locations.last?.coordinate.latitude ?? 0
                     let currlon = locations.last?.coordinate.longitude ?? 0
                     
-                    if currlat == 0 && currlon == 0 {
+                    if currlat == 0 || currlon == 0 {
                         initBackground(dataManager, g3engine, completionHandler: completionHandler)
                         return
                     }
                     
                     let currlocation = CLLocation(latitude: CLLocationDegrees(currlat), longitude: CLLocationDegrees(currlon))
                     
-                    let context = persistentContainer.viewContext
+                    let context: NSManagedObjectContext
+                    if #available(iOS 10.0, *) {
+                        context = persistentContainer.viewContext
+                    } else {
+                        // Fallback on earlier versions
+                        context = managedObjectContext
+                    }
                     
                     let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Locations")
                     request.returnsObjectsAsFaults = false
@@ -958,6 +1039,9 @@ class RoamingManager {
                             if distance < 300 {
                                 detected = true
                                 print("Close to recognized hotspot, not initiating.")
+                                if locations.last?.horizontalAccuracy ?? -1 >= 0 && locations.last?.horizontalAccuracy ?? -1 >= 500 {
+                                    detected = false
+                                }
                                 break
                             }
                         }
@@ -967,6 +1051,7 @@ class RoamingManager {
                             return
                         } else {
                             print("detected one nearby hotspot, STOPING OPERATIONS.")
+                            CoverageManager.addCurrentCoverageData(dataManager)
                             dataManager.datas.set("NOTCOVERED", forKey: "g3lastcompletion")
                             dataManager.datas.synchronize()
                             completionHandler("NOTCOVERED")
@@ -978,7 +1063,8 @@ class RoamingManager {
                         return
                     }
                 } else {
-                    print("L'utilisateur est en 4G/3G propre")
+                    print("L'utilisateur est en 4G/3G itinérance mais autorisée")
+                    CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                     dataManager.datas.set("HOME", forKey: "g3lastcompletion")
                     dataManager.datas.synchronize()
                     completionHandler("HOME")
@@ -986,6 +1072,7 @@ class RoamingManager {
                 }
             } else {
                 print("L'utilisateur n\'est pas connecté sur le réseau itinérant")
+                CoverageManager.addCurrentCoverageData(dataManager)
                 dataManager.datas.set("HOME", forKey: "g3lastcompletion")
                 dataManager.datas.synchronize()
                 completionHandler("HOME")
@@ -995,13 +1082,14 @@ class RoamingManager {
     }
     
     
+    @available(iOS 10.0, *)
     static var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
-         */
+        */
         let container = NSPersistentContainer(name: "DATA")
         
         guard let storeUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.fr.plugn.fmobile")?.appendingPathComponent("DATA.sqlite") else { return NSPersistentContainer() }
@@ -1014,7 +1102,7 @@ class RoamingManager {
         
         container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: storeUrl)]
         
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
@@ -1022,4 +1110,51 @@ class RoamingManager {
         return container
     }()
     
+    // iOS 9 and below
+    static var applicationDocumentsDirectory: URL = {
+
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return urls[urls.count-1]
+    }()
+
+    static var managedObjectModel: NSManagedObjectModel = {
+        // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
+        let modelURL = Bundle.main.url(forResource: "DATA", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL) ?? NSManagedObjectModel()
+    }()
+
+    static var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+        // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
+        // Create the coordinator and store
+        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
+        let url = applicationDocumentsDirectory.appendingPathComponent("DATA.sqlite")
+        var failureReason = "There was an error creating or loading the application's saved data."
+        let options = [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true]
+        do {
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: options)
+        } catch {
+            // Report any error we got.
+            var dict = [String: AnyObject]()
+            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data" as AnyObject?
+            dict[NSLocalizedFailureReasonErrorKey] = failureReason as AnyObject?
+
+            dict[NSUnderlyingErrorKey] = error as NSError
+            let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            // Replace this with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
+            abort()
+        }
+
+        return coordinator
+    }()
+
+    static var managedObjectContext: NSManagedObjectContext = {
+        // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
+        let coordinator = persistentStoreCoordinator
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        managedObjectContext.persistentStoreCoordinator = coordinator
+        return managedObjectContext
+    }()
+
 }

@@ -7,7 +7,7 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 3";
+"fmobile" = "FMobile 4";
 "reset_zones_done" = "Rückstellung erfolgt";
 "reset_zones_done_description" = "Alle Femto- und Ransharingzonen wurden zurückgesetzt.";
 "close" = "Schließen";
@@ -32,25 +32,25 @@
 "form_mnc" = "Roaming MNC (z.B.: 01)";
 "form_femto" = "NR Protokoll Femto+ran? (yes/no)";
 "form_out2g" = "Heim ohne 2G? (yes/no)";
-"detecting_autoconfig" = "Erkennung der Autokonfiguration...";
+"detecting_autoconfig" = "Erkennung der Autokonfiguration…";
 "choose_setup" = "Wählen Sie Ihr Einstellung";
 "choose_setup_description" = "FMobile hat keine automatische Konfiguration für Ihren Netzbetreiber gefunden. Sie können wählen, ob Sie FMobile auf einem minimalen Setup ausführen möchten, ohne irgendwelche Informationen einzugeben, oder ob Sie FMobile auf einem Standard-Setup ausführen möchten, indem Sie grundlegende Informationen über Ihren Netzbetreiber und seinen Roaming-Partner angeben. Für die meisten Netzbetreiber sollte das minimale Setup gut funktionieren, aber einige Netzbetreiber, die eine komplexere Roaming-Struktur haben, können verlangen, stattdessen das Standard-Setup zu verwenden.";
 "use_minimal_setup" = "Minimales Setup verwenden";
-"checking_eligibility" = "Berechtigung prüfen...";
+"checking_eligibility" = "Berechtigung prüfen…";
 "compatibility_issues" = "Kompatibilitätsfehler";
 "compatibility_error_message" = "FMobile hat festgestellt, dass die minimale Einrichtung auf Ihrem Gerät fehlschlagen kann. Sie können einstellen, dass Sie es weiterhin verwenden möchten, oder stattdessen das manuelle Setup starten.";
 "force_minimal_setup" = "Erzwingen des minimalen Setups";
 "run_standard_setup" = "Standardkonfiguration Starten";
 "use_standard_setup" = "Standardkonfiguration Verwenden";
-"warning_title" = "⚠️ VERANTWORTLICHKEIT";
-"warning_description" = "WICHTIG: Diese Applikation wird kostenlos und ohne jegliche Garantie zur Verfügung gestellt. Sie sind vollständig dafür verantwortlich, was bedeutet, dass jeder mögliche Schaden durch die Nutzung dieser App unter Ihrer alleinigen Verantwortung liegt (Mehrkosten auf der Telefonrechnung, Stromverbrauch, Überhitzung, etc....). Es ist Ihre Aufgabe, den Datenverbrauch regelmäßig zu überprüfen und zu deaktivieren, wenn Sie in aussland gehen. Schicken Sie mir Ihre Rechnungen nicht per E-Mail, Sie werden keine Rückerstattung erhalten (es mag für einige Leute offensichtlich erscheinen, aber diese Situation ist bereits eingetreten...)";
-"uninstall" = "Applikation deinstallieren";
+"warning_title" = "VERANTWORTLICHKEIT";
+"warning_description" = "WICHTIG: Diese Applikation wird kostenlos und ohne jegliche Garantie zur Verfügung gestellt. Sie sind vollständig dafür verantwortlich, was bedeutet, dass jeder mögliche Schaden durch die Nutzung dieser App unter Ihrer alleinigen Verantwortung liegt (Mehrkosten auf der Telefonrechnung, Stromverbrauch, Überhitzung, etc…). Es ist Ihre Aufgabe, den Datenverbrauch regelmäßig zu überprüfen und zu deaktivieren, wenn Sie in aussland gehen. Schicken Sie mir Ihre Rechnungen nicht per E-Mail, Sie werden keine Rückerstattung erhalten (es mag für einige Leute offensichtlich erscheinen, aber diese Situation ist bereits eingetreten…)";
+"uninstall" = "App deinstallieren";
 "accept_conditions" = "Ich akzeptiere diese Bedingungen";
-"first_update_succeeded" = "Der anfängliche Aktualisierungsprozess war erfolgreich.";
-"update_succeeded" = "Der Aktualisierungsprozess vom Build %@ zum Build %@ war erfolgreich. Alle Wartungsarbeiten sind erledigt, Sie müssen nichts tun.";
-"diagnostic_inprogress" = "Diagnose läuft...";
+"first_update_succeeded" = "Der ursprüngliche Aktualisierungsprozess war erfolgreich.";
+"update_succeeded" = "Der Aktualisierungsprozess vom Bau %@ zum Bau %@ war erfolgreich. Alle Wartungsarbeiten sind erledigt, Sie müssen nichts tun.";
+"diagnostic_inprogress" = "Diagnose läuft…";
 "first_start_title" = "Erster Start";
-"first_start_description" = "Willkommen auf FMobile! Beginnen Sie mit Lerninhalten, bevor Sie die App nutzen. Das Video-Tutorial und die Shortcuts finden Sie jederzeit im Hilfe-Bereich von FMobile. Wenn Sie es nicht mehr benötigen, schließen Sie dieses Fenster mit \"Nicht mehr anzeigen\".";
+"first_start_description" = "Willkommen auf FMobile! Beginnen Sie mit Lerninhalten, bevor Sie die App nutzen. Das Video-Tutorial und die Shortcuts finden Sie jederzeit im Hilfe-Bereich von FMobile. Wenn Sie sie nicht mehr benötigen, schließen Sie dieses Fenster mit \"Nicht mehr anzeigen\".";
 "itinerance" = "Roaming";
 "insert_sim_title" = "Bitte legen Sie eine SIM-Karte ein";
 "insert_sim_description" = "Bitte legen Sie eine SIM-Karte ein und entsperren Sie sie, um FMobile zu nutzen.";
@@ -68,11 +68,14 @@
 "verifywifi" = "Überprüfen auch auf WLAN";
 "wififooter" = "Wenn Sie diese Option aktivieren, werden die Roaming-Verifikationen auch dann durchgeführt, wenn Sie mit einem WLAN-Netzwerk verbunden sind. Um die Akkulaufzeit zu optimieren (außer bei Verwendung der A3-Generation), wird es empfohlen, diese Option deaktiviert zu lassen.";
 "statsprefs" = "Statistische Einstellungen";
-"coveragemap_switch" = "Mitmachen zum Ausfüllen der Deckungskarte";
-"coveragemap_alert_title" = "Datenschutzerklärung";
-"coveragemap_alert_description" = "Die Teilnahme am Ausfüllen der Deckungskarte ist völlig anonym. Die von Ihnen übermittelten Daten unterliegen daher nicht dem Recht auf Portabilität, Zugriff oder Löschung. Die folgenden Daten werden im Hintergrund bei den üblichen Überprüfungen von FMobile gesammelt: Operatorcode (MCC, MNC), SIM-Kartencode (MCC, MNC), Standort, Verbindungsprotokoll. Wir speichern keine Form der Benutzeridentifikation, so dass wir nicht wissen können, welche Daten von wem gesendet wurden, und wir können Sie nicht verfolgen. Nach der Abholung erscheinen sie sofort auf der Versorgungskarte, wenn der Betreiber bei FMobile angemeldet ist. Sie können die Deckungskarte jederzeit einsehen, auch wenn Sie sich gegen einen Beitrag entscheiden.";
+"privacy" = "Datenschutz";
+"diag_privacy" = "Wenn Sie die Abdeckungskarte oder einige nicht abgedeckte Zonen verwenden, möchten Sie möglicherweise Ihre GPS-Koordinaten in die Diagnosedatei aufnehmen, um das Problem schneller zu lösen. Da es sich um empfindliche Daten handelt, können Sie diese nicht einschließen, wenn Sie der Meinung sind, dass diese Informationen irrelevant sind. Verwenden Sie nach Abschluss der Diagnose die dedizierte Option \"An Entwickler senden\", um sie direkt zu übertragen. Möchten Sie diese Daten in die Diagnose aufnehmen?";
+"coveragemap_switch" = "Mitmachen zum Ausfüllen der Deckungsmap";
+"coveragemapLowData_switch" = "WLAN warten vor Senden";
+"coveragemap_alert_title" = "Deckungsmap: Datenschutzerklärung";
+"coveragemap_alert_description" = "Die Teilnahme am Ausfüllen der Deckungsmap ist völlig anonym. Die von Ihnen übermittelten Daten unterliegen daher nicht dem Recht auf Portabilität, Zugriff oder Löschung. Die folgenden Daten werden im Hintergrund bei den üblichen Überprüfungen von FMobile gesammelt: Operatorcode (MCC, MNC), SIM-Kartencode (MCC, MNC), Standort, Verbindungsprotokoll. Wir speichern keine Form der Benutzeridentifikation, so dass wir nicht wissen können, welche Daten von wem gesendet wurden, und wir können Sie nicht verfolgen. Nach der Abholung erscheinen sie sofort auf der Versorgungskarte, wenn der Betreiber bei FMobile angemeldet ist. Sie können die Deckungskarte jederzeit einsehen, auch wenn Sie sich gegen einen Beitrag entscheiden.";
 "coveragemap_alert_accept" = "Akzeptieren";
-"coveragemap_alert_accept2" = "Akzeptieren und nie wieder anzeigen";
+"coveragemap_alert_accept2" = "Akzeptieren und nicht wieder anzeigen";
 "coveragemap_alert_deny" = "Ablehnen";
 "stop_background_tasks" = "Alle Aufgaben im Hintergrund stoppen";
 "detect_ransharing" = "Femto und Ransharing erkennen";
@@ -85,7 +88,7 @@
 "land_footer" = "Wenn Sie diese Option aktivieren, prüft die App im Hintergrund, in welcher Preiszone (Land) Sie sich befinden. Wenn Ihre Mobilfunkdaten aktiviert sind, während Sie sich in einem Land befinden, das nicht in Ihrem Plan enthalten ist, erhalten Sie mehrere Benachrichtigungen, die Sie einladen, Ihre Mobilfunkdaten zu deaktivieren.";
 "cost_protection_title" = "Mehrkostenschutz";
 "carrier_services" = "Anbieterdienste";
-"suivi_conso_20815" = "Erhalten Sie die detaillierte Verbrauchsverfolgung";
+"suivi_conso_20815" = "Erhalten Sie einen detaillierten Verbrauchsbericht";
 "call_555_sms" = "555 anrufen (Verbrauchsverfolgung per SMS)";
 "help" = "Hilfe";
 "call_3244" = "3244 (Dienst) anrufen";
@@ -95,11 +98,11 @@
 "land_g1" = "Land im Hintergrund überprüfen";
 "land_footer_g1" = "Wenn Sie diese Option aktiviert haben, überprüft FMobile im Hintergrund, ob Sie sich noch in Ihrem Heimatland befinden, um die Roaming-Verifizierungen zu vermeiden, wenn Sie in aussland sind. Ihr aktueller Netzbetreiber ist noch nicht mit der zweiten Generation von FMobile auf dem iPad kompatibel, aber wenn ein kompatibler Netzbetreiber verfügbar ist, aktiviert FMobile automatisch die Funktionen der zweiten Generation hier.";
 "background_loc_g1" = "Hintergrundposition";
-"activation" = "🕗 Aktivierung der FMobile Motor...";
-"activate" = "⚠️ FMobile Motor aktivieren";
-"updating" = "🕗 Aktualisierung des FMobile Motors...";
+"activation" = "Aktivierung der FMobile Motor…";
+"activate" = "FMobile Motor aktivieren";
+"updating" = "Aktualisierung des FMobile Motors…";
 "not_connected" = "Sie sind nicht verbunden";
-"not_connected_searching" = "Suche auf %@...";
+"not_connected_searching" = "Suche auf %@…";
 "connected" = "Verbunden: %@";
 "country_included_button" = "Dieses Land %@ ist in meinem Plan enthalten";
 "new_country" = "Neu enthaltene Land";
@@ -129,7 +132,7 @@
 "video_tutorial" = "Video-Tutorial auf FMobile";
 "install_shortcuts" = "Installieren der Kurzbefehle";
 "engine_generation_signification" = "Was bedeuten die Motorgenerationen?";
-"engine_explaination" = "\nFMobile G1\nDer historische Motor von FMobile, seit der ersten Version. Es basiert nur auf der Überprüfung des Standorts und der Verbindungsgeschwindigkeit und ist für iPad reserviert.\n\nFMobile G-A1\nEs ist eine bessere Version der ersten Generation, als die Überprüfung der Verbindungsgeschwindigkeit unter bestimmten Bedingungen vermeiden kann, auch für iPad reserviert.\n\n\nFMobile G2\nEs ist eine brandneue Motor, die auf dem Zustand des Mobilfunknetzes basiert. Es verbraucht auch viel weniger Energie, aber nicht alle Mobilfunkbetreiber sind berechtigt.\n\nFMobile G-A2\nEs ist die fortschrittlichste Generation, die derzeit verfügbar ist. Es ermöglicht es, den Speedtest und die Standortverifikationen zu umgehen und arbeitet vollständig nativ. Es erfordert einen Netzbetreiber und ein Netzwerk, die beide förderfähig sind.\n\nFMobile G3/G-A3\nEs ist der entwickelte Motor aus der Generation G-2/A2. Es nutzt den iOS-Kern durch Siri und ein brandneues zentralisiertes Ökosystem, um mit dem Betriebssystem in beide Richtungen zu kommunizieren und so die bestmögliche Effizienz zu gewährleisten. Die Technologie dahinter basiert auf FMobile G-2/A2.\n\n\nDer Wechsel zwischen den Generationen erfolgt automatisch entsprechend der Berechtigung des Netzwerks, mit dem Sie verbunden sind.";
+"engine_explaination" = "\nFMobile G1\nDer historische Motor von FMobile, seit der ersten Version. Es basiert nur auf der Überprüfung des Standorts und der Verbindungsgeschwindigkeit und ist für iPad reserviert.\n\nFMobile G-A1\nEs ist eine bessere Version der ersten Generation, als die Überprüfung der Verbindungsgeschwindigkeit unter bestimmten Bedingungen vermeiden kann, auch für iPad reserviert.\n\nFMobile G2\nEs ist eine brandneue Motor, die auf dem Zustand des Mobilfunknetzes basiert. Es verbraucht auch viel weniger Energie, aber nicht alle Mobilfunkbetreiber sind berechtigt.\n\nFMobile G-A2\nEs ist die fortschrittlichste Generation, die derzeit verfügbar ist. Es ermöglicht es, den Speedtest und die Standortverifikationen zu umgehen und arbeitet vollständig nativ. Es erfordert einen Netzbetreiber und ein Netzwerk, die beide förderfähig sind.\n\nFMobile G3/G-A3\nEs ist der entwickelte Motor aus der Generation G-2/A2. Es nutzt den iOS-Kern durch Siri und ein brandneues zentralisiertes Ökosystem, um mit dem Betriebssystem in beide Richtungen zu kommunizieren und so die bestmögliche Effizienz zu gewährleisten. Die Technologie dahinter basiert auf FMobile G-2/A2.\n\nDer Wechsel zwischen den Generationen erfolgt automatisch entsprechend der Berechtigung des Netzwerks, mit dem Sie verbunden sind.";
 "engine_generation_title" = "Motorgenerationen";
 "explaination_understood" = "Verstanden!";
 "advanced" = "Fortgeschritten";
@@ -144,16 +147,27 @@
 "field_test_copied_confirmation" = "Code erfolgreich kopiert!";
 "select_url" = "Persönliche URL für den Geschwindigkeitstest";
 "about" = "Über uns";
-"about_description" = "Applikation und Kurzbefehle von Michaël Nass\nUI/UX, Speedtest und Optimierung von Nathan Fallet\nLogo von Bruno (@brunopaiva_152)\n\n\n\nDiese Applikation wurde von unabhängigen Entwicklern entwickelt und wird ohne jegliche Garantie kostenlos zur Verfügung gestellt.\n\n\n\nDer Groupe MINASTE (einschließlich ihrer FMobile Applikation) ist in keinem Fall mit irgend einer Mobilfunkbetreiber verbunden.\n\n\n© 2020 Groupe MINASTE";
-"donate_paypal" = "Mit PayPal spenden";
-"donate_description" = "Egal was passiert, FMobile bleibt kostenlos und werbefrei. Die Spende ist ein Weg, um mir für die App zu danken, auch wenn ich schon super glücklich bin, wenn du mir einfach ein Feedback gibst. Sie werden zur Finanzierung meines Extopy-Projekts beitragen. Bitte stellen Sie sicher, dass Sie die Anwendung vollständig testen und 100% sicher sind, dass Sie mir vorher einen Tipp geben möchten.";
+"about_description" = "Applikation und Kurzbefehle von Michaël Nass\nUI/UX, Deckungsmap, Speedtest und Optimierung von Nathan Fallet\nLogo von Bruno (@brunopaiva_15)\n\nDiese Applikation wurde von unabhängigen Entwicklern entwickelt und wird ohne jegliche Garantie kostenlos zur Verfügung gestellt.\n\nDer Groupe MINASTE (einschließlich ihrer FMobile Applikation) ist in keinem Fall mit irgend einer Mobilfunkbetreiber verbunden.\n\n© 2020 Groupe MINASTE";
+"donate" = "Spenden";
+"select_donation" = "Wählen Sie eine Spende";
+"donate_helloasso" = "Mit HelloAsso Spenden";
+"donate_iap" = "Mit Apple iAP Spenden";
+"donate_warning" = "WWARNUNG FÜR FRANZÖSISCHE BÜRGER";
+"donate_warning_french_citizenship" = "FMobile wird von der Groupe MINASTE betrieben, einer gemeinnützigen Organisation vom Typ 1901 nach französischem Recht. Wenn Sie Staatsbürger der Französischen Republik sind und in Frankreich Steuern zahlen, spenden Sie bitte über die landesweite Spendenplattform HelloAsso und stellen Sie staatlich anerkannte Spendenzertifikate zur Verfügung. Wenn Ihr Bundesstaat verlangt, dass Sie Ihre Spenden nachweisen, wenden Sie sich bitte an HelloAsso (nur EUR). Andernfalls können Sie Apple iAP durchlaufen, kein Zertifikat bereitstellen und 30% des von Ihnen gespendeten Betrags einnehmen.";
+"donate_thank_you" = "Danke!";
+"donate_thank_you_description" = "Die MINASTE Group bedankt sich für Ihre Spende. Wir hoffen, dass Sie mit der Verwendung zur Verbesserung unserer Dienstleistungen voll zufrieden sind.";
+"donate_aborted" = "Spende abgebrochen";
+"donate_unable" = "Sie können hier nicht mehr spenden.";
+"donate_unable_description" = "Kommen wir gleich zum Punkt.\nSie können hier nicht spenden.\n\nApple blockiert die Annahme von Spenden, da sie uns gemäß ihren Richtlinien zur Verwendung von In-App-Käufen zwingen. Lassen Sie sich jetzt von uns aufhalten. Natürlich ist die 30% ige Steuer dieses Zahlungssystems für eine kleine gemeinnützige Organisation sehr frustrierend, und wir halten es moralisch nicht für akzeptabel, Apple durch den gemeinnützigen Sektor reicher zu machen, aber das ist es nicht der Sperrpunkt.\n\nWir sind eine gemeinnützige Organisation vom Typ 1901 nach französischem Recht, und wir müssen Spendenbescheinigungen mit Ihrer Identität für Bürger der Französischen Republik für Steuererklärungszwecke vorlegen. Apple iAP sendet nur eine reguläre Rechnung, die nicht als offizielles Staatsdokument verwendet werden kann.\n\nWir haben einen Schritt in Richtung Apple getan, indem wir beide Systeme in die App aufgenommen und die französischen Bürger gebeten haben, zur nationalen Spendenplattform HelloAsso zu wechseln. Sie lehnten dies immer noch ab, da sie möchten, dass 100% der Spenden über iAP übertragen werden, was wir aufgrund unseres gemeinnützigen Status rechtlich nicht tun können.\n\nAufgrund der mangelnden Zusammenarbeit und des mangelnden Verständnisses unserer Situation durch Apple haben wir uns dazu entschlossen Entfernen Sie In-App-Spenden, auch über iAP, für die ganze Welt. Sie können sich bei Apple für die Richtlinien bedanken, die Sie daran hindern, gemeinnützigen Organisationen zu helfen, andere lebenslange 100% kostenlose Dienste für Sie aufzubauen. Das Wichtigste für uns ist jedoch, dass Sie die kostenlose App genießen und dass sie wirklich nützlich ist für Sie.\n\nMachen Sie keine Sorgen um die Spende, wir werden überleben, egal welchen Stock Apple auf unsere Fahrradräder wirft.";
+"donate_aborted_description" = "Die Spende wurde abgebrochen. Sie wurden nicht belastet.";
+"donate_description" = "Egal was passiert, FMobile bleibt kostenlos und werbefrei. Die Spende ist ein Weg, um mir für die App zu danken, auch wenn ich schon super glücklich bin, wenn Sie mir einfach ein Feedback gibst. Sie werden zur Finanzierung meines Extopy-Projekts beitragen. Bitte stellen Sie sicher, dass Sie die Anwendung vollständig testen und 100% sicher sind, dass Sie mir vorher einen Tipp geben möchten.";
 "ok" = "OK";
-"statistics_agreement" = "Participer à l'enquête 208 16";
+"statistics_agreement" = "Nehmen Sie an der Umfrage 208 16 teil";
 "old_ios_warning" = "iOS %@ fehlt es wichtigen Funktionen!";
 "old_ios_description" = "Diese App funktioniert am besten mit der Apple Shortcuts App, die nur unter iOS 12 und höher verfügbar ist. Bitte aktualisieren Sie Ihr iOS-Gerät auf iOS 12 oder eine spätere Version. Wenn Ihr iOS-Gerät mit iOS 13 kompatibel ist, können Sie auch die FMobile App auf die neueste Version für iOS 13 aktualisieren. Auf Ihrer iOS-Version sind die Vorgänge zum Beenden des Roaming manuell.";
 "location_denied" = "Standortzugriff verweigert";
-"location_denied_description" = "FMobile 3 muss aus technischen und praktischen Gründen Zugang zu Ihrem Standort haben, um im Hintergrund laufen zu können. Sie haben sich entschieden, den permanenten Zugriff auf Ihre Standortdaten zu verweigern. Bitte beachten Sie, dass ohne Ihre ausdrückliche Zustimmung keine Ihrer personenbezogenen Daten an Dritte weitergegeben werden. Das Setzen des Standortzugriffs auf \"Immer\" gilt nicht als ausdrückliche Zustimmung: Es erlaubt der App nur, dass sie normal auf Ihrem Gerät und lokal funktioniert. Beachten Sie, dass FMobile 3 viel von seiner Effizienz verliert, wenn Sie den Standortzugang nicht auf \"Immer\" setzen.";
-"location_denied_change" = "Location-Einstellung auf \"Immer\" stellen.";
+"location_denied_description" = "FMobile 4 muss aus technischen und praktischen Gründen Zugang zu Ihrem Standort haben, um im Hintergrund laufen zu können. Sie haben sich entschieden, den permanenten Zugriff auf Ihre Standortdaten zu verweigern. Bitte beachten Sie, dass ohne Ihre ausdrückliche Zustimmung keine Ihrer personenbezogenen Daten an Dritte weitergegeben werden. Das Setzen des Standortzugriffs auf \"Immer\" gilt nicht als ausdrückliche Zustimmung: Es erlaubt der App nur, dass sie normal auf Ihrem Gerät und lokal funktioniert. Beachten Sie, dass FMobile 4 viel von seiner Effizienz verliert, wenn Sie den Standortzugang nicht auf \"Immer\" setzen.";
+"location_denied_change" = "Location-Einstellung auf \"Immer\" stellen";
 "location_denied_agree" = "Temporäre Zwangsv. des Standortzugr.";
 "location_denied_agree_forever" = "Permanente Zwangsv. des Standortzugr.";
 "location_wrong_setting" = "Falsche Einstellung für den Standortzugang";
@@ -169,17 +183,15 @@
 "email_default_content" = "<p>Erklären Sie im Detail, auf welches Problem Sie hier stoßen: </p>";
 "diagnostic_email" = "FMobile %@ Diagnose - b%@";
 "mail_not_available" = "Die Mail-App ist derzeit nicht verfügbar.";
-"5G_unsupported" = "⚠️ 5G nicht kompatibel";
+"5G_unsupported" = "5G nicht kompatibel";
 "5G_unsupported_description" = "FMobile ist noch nicht bereit, 5G-Roaming zu verwalten. Wir werden FMobile so bald wie möglich aktualisieren, um die Unterstützung dieser Technologie zu bringen. Ihre Einstellung ist jetzt gespeichert und wird angewendet, sobald wir die 5G-Unterstützung aktivieren.";
 "ignore" = "Ignorieren";
-
     // SpeedtestViewController
 "speedtest_view_title" = "Geschwindigkeitstest";
 "speedtest_start" = "Start";
 "speedtest_stop" = "Stop";
 "speedtest_description" = "Der Kern des Speedtests wurde von Nathan Fallet entwickelt und von Michaël Nass modifiziert. Es wird eine schwere Datei für 15s herunterladen. Dieser Speedtest ist nicht derselbe wie der im FMobile Kern zur Erkennung des Roaming-Status bei älteren Motorgenerationen, der optimiert ist, um ihn in weniger als 1s bei einem Internetverbrauch von clоse bis Null zu erkennen.";
 "speedtest_in_progress" = "Ein Geschwindigkeitstest läuft bereits!";
-
     // NotificationManager
 "roaming_protect_disabled" = "Schutz gegen Roaming deaktiviert!";
 "3g_2g_allowed" = "3G- und 2G-Roaming erlaubt";
@@ -189,7 +201,7 @@
 "2g_control_enabled" = "2G-Überwachung aktiviert.";
 "3g_2g_control_enabled" = "3G- und 2G-Überwachung aktiviert.";
 "not_controlling" = "Überwachung nicht aktiv.";
-"checking_roaming" = "Verifizierung läuft...";
+"checking_roaming" = "Verifizierung läuft…";
 "detected_hplus_roaming" = "H+ (3G) ROAMING ERKANNT!";
 "detected_roaming_description" = "Klicken Sie auf die Benachrichtigung, um in Ihr Heimnetzwerk zurückzukehren.";
 "possible_hplus_roaming" = "H+ (3G) ROAMING MÖGLICH!";
@@ -219,19 +231,30 @@
 "basic_included" = "Anrufe, SMS und MMS sind in Ihrem Plan von diesem Land aus enthalten. Internet ist nicht inbegriffen.";
 "internet_included" = "Internet ist in Ihrem Plan enthalten! Anrufe, SMS und MMS sind nicht enthalten.";
 "all_included" = "Anrufe, SMS, MMS und Internet sind in Ihrem Plan enthalten!";
-"alert_paid_data_drain" = "🛂⚠️🛑 MEHRKOSTEN IN BETRIEB 🛑⚠️🆘";
-"alert_paid_data_drain_g3" = "🛂⚠️🛑 MEHRKOSTEN GESPART! 🛑⚠️🆘";
+"alert_paid_data_drain" = "ZUSÄTZLICHE KOSTEN IN BETRIEB";
+"alert_paid_data_drain_g3" = "MEHRKOSTEN GESPART!";
 "new_sim_card_detected" = "SIM-Kartenkonfiguration geändert!";
 "new_sim_card_detected_description" = "Bitte konfigurieren Sie Ihre neue SIM-Karte in der FMobile-Anwendung.";
 "update_done" = "Update erfolgreich!";
-
     //AppDelegate
 "disconnect_from_wifi" = "Trennen Sie sich von der WLAN-Verbindung";
-"preparation_inprogress" = "Vorbereitung läuft...";
+"preparation_inprogress" = "Vorbereitung läuft…";
 "end_phonecall" = "Bitte beenden Sie Ihren Anruf und versuchen Sie es erneut";
 "data_drain_notification_description" = "Klicken Sie um Ihre Mobilfunkdaten sofort zu Deaktivieren, Ihr Verbrauch wird überlastet. %@ %@";
-"data_drain_notification_description_g3" = "FMobile 3 hat gerade Ihre Mobilfunkdaten deaktiviert, um Roaming-Gebühren zu vermeiden. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 4 hat gerade Ihre Mobilfunkdaten deaktiviert, um Roaming-Gebühren zu vermeiden. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@): Willkommen!";
-
 "general_view_title" = "Einstellungen";
 "map_view_title" = "Deckungskarte";
+"map_info_legend_unknown" = "Unbekannt";
+"map_info_legend_nonetwork" = "Kein Netz";
+"map_info_legend_lte_r" = "4G (Roaming)";
+"map_info_legend_3g_r" = "3G (Roaming)";
+"map_info_legend_edge_r" = "EDGE (Roaming)";
+"map_info_legend_gprs_r" = "GPRS (Roaming)";
+"map_info_legend_lte" = "4G";
+"map_info_legend_3g" = "3G";
+"map_info_legend_edge" = "EDGE";
+"map_info_legend_gprs" = "GPRS";
+"map_info_legend" = "Kartenlegende";
+"map_info_carrier" = "Angezeigte Netzwerk";
+"map_info_title" = "Karte Informationen";

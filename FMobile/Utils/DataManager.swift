@@ -47,6 +47,7 @@ class DataManager {
     var statisticsAgreement = false
     var syncNewSIM = Date().addingTimeInterval(30)
     var isSettingUp = false
+    var coverageLowData = false
     
     // Carrier vars
     var simData = String()
@@ -101,7 +102,7 @@ class DataManager {
     
     init() {
         // Lecture des valeurs depuis la config
-        print(Locale.current.languageCode ?? "...");
+        print(Locale.current.languageCode ?? "...")
         if let modeRadin = datas.value(forKey: "modeRadin") as? Bool, Locale.current.languageCode == "fr" {
             self.modeRadin = modeRadin
         }
@@ -249,6 +250,9 @@ class DataManager {
         if let roam5G = datas.value(forKey: "roam5G") as? Bool {
             self.roam5G = roam5G
         }
+        if let coverageLowData = datas.value(forKey: "coverageLowData") as? Bool {
+            self.coverageLowData = coverageLowData
+        }
 //        if let registeredService = datas.value(forKey: "registeredService") as? String {
 //            self.registeredService = registeredService
 //        }
@@ -318,7 +322,13 @@ class DataManager {
         
         let url = URL(fileURLWithPath: operatorPListPath ?? "Error")
         do {
-            let test = try NSDictionary(contentsOf: url, error: ())
+            let test: NSDictionary
+            if #available(iOS 11.0, *) {
+                test = try NSDictionary(contentsOf: url, error: ())
+            } else {
+                // Fallback on earlier versions
+                test = NSDictionary(contentsOf: url) ?? NSDictionary()
+            }
             let array = test["StatusBarImages"] as? NSArray ?? NSArray.init(array: [0])
             let secondDict = NSDictionary(dictionary: array[0] as? Dictionary ?? NSDictionary() as? Dictionary<AnyHashable, Any> ?? Dictionary())
             
@@ -332,7 +342,13 @@ class DataManager {
         carriersim = "Carrier"
         let urlcarrier = URL(fileURLWithPath: carrierPListPath ?? "Error")
         do {
-            let testsim = try NSDictionary(contentsOf: urlcarrier, error: ())
+            let testsim: NSDictionary
+            if #available(iOS 11.0, *) {
+                testsim = try NSDictionary(contentsOf: urlcarrier, error: ())
+            } else {
+                // Fallback on earlier versions
+                testsim = NSDictionary(contentsOf: urlcarrier) ?? NSDictionary()
+            }
             let arraysim = testsim["StatusBarImages"] as? NSArray ?? NSArray.init(array: [0])
             let secondDictsim = NSDictionary(dictionary: arraysim[0] as? Dictionary ?? NSDictionary() as? Dictionary<AnyHashable, Any> ?? Dictionary())
                     
@@ -354,6 +370,7 @@ class DataManager {
         
         let info = CTTelephonyNetworkInfo()
         
+        if #available(iOS 12.0, *) {
         for (service, carrier) in info.serviceSubscriberCellularProviders ?? [:] {
             
             let radio = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
@@ -361,6 +378,12 @@ class DataManager {
             
             print("For Carrier " + (carrier.carrierName ?? "null") + ", got " + radio)
             print(service)
+        }
+        } else {
+            let service = "0000000100000001"
+            let carrier = info.subscriberCellularProvider ?? CTCarrier()
+            let radio = info.currentRadioAccessTechnology ?? ""
+            siminventory.append((service, carrier, radio))
         }
         
         print(siminventory)
@@ -499,9 +522,18 @@ class DataManager {
     
     // Vérification d'un appel en cours
     static func isOnPhoneCall() -> Bool {
-        for call in CXCallObserver().calls {
-            if call.hasEnded == false {
-                return true
+        if #available(iOS 10.0, *) {
+            for call in CXCallObserver().calls {
+                if call.hasEnded == false {
+                    return true
+                }
+            }
+        } else {
+            let callCenter = CTCallCenter()
+            for call in callCenter.currentCalls ?? [] {
+                if call.callState == CTCallStateConnected {
+                    return true
+                }
             }
         }
         return false
@@ -579,11 +611,18 @@ class DataManager {
     static func getSimInventory() -> [(String, CTCarrier, String)] {
         let info = CTTelephonyNetworkInfo()
         var siminventory = [(String, CTCarrier, String)]()
+        if #available(iOS 12.0, *) {
         for (service, carrier) in info.serviceSubscriberCellularProviders ?? [:] {
             
             let radio = info.serviceCurrentRadioAccessTechnology?[service] ?? ""
             siminventory.append((service, carrier, radio))
             
+        }
+        } else {
+            let service = "0000000100000001"
+            let carrier = info.subscriberCellularProvider ?? CTCarrier()
+            let radio = info.currentRadioAccessTechnology ?? ""
+            siminventory.append((service, carrier, radio))
         }
         return siminventory
     }
@@ -627,7 +666,13 @@ class DataManager {
         
         let url = URL(fileURLWithPath: carrierPListPath ?? "Error")
         do {
-            let test = try NSDictionary(contentsOf: url, error: ())
+            let test: NSDictionary
+            if #available(iOS 11.0, *) {
+                test = try NSDictionary(contentsOf: url, error: ())
+            } else {
+                // Fallback on earlier versions
+                test = NSDictionary(contentsOf: url) ?? NSDictionary()
+            }
             array = test["SupportedPLMNs"] as? NSArray ?? NSArray.init(array: [0])
         } catch {
             print("Une erreur est survenue : \(error)")
@@ -655,7 +700,13 @@ class DataManager {
 
             let url = URL(fileURLWithPath: carrierPListPath ?? "Error")
             do {
-                let test = try NSDictionary(contentsOf: url, error: ())
+                let test: NSDictionary
+                if #available(iOS 11.0, *) {
+                    test = try NSDictionary(contentsOf: url, error: ())
+                } else {
+                    // Fallback on earlier versions
+                    test = NSDictionary(contentsOf: url) ?? NSDictionary()
+                }
                 let array = test["SupportedPLMNs"] as? NSArray ?? NSArray.init(array: [0])
                     
                 for index in 0..<array.count {
@@ -677,7 +728,13 @@ class DataManager {
     static func isAirplaneMode() -> Bool {
         let urlairplane = URL(fileURLWithPath: "/var/preferences/SystemConfiguration/com.apple.radios.plist")
         do {
-            let test = try NSDictionary(contentsOf: urlairplane, error: ())
+            let test: NSDictionary
+            if #available(iOS 11.0, *) {
+                test = try NSDictionary(contentsOf: urlairplane, error: ())
+            } else {
+                // Fallback on earlier versions
+                test = NSDictionary(contentsOf: urlairplane) ?? NSDictionary()
+            }
             let airplanemode = test["AirplaneMode"] as? Bool ?? false
             return airplanemode
         } catch {
@@ -697,7 +754,13 @@ class DataManager {
             
             let url = URL(fileURLWithPath: carrierPListPath ?? "Error")
             do {
-                let test = try NSDictionary(contentsOf: url, error: ())
+                let test: NSDictionary
+                if #available(iOS 11.0, *) {
+                    test = try NSDictionary(contentsOf: url, error: ())
+                } else {
+                    // Fallback on earlier versions
+                    test = NSDictionary(contentsOf: url) ?? NSDictionary()
+                }
                 let array = test["SupportedPLMNs"] as? NSArray ?? []
                     
                 for item in array {

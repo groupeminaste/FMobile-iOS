@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import APIRequest
+import CoreData
 
 class CarrierConfiguration: Codable {
     
@@ -36,12 +38,21 @@ class CarrierConfiguration: Codable {
     
     // On fetch le fichier et retourne les valeurs
     static func fetch(forMCC mcc: String, andMNC mnc: String, completionHandler: @escaping (CarrierConfiguration?) -> ()) {
+        // On check le cache
+        if let carrier = CarrierConfiguration.getDatabaseCarrier(mcc: mcc, mnc: mnc) {
+            // On return depuis le cache
+            completionHandler(carrier)
+            return
+        }
+        
+        // Check de l'api
+        APIConfiguration.check()
+        
         // On appel l'API
-        APIRequest("GET", path: "/carrierconfiguration/\(mcc)-\(mnc).json").execute(CarrierConfiguration.self) { data, status in
+        APIRequest("GET", path: "/carrierconfiguration/\(mcc)-\(mnc).json").execute(CarrierConfiguration.self) { data, _ in
             // On vérifie la validité de la configuration (non nil, avec bon MCC et MNC)
             if let configuration = data, configuration.mcc == mcc, configuration.mnc == mnc {
-                // Return
-                
+                // Update de la config
                 if UIDevice.current.userInterfaceIdiom == .pad {
                     if let mcc = configuration.iPadOverwrite?["mcc"]?.value() as? String {
                         configuration.mcc = mcc
@@ -105,6 +116,10 @@ class CarrierConfiguration: Codable {
                     }
                 }
                 
+                // On save en cache
+                CarrierConfiguration.insertInDatabase(item: configuration)
+                
+                // Return
                 completionHandler(configuration)
                 return
             }
@@ -112,6 +127,128 @@ class CarrierConfiguration: Codable {
             // Sinon soit la configuration n'existe pas, soit le device est hors ligne
             completionHandler(nil)
         }
+    }
+    
+    func toString(expertMode: Bool) -> String {
+        return "\(homename ?? "Carrier") (\(land ?? ""))" + (expertMode ? " [\(mcc ?? "---") \(mnc ?? "--")]" : "")
+    }
+    
+    static func clearDatabase() {
+        let context: NSManagedObjectContext
+        if #available(iOS 10.0, *) {
+            context = RoamingManager.persistentContainer.viewContext
+        } else {
+            // Fallback on earlier versions
+            context = RoamingManager.managedObjectContext
+        }
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Carriers")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        context.performAndWait({
+            do {
+                try context.execute(deleteRequest)
+                try context.save()
+                print("Carriers Database cleared")
+            } catch {
+                print ("There was an error while saving the Carriers Database")
+            }
+        })
+    }
+    
+    static func insertInDatabase(item: CarrierConfiguration) {
+        let context: NSManagedObjectContext
+        if #available(iOS 10.0, *) {
+            context = RoamingManager.persistentContainer.viewContext
+        } else {
+            // Fallback on earlier versions
+            context = RoamingManager.managedObjectContext
+        }
+        guard let entity = NSEntityDescription.entity(forEntityName: "Carriers", in: context) else {
+            print("Error: Carriers entity not found in Database!")
+            return
+        }
+        
+        guard let mcc = item.mcc, let mnc = item.mnc, let itiname = item.itiname, let homename = item.homename else {
+            print("One essential item is unexpectedly nil")
+            return
+        }
+        
+        context.performAndWait({
+            let newCoo = NSManagedObject(entity: entity, insertInto: context)
+            
+            newCoo.setValue(mcc, forKey: "mcc")
+            newCoo.setValue(mnc, forKey: "mnc")
+            newCoo.setValue(item.stms ?? 5000, forKey: "stms")
+            newCoo.setValue(item.hp ?? "WCDMA", forKey: "hp")
+            newCoo.setValue(item.nrp ?? "HSDPA", forKey: "nrp")
+            newCoo.setValue(item.land ?? "FR", forKey: "land")
+            newCoo.setValue(itiname, forKey: "itiname")
+            newCoo.setValue(homename, forKey: "homename")
+            newCoo.setValue(item.itimnc ?? "00", forKey: "itimnc")
+            newCoo.setValue(item.nrfemto ?? false, forKey: "nrfemto")
+            newCoo.setValue(item.out2G ?? false, forKey: "out2G")
+            newCoo.setValue(item.setupDone ?? true, forKey: "setupDone")
+            newCoo.setValue(item.minimalSetup ?? true, forKey: "minimalSetup")
+            newCoo.setValue(item.disableFMobileCore ?? true, forKey: "disableFMobileCore")
+            newCoo.setValue(item.countriesData?.toJSON() ?? "[]", forKey: "countriesData")
+            newCoo.setValue(item.countriesVoice?.toJSON() ?? "[]", forKey: "countriesVoice")
+            newCoo.setValue(item.countriesVData?.toJSON() ?? "[]", forKey: "countriesVData")
+            newCoo.setValue(item.carrierServices?.toJSON() ?? "[]", forKey: "carrierServices")
+            newCoo.setValue(item.iPadOverwrite?.toJSON() ?? "{}", forKey: "iPadOverwrite")
+            newCoo.setValue(item.roamLTE ?? false, forKey: "roamLTE")
+            newCoo.setValue(item.roam5G ?? false, forKey: "roam5G")
+        
+            do {
+                try context.save()
+                print("Carriers POINT SAVED!")
+            } catch {
+                print("Failed while saving Carriers Point")
+            }
+        })
+            
+    }
+    
+    static func getDatabaseCarrier(mcc: String, mnc: String) -> CarrierConfiguration? {
+        let context: NSManagedObjectContext
+        if #available(iOS 10.0, *) {
+            context = RoamingManager.persistentContainer.viewContext
+        } else {
+            // Fallback on earlier versions
+            context = RoamingManager.managedObjectContext
+        }
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Carriers")
+        request.predicate = NSPredicate(format: "(mcc == %@) AND (mnc == %@)", mcc, mnc)
+        request.returnsObjectsAsFaults = false
+        
+        if let result = try? (context.fetch(request) as? [NSManagedObject] ?? [NSManagedObject()]).first {
+            let final = CarrierConfiguration()
+            final.mcc = result.value(forKey: "mcc") as? String
+            final.mnc = result.value(forKey: "mnc") as? String
+            final.stms = result.value(forKey: "stms") as? Double
+            final.hp = result.value(forKey: "hp") as? String
+            final.nrp = result.value(forKey: "nrp") as? String
+            final.land = result.value(forKey: "land") as? String
+            final.itiname = result.value(forKey: "itiname") as? String
+            final.homename = result.value(forKey: "homename") as? String
+            final.itimnc = result.value(forKey: "itimnc") as? String
+            final.nrfemto = result.value(forKey: "nrfemto") as? Bool
+            final.out2G = result.value(forKey: "out2G") as? Bool
+            final.setupDone = result.value(forKey: "setupDone") as? Bool
+            final.minimalSetup = result.value(forKey: "minimalSetup") as? Bool
+            final.disableFMobileCore = result.value(forKey: "disableFMobileCore") as? Bool
+            final.countriesData = (result.value(forKey: "countriesData") as? String)?.fromJSON(as: [String].self) ?? []
+            final.countriesVoice = (result.value(forKey: "countriesVoice") as? String)?.fromJSON(as: [String].self) ?? []
+            final.countriesVData = (result.value(forKey: "countriesVData") as? String)?.fromJSON(as: [String].self) ?? []
+            final.carrierServices = (result.value(forKey: "carrierServices") as? String)?.fromJSON(as: [[String]].self) ?? []
+            final.iPadOverwrite = (result.value(forKey: "iPadOverwrite") as? String)?.fromJSON(as: [String:AnyCodable].self) ?? [:]
+            final.roamLTE = result.value(forKey: "roamLTE") as? Bool
+            final.roam5G = result.value(forKey: "roam5G") as? Bool
+            
+            return final
+        }
+        print("COULD NOT FETCH REQUEST.")
+        return nil
     }
     
 }

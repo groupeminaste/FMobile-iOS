@@ -83,19 +83,28 @@ class SwitchTableViewCell: UITableViewCell {
         if let table = controller {
             // If coverage map, show alert
             if id == "coveragemap" && switchElement.isOn && !datas.bool(forKey: "coveragemap_noalert") {
+                datas.set(false, forKey: "coveragemap")
+                datas.synchronize()
+                
                 let alert = UIAlertController(title: "coveragemap_alert_title".localized(), message: "coveragemap_alert_description".localized(), preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "coveragemap_alert_accept".localized(), style: .default) { _ in })
+                alert.addAction(UIAlertAction(title: "coveragemap_alert_accept".localized(), style: .default) { _ in
+                    datas.set(true, forKey: "coveragemap")
+                    datas.synchronize()
+                    table.loadUI()
+                    table.refreshSections()
+                })
                 alert.addAction(UIAlertAction(title: "coveragemap_alert_accept2".localized(), style: .default) { _ in
                     // Save "Do not show again"
+                    datas.set(true, forKey: "coveragemap")
                     datas.set(true, forKey: "coveragemap_noalert")
                     datas.synchronize()
+                    table.loadUI()
+                    table.refreshSections()
                 })
                 alert.addAction(UIAlertAction(title: "coveragemap_alert_deny".localized(), style: .cancel) { _ in
                     // Cancel switch
                     datas.set(false, forKey: "coveragemap")
                     datas.synchronize()
-                    table.loadUI()
-                    table.refreshSections()
                 })
                 table.present(alert, animated: true, completion: nil)
             }
@@ -107,7 +116,7 @@ class SwitchTableViewCell: UITableViewCell {
             }
             
             if id == "allow015G" && !switchElement.isOn {
-                let alert = UIAlertController(title: "5G_unsupported".localized(), message: "5G_unsupported_description".localized(), preferredStyle: .alert)
+                let alert = UIAlertController(title: "⚠️ \("5G_unsupported".localized())", message: "5G_unsupported_description".localized(), preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: nil))
                 table.present(alert, animated: true, completion: nil)
             }

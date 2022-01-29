@@ -7,7 +7,7 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 3";
+"fmobile" = "FMobile 4";
 "reset_zones_done" = "Reset uitgevoerd";
 "reset_zones_done_description" = "Alle Femto en randzones zijn gereset.";
 "close" = "Sluit";
@@ -23,7 +23,7 @@
 "url_for_engine" = "URL voor de motor";
 "url_for_speedtest" = "URL voor de stroomtest";
 "setup_title" = "Configuratie van de toepassing";
-"setup_description" = "Deze applicatie is ontworpen om te voorkomen dat er een nationale roaming-overeenkomst wordt toegepast op uw apparaat. Er is geen automatische configuratie gevonden voor uw operator. Als uw provider een 2G+3G National Roaming Agreement heeft die uw internetverbinding aanzienlijk vertraagt, kunt u deze toepassing instellen om u te helpen op het thuisnetwerk in uw land te blijven. Zodra u deze informatie heeft verstrekt, kunt u uw voorkeuren instellen op het NIA. Merk op dat u deze functie niet kunt gebruiken met MVNO's. De applicatie zal waarschijnlijk niet goed werken bij een handmatige configuratie, dus neem contact op met de ontwikkelaar om de automatische configuratie van uw operator op te bouwen. Wees voorzichtig, je moet in het Engels antwoorden, het is geen vertaalfout. (ja -> yes / -> nee -> no)";
+"setup_description" = "Deze applicatie is ontworpen om te voorkomen dat er een nationale roaming-overeenkomst wordt toegepast op uw apparaat. Er is geen automatische configuratie gevonden voor uw operator. Als uw provider een 2G+3G National Roaming Agreement heeft die uw internetverbinding aanzienlijk vertraagt, kunt u deze toepassing instellen om u te helpen op het thuisnetwerk in uw land te blijven. Zodra u deze informatie heeft verstrekt, kunt u uw voorkeuren instellen op het NIA. Merk op dat u deze functie niet kunt gebruiken met MVNO's. De applicatie zal waarschijnlijk niet goed werken bij een handmatige configuratie, dus neem contact op met de ontwikkelaar om de automatische configuratie van uw operator op te bouwen. Wees voorzichtig, je moet in het Engels antwoorden, het is geen vertaalfout. (ja -> yes / -> nee -> no).";
 "form_nra" = "AIN-snelheid in Mbps (ex: 0.470)";
 "form_hp" = "RP 3G protocol (ex: WCDMA)";
 "form_nr" = "IN 3G protocol (ex: HSDPA)";
@@ -32,25 +32,25 @@
 "form_mnc" = "roaming MNC (ex: 01)";
 "form_femto" = "IN conflict femto+R.S.? (yes/no)";
 "form_out2g" = "RP geen 2G? (yes/no)";
-"detecting_autoconfig" = "Automatische configuratie...";
+"detecting_autoconfig" = "Automatische configuratie…";
 "choose_setup" = "Kies uw configuratie";
 "choose_setup_description" = "FMobile heeft geen automatische configuratie voor uw operator gevonden. U kunt ervoor kiezen om FMobile op een minimumconfiguratie te draaien zonder informatie in te voeren, of optioneel kunt u er ook voor kiezen om FMobile op een standaardconfiguratie te draaien, door basisinformatie over uw provider en zijn roamingnetwerk in te voeren. Voor de meeste exploitanten zou de minimumconfiguratie soepel moeten verlopen, maar sommige exploitanten met een complexere roamingstructuur zouden in plaats daarvan wellicht de standaardconfiguratie moeten gebruiken.";
 "use_minimal_setup" = "Gebruik de minimale configuratie";
-"checking_eligibility" = "Controleren of je in aanmerking komt...";
+"checking_eligibility" = "Controleren of je in aanmerking komt…";
 "compatibility_issues" = "Compatibiliteitsfouten";
 "compatibility_error_message" = "FMobile heeft gedetecteerd dat de minimumconfiguratie op uw apparaat kan falen. U kunt het nog steeds gebruiken of de standaardconfiguratie uitvoeren.";
 "force_minimal_setup" = "Minimumconfiguratie forceren";
 "run_standard_setup" = "Start de standaardconfiguratie";
 "use_standard_setup" = "Gebruik de standaardconfiguratie";
-"warning_title" = "⚠️ RESPONSIBILITEIT";
-"warning_description" = "BELANGRIJK: Deze toepassing wordt gratis en zonder garantie aangeboden. U bent er volledig verantwoordelijk voor, met andere woorden, alle schade die verband houdt met de toepassing valt onder uw exclusieve verantwoordelijkheid (met uitzondering van mobiele plannen, stroomverbruik, oververhitting, enz...). Het is aan u om regelmatig het verbruik van de applicatie te controleren en uit te schakelen als u naar het buitenland gaat. Stuur mij uw facturen niet per e-mail, u krijgt geen terugbetaling (het lijkt voor sommigen misschien duidelijk, maar het is al gebeurd...)";
+"warning_title" = "RESPONSIBILITEIT";
+"warning_description" = "BELANGRIJK: Deze toepassing wordt gratis en zonder garantie aangeboden. U bent er volledig verantwoordelijk voor, met andere woorden, alle schade die verband houdt met de toepassing valt onder uw exclusieve verantwoordelijkheid (met uitzondering van mobiele plannen, stroomverbruik, oververhitting, enz…). Het is aan u om regelmatig het verbruik van de applicatie te controleren en uit te schakelen als u naar het buitenland gaat. Stuur mij uw facturen niet per e-mail, u krijgt geen terugbetaling (het lijkt voor sommigen misschien duidelijk, maar het is al gebeurd…)";
 "uninstall" = "Deïnstalleer de applicatie";
 "accept_conditions" = "Ik accepteer deze voorwaarden";
 "first_update_succeeded" = "Het eerste updateproces was succesvol.";
 "update_succeeded" = "Het proces van het updaten van de b%@ motor naar de b%@ motor was succesvol. Alle onderhoudstaken zijn afgerond, u heeft niets te doen.";
-"diagnostic_inprogress" = "Diagnose in uitvoering.......";
+"diagnostic_inprogress" = "Diagnose in uitvoering…";
 "first_start_title" = "Eerste start";
-"first_start_description" = "Welkom op FMobile! Begin met het leren van de basisprincipes alvorens de toepassing te gebruiken. U vindt de video tutorial en snelkoppelingen op elk moment in de FMobile helpsectie. Als je het niet langer nodig hebt, sluit het raam met \"Niet meer weergeven\"";
+"first_start_description" = "Welkom op FMobile! Begin met het leren van de basisprincipes alvorens de toepassing te gebruiken. U vindt de video tutorial en snelkoppelingen op elk moment in de FMobile helpsectie. Als je het niet langer nodig hebt, sluit het raam met \"Niet meer weergeven\".";
 "itinerance" = "roaming";
 "insert_sim_title" = "Een SIM-kaart plaatsen";
 "insert_sim_description" = "Plaats en ontgrendel een geldige SIM-kaart om FMobile te kunnen gebruiken.";
@@ -68,9 +68,12 @@
 "verifywifi" = "Controleer zelfs op Wi-Fi";
 "wififooter" = "Door deze optie in te schakelen, vindt de controle op roaming plaats, zelfs wanneer u verbonden bent met een WiFi-netwerk. Om de batterij te optimaliseren (met uitzondering van de A3-generatie), is het raadzaam om deze optie uitgeschakeld te houden.";
 "statsprefs" = "Statistische voorkeuren";
+"privacy" = "Ertrouwelijkheid";
+"diag_privacy" = "Als u de dekkingskaart gebruikt of een aantal niet-gedekte zones gebruikt, wilt u misschien uw GPS-coördinaten in het diagnosebestand opnemen om het probleem sneller op te lossen. Aangezien dit gevoelige gegevens zijn, kunt u ervoor kiezen deze niet op te nemen als u denkt dat deze informatie niet relevant is. Nadat de diagnose is voltooid, gebruikt u de speciale \"Verzenden naar de ontwikkelaar\" -optie om deze direct over te dragen. Wilt u deze gegevens opnemen in de diagnose?";
 "coveragemap_switch" = "Bijdragen aan de omslagkaart";
-"coveragemap_alert_title" = "vertrouwelijkheid";
-"coveragemap_alert_description" = "Deelname aan het invullen van de dekkingskaart is volledig anoniem.  De gegevens die u verzendt, zijn daarom niet onderworpen aan de rechten van overdraagbaarheid, toegang of verwijdering.  De volgende gegevens worden op de achtergrond verzameld tijdens de gebruikelijke FMobile-controles: operatorcode (MCC, MNC), simkaartcode (MCC, MNC), locatie, verbindingsprotocol.  We slaan geen enkele vorm van gebruikersidentificatie op, dus we kunnen niet weten welke gegevens door wie zijn verzonden en we kunnen u niet volgen.  Eenmaal verzameld, zullen ze direct op de dekkingskaart verschijnen als de operator bij FMobile wordt aangegeven.  U kunt de dekkingskaart altijd bekijken, zelfs als u besluit niet bij te dragen.";
+"coveragemapLowData_switch" = "Wacht op Wi-Fi alvorens te verzenden";
+"coveragemap_alert_title" = "Dekkingskaart: ertrouwelijkheid";
+"coveragemap_alert_description" = "Deelname aan het invullen van de dekkingskaart is volledig anoniem. De gegevens die u verzendt, zijn daarom niet onderworpen aan de rechten van overdraagbaarheid, toegang of verwijdering. De volgende gegevens worden op de achtergrond verzameld tijdens de gebruikelijke FMobile-controles: operatorcode (MCC, MNC), simkaartcode (MCC, MNC), locatie, verbindingsprotocol. We slaan geen enkele vorm van gebruikersidentificatie op, dus we kunnen niet weten welke gegevens door wie zijn verzonden en we kunnen u niet volgen. Eenmaal verzameld, zullen ze direct op de dekkingskaart verschijnen als de operator bij FMobile wordt aangegeven. U kunt de dekkingskaart altijd bekijken, zelfs als u besluit niet bij te dragen.";
 "coveragemap_alert_accept" = "Accepteren";
 "coveragemap_alert_accept2" = "Accepteren en nooit meer weergeven";
 "coveragemap_alert_deny" = "Afwijzen";
@@ -95,19 +98,19 @@
 "land_g1" = "Controleer het land op de achtergrond";
 "land_footer_g1" = "Door deze optie in te schakelen, zal FMobile op de achtergrond controleren of u zich nog steeds in uw land bevindt om roaming-controles in het buitenland te voorkomen. Uw huidige provider is nog niet compatibel met de tweede generatie FMobile op iPad, maar als er een geschikte provider beschikbaar is, zal FMobile hier automatisch de tweede generatie functies activeren.";
 "background_loc_g1" = "Achtergrond locatie";
-"activation" = "🕗 Activering van de FM-mobiele motor in uitvoering...";
-"activate" = "⚠️ Activeer de FMobile motor";
-"updating" = "🕗 Update van de FMobile motor in uitvoering...";
+"activation" = "Activering van de FM-mobiele motor in uitvoering…";
+"activate" = "Activeer de FMobile motor";
+"updating" = "Update van de FMobile motor in uitvoering…";
 "not_connected" = "U bent niet verbonden";
-"not_connected_searching" = "Op zoek naar %@...";
+"not_connected_searching" = "Op zoek naar %@…";
 "connected" = "Aangesloten: %@";
-"country_included_button" = "Dit land %@ is inbegrepen in mijn pakket.";
+"country_included_button" = "Dit land %@ is inbegrepen in mijn pakket";
 "new_country" = "Nieuw land inbegrepen";
 "new_country_description" = "Wij voegen het land toe %@ zoals inbegrepen in uw pakket..";
 "included_voice" = "Alleen bijgeleverde voice/SMS";
 "included_internet" = "Alleen inclusief internet";
 "included_all" = "Alles is inbegrepen";
-"esim_not_connected" = "U bent niet verbonden met de eSIM.";
+"esim_not_connected" = "U bent niet verbonden met de eSIM";
 "esim_connected" = "Aangesloten op het eSIM-netwerk %@@";
 "wifi_status" = "Wi-Fi: %@";
 "set_no_network" = "Definieer dit gebied zonder dekking";
@@ -129,7 +132,7 @@
 "video_tutorial" = "Videotutorial op FMobile";
 "install_shortcuts" = "Snelkoppelingen installeren";
 "engine_generation_signification" = "Wat betekenen de generaties van de motor?";
-"engine_explaination" = "\nFMobile G1\nDe historische motor van FMobile, sinds de eerste versie. Het is gebaseerd op verificaties via lokalisatie en flow testing alleen, en is gereserveerd voor iPad.\n\nFMobile G-A1\ndie onder bepaalde omstandigheden zonder de flowtest kan, ook gereserveerd voor iPad. \n\nFMobile G2\nhet is een gloednieuwe engine op basis van de staat van het telefoonnetwerk. Het verbruikt aanzienlijk minder energie, maar niet alle operatoren komen in aanmerking. \n\nFMobile G-A2\dit is de meest geavanceerde versie tot nu toe. Het kan zonder stromingstesten, lokalisatie en werkt volledig in eigen beheer. Het vereist een operator en een in aanmerking komend netwerk.\n\nFMobile G3/G-A3\nHet is de ontwikkelde motor van de generatie G-2/A2. Het maakt gebruik van de iOS-kern via Siri en een gloednieuw gecentraliseerd ecosysteem om in beide richtingen met het besturingssysteem te communiceren om de best mogelijke efficiëntie te garanderen. De achterliggende technologie is gebaseerd op FMobile G-2/A2.\n\nDe omschakeling van de ene generatie naar de volgende vindt automatisch plaats, afhankelijk van de geschiktheid van het netwerk waarmee u bent verbonden.";
+"engine_explaination" = "\nFMobile G1\nDe historische motor van FMobile, sinds de eerste versie. Het is gebaseerd op verificaties via lokalisatie en flow testing alleen, en is gereserveerd voor iPad.\n\nFMobile G-A1\ndie onder bepaalde omstandigheden zonder de flowtest kan, ook gereserveerd voor iPad. \n\nFMobile G2\nhet is een gloednieuwe engine op basis van de staat van het telefoonnetwerk. Het verbruikt aanzienlijk minder energie, maar niet alle operatoren komen in aanmerking. \n\nFMobile G-A2\ndit is de meest geavanceerde versie tot nu toe. Het kan zonder stromingstesten, lokalisatie en werkt volledig in eigen beheer. Het vereist een operator en een in aanmerking komend netwerk.\n\nFMobile G3/G-A3\nHet is de ontwikkelde motor van de generatie G-2/A2. Het maakt gebruik van de iOS-kern via Siri en een gloednieuw gecentraliseerd ecosysteem om in beide richtingen met het besturingssysteem te communiceren om de best mogelijke efficiëntie te garanderen. De achterliggende technologie is gebaseerd op FMobile G-2/A2.\n\nDe omschakeling van de ene generatie naar de volgende vindt automatisch plaats, afhankelijk van de geschiktheid van het netwerk waarmee u bent verbonden.";
 "engine_generation_title" = "Motorgeneraties";
 "explaination_understood" = "Begrepen!";
 "advanced" = "Gevorderd";
@@ -144,15 +147,26 @@
 "field_test_copied_confirmation" = "Code gekopieerd!";
 "select_url" = "Aangepaste URL voor flow test";
 "about" = "Over ons";
-"about_description" = "Applicatie en snelkoppelingen gemaakt door Michaël Nass\nUI/UX, flow test en optimalisatie door Nathan Fallet\nLogo by Bruno (@brunopaiva_152)\nNederlandse vertaling door Louis Legout\n\nDeze applicatie is ontwikkeld door onafhankelijke ontwikkelaars en wordt gratis en zonder enige garantie geleverd. \n\nDe Groupe MINASTE (inclusief de FMobile applicatie) is onder geen enkele voorwaarde verbonden aan een operator. \n\n© 2020 Groupe MINASTE";
-"donate_paypal" = "Doe een PayPal-donatie";
+"about_description" = "Applicatie en snelkoppelingen gemaakt door Michaël Nass\nUI/UX, dekkingskaart, flow test en optimalisatie door Nathan Fallet\nLogo by Bruno (@brunopaiva_15)\n\nDeze applicatie is ontwikkeld door onafhankelijke ontwikkelaars en wordt gratis en zonder enige garantie geleverd. \n\nDe Groupe MINASTE (inclusief de FMobile applicatie) is onder geen enkele voorwaarde verbonden aan een operator. \n\n© 2020 Groupe MINASTE";
+"donate" = "Doe een donatie";
+"select_donation" = "Selecteer een donatie";
+"donate_helloasso" = "Doe een HelloAsso-donatie";
+"donate_iap" = "Doe een Apple iAP-donatie";
+"donate_warning" = "WAARSCHUWING VOOR FRANSE BURGERS";
+"donate_warning_french_citizenship" = "FMobile wordt beheerd door de Groupe MINASTE, een Franse non-profit organisatie van het type 1901. Als u een burger van de Franse Republiek bent en belasting betaalt in Frankrijk, doneer dan via het landelijke donatieplatform HelloAsso, dat door de staat erkende donatiecertificaten verstrekt. Als uw staat vereist dat u uw donaties moet bewijzen, ga dan door via HelloAsso (alleen EUR). Anders kunt u door Apple iAP gaan, geen certificaat verstrekken en 30% van het bedrag dat u schenkt innen.";
+"donate_thank_you" = "Dankjewel!";
+"donate_thank_you_description" = "De MINASTE-groep dankt u voor uw donatie. We hopen dat u volledig tevreden zult zijn met het gebruik ervan om onze diensten te verbeteren.";
+"donate_aborted" = "Donatie afgebroken";
+"donate_aborted_description" = "De donatie is afgebroken. Er zijn geen kosten in rekening gebracht.";
+"donate_unable" = "U kunt hier niet meer doneren.";
+"donate_unable_description" = "Laten we meteen ter zake komen.\nU kunt hier niet doneren.\n\nApple blokkeert ons om donaties te accepteren omdat ze ons dwingen om in-app aankopen te doen. Laten we u nu tegenhouden, natuurlijk is de 30% belasting van dit betalingssysteem erg frustrerend voor een kleine non-profitorganisatie, en we vinden het niet moreel acceptabel om Apple rijker te maken via de non-profitsector, maar dit is niet het blokkeerpunt.\n\nWij zijn een Franse non-profit organisatie van het type 1901 en we moeten donatiecertificaten met uw identiteit overleggen aan burgers van de Franse Republiek voor belastingaangiftedoeleinden. Apple iAP verstuurt alleen een gewone factuur, die niet als officieel staatsdocument kan worden gebruikt.\n\nWe hebben een stap in de richting van Apple gezet door beide systemen in de app op te nemen en de Franse burger te vragen door te gaan naar het nationale donatieplatform HelloAsso. Ze weigerden nog steeds, omdat ze willen dat 100% van de donaties via iAP wordt doorgevoerd, wat we wettelijk niet kunnen doen vanwege onze non-profitstatus.\n\nDoor het gebrek aan medewerking en begrip van onze situatie van Apple, hebben we besloten om verwijder in-app donaties, ook via iAP, voor de hele wereld. Je zou Apple kunnen bedanken voor de richtlijnen die je helpen om non-profitorganisaties te helpen andere levenslange 100% gratis services voor je te bouwen, maar het belangrijkste voor ons is dat je op elk moment geniet van de gratis app en dat deze echt nuttig is voor jou.\n\nMaak je geen zorgen over de donatie, we zullen overleven, ongeacht welke stok Apple naar onze fietswielen gooit.";
 "donate_description" = "Wat er ook gebeurt, FMobile blijft gratis en zonder reclame. De donatie is een manier om me te bedanken voor de app, ook al ben ik al erg blij als je me gewoon je feedback geeft. U draagt bij aan de financiering van mijn Extopy-project. Test de toepassing zorgvuldig en zorg ervoor dat u mij een tip wilt geven voordat u het doet.";
 "ok" = "OK";
-"statistics_agreement" = "Participer à l'enquête 208 16";
+"statistics_agreement" = "Deelname aan het onderzoek 208 16";
 "old_ios_warning" = "iOS% @ mist belangrijke functies!";
 "old_ios_description" = "Deze apps werken het beste met de Apple Shortcuts-app, die alleen beschikbaar is op iOS 12 en hoger. Werk uw iOS-apparaat bij naar iOS 12 of een latere versie. Als uw iOS-apparaat iOS 13 kan uitvoeren, kunt u ook de FMobile-app bijwerken naar de nieuwste versie die is gemaakt voor iOS 13. Op uw iOS-versie zijn de bewerkingen om Roaming af te sluiten handmatig.";
 "location_denied" = "Locatietoegang geweigerd";
-"location_denied_description" = "FMobile 3 moet om technische en praktische redenen toegang hebben tot uw locatie om op de achtergrond te kunnen werken. U hebt besloten de permanente toegang tot uw locatiegegevens te weigeren. Houd er rekening mee dat geen van uw persoonlijke gegevens ooit ergens naartoe zal worden verzonden zonder uw uitdrukkelijke toestemming. Het instellen van de locatietoegang op \"Altijd\" wordt niet beschouwd als een expliciete toestemming: het laat de app alleen normaal op uw apparaat werken, lokaal. Houd er rekening mee dat FMobile 3 veel van zijn efficiëntie verliest als u de locatietoegang niet instelt op \"Altijd\".";
+"location_denied_description" = "FMobile 4 moet om technische en praktische redenen toegang hebben tot uw locatie om op de achtergrond te kunnen werken. U hebt besloten de permanente toegang tot uw locatiegegevens te weigeren. Houd er rekening mee dat geen van uw persoonlijke gegevens ooit ergens naartoe zal worden verzonden zonder uw uitdrukkelijke toestemming. Het instellen van de locatietoegang op \"Altijd\" wordt niet beschouwd als een expliciete toestemming: het laat de app alleen normaal op uw apparaat werken, lokaal. Houd er rekening mee dat FMobile 4 veel van zijn efficiëntie verliest als u de locatietoegang niet instelt op \"Altijd\".";
 "location_denied_change" = "Wijzig de locatie-instelling in \"Altijd\"";
 "location_denied_agree" = "Toegang tot locatie tijdelijk forceren";
 "location_denied_agree_forever" = "Toegang tot locatie permanent forceren";
@@ -169,17 +183,15 @@
 "email_default_content" = "<p>Leg in detail het probleem uit dat u hier tegenkomt: </p>";
 "diagnostic_email" = "Diagnostische FMobile %@ - b%@";
 "mail_not_available" = "De Mail-app is momenteel niet beschikbaar.";
-"5G_unsupported" = "⚠️ 5G niet compatibel";
+"5G_unsupported" = "5G niet compatibel";
 "5G_unsupported_description" = "FMobile is nog niet klaar om 5G roaming te beheren. We zullen FMobile zo snel mogelijk updaten om deze technologie te ondersteunen. Uw instelling is nu opgeslagen, en zal worden toegepast zodra we de 5G ondersteuning activeren.";
 "ignore" = "Negeren";
-
     // SpeedtestViewController
 "speedtest_view_title" = "Stroomtest";
 "speedtest_start" = "Opstarten";
 "speedtest_stop" = "Stoppen";
 "speedtest_description" = "Van kern van de stromingstest werd ontwikkeld door Nathan Fallet en opnieuw bekeken door Michaël Nass. Hij gaat een groot bestand downloaden voor 15s. Deze snelheidstest is niet hetzelfde als de snelheidstest sterven in de FMobile-kern wordt gebruikt om roaming op oudere generaties van de motor te detecteren in - dan 1s met bijna geen internetverbruik.";
 "speedtest_in_progress" = "Test reeds in uitvoering!";
-
     // NotificationManager
 "roaming_protect_disabled" = "Roaming-bescherming uitgeschakeld!";
 "3g_2g_allowed" = "3G- en 2G-roaming toegestaan";
@@ -189,7 +201,7 @@
 "2g_control_enabled" = "2G-bewaking geactiveerd.";
 "3g_2g_control_enabled" = "3G- en 2G-bewaking ingeschakeld.";
 "not_controlling" = "Bewaking niet actief.";
-"checking_roaming" = "Ik controleer de voortgang...";
+"checking_roaming" = "Ik controleer de voortgang…";
 "detected_hplus_roaming" = "H+ ROAMING (3G) GEDETECTEERD!";
 "detected_roaming_description" = "Klik op de melding om terug te keren naar het eigen netwerk.";
 "possible_hplus_roaming" = "H+ ROAMING (3G) WAARSCHIJNLIJK!";
@@ -219,19 +231,31 @@
 "basic_included" = "Gesprekken, SMS en MMS zijn inbegrepen in uw pakket. Internet is niet inbegrepen.";
 "internet_included" = "Internet is inbegrepen in uw pakket! Oproepen, SMS en MMS zijn niet inbegrepen.";
 "all_included" = "Gesprekken, SMS, MMS en internet zijn inbegrepen in uw pakket!";
-"alert_paid_data_drain" = "🛂⚠️🛑 OFF-PACKAGE IN UITVOERING 🛑⚠️🆘";
-"alert_paid_data_drain" = "🛂⚠️🛑 OFF-PACKAGE GERED 🛑⚠️🆘";
+"alert_paid_data_drain" = "OFF-PACKAGE IN UITVOERING";
+"alert_paid_data_drain" = "EXTRA KOSTEN IN UITVOERING";
 "new_sim_card_detected" = "SIM-kaart configuratie veranderd!";
 "new_sim_card_detected_description" = "Configureer uw nieuwe SIM-kaart in de FMobile-toepassing.";
-"update_done" = "Update gedaan";
-
+"update_done" = "Update gedaan!";
     //AppDelegate
 "disconnect_from_wifi" = "De verbinding met Wi-Fi verbreken";
-"preparation_inprogress" = "De voorbereiding is in volle gang...";
+"preparation_inprogress" = "De voorbereiding is in volle gang…";
 "end_phonecall" = "Beëindig uw gesprek en probeer het opnieuw";
 "data_drain_notification_description" = "Klik om de cellulaire gegevens onmiddellijk te deactiveren, uw verbruik wordt overbelast. %@ %@";
-"data_drain_notification_description_g3" = "FMobile 3 heeft zojuist uw mobiele gegevens gedeactiveerd om overladen te voorkomen. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 4 heeft zojuist uw mobiele gegevens gedeactiveerd om overladen te voorkomen. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@) : Welkom!";
-
 "general_view_title" = "Instellingen";
 "map_view_title" = "Omslagkaart";
+"alert_paid_data_drain_g3" = "EXTRA KOSTEN BESPAARD!";
+"map_info_legend_unknown" = "Onbekend";
+"map_info_legend_nonetwork" = "Geen service";
+"map_info_legend_lte_r" = "4G (Roaming)";
+"map_info_legend_3g_r" = "3G (Roaming)";
+"map_info_legend_edge_r" = "EDGE (Roaming)";
+"map_info_legend_gprs_r" = "GPRS (Roaming)";
+"map_info_legend_lte" = "4G";
+"map_info_legend_3g" = "3G";
+"map_info_legend_edge" = "EDGE";
+"map_info_legend_gprs" = "GPRS";
+"map_info_legend" = "Kaartlegenda";
+"map_info_carrier" = "Weergegeven operator";
+"map_info_title" = "Kaart informatie";

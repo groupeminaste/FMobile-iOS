@@ -11,13 +11,13 @@ import MapKit
 
 extension MKMapView {
 
-    func topCenterCoordinate() -> CLLocationCoordinate2D {
-        return self.convert(CGPoint(x: self.frame.size.width / 2.0, y: 0), toCoordinateFrom: self)
+    func topLeftCoordinate() -> CLLocationCoordinate2D {
+        return self.convert(CGPoint(x: 0, y: 0), toCoordinateFrom: self)
     }
 
     func currentRadius() -> Double {
-        let topCenterCoordinate = self.topCenterCoordinate()
-        return sqrt(pow(centerCoordinate.latitude - topCenterCoordinate.latitude, 2) + pow(centerCoordinate.longitude - topCenterCoordinate.longitude, 2))
+        let topLeftCoordinate = self.topLeftCoordinate()
+        return sqrt(pow(centerCoordinate.latitude - topLeftCoordinate.latitude, 2) + pow(centerCoordinate.longitude - topLeftCoordinate.longitude, 2))
     }
 
 }

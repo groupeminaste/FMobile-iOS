@@ -7,7 +7,7 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 3";
+"fmobile" = "FMobile 4";
 "reset_zones_done" = "Réinitialisation effectuée";
 "reset_zones_done_description" = "Toutes les zones de Femto et ran-sharing ont étés réinitialisés.";
 "close" = "Fermer";
@@ -23,8 +23,8 @@
 "url_for_engine" = "URL pour le moteur";
 "url_for_speedtest" = "URL pour le test de débit";
 "setup_title" = "Configuration de l'application";
-"setup_description" = "Cette application est conçue pour empêcher un Accord d'Itinérance Nationale d'être appliqué sur votre appareil. Aucune configuration automatique n'a été trouvée pour votre opérateur. Si votre opérateur a un Accord d'Itinérance Nationale 2G+3G qui ralentit considérablement votre connexion Internet, vous pouvez paramétrer cette application pour qu'elle vous aide à rester sur le réseau propre dans votre pays. Une fois que vous avez fourni ces informations, vous pourrez régler vos préférences sur l'AIN. Notez que vous ne pouvez pas utiliser cette fonctionalité avec les MVNO. L'application ne va probablement pas très bien fonctionner sur une configuration manuelle, donc s'il vous plait contactez le développeur pour qu'il construise la configuration automatique de votre opérateur. Attention, vous devez bien répondre en anglais, ce n'est pas une erreur de traduction. (oui -> yes / non -> no)";
-"form_nra" = "Vitesse de l'AIN en Mbps (ex: 0.470)";
+"setup_description" = "Cette application est conçue pour empêcher un Accord d'Itinérance Nationale d'être appliqué sur votre appareil. Aucune configuration automatique n'a été trouvée pour votre opérateur. Si votre opérateur a un Accord d'Itinérance Nationale 2G+3G qui ralentit considérablement votre connexion Internet, vous pouvez paramétrer cette application pour qu'elle vous aide à rester sur le réseau propre dans votre pays. Une fois que vous avez fourni ces informations, vous pourrez régler vos préférences sur l'AIN. Notez que vous ne pouvez pas utiliser cette fonctionalité avec les MVNO. L'application ne va probablement pas très bien fonctionner sur une configuration manuelle, donc s'il vous plait contactez le développeur pour qu'il construise la configuration automatique de votre opérateur. Attention, vous devez bien répondre en anglais, ce n'est pas une erreur de traduction. (oui -> yes / non -> no).";
+"form_nra" = "Vitesse de l'AIN en Mbps (ex : 0.470)";
 "form_hp" = "RP 3G protocol (ex: WCDMA)";
 "form_nr" = "IN 3G protocol (ex: HSDPA)";
 "form_name" = "Nom de l'itinérance (ex: Ice.net)";
@@ -32,23 +32,23 @@
 "form_mnc" = "MNC itinérant (ex: 01)";
 "form_femto" = "IN conflit femto+R.S.? (yes/no)";
 "form_out2g" = "RP sans 2G? (yes/no)";
-"detecting_autoconfig" = "Config. automatique...";
+"detecting_autoconfig" = "Config. automatique…";
 "choose_setup" = "Choisissez votre configuration";
 "choose_setup_description" = "FMobile n'a pas trouvé de configuration automatique pour votre opérateur. Vous pouvez choisir de d’exécuter FMobile sur une configuration minimale sans saisir aucune information, ou en option, vous pouvez aussi choisir d’exécuter FMobile sur une configuration standard, en saisissant les informations basiques sur votre opérateur et son réseau itinérant. Pour une majorité d'opérateurs, la configuration minimale devrait s'éxécuter sans problème, cependant certains opérateurs qui ont une structure d'itinérance plus complexe peuvent être obligés d'utiliser la configuration standard à la place.";
 "use_minimal_setup" = "Utiliser la configuration minimale";
-"checking_eligibility" = "Vérif. de l'éligibilité...";
+"checking_eligibility" = "Vérif. de l'éligibilité…";
 "compatibility_issues" = "Erreurs de compatibilité";
 "compatibility_error_message" = "FMobile a détecté que la configuration minimale peut échouer sur votre appareil. Vous pouvez malgré tout l'utiliser ou lancer la configuration standard à la place.";
 "force_minimal_setup" = "Forcer la configuration minimale";
 "run_standard_setup" = "Lancer la configuration standard";
 "use_standard_setup" = "Utiliser la configuration standard";
-"warning_title" = "⚠️ RESPONSABILITÉ";
-"warning_description" = "IMPORTANT : Cette application est fournie gratuitement sans garantie. Vous en êtes entièrement responsable, autrement dit tous les dommages liés à l'application sont sous votre responsabilité exclusivement (hors-forfait mobile, consommation électrique, surchauffe, etc...). C'est à vous de régulièrement vérifier la consommation de l'application et de la désactiver lorsque vous partez à l'étranger. Ne venez pas m'envoyer vos factures par mail, vous n'obtiendrez aucun remboursement (ça peut paraître évident pour certains mais c'est déjà arrivé...)";
+"warning_title" = "RESPONSABILITÉ";
+"warning_description" = "IMPORTANT : Cette application est fournie gratuitement sans garantie. Vous en êtes entièrement responsable, autrement dit tous les dommages liés à l'application sont sous votre responsabilité exclusivement (hors-forfait mobile, consommation électrique, surchauffe, etc…). C'est à vous de régulièrement vérifier la consommation de l'application et de la désactiver lorsque vous partez à l'étranger. Ne venez pas m'envoyer vos factures par mail, vous n'obtiendrez aucun remboursement (ça peut paraître évident pour certains mais c'est déjà arrivé…)";
 "uninstall" = "Désinstaller l'application";
 "accept_conditions" = "J'accepte ces conditions";
 "first_update_succeeded" = "Le processus de mise à jour initial a réussi.";
 "update_succeeded" = "Le processus de mise à jour du moteur b%@ vers le moteur b%@ a réussi. Toutes les tâches de maintenance ont étés effectuées, vous n'avez rien à faire.";
-"diagnostic_inprogress" = "Diagnostic en cours...";
+"diagnostic_inprogress" = "Diagnostic en cours…";
 "first_start_title" = "Premier démarrage";
 "first_start_description" = "Bienvenue sur FMobile ! Commencez par apprendre les bases avant d'utiliser l'application. Vous retrouverez le tutoriel vidéo et les raccourcis à tout moment dans la section aide de FMobile. Quand vous n'en avez plus besoin, fermez la fenêtre avec \"Ne plus afficher\".";
 "itinerance" = "itinérance";
@@ -68,8 +68,11 @@
 "verifywifi" = "Vérifier même sur Wi-Fi";
 "wififooter" = "En activant cette option, les vérifications de l'itinérance auront lieu même lorsque vous êtes connecté à un réseau WiFi. Afin d'optimiser la batterie (sauf pour la génération A3), il est recommandé de garder cette option désactivée.";
 "statsprefs" = "Préferences statistiques";
+"privacy" = "Confidentialité";
+"diag_privacy" = "Si vous utilisez la carte de couverture ou les zones non-couvertes, vous pourriez avoir besoin d'inclure vos coordonnées GPS dans le fichier de diagnostic afin d'accélérer la résolution du problème. Étant donné qu'il s'agit d'une donnée sensible, vous pouvez choisir de ne pas les inclure si vous estimez cette information inutile. Une fois le diagnostic terminé, utilisez l'option dédiée \"Envoyer au développeur\" pour le transférer. Voulez-vous inclure ces données dans le diagnostic ?";
 "coveragemap_switch" = "Participer à la carte de couverture";
-"coveragemap_alert_title" = "Confidentialité";
+"coveragemapLowData_switch" = "Attendre le Wi-Fi avant d'envoyer";
+"coveragemap_alert_title" = "Carte de couverture : confidentialité";
 "coveragemap_alert_description" = "L’alimentation de la carte de couverture est totalement anonyme. Les données que vous envoyez ne sont donc pas soumises aux droits de portabilité, d’accès ni de suppression. Seront collectées en arrière-plan pendant les vérifications usuelles de FMobile uniquement les données suivantes : Code opérateur (MCC, MNC), Code de votre carte SIM (MCC, MNC), Localisation, protocole de connexion. Nous ne stockons aucune forme d’identification de l’utilisateur, nous ne pouvons donc pas savoir quelle donnée a été envoyée par qui, et nous ne pouvons pas vous suivre. Une fois collectées, elles apparaîtront instantanément sur la carte de couverture si l’opérateur est déclaré chez FMobile. Vous pouvez toujours consulter la carte de couverture même si vous décidez de ne pas y contribuer.";
 "coveragemap_alert_accept" = "Accepter";
 "coveragemap_alert_accept2" = "Accepter et ne plus afficher";
@@ -95,11 +98,11 @@
 "land_g1" = "Vérifier le pays en arrière-plan";
 "land_footer_g1" = "En activant cette option, FMobile va vérifier en arrière-plan que vous vous situez toujours dans votre pays afin d'empêcher les vérifications d'itinérance lorsque vous êtes à l'étranger. Votre opérateur actuel n'est pas encore compatible avec la 2ème génération de FMobile sur iPad, mais si un opérateur éligible est disponible, FMobile activera ici les fonctionnalités de la 2ème génération automatiquement.";
 "background_loc_g1" = "Localisation en arrière-plan";
-"activation" = "🕗 Activation du moteur de FMobile en cours...";
-"activate" = "⚠️ Activer le moteur de FMobile";
-"updating" = "🕗 Mise à jour du moteur de FMobile en cours...";
+"activation" = "Activation du moteur de FMobile en cours…";
+"activate" = "Activer le moteur de FMobile";
+"updating" = "Mise à jour du moteur de FMobile en cours…";
 "not_connected" = "Vous n'êtes pas connecté";
-"not_connected_searching" = "Recherche de %@...";
+"not_connected_searching" = "Recherche de %@…";
 "connected" = "Connecté : %@";
 "country_included_button" = "Ce pays %@ est inclus dans mon forfait";
 "new_country" = "Nouveau pays inclus";
@@ -143,18 +146,29 @@
 "field_test_copied_confirmation" = "Code copié !";
 "select_url" = "URL personnalisée pour le test de débit";
 "about" = "À propos";
-"about_description" = "Application et Raccourcis créés par Michaël Nass\nUI/UX, test de débit et optimisation par Nathan Fallet\nLogo par Bruno (@brunopaiva_152)\n\nCette application a été développée par des développeurs indépendants et est fournie gratuitement sans aucune garantie.\n\nLe Groupe MINASTE (y compris son application FMobile) n'est, en aucun cas, affilié à quelconque opérateur.\n\n© 2020 Groupe MINASTE";
-"donate_paypal" = "Faire un don PayPal";
+"about_description" = "Application et Raccourcis créés par Michaël Nass\nUI/UX, carte de couverture, test de débit et optimisation par Nathan Fallet\nLogo par Bruno (@brunopaiva_15)\n\nCette application a été développée par des développeurs indépendants et est fournie gratuitement sans aucune garantie.\n\nLe Groupe MINASTE (y compris son application FMobile) n'est, en aucun cas, affilié à quelconque opérateur.\n\n© 2020 Groupe MINASTE";
+"donate" = "Faire un don";
+"donate_helloasso" = "Faire un don avec HelloAsso";
+"donate_iap" = "Faire un don avec Apple iAP";
+"donate_warning" = "AVERTISSEMENT POUR LES CITOYENS FRANÇAIS";
+"donate_warning_french_citizenship" = "FMobile est dirigé par le Groupe MINASTE, une association loi 1901. Si vous êtes un citoyen de la République Française et que vous payez vos impôts en France, veuillez faire votre don via HelloAsso, qui fournit des certificats de dons. Si votre État requiert de garder un suivi de vos dons aux associations, veuillez procéder avec HelloAsso (EUR uniquement). Sinon, vous pouvez utiliser Apple iAP, qui ne fournit aucun certificat et prélève 30% du montant que vous donnerez.";
+"select_donation" = "Choisissez un montant";
+"donate_thank_you" = "Merci !";
+"donate_thank_you_description" = "Le Groupe MINASTE vous remercie de votre don. Nous espérons que vous serez pleinement satisfait de son usage pour améliorer nos services.";
+"donate_aborted" = "Don abandonné";
+"donate_aborted_description" = "Le don a été abandonné. Vous n'avez pas été débité.";
+"donate_unable" = "Vous ne pouvez plus donner ici.";
+"donate_unable_description" = "Allons droit au but.\nVous ne pouvez pas donner ici.\n\nApple nous empêche d'accepter des dons car ils nous obligent, conformément à leurs directives, à utiliser les achats intégrés. On vous arrête tout de suite, bien sûr que la taxe de 30% de ce système de paiement est très frustrante pour une petite association à but non lucratif, et nous ne pensons pas qu'il soit moralement acceptable de rendre Apple plus riche grâce au secteur à but non-lucratif, mais ce n'est pas le point de blocage.\n\nNous sommes une association loi 1901, et nous devons délivrer des certificats de dons avec votre identité. Apple iAP envoie uniquement une simple facture, qui ne peut pas être utilisée comme document officiel.\n\nNous avons fait un pas dans la direction d'Apple, en incluant les deux systèmes dans l'application, en demandant aux citoyens français de passer à la plateforme nationale de dons HelloAsso. Ils ont toujours refusé, car ils veulent que 100% des dons transitent par iAP, ce que nous ne pouvons pas faire légalement en raison de notre statut d'association.\n\nFace au manque de coopération et de compréhension de notre situation de la part d'Apple, nous avons décidé de supprimer les dons intégrés à l'application, y compris via iAP, pour le monde entier. Vous pourriez remercier Apple pour ses directives vous empêchant d'aider les organisations à but non lucratif à créer pour vous d'autres services à vie 100% gratuits, mais le plus important pour nous, à tout moment, est que vous appréciez l'application gratuite et qu'elle ait une réelle utilité pour vous.\n\nNe vous inquiétez pas pour le don, nous survivrons quel que soit le bâton qu'Apple lance sur nos roues.";
 "donate_description" = "Quoi qu'il arrive, FMobile restera gratuite et sans publicités. Le don est une manière de me remercier pour l'app, même si je suis déjà super content si vous ne faites que me donner vos retours. Vous contribuerez au financement de mon projet Extopy. Merci de bien tester l'application et soyez sûr et certain de vouloir me de laisser un tip avant de le faire.";
 "ok" = "OK";
 "statistics_agreement" = "Participer à l'enquête 208 16";
 "old_ios_warning" = "iOS %@ manque de fonctinonalités importantes !";
 "old_ios_description" = "Cette application fonctionne au mieux avec l'application Raccourcis d'Apple, qui n'est disponible que dans iOS 12 et plus. Merci de mettre à jour votre appareil vers iOS 12 ou version supérieure. Si votre appareil supporte iOS 13, vous pourrez également mettre à jour FMobile vers sa dernière version créée pour iOS 13. Sur votre version actuelle, les opérations pour sortir de l'itinérance sont manuelles.";
 "location_denied" = "Accès à la localisation refusé";
-"location_denied_description" = "FMobile 3 doit avoir accès à votre localisation pour des raisons techniques et pratiques, afin de pouvoir s'éxécuter en arrière-plan. Vous avez décidé de refuser l'accès permanent à la localisation. Notez que vos données personnelles ne sortiront de votre appareil sans votre consentement explicite. Choisir \"Toujours\" comme réglage d'accès à la localisation n'est pas considéré comme un consentement explicite à quelconque collecte de données : cela permet uniquement à l'application de fonctionner normalement sur votre appareil, localement. Soyez averti que FMobile 3 va perdre beaucoup de son efficacité si vous ne réglez pas l'accès à la localisation sur \"Toujours\".";
+"location_denied_description" = "FMobile 4 doit avoir accès à votre localisation pour des raisons techniques et pratiques, afin de pouvoir s'éxécuter en arrière-plan. Vous avez décidé de refuser l'accès permanent à la localisation. Notez que vos données personnelles ne sortiront de votre appareil sans votre consentement explicite. Choisir \"Toujours\" comme réglage d'accès à la localisation n'est pas considéré comme un consentement explicite à quelconque collecte de données : cela permet uniquement à l'application de fonctionner normalement sur votre appareil, localement. Soyez averti que FMobile 4 va perdre beaucoup de son efficacité si vous ne réglez pas l'accès à la localisation sur \"Toujours\".";
 "location_denied_change" = "Mettre l'accès à localisation sur \"Toujours\"";
 "location_denied_agree" = "Forcer le refus d'accès à la localisation";
-"location_denied_agree_forever" = "Mémoriser et forcer le refus d'accès...";
+"location_denied_agree_forever" = "Mémoriser et forcer le refus d'accès";
 "location_wrong_setting" = "Mauvaise configuration pour l'accès à la localisation";
 "location_ws_agree" = "Forcer temporairement le réglage \"App active\"";
 "location_ws_agree_forever" = "Mémoriser et forcer le réglage \"App active\"";
@@ -168,17 +182,15 @@
 "email_default_content" = "<p>Expliquez en détail le problème que vous rencontrez ici : </p>";
 "diagnostic_email" = "Diagnostic FMobile %@ - b%@";
 "mail_not_available" = "L'application Mail n'est pas disponible actuellement.";
-"5G_unsupported" = "⚠️ 5G incompatible";
+"5G_unsupported" = "5G incompatible";
 "5G_unsupported_description" = "FMobile n'est pas encore prêt à gérer l'itinérance 5G. Nous mettrons à jour FMobile dès que possible pour apporter le support de cette technologie. Votre réglage est maintenant enregistré, et sera appliqué dès que nous aurons activé le support de la 5G.";
 "ignore" = "Ignorer";
-
     // SpeedtestViewController
 "speedtest_view_title" = "Test de débit";
 "speedtest_start" = "Démarrer";
 "speedtest_stop" = "Arrêter";
 "speedtest_description" = "Le coeur du test de débit a été développé par Nathan Fallet puis a été revisité par Michaël Nass. Il va télécharger un lourd fichier pendant 15s. Ce test n'est pas le même que celui qui est utilisé dans le coeur de FMobile pour détecter l'itinérance sur les générations antérieures du moteur, qui est optimisé pour la détecter en moins d'1s avec une consommation Internet quasi nulle.";
 "speedtest_in_progress" = "Test déjà en cours !";
-
     // NotificationManager
 "roaming_protect_disabled" = "Protection contre l'itinérance désactivée !";
 "3g_2g_allowed" = "Itinérance 3G et 2G autorisée";
@@ -188,7 +200,7 @@
 "2g_control_enabled" = "Surveillance 2G activée.";
 "3g_2g_control_enabled" = "Surveillance 3G et 2G activée.";
 "not_controlling" = "Surveillance non active.";
-"checking_roaming" = "Vérification en cours...";
+"checking_roaming" = "Vérification en cours…";
 "detected_hplus_roaming" = "ITINÉRANCE H+ (3G) DÉTECTÉE !";
 "detected_roaming_description" = "Cliquez sur la notification pour revenir sur le réseau propre.";
 "possible_hplus_roaming" = "ITINÉRANCE H+ (3G) PROBABLE !";
@@ -218,20 +230,32 @@
 "basic_included" = "Les appels, SMS et MMS sont inclus dans votre forfait. Internet n'est pas inclus.";
 "internet_included" = "Internet est inclus dans votre forfait ! Les appels, SMS et MMS ne sont pas inclus.";
 "all_included" = "Les appels, SMS, MMS ainsi que Internet sont inclus dans votre forfait !";
-"alert_paid_data_drain" = "🛂⚠️🛑 HORS-FORFAIT EN COURS 🛑⚠️🆘";
-"alert_paid_data_drain_g3" = "🛂⚠️🛑 HORS-FORFAIT SAUVÉ 🛑⚠️🆘";
+"alert_paid_data_drain" = "HORS-FORFAIT EN COURS";
+"alert_paid_data_drain_g3" = "HORS-FORFAIT SAUVÉ  !";
 "new_sim_card_detected" = "Configuration de carte SIM changée !";
 "new_sim_card_detected_description" = "Veuillez configurer votre nouvelle carte SIM dans l'application FMobile.";
-"update_done" = "Mise à jour effectuée";
-
+"update_done" = "Mise à jour effectuée !";
     //AppDelegate
 "disconnect_from_wifi" = "Déconnectez-vous du Wi-Fi";
-"preparation_inprogress" = "Préparation en cours...";
+"preparation_inprogress" = "Préparation en cours…";
 "end_phonecall" = "Veuillez terminer votre conversation puis réessayez";
 "data_drain_notification_description" = "Cliquez pour désactiver immédiatement les données cellulaires, votre consommation est surtaxée. %@ %@";
-"data_drain_notification_description_g3" = "FMobile 3 vient de désactiver vos données cellulaires pour éviter la surfacturation. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 4 vient de désactiver vos données cellulaires pour éviter la surfacturation. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@) : Bienvenue !";
-
 "general_view_title" = "Réglages";
+"reset_countries_done_title" = "Les pays ont été réinitialisé";
+    // Map
 "map_view_title" = "Carte de couverture";
-
+"map_info_title" = "Informations sur la carte";
+"map_info_carrier" = "Opérateur à afficher";
+"map_info_legend" = "Légende de la carte";
+"map_info_legend_gprs" = "GPRS";
+"map_info_legend_edge" = "EDGE";
+"map_info_legend_3g" = "3G";
+"map_info_legend_lte" = "4G";
+"map_info_legend_gprs_r" = "GPRS (Itinérance)";
+"map_info_legend_edge_r" = "EDGE (Itinérance)";
+"map_info_legend_3g_r" = "3G (Itinérance)";
+"map_info_legend_lte_r" = "4G (Itinérance)";
+"map_info_legend_nonetwork" = "Aucun service";
+"map_info_legend_unknown" = "Inconnu";

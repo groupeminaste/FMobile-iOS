@@ -28,13 +28,18 @@ class TabBarController: UITabBarController {
         
         if authorizationStatus == .denied && !locationAuthorizationAvoided {
             let alert = UIAlertController(title: "location_denied".localized(), message: "location_denied_description".localized(), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "location_denied_change".localized(), style: .default) { (UIAlertAction) in
+            alert.addAction(UIAlertAction(title: "location_denied_change".localized(), style: .default) { (_) in
                 if let url = URL(string: UIApplication.openSettingsURLString) {
-                    UIApplication.shared.open(url)
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(url)
+                    } else {
+                        // Fallback on earlier versions
+                        UIApplication.shared.openURL(url)
+                    }
                 }
             })
             alert.addAction(UIAlertAction(title: "location_denied_agree".localized(), style: .destructive, handler: nil))
-            alert.addAction(UIAlertAction(title: "location_denied_agree_forever".localized(), style: .destructive) { (UIAlertAction) in
+            alert.addAction(UIAlertAction(title: "location_denied_agree_forever".localized(), style: .destructive) { (_) in
                 dataManager.datas.set(true, forKey: "locationAuthorizationAvoided")
                 dataManager.datas.synchronize()
             })
@@ -45,13 +50,17 @@ class TabBarController: UITabBarController {
         
         if authorizationStatus == .authorizedWhenInUse && !locationAuthorizationBadsetup {
             let alert = UIAlertController(title: "location_wrong_setting".localized(), message: "location_denied_description".localized(), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "location_denied_change".localized(), style: .default) { (UIAlertAction) in
+            alert.addAction(UIAlertAction(title: "location_denied_change".localized(), style: .default) { (_) in
                 if let url = URL(string: UIApplication.openSettingsURLString) {
-                    UIApplication.shared.open(url)
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(url)
+                    } else {
+                        UIApplication.shared.openURL(url)
+                    }
                 }
             })
             alert.addAction(UIAlertAction(title: "location_ws_agree".localized(), style: .destructive, handler: nil))
-            alert.addAction(UIAlertAction(title: "location_ws_agree_forever".localized(), style: .destructive) { (UIAlertAction) in
+            alert.addAction(UIAlertAction(title: "location_ws_agree_forever".localized(), style: .destructive) { (_) in
                 dataManager.datas.set(true, forKey: "locationAuthorizationBadsetup")
                 dataManager.datas.synchronize()
             })
@@ -67,18 +76,26 @@ class TabBarController: UITabBarController {
         dataManager.datas.synchronize()
         
         let alert = UIAlertController(title: "first_start_title".localized(), message: "first_start_description".localized(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "video_tutorial".localized(), style: .default) { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "video_tutorial".localized(), style: .default) { (_) in
             guard let mailto = URL(string: "https://youtu.be/GfI5JLqyqiY") else { return }
-            UIApplication.shared.open(mailto)
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(mailto)
+            } else {
+                UIApplication.shared.openURL(mailto)
+            }
         })
-        alert.addAction(UIAlertAction(title: "install_shortcuts".localized(), style: .default) { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "install_shortcuts".localized(), style: .default) { (_) in
             guard let discord = URL(string: "http://raccourcis.ios.free.fr/fmobile") else { return }
-            UIApplication.shared.open(discord)
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(discord)
+            } else {
+                UIApplication.shared.openURL(discord)
+            }
         })
-        alert.addAction(UIAlertAction(title: "close".localized(), style: .default) { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "close".localized(), style: .default) { (_) in
             self.locationDeniedCheck()
                })
-        alert.addAction(UIAlertAction(title: "never_show_again".localized(), style: .cancel) { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "never_show_again".localized(), style: .cancel) { (_) in
             dataManager.datas.set(true, forKey: "didFinishFirstStart")
             dataManager.datas.synchronize()
             self.locationDeniedCheck()
@@ -88,14 +105,14 @@ class TabBarController: UITabBarController {
     
     func warning(){
         let dataManager = DataManager()
-        let alert = UIAlertController(title: "warning_title".localized(), message: "warning_description".localized(), preferredStyle: .alert)
+        let alert = UIAlertController(title: "⚠️ \("warning_title".localized())", message: "warning_description".localized(), preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "uninstall".localized(), style: .destructive) { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "uninstall".localized(), style: .destructive) { (_) in
             dataManager.datas.set(false, forKey: "warningApproved")
             dataManager.datas.synchronize()
             UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
         })
-        alert.addAction(UIAlertAction(title: "accept_conditions".localized(), style: .cancel) { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "accept_conditions".localized(), style: .cancel) { (_) in
             dataManager.datas.set(true, forKey: "warningApproved")
             dataManager.datas.synchronize()
             self.firstStart()
@@ -124,11 +141,11 @@ class TabBarController: UITabBarController {
             self.warning()
         }
         
-        if !didFinishFirstStart && warningApproved{
+        else if !didFinishFirstStart{
             self.firstStart()
         }
         
-        if didFinishFirstStart && warningApproved {
+        else {
             self.locationDeniedCheck()
         }
     }
@@ -154,13 +171,13 @@ class TabBarController: UITabBarController {
         }
         
 //        // Init map
-//        let map = UINavigationController(rootViewController: MapViewController())
-//        if #available(iOS 13.0, *) {
-//            map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(systemName: "map"), tag: 1)
-//        } else {
-//            // Fallback on earlier versions
-//            map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(named: "map"), tag: 1)
-//        }
+        let map = UINavigationController(rootViewController: MapViewController())
+        if #available(iOS 13.0, *) {
+            map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(systemName: "map"), tag: 1)
+        } else {
+            // Fallback on earlier versions
+            map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(named: "map"), tag: 1)
+        }
         
         // Init speedtest
         let speedtest = UINavigationController(rootViewController: SpeedtestViewController())
@@ -172,8 +189,8 @@ class TabBarController: UITabBarController {
         }
         
         // Add everything to tab bar
-//      viewControllers = [general, map, speedtest]
-        viewControllers = [general, speedtest]
+        viewControllers = [general, map, speedtest]
+//        viewControllers = [general, speedtest]
         
         // Load views
         for viewController in viewControllers ?? [] {

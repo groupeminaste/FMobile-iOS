@@ -7,7 +7,7 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 3";
+"fmobile" = "FMobile 4";
 "reset_zones_done" = "Reset done";
 "reset_zones_done_description" = "All Femto and ran-sharing zones has been reset.";
 "close" = "Close";
@@ -32,23 +32,23 @@
 "form_mnc" = "Roaming MNC (e.g.: 01)";
 "form_femto" = "NR protocol femto+mutuals? (yes/no)";
 "form_out2g" = "Home without 2G? (yes/no)";
-"detecting_autoconfig" = "Detecting auto config...";
+"detecting_autoconfig" = "Detecting auto config…";
 "choose_setup" = "Choose your setup";
 "choose_setup_description" = "FMobile has not found any automatic configuration for your carrier. You can choose to run FMobile on a minimal setup without entering any information, or optionally, you can also choose to run FMobile on a standard setup, by providing basic informations about your carrier and it's roaming partner. For most carriers, the minimal setup should run fine, however some carriers that have a more complex roaming structure may require to use the standard setup instead.";
 "use_minimal_setup" = "Use minimal setup";
-"checking_eligibility" = "Checking eligibility...";
+"checking_eligibility" = "Checking eligibility…";
 "compatibility_issues" = "Compatibility errors";
 "compatibility_error_message" = "FMobile has detected that the minimal setup may fail on your device. You can set to still use it or start the manual setup instead.";
 "force_minimal_setup" = "Force the minimal setup";
 "run_standard_setup" = "Start the standard configuration";
 "use_standard_setup" = "Use the standard configuration";
-"warning_title" = "⚠️ RESPONSABILITY";
-"warning_description" = "IMPORTANT: This application is provided for free without any warranty. You are completely responsible of it, which means that every potential dammage due to the usage of this app are under your exclusive responsability (extra-costs on the phone bill, electric consummption, overheat, etc...). It is your job to regularly check the data consummption and to disable it when you go aboard. Do not send me your bills by email, you will not get any refund (it may seem obvious to some people, but this situation already happened...)";
+"warning_title" = "RESPONSABILITY";
+"warning_description" = "IMPORTANT: This application is provided for free without any warranty. You are completely responsible of it, which means that every potential damage due to the usage of this app are under your exclusive responsibility (extra-costs on the phone bill, electric consumption, overheat, etc…). It is your job to regularly check the data consummption and to disable it when you go aboard. Do not send me your bills by email, you will not get any refund (it may seem obvious to some people, but this situation already happened…)";
 "uninstall" = "Uninstall the application";
 "accept_conditions" = "I accept these terms";
 "first_update_succeeded" = "The initial update process succeeded.";
 "update_succeeded" = "The update process from the build %@ to the build %@ succeeded. All the maintenance tasks have been done, you don't have to do anything.";
-"diagnostic_inprogress" = "Diagnostic in progress...";
+"diagnostic_inprogress" = "Diagnostic in progress…";
 "first_start_title" = "First start";
 "first_start_description" = "Welcome to FMobile! Start by learning bases before using the app. You can find the video tutorial and shortcuts at any time in help section of FMobile. When you no longer need it, close this window with \"Do not show again\".";
 "itinerance" = "roaming";
@@ -68,13 +68,16 @@
 "verifywifi" = "Verify even on Wi-Fi";
 "wififooter" = "By enabling this option, the roaming verifications will take place even when you are connected to a WiFi network. In order to optimize the battery life (except when using the A3 generation), it is recommended to keep this option disabled.";
 "statsprefs" = "Statistic preferences";
+"privacy" = "Privacy notice";
+"diag_privacy" = "If you use the coverage map or use some non-covered zones, you might want to include your GPS coordinates in the diagnostic file to help solve the problem faster. As this is a senstitive data, you can choose not to include them if you believe this information is irrelevant. After the diagnostic is complete, use the dedicated \"Send to the developer\" option to directly transfer it. Do you want to include these data in the diagnistic?";
 "coveragemap_switch" = "Participate to fill coverage map";
-"coveragemap_alert_title" = "Privacy notice";
+"coveragemapLowData_switch" = "Wait for Wi-Fi before sending";
+"coveragemap_alert_title" = "Coverage map: privacy notice";
 "coveragemap_alert_description" = "Participating to the filling of the coverage map is completely anonymous. The data you send is therefore not subject to the rights of portability, access or deletion. The following data will be collected in the background during the usual FMobile checks: Operator code (MCC, MNC), SIM card code (MCC, MNC), Location, connection protocol. We do not store any form of user identification, so we can not know which data has been sent by whom, and we can not track you. Once collected, they will appear instantly on the coverage map if the operator is declared at FMobile. You can always view the coverage map even if you decide not to contribute.";
 "coveragemap_alert_accept" = "Accept";
 "coveragemap_alert_accept2" = "Accept and never show again";
 "coveragemap_alert_deny" = "Decline";
-"stop_background_tasks" = "Stop all tasks when in background";
+"stop_background_tasks" = "Stop all tasks in background";
 "detect_ransharing" = "Detect the Femto and ran-sharing";
 "detect_femto" = "Detect the Femto";
 "background" = "Background";
@@ -95,11 +98,11 @@
 "land_g1" = "Check the country in background";
 "land_footer_g1" = "By enabling this option, FMobile will check in background that you are still located in your home country in order to avoid the roaming verifications when you are aboard. Your current carrier is not yet compatible with FMobile's second generation on iPad, but if a compatible carrier is available, FMobile will automatically enable the second generation features here.";
 "background_loc_g1" = "Background location";
-"activation" = "🕗 Activating the FMobile engine...";
-"activate" = "⚠️ Activate the FMobile engine";
-"updating" = "🕗 Upgrading the FMobile engine...";
+"activation" = "Activating the FMobile engine…";
+"activate" = "Activate the FMobile engine";
+"updating" = "Upgrading the FMobile engine…";
 "not_connected" = "You are not connected";
-"not_connected_searching" = "Searching for %@...";
+"not_connected_searching" = "Searching for %@…";
 "connected" = "Connected: %@";
 "country_included_button" = "This country %@ is included in my plan";
 "new_country" = "New included country";
@@ -144,15 +147,26 @@
 "field_test_copied_confirmation" = "Code successfully copied!";
 "select_url" = "Custom URL for the speed test";
 "about" = "About";
-"about_description" = "Application and Shortcut made by Michaël Nass\nUI/UX, speedtest and optimization by Nathan Fallet\nLogo by Bruno (@brunopaiva_152)\n\nThis application has been developed by independent developers, and is provided for free without any warranty.\n\nThe Groupe MINASTE (including its FMobile application) is not, in any case, affiliated with any carrier.\n\n© 2020 Groupe MINASTE";
-"donate_paypal" = "Donate with PayPal";
+"about_description" = "Application and Shortcut made by Michaël Nass\nUI/UX, coverage map, speedtest and optimization by Nathan Fallet\nLogo by Bruno (@brunopaiva_15)\n\nThis application has been developed by independent developers, and is provided for free without any warranty.\n\nThe Groupe MINASTE (including its FMobile application) is not, in any case, affiliated with any carrier.\n\n© 2020 Groupe MINASTE";
+"donate" = "Donate";
+"donate_helloasso" = "Donate using HelloAsso";
+"donate_iap" = "Donate using Apple iAP";
+"donate_warning" = "WARNING TO FRENCH CITIZENS";
+"donate_warning_french_citizenship" = "FMobile is operated by the Groupe MINASTE, a french law-1901 type non-profit organization. If you are a citizen of the French Republic, and pay taxes in France, please donate through the nationwide donation platform HelloAsso, providing state recognized donation certificates. If your state requires you to keep track of your donations to non-profits, please proceed through HelloAsso (EUR only). Otherwise, you can go through Apple iAP, providing no certificate and taking 30% of the amount you donate.";
+"donate_thank_you" = "Thank you!";
+"donate_thank_you_description" = "The MINASTE Group thanks you for your donation. We hope that you will be fully satisfied with its use to improve our services.";
+"donate_aborted" = "Donation aborted";
+"donate_aborted_description" = "The donation has been aborted. You were not charged.";
+"select_donation" = "Select a donation";
+"donate_unable" = "You can no longer donate here.";
+"donate_unable_description" = "Let's get straight to the point.\nYou cannot donate here.\n\nApple is blocking us from accepting donations because they force us according to their guidelines to use in-app purchases. Now let us stop you, of course the 30% tax of this payment system is very frustrating for a small non-profit organization, and we do not feel it is morally acceptable to make Apple wealthier through the non-profit sector, but this is not the blocking point.\n\nWe are a french law-1901 type non-profit organization, and we need to deliver donation certificates with your identity for citizens of the French Republic for tax declaration purposes. Apple iAP only sends a regular bill, which cannot be used as an official state document.\n\nWe made a step in Apple's direction, by including both systems in the app, asking french citizens to proceed to the national donation platform HelloAsso. They still refused, as they want 100% of the donations to transit through iAP, which we cannot do legally due to our non-profit status.\n\nDue to the lack of cooperation and understanding of our situation from Apple, we decided to remove in-app donations, including through iAP, for the entire the world. You could thank Apple for it's guidelines preventing you to help non-profit build other lifetime 100% free services for you, but the most important to us, at any time, is that you enjoy the free app, and that it has a real usefulness for you.\n\nDon't worry for the donation, we'll survive no matter what stick Apple throws at our bike wheels.";
 "donate_description" = "No matter what, FMobile will stay free and ad-free. The donation is a way to thank me for the app, even if I'm already super happy if you just give me a feedback about it. You will contribute to the funding of my Extopy project. Please make sure to fully test the application and be 100% sure you want to leave me a tip before doing so.";
 "ok" = "OK";
-"statistics_agreement" = "Participer à l'enquête 208 16";
+"statistics_agreement" = "Participate at the 208 16-campaign";
 "old_ios_warning" = "iOS %@ is missing important features!";
 "old_ios_description" = "This apps works best with the Apple Shortcuts app, which is only available on iOS 12 and later. Please update your iOS device to iOS 12 or any later version. If your iOS device can run iOS 13, you will also be able to update the FMobile app to its latest version made for iOS 13. On your iOS version, the operations to exit roaming are manual.";
 "location_denied" = "Location access denied";
-"location_denied_description" = "FMobile 3 needs to have access your location for technical and practical reasons, in order to be able to run in the background. You decided to deny the permanent access to your location data. Please note that none of your personal data will ever be sent anywhere without your explicit consent. Setting the location access to \"Always\" is not considered as an explicit consent: it only allows the app to operate normally on your device, locally. Be aware that FMobile 3 will lose a lot of its efficiency if you don't set the location access to \"Always\".";
+"location_denied_description" = "FMobile 4 needs to have access your location for technical and practical reasons, in order to be able to run in the background. You decided to deny the permanent access to your location data. Please note that none of your personal data will ever be sent anywhere without your explicit consent. Setting the location access to \"Always\" is not considered as an explicit consent: it only allows the app to operate normally on your device, locally. Be aware that FMobile 4 will lose a lot of its efficiency if you don't set the location access to \"Always\".";
 "location_denied_change" = "Change the location setting to \"Always\"";
 "location_denied_agree" = "Temporarily force deny location access";
 "location_denied_agree_forever" = "Permanently force deny location access";
@@ -169,17 +183,15 @@
 "email_default_content" = "<p>Explain in details the problem you are encoutering here: </p>";
 "diagnostic_email" = "FMobile %@ diagnostic - b%@";
 "mail_not_available" = "The Mail app is currently unavailable.";
-"5G_unsupported" = "⚠️ 5G not compatible";
+"5G_unsupported" = "5G not compatible";
 "5G_unsupported_description" = "FMobile isn't yet ready to manage 5G roaming. We will update FMobile as soon as we can to bring the support of this technology. Your setting is now saved, and will be applied as soon as we activate the 5G support.";
 "ignore" = "Ignore";
-
     // SpeedtestViewController
 "speedtest_view_title" = "Speedtest";
 "speedtest_start" = "Start";
 "speedtest_stop" = "Stop";
 "speedtest_description" = "The core of the speedtest has been developed by Nathan Fallet and then modified by Michaël Nass. It is going to download a heavy file for 15s. This speedtest is not the same as the one used in the FMobile core to detect the roaming status on older engine generations, that is optimized to detect it in less than 1s with an Internet consumption clоse to zero.";
 "speedtest_in_progress" = "A speedtest is already running!";
-
     // NotificationManager
 "roaming_protect_disabled" = "Protection against roaming disabled!";
 "3g_2g_allowed" = "3G and 2G roaming allowed";
@@ -189,7 +201,7 @@
 "2g_control_enabled" = "2G surveillance enabled.";
 "3g_2g_control_enabled" = "3G and 2G surveillance enabled.";
 "not_controlling" = "Surveillance not active.";
-"checking_roaming" = "Verification in progress...";
+"checking_roaming" = "Verification in progress…";
 "detected_hplus_roaming" = "H+ (3G) ROAMING DETECTED!";
 "detected_roaming_description" = "Click on the notification to go back to your home network.";
 "possible_hplus_roaming" = "H+ (3G) ROAMING POSSIBLE!";
@@ -219,20 +231,31 @@
 "basic_included" = "Calls, SMS and MMS are included in your plan plan from this country. Internet is not included.";
 "internet_included" = "Internet is included in your plan! Calls, SMS and MMS are not included.";
 "all_included" = "Calls, SMS, MMS and Internet are included in your plan!";
-"alert_paid_data_drain" = "🛂⚠️🛑 EXTRA-COST IN PROGRESS 🛑⚠️🆘";
-"alert_paid_data_drain_g3" = "🛂⚠️🛑 EXTRA-COSTS SAVED! 🛑⚠️🆘";
+"alert_paid_data_drain" = "EXTRA-COST IN PROGRESS";
+"alert_paid_data_drain_g3" = "EXTRA-COSTS SAVED!";
 "new_sim_card_detected" = "SIM card configuration changed!";
 "new_sim_card_detected_description" = "Please configure your new SIM card in the FMobile application.";
 "update_done" = "Update succeeded!";
-
     //AppDelegate
 "disconnect_from_wifi" = "Disconnect from Wi-Fi";
-"preparation_inprogress" = "Preparation in progress...";
+"preparation_inprogress" = "Preparation in progress…";
 "end_phonecall" = "Please end your phone call and retry";
 "data_drain_notification_description" = "Click to disable your cellular data immediately, your consumption is overcharged. %@ %@";
-"data_drain_notification_description_g3" = "FMobile 3 just disabled your Cellular Data to avoid roaming fees. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 4 just disabled your Cellular Data to avoid roaming fees. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@): Welcome!";
-
 "general_view_title" = "Settings";
+    // Map
 "map_view_title" = "Coverage map";
-
+"map_info_title" = "Map information";
+"map_info_carrier" = "Shown carrier";
+"map_info_legend" = "Map legend";
+"map_info_legend_gprs" = "GPRS";
+"map_info_legend_edge" = "EDGE";
+"map_info_legend_3g" = "3G";
+"map_info_legend_lte" = "LTE";
+"map_info_legend_gprs_r" = "GPRS (Roaming)";
+"map_info_legend_edge_r" = "EDGE (Roaming)";
+"map_info_legend_3g_r" = "3G (Roaming)";
+"map_info_legend_lte_r" = "LTE (Roaming)";
+"map_info_legend_nonetwork" = "No service";
+"map_info_legend_unknown" = "Unknown";

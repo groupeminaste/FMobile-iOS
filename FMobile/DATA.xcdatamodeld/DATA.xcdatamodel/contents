@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F96" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Carriers" representedClassName="Carriers" syncable="YES" codeGenerationType="class">
+        <attribute name="carrierServices" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromData"/>
+        <attribute name="countriesData" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromData"/>
+        <attribute name="countriesVData" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromData"/>
+        <attribute name="countriesVoice" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromData"/>
+        <attribute name="disableFMobileCore" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="homename" optional="YES" attributeType="String"/>
+        <attribute name="hp" optional="YES" attributeType="String"/>
+        <attribute name="iPadOverwrite" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromData"/>
+        <attribute name="itimnc" optional="YES" attributeType="String"/>
+        <attribute name="itiname" optional="YES" attributeType="String"/>
+        <attribute name="land" optional="YES" attributeType="String"/>
+        <attribute name="mcc" optional="YES" attributeType="String"/>
+        <attribute name="minimalSetup" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="mnc" optional="YES" attributeType="String"/>
+        <attribute name="nrfemto" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="nrp" optional="YES" attributeType="String"/>
+        <attribute name="out2G" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="roam5G" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="roamLTE" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="setupDone" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="stms" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Coverage" representedClassName="Coverage" syncable="YES" codeGenerationType="class">
+        <attribute name="connected" optional="YES" attributeType="String"/>
+        <attribute name="connected_protocol" optional="YES" attributeType="String"/>
+        <attribute name="home" optional="YES" attributeType="String"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="Locations" representedClassName="Locations" syncable="YES" codeGenerationType="class">
         <attribute name="lat" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="lon" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -10,6 +40,8 @@
         <attribute name="lon" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <elements>
+        <element name="Carriers" positionX="-63" positionY="36" width="128" height="358"/>
+        <element name="Coverage" positionX="-63" positionY="18" width="128" height="118"/>
         <element name="Locations" positionX="-63" positionY="-18" width="128" height="75"/>
         <element name="OutService" positionX="-63" positionY="0" width="128" height="88"/>
     </elements>
