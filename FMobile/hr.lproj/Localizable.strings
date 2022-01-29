@@ -43,7 +43,7 @@
 "run_standard_setup" = "Koristite standardni konfiguracija umesto";
 "use_standard_setup" = "Koristite standardni konfiguracija";
 "warning_title" = "ODGOVORNOST";
-"warning_description" = "VAŽNO: Ovu aplikaciju je besplatna i bez garanciju. Vi ste potpuno odgovorni na nju, a to znaće da sve potencijalne štete od ovu aplikaciju su na vašu ekskluzivna odgovor (korišteni telefonski kredit, struja potrošnja, pregrevanje, itd…). Morate vi da kontrolirate mobilne podaci potrošnje i da ga isključite kada putujete. Nemojte da meni šaljite vaše račni na emajlom, nećete nikako naknada da dobijete (ovo verovatno mora da bude logično za puno ljudi, ali ovo se već jedanput desio…)";
+"warning_description" = "VAŽNO: Ovu aplikaciju je besplatna i bez garanciju. Vi ste potpuno odgovorni na nju, a to znaće da sve potencijalne štete od ovu aplikaciju su na vašu ekskluzivna odgovor. Morate vi da kontrolirate mobilne podaci potrošnje i da ga isključite kada putujete. Nemojte da meni šaljite vaše račni na emajlom, nećete nikako naknada da dobijete (ovo verovatno mora da bude logično za puno ljudi, ali ovo se već jedanput desio…)";
 "uninstall" = "Obriši aplikaciju";
 "accept_conditions" = "Slažem se sa ove uslove";
 "first_update_succeeded" = "Inicijalna ažuriranja je uspela.";
@@ -172,6 +172,11 @@
 "location_wrong_setting" = "Loša konfiguracija za lokaciju pristup";
 "location_ws_agree" = "Privremeno koristi \"Tokom upotrebe\" postava";
 "location_ws_agree_forever" = "Trajno prisiliti \"Tokom upotrebe\" postava";
+"location_accuracy_wrong_setting" = "Pogrešna precizna lokacija konfiguracija";
+"location_accuracy_description" = "FMobile treba precizna lokacija da normanlo radi. FMobile neće da radi kao želeno i imače neoćekovani ponašanje dok promenite vaš konfiguracija. Vaš lokaciji podatke ostanu lokalno osim ako nepoznato ućestovate na mapu pokrivenost.";
+"location_accuracy_change" = "Promeni za preciznu lokaciju";
+"location_accuracy_agree" = "Zadrži neprecizna lokacija";
+"location_accuracy_agree_forever" = "Uvek zadrži neprecizna lokacija";
 "airplane_mode_enabled" = "Zrakoplovski mod upaljen";
 "add_europe" = "Želite da dodate Evropski Union?";
 "add_europe_description" = "Zemlja %@ što probate da dodate je u EU. Dali želite da dodate EU u mesto ovaj individualno zemlju?";

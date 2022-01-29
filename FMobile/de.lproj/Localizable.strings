@@ -43,7 +43,7 @@
 "run_standard_setup" = "Standardkonfiguration Starten";
 "use_standard_setup" = "Standardkonfiguration Verwenden";
 "warning_title" = "VERANTWORTLICHKEIT";
-"warning_description" = "WICHTIG: Diese Applikation wird kostenlos und ohne jegliche Garantie zur Verfügung gestellt. Sie sind vollständig dafür verantwortlich, was bedeutet, dass jeder mögliche Schaden durch die Nutzung dieser App unter Ihrer alleinigen Verantwortung liegt (Mehrkosten auf der Telefonrechnung, Stromverbrauch, Überhitzung, etc…). Es ist Ihre Aufgabe, den Datenverbrauch regelmäßig zu überprüfen und zu deaktivieren, wenn Sie in aussland gehen. Schicken Sie mir Ihre Rechnungen nicht per E-Mail, Sie werden keine Rückerstattung erhalten (es mag für einige Leute offensichtlich erscheinen, aber diese Situation ist bereits eingetreten…)";
+"warning_description" = "WICHTIG: Diese Applikation wird kostenlos und ohne jegliche Garantie zur Verfügung gestellt. Sie sind vollständig dafür verantwortlich, was bedeutet, dass jeder mögliche Schaden durch die Nutzung dieser App unter Ihrer alleinigen Verantwortung liegt. Es ist Ihre Aufgabe, den Datenverbrauch regelmäßig zu überprüfen und zu deaktivieren, wenn Sie in aussland gehen. Schicken Sie mir Ihre Rechnungen nicht per E-Mail, Sie werden keine Rückerstattung erhalten (es mag für einige Leute offensichtlich erscheinen, aber diese Situation ist bereits eingetreten…)";
 "uninstall" = "App deinstallieren";
 "accept_conditions" = "Ich akzeptiere diese Bedingungen";
 "first_update_succeeded" = "Der ursprüngliche Aktualisierungsprozess war erfolgreich.";
@@ -173,6 +173,11 @@
 "location_wrong_setting" = "Falsche Einstellung für den Standortzugang";
 "location_ws_agree" = "Temporäre Erzwingung der Einst. \"Im Gebrauch\"";
 "location_ws_agree_forever" = "Dauerhaft erzwingen der Einst. \"Im Gebrauch\"";
+"location_accuracy_wrong_setting" = "Falsche Einstellung der Ortsgenauigkeit";
+"location_accuracy_description" = "FMobile benötigt für einen ordnungsgemäßen Betrieb einen vollständig genauen Standort. FMobile funktioniert nicht wie erwartet und kann unerwartete Verhaltensweisen aufweisen, bis Sie diese Einstellung ändern. Ihre Standortdaten bleiben immer lokal, es sei denn, Sie entscheiden sich für eine anonyme Teilnahme an der Abdeckungskarte";
+"location_accuracy_change" = "Änderung zur vollen Genauigkeit";
+"location_accuracy_agree" = "Reduzierte Genauigkeit beibehalten";
+"location_accuracy_agree_forever" = "Reduzierte Genauigkeit für immer beibehalten";
 "airplane_mode_enabled" = "Flugmodus aktiviert";
 "add_europe" = "Europäische Union hinzufügen?";
 "add_europe_description" = "Das Land %@, das Sie hinzufügen möchten, ist Teil der EU. Wollen Sie die EU anstelle dieses einzelnen Landes hinzufügen?";

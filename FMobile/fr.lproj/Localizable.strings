@@ -43,7 +43,7 @@
 "run_standard_setup" = "Lancer la configuration standard";
 "use_standard_setup" = "Utiliser la configuration standard";
 "warning_title" = "RESPONSABILITÉ";
-"warning_description" = "IMPORTANT : Cette application est fournie gratuitement sans garantie. Vous en êtes entièrement responsable, autrement dit tous les dommages liés à l'application sont sous votre responsabilité exclusivement (hors-forfait mobile, consommation électrique, surchauffe, etc…). C'est à vous de régulièrement vérifier la consommation de l'application et de la désactiver lorsque vous partez à l'étranger. Ne venez pas m'envoyer vos factures par mail, vous n'obtiendrez aucun remboursement (ça peut paraître évident pour certains mais c'est déjà arrivé…)";
+"warning_description" = "IMPORTANT : Cette application est fournie gratuitement sans garantie. Vous en êtes entièrement responsable, autrement dit tous les dommages liés à l'application sont sous votre responsabilité exclusivement. C'est à vous de régulièrement vérifier la consommation de l'application et de la désactiver lorsque vous partez à l'étranger. Ne venez pas m'envoyer vos factures par mail, vous n'obtiendrez aucun remboursement (ça peut paraître évident pour certains mais c'est déjà arrivé…)";
 "uninstall" = "Désinstaller l'application";
 "accept_conditions" = "J'accepte ces conditions";
 "first_update_succeeded" = "Le processus de mise à jour initial a réussi.";
@@ -172,6 +172,11 @@
 "location_wrong_setting" = "Mauvaise configuration pour l'accès à la localisation";
 "location_ws_agree" = "Forcer temporairement le réglage \"App active\"";
 "location_ws_agree_forever" = "Mémoriser et forcer le réglage \"App active\"";
+"location_accuracy_wrong_setting" = "Mauvais réglage de précision de localisation";
+"location_accuracy_description" = "FMobile a besoin d'une pleine précision pour fonctionner correctement. FMobile ne fonctionnera pas comme attendu et peut avoir des comportements inattendus jusqu'à ce que vous changiez ce réglage. Vos données de localisations restent locales sauf si vous décidez d'anonymement contribuer à la carte de couverture.";
+"location_accuracy_change" = "Changer pour la pleine précision";
+"location_accuracy_agree" = "Conserver la précision réduite";
+"location_accuracy_agree_forever" = "Définitivement conserver la précision reduite";
 "airplane_mode_enabled" = "Mode avion activé";
 "add_europe" = "Ajouter l'Union Européenne ?";
 "add_europe_description" = "Le pays %@ que vous essayez d'ajouter est membre de l'UE. Voulez-vous ajouter l'UE plutot que le pays individuel ?";

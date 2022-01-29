@@ -13,6 +13,7 @@ class TabBarController: UITabBarController {
     
     func locationDeniedCheck() {
         let dataManager = DataManager()
+        let locationManager = CLLocationManager()
         
         var locationAuthorizationAvoided = false
         if dataManager.datas.value(forKey: "locationAuthorizationAvoided") != nil {
@@ -22,6 +23,11 @@ class TabBarController: UITabBarController {
         var locationAuthorizationBadsetup = false
         if dataManager.datas.value(forKey: "locationAuthorizationBadsetup") != nil {
             locationAuthorizationBadsetup = dataManager.datas.value(forKey: "locationAuthorizationBadsetup") as? Bool ?? false
+        }
+        
+        var locationAccuracyAuthorizationBadsetup = false
+        if dataManager.datas.value(forKey: "locationAccuracyAuthorizationBadsetup") != nil {
+            locationAccuracyAuthorizationBadsetup = dataManager.datas.value(forKey: "locationAccuracyAuthorizationBadsetup") as? Bool ?? false
         }
         
         let authorizationStatus = CLLocationManager.authorizationStatus()
@@ -65,6 +71,23 @@ class TabBarController: UITabBarController {
                 dataManager.datas.synchronize()
             })
             UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+        
+        if #available(iOS 14.0, *) {
+            if locationManager.accuracyAuthorization == .reducedAccuracy && !locationAccuracyAuthorizationBadsetup{
+                let alert = UIAlertController(title: "location_accuracy_wrong_setting".localized(), message: "location_accuracy_description".localized(), preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "location_accuracy_change".localized(), style: .default) { (_) in
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url)
+                    }
+                })
+                alert.addAction(UIAlertAction(title: "location_accuracy_agree".localized(), style: .destructive, handler: nil))
+                alert.addAction(UIAlertAction(title: "location_accuracy_agree_forever".localized(), style: .destructive) { (_) in
+                    dataManager.datas.set(true, forKey: "locationAccuracyAuthorizationBadsetup")
+                    dataManager.datas.synchronize()
+                })
+                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+            }
         }
         
     }

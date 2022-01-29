@@ -151,7 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                     // Fallback on earlier versions
                                     context = RoamingManager.managedObjectContext
                                 }
-                                guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context), locationManager.location?.horizontalAccuracy ?? -1 >= 0 && locationManager.location?.horizontalAccuracy ?? -1 >= 500 else {
+                                guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
                                     return
                                 }
                                 let newCoo = NSManagedObject(entity: entity, insertInto: context)
@@ -297,7 +297,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                         let longitude = locationManager.location?.coordinate.longitude ?? 0
                                         
                                         let context = RoamingManager.persistentContainer.viewContext
-                                        guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context), locationManager.location?.horizontalAccuracy ?? -1 >= 0 && locationManager.location?.horizontalAccuracy ?? -1 >= 500 else {
+                                        guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
                                             completionHandler()
                                             return
                                         }

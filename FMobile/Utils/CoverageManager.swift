@@ -25,8 +25,14 @@ class CoverageManager {
             // Get location manager and user location
             let locationManager = CLLocationManager()
             
+            if #available(iOS 14.0, *) {
+                if locationManager.accuracyAuthorization == .reducedAccuracy {
+                    return
+                }
+            }
+            
             // Check if location is valid
-            if let location = locationManager.location, location.horizontalAccuracy >= 0, location.horizontalAccuracy <= 500 {
+            if let location = locationManager.location, location.horizontalAccuracy >= 0 {
                 // Get informations
                 let latitude = location.coordinate.latitude
                 let longitude = location.coordinate.longitude

@@ -43,7 +43,7 @@
 "run_standard_setup" = "Start de standaardconfiguratie";
 "use_standard_setup" = "Gebruik de standaardconfiguratie";
 "warning_title" = "RESPONSIBILITEIT";
-"warning_description" = "BELANGRIJK: Deze toepassing wordt gratis en zonder garantie aangeboden. U bent er volledig verantwoordelijk voor, met andere woorden, alle schade die verband houdt met de toepassing valt onder uw exclusieve verantwoordelijkheid (met uitzondering van mobiele plannen, stroomverbruik, oververhitting, enz…). Het is aan u om regelmatig het verbruik van de applicatie te controleren en uit te schakelen als u naar het buitenland gaat. Stuur mij uw facturen niet per e-mail, u krijgt geen terugbetaling (het lijkt voor sommigen misschien duidelijk, maar het is al gebeurd…)";
+"warning_description" = "BELANGRIJK: Deze toepassing wordt gratis en zonder garantie aangeboden. U bent er volledig verantwoordelijk voor, met andere woorden, alle schade die verband houdt met de toepassing valt onder uw exclusieve verantwoordelijkheid. Het is aan u om regelmatig het verbruik van de applicatie te controleren en uit te schakelen als u naar het buitenland gaat. Stuur mij uw facturen niet per e-mail, u krijgt geen terugbetaling (het lijkt voor sommigen misschien duidelijk, maar het is al gebeurd…)";
 "uninstall" = "Deïnstalleer de applicatie";
 "accept_conditions" = "Ik accepteer deze voorwaarden";
 "first_update_succeeded" = "Het eerste updateproces was succesvol.";
@@ -173,6 +173,11 @@
 "location_wrong_setting" = "Verkeerde instelling voor locatietoegang";
 "location_ws_agree" = "Instelling \"Wanneer in gebruik\" tijdelijk forceren";
 "location_ws_agree_forever" = "Instelling \"Wanneer in gebruik\" permanent forceren";
+"location_accuracy_wrong_setting" = "Verkeerde Locatie nauwkeurigheid instelling";
+"location_accuracy_description" = "FMobile heeft een volledig nauwkeurige locatie nodig om goed te kunnen werken. FMobile zal niet werken zoals verwacht en kan onverwacht gedrag vertonen totdat u die instelling wijzigt. Uw locatiegegevens blijven altijd lokaal, tenzij u besluit om anoniem deel te nemen aan de dekkingskaart";
+"location_accuracy_change" = "Verandering in volledige nauwkeurigheid";
+"location_accuracy_agree" = "Houd verminderde nauwkeurigheid";
+"location_accuracy_agree_forever" = "Houd verminderde nauwkeurigheid voor altijd";
 "airplane_mode_enabled" = "Vliegtuigmodus ingeschakeld";
 "add_europe" = "De Europese Unie toevoegen?";
 "add_europe_description" = "Het land %@ dat u probeert toe te voegen, maakt deel uit van de EU. Wilt u de EU toevoegen in plaats van dat individuele land?";

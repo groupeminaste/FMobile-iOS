@@ -476,20 +476,6 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
              present(alert, animated: true, completion: nil)
          }
         
-        // BUILD 122 - NEW ANIRC 2.1 SHORTCUT
-        if version < 122 && version != 0 {
-            let alert = UIAlertController(title: "Nouveau raccourci ANIRC v2.1", message: "Un nouveau raccourci ANIRC v2.1 est disponible et corrige de nombreux bugs et augmente l'efficacité de celui-ci. Veuillez le mettre à jour maintenant.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Télécharger ANIRC", style: .default) { (_) in
-               guard let link = URL(string: "http://raccourcis.ios.free.fr/fmobile") else { return }
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(link)
-                } else {
-                    UIApplication.shared.openURL(link)
-                }
-            })
-            present(alert, animated: true, completion: nil)
-        }
-        
         if version < 163 {
             dataManager.datas.set(false, forKey: "coveragemap")
             dataManager.datas.synchronize()
@@ -515,6 +501,18 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 dataManager.datas.synchronize()
             })
             self.present(alert, animated: true, completion: nil)
+        }
+        
+        // Nouveau Raccourci ANIRC v4 pour iOS 14
+        if #available(iOS 13.0, *) {
+            if version < 173 && version != 0 {
+                let alert = UIAlertController(title: "Nouveau raccourci ANIRC v4", message: "Un nouveau raccourci ANIRC v4 est disponible et corrige de nombreux bugs et augmente l'efficacité de celui-ci, notamment sur iOS 14. Veuillez le mettre à jour maintenant.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Télécharger ANIRC", style: .default) { (_) in
+                    guard let link = URL(string: "http://raccourcis.ios.free.fr/fmobile") else { return }
+                    UIApplication.shared.open(link)
+                })
+                present(alert, animated: true, completion: nil)
+            }
         }
              
         
@@ -1574,7 +1572,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                             // Fallback on earlier versions
                             context = RoamingManager.managedObjectContext
                         }
-                        guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context), locationManager.location?.horizontalAccuracy ?? -1 >= 0 && locationManager.location?.horizontalAccuracy ?? -1 >= 500 else {
+                        guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
                             return
                         }
                         let newCoo = NSManagedObject(entity: entity, insertInto: context)

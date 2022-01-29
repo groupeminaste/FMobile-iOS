@@ -43,7 +43,7 @@
 "run_standard_setup" = "Start the standard configuration";
 "use_standard_setup" = "Use the standard configuration";
 "warning_title" = "RESPONSABILITY";
-"warning_description" = "IMPORTANT: This application is provided for free without any warranty. You are completely responsible of it, which means that every potential damage due to the usage of this app are under your exclusive responsibility (extra-costs on the phone bill, electric consumption, overheat, etc…). It is your job to regularly check the data consummption and to disable it when you go aboard. Do not send me your bills by email, you will not get any refund (it may seem obvious to some people, but this situation already happened…)";
+"warning_description" = "IMPORTANT: This application is provided for free without any warranty. You are completely responsible of it, which means that every potential damage due to the usage of this app are under your exclusive responsibility. It is your job to regularly check the data consummption and to disable it when you go aboard. Do not send me your bills by email, you will not get any refund (it may seem obvious to some people, but this situation already happened…)";
 "uninstall" = "Uninstall the application";
 "accept_conditions" = "I accept these terms";
 "first_update_succeeded" = "The initial update process succeeded.";
@@ -173,6 +173,11 @@
 "location_wrong_setting" = "Wrong setup for location access";
 "location_ws_agree" = "Temporarily force \"When In Use\" setting";
 "location_ws_agree_forever" = "Permanently force \"When In Use\" setting";
+"location_accuracy_wrong_setting" = "Wrong Location Accuracy setting";
+"location_accuracy_description" = "FMobile needs a fully accurate location to operate properly. FMobile will not work as expected and may have unexpected behaviors until you change that setting. Your location data always stays local unless you decide to anonimously participate to the coverage map.";
+"location_accuracy_change" = "Change to full accuracy";
+"location_accuracy_agree" = "Keep reduced accuracy";
+"location_accuracy_agree_forever" = "Keep reduced accuracy forever";
 "airplane_mode_enabled" = "Airplane mode enabled";
 "add_europe" = "Add the European Union?";
 "add_europe_description" = "The country %@ you are trying to add is part of the EU. Do you want to add the EU instead of that individual country?";

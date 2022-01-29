@@ -261,7 +261,7 @@ class RoamingManager {
                             // Fallback on earlier versions
                             context = managedObjectContext
                         }
-                            guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context), locationManager.location?.horizontalAccuracy ?? -1 >= 0 && locationManager.location?.horizontalAccuracy ?? -1 >= 500 else {
+                            guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
                                 CoverageManager.addCurrentCoverageData(dataManager, isRoaming: true)
                                 completionHandler("ERROR")
                                 return
@@ -404,7 +404,7 @@ class RoamingManager {
                                             // Fallback on earlier versions
                                             context = managedObjectContext
                                         }
-                                        guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context), locationManager.location?.horizontalAccuracy ?? -1 >= 0 && locationManager.location?.horizontalAccuracy ?? -1 >= 500 else {
+                                        guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
                                             CoverageManager.addCurrentCoverageData(dataManager)
                                             dataManager.datas.set("NOTCOVERED", forKey: "g3lastcompletion")
                                             dataManager.datas.synchronize()
@@ -898,9 +898,6 @@ class RoamingManager {
                         if distance < 300 {
                             detected = true
                             print("Close to recognized hotspot, not initiating.")
-                            if locations.last?.horizontalAccuracy ?? -1 >= 0 && locations.last?.horizontalAccuracy ?? -1 >= 500 {
-                                detected = false
-                            }
                             break
                         }
                     }
@@ -1039,9 +1036,6 @@ class RoamingManager {
                             if distance < 300 {
                                 detected = true
                                 print("Close to recognized hotspot, not initiating.")
-                                if locations.last?.horizontalAccuracy ?? -1 >= 0 && locations.last?.horizontalAccuracy ?? -1 >= 500 {
-                                    detected = false
-                                }
                                 break
                             }
                         }

@@ -43,7 +43,7 @@
 "run_standard_setup" = "Iniciar la configuración estándar";
 "use_standard_setup" = "Utilizar la configuración estándar";
 "warning_title" = "RESPONSABILIDAD";
-"warning_description" = "IMPORTANTE: Esta aplicación se proporciona de forma gratuita sin ninguna garantía. Usted es completamente responsable de ello, lo que significa que todos los daños ocasionados por el uso de esta aplicación están bajo su exclusiva responsabilidad (costos adicionales en la factura del teléfono, consumo eléctrico, sobrecalentamiento, etc…). Es su trabajo verificar regularmente el consumo de datos y desactivarlo cuando vaya a bordo. No me envíe sus facturas por correo electrónico, no recibirá ningún reembolso (puede parecer obvio para algunas personas, pero esta situación ya sucedió…)";
+"warning_description" = "IMPORTANTE: Esta aplicación se proporciona de forma gratuita sin ninguna garantía. Usted es completamente responsable de ello, lo que significa que todos los daños ocasionados por el uso de esta aplicación están bajo su exclusiva responsabilidad. Es su trabajo verificar regularmente el consumo de datos y desactivarlo cuando vaya a bordo. No me envíe sus facturas por correo electrónico, no recibirá ningún reembolso (puede parecer obvio para algunas personas, pero esta situación ya sucedió…)";
 "uninstall" = "Desinstalar la aplicación";
 "accept_conditions" = "Acepto estos terminos";
 "first_update_succeeded" = "El proceso de actualización inicial tuvo éxito.";
@@ -173,6 +173,11 @@
 "location_wrong_setting" = "Configuración incorrecta para acceso a la localización";
 "location_ws_agree" = "Forzar temporalmente la config. \"Cuando en uso\"";
 "location_ws_agree_forever" = "Memorizar y forzar la config. \"Cuando en uso\"";
+"location_accuracy_wrong_setting" = "Ajuste de precisión de localización errónea";
+"location_accuracy_description" = "FMobile necesita una ubicación totalmente precisa para funcionar correctamente. FMobile no funcionará como se espera y puede tener comportamientos inesperados hasta que cambie esa configuración. Los datos de tu ubicación siempre se mantienen locales a menos que decidas participar anónimamente en el mapa de cobertura";
+"location_accuracy_change" = "Cambiar a precisión total";
+"location_accuracy_agree" = "Mantener la precisión reducida";
+"location_accuracy_agree_forever" = "Mantener la precisión reducida para siempre";
 "airplane_mode_enabled" = "Modo avión habilitado";
 "add_europe" = "¿Añadir la Unión Europea?";
 "add_europe_description" = "El país %@ que está intentando agregar es parte de la UE. ¿Desea agregar la UE en lugar de ese país individual?";
