@@ -41,7 +41,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let country = CarrierIdentification.getIsoCountryCode(dataManager.connectedMCC, dataManager.connectedMNC)
         var status = ""
         
-        if (dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && (dataManager.allow014G || (dataManager.modeExpert ? false : !dataManager.roamLTE))) {
+        if #available(iOS 14.1, *), dataManager.currentNetwork == CTRadioAccessTechnologyNR || dataManager.currentNetwork == CTRadioAccessTechnologyNRNSA {
+            dataManager.carrierNetwork = "\(dataManager.carrier) 5G (\("5g_unsupported".localized())) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+            status = "✅"
+        }
+        
+        else if (dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && (dataManager.allow014G || (dataManager.modeExpert ? false : !dataManager.roamLTE))) {
             dataManager.carrierNetwork = "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
             status = "✅"
         } else if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {

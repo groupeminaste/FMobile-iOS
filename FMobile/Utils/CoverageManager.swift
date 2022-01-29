@@ -67,6 +67,16 @@ class CoverageManager {
                     connected_protocol = "UNKNOWN" // In the short run, this will probably be 5G.
                 }
                 
+                // Adding 5G support for sending only
+                if #available(iOS 14.1, *) {
+                    if dataManager.carrierNetwork == CTRadioAccessTechnologyNR {
+                        connected_protocol = "NR"
+                    }
+                    if dataManager.carrierNetwork == CTRadioAccessTechnologyNRNSA {
+                        connected_protocol = "NRNSA"
+                    }
+                }
+                
                 if dataManager.carrierNetwork.isEmpty || dataManager.carrierNetwork == "" {
                     connected_protocol = "NONETWORK"
                 }

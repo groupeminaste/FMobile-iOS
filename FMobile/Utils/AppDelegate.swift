@@ -209,7 +209,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     return
             }
                 
-                
+            if #available(iOS 14.1, *), dataManager.currentNetwork == CTRadioAccessTechnologyNR || dataManager.currentNetwork == CTRadioAccessTechnologyNRNSA {
+                print("5G not supported")
+                return
+            }
             
             
             if dataManager.minimalSetup && dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC != dataManager.targetMNC {

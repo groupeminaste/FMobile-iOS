@@ -603,7 +603,12 @@ class RoamingManager {
         let zone = dataManager.zoneCheck()
         
         var simpleNetwork = ""
-        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+        
+        if #available(iOS 14.1, *), dataManager.currentNetwork == CTRadioAccessTechnologyNR || dataManager.currentNetwork == CTRadioAccessTechnologyNRNSA {
+            simpleNetwork = "5G"
+            return
+        }
+        else if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
             simpleNetwork = "4G"
         } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge {
             simpleNetwork = "E"
@@ -722,6 +727,12 @@ class RoamingManager {
             if dataManager.airplanemode {
                 print("Airplane mode enabled")
                 completionHandler("AIRPLANEMODE")
+                return
+            }
+            
+            if #available(iOS 14.1, *), dataManager.currentNetwork == CTRadioAccessTechnologyNRNSA || dataManager.currentNetwork == CTRadioAccessTechnologyNR {
+                print("5G unsupported")
+                completionHandler("UNSUPPORTED")
                 return
             }
             

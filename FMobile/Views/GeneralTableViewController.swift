@@ -913,7 +913,13 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             
         }
         
-        if (dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && (dataManager.allow014G || (dataManager.modeExpert ? false : !dataManager.roamLTE))) {
+        if #available(iOS 14.1, *), dataManager.carrierNetwork == CTRadioAccessTechnologyNR || dataManager.carrierNetwork == CTRadioAccessTechnologyNRNSA {
+            dataManager.carrierNetwork = dataManager.modeRadin ? "5G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                "\(dataManager.carrier) 5G (\("5G_unsupported".localized())) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 5G"
+            lastnetr = "LTE"
+            dataManager.datas.set(lastnetr, forKey: "lastnetr")
+            dataManager.datas.synchronize()
+        } else if (dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && (dataManager.allow014G || (dataManager.modeExpert ? false : !dataManager.roamLTE))) {
             dataManager.carrierNetwork = dataManager.modeRadin ? "4G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
                 "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 4G"
             lastnetr = "LTE"
@@ -1158,7 +1164,9 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
 //            }
 //        }
         
-        if dataManager.carrierNetwork2 == CTRadioAccessTechnologyLTE {
+        if #available(iOS 14.1, *), dataManager.currentNetwork == CTRadioAccessTechnologyNR || dataManager.currentNetwork == CTRadioAccessTechnologyNRNSA {
+            dataManager.carrierNetwork2 = dataManager.modeRadin ? "5G" : dataManager.modeExpert ? "5G (\("5g_unsupported".localized()))" : "5G"
+        } else if dataManager.carrierNetwork2 == CTRadioAccessTechnologyLTE {
             dataManager.carrierNetwork2 = dataManager.modeRadin ? "4G" : dataManager.modeExpert ? "4G (LTE)" : "4G"
         } else if dataManager.carrierNetwork2 == CTRadioAccessTechnologyWCDMA {
             dataManager.carrierNetwork2 = dataManager.modeRadin ? "3G" : dataManager.modeExpert ? "3G (WCDMA)" : "3G"
