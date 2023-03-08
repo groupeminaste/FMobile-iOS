@@ -27,7 +27,37 @@
 			<string>fr.plugn.fmobile-older</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fwifi</string>
+				<string>fmobile-older</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>fr.plugn.fmobile-older</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fmobile-old</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>fr.plugn.fmobile-older</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>coverage</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>fr.plugn.fmobile-older</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fmobile-coverage</string>
 			</array>
 		</dict>
 	</array>

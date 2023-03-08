@@ -275,15 +275,16 @@ class CarrierIntentHandler: NSObject, CarrierIntentHandling, IllegalRoamingInten
     
     func handle(intent: IllegalRoamingIntent, completion: @escaping (IllegalRoamingIntentResponse) -> Void) {
         let dataManager = DataManager()
-        let result = RoamingManager.directDataDCheck(service: dataManager.current)
-        
-        if result {
-            let country = dataManager.current.network.land
-            NotificationManager.sendNotification(for: .alertDataDrainG3, with: "data_drain_notification_description_g3".localized().format([dataManager.current.network.name, country]))
+        DataManager.getCurrentWifi { (wifi) in
+            let result = RoamingManager.directDataDCheck(service: dataManager.current, wifi: wifi)
+            
+            if result {
+                let country = dataManager.current.network.land
+                NotificationManager.sendNotification(for: .alertDataDrainG3, with: "data_drain_notification_description_g3".localized().format([dataManager.current.network.name, country]))
+            }
+            
+            completion(IllegalRoamingIntentResponse.success(roaming: result ? 1 : 0))
         }
-        
-        completion(IllegalRoamingIntentResponse.success(roaming: result ? 1 : 0))
-        
     }
     
     func handle(intent: GetCurrentMCCIntent, completion: @escaping (GetCurrentMCCIntentResponse) -> Void) {
@@ -337,9 +338,9 @@ class CarrierIntentHandler: NSObject, CarrierIntentHandling, IllegalRoamingInten
     }
     
     func handle(intent: IsWifiConnectedIntent, completion: @escaping (IsWifiConnectedIntentResponse) -> Void) {
-        let wifi = DataManager.isWifiConnected()
-        
-        completion(IsWifiConnectedIntentResponse.success(wifi: wifi ? 1 : 0))
+        DataManager.getCurrentWifi { (wifi) in
+            completion(IsWifiConnectedIntentResponse.success(wifi: wifi != nil ? 1 : 0))
+        }
     }
     
     func handle(intent: IsNetworkConnectedIntent, completion: @escaping (IsNetworkConnectedIntentResponse) -> Void) {

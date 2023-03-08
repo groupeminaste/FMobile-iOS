@@ -148,7 +148,7 @@
 "field_test_copied_confirmation" = "¡Código copiado exitosamente!";
 "select_url" = "URL personalizada para la prueba de velocidad";
 "about" = "Sobre";
-"about_description" = "Aplicación y atajo realizado por Michaël Nass\nUI/UX, mapa de cobertura, prueba de velocidad y optimización por Nathan Fallet\nLogo por Bruno (@brunopaiva_15)\n\nEsta aplicación ha sido desarrollada por desarrolladores independientes y se proporciona de forma gratuita sin ninguna garantía.\n\nEl Groupe MINASTE (incluyendo su aplicación FMobile) no está, en ningún caso, afiliado a ningún operador.\n\n© 2020 Groupe MINASTE";
+"about_description" = "Aplicación y atajo realizado por Michaël Nass\nUI/UX, mapa de cobertura, prueba de velocidad y optimización por Nathan Fallet\nLogo por Bruno (@brunoleyoyo)\n\nEsta aplicación ha sido desarrollada por desarrolladores independientes y se proporciona de forma gratuita sin ninguna garantía.\n\nEl Groupe MINASTE (incluyendo su aplicación FMobile) no está, en ningún caso, afiliado a ningún operador.\n\n© 2021 Groupe MINASTE";
 "donate" = "Hacer una donación";
 "select_donation" = "Selecciona una donación";
 "donate_helloasso" = "Hacer una donación con HelloAsso";
@@ -286,3 +286,7 @@
 "install_apps" = "Instalar otras aplicaciones";
 "map_carrier_title" = "Seleccionar un portador";
 "fwifi" = "FWi-Fi";
+"search_updates" = "Descargar configuración OTA";
+"db_updated" = "¡Configuración OTA instalada!";
+"db_updated_description" = "La última configuración de OTA está ahora instalada en su dispositivo.";
+"loading" = "Cargando...";

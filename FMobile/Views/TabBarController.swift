@@ -11,6 +11,8 @@ import CoreLocation
 
 class TabBarController: UITabBarController {
     
+    var generalVC = GeneralTableViewController()
+    
     func locationDeniedCheck() {
         let dataManager = DataManager()
         let locationManager = CLLocationManager()
@@ -102,7 +104,7 @@ class TabBarController: UITabBarController {
         
         let alert = UIAlertController(title: "first_start_title".localized(), message: "first_start_description".localized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "video_tutorial".localized(), style: .default) { (_) in
-            guard let mailto = URL(string: "https://youtu.be/GfI5JLqyqiY") else { return }
+            guard let mailto = URL(string: "https://youtu.be/JBcE_7jxYCk") else { return }
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(mailto)
             } else {
@@ -196,7 +198,13 @@ class TabBarController: UITabBarController {
 //        }
         
         // Init general
-        let general = UINavigationController(rootViewController: GeneralTableViewController(style: .grouped))
+        if #available(iOS 13.0, *) {
+            generalVC = GeneralTableViewController(style: .insetGrouped)
+        } else {
+            // Fallback on earlier versions
+            generalVC = GeneralTableViewController(style: .grouped)
+        }
+        let general = UINavigationController(rootViewController: generalVC)
         if #available(iOS 13.0, *) {
             general.tabBarItem = UITabBarItem(title: "general_view_title".localized(), image: UIImage(systemName: "gear"), tag: 0)
         } else {

@@ -22,7 +22,7 @@ class RoamingManager {
     }
     
     // Initialisation sur iPad
-    static func iPadInit(_ dataManager: DataManager = DataManager(), _ g3engine: Bool = false, service: FMNetwork, completionHandler: @escaping (String) -> ()) {
+    static func iPadInit(_ dataManager: DataManager = DataManager(), _ g3engine: Bool = false, service: FMNetwork, wifi: WifiNetwork?, completionHandler: @escaping (String) -> ()) {
         // On vérifie si l'utilisateur a donné son accord pour vérifier le pays en arrière plan
         if !dataManager.stopverification {
             if dataManager.allowCountryDetection {
@@ -41,7 +41,7 @@ class RoamingManager {
                         geocode(latitude: latitude, longitude: longitude) { placemark, error in
                             guard let placemark = placemark, error == nil else {
                                 print("Erreur geocode, on admet que l'utilisateur est dans son pays")
-                                process(dataManager, g3engine, service: service, completionHandler: completionHandler)
+                                process(dataManager, g3engine, service: service, wifi: wifi, completionHandler: completionHandler)
                                 return
                             }
                             
@@ -52,17 +52,17 @@ class RoamingManager {
                                 dataManager.datas.set(placemark.isoCountryCode?.uppercased() ?? service.card.land, forKey: "lastCountry")
                                 dataManager.datas.set(Date(), forKey: "timeLastCountry")
                                 dataManager.datas.synchronize()
-                                process(dataManager, g3engine, service: service, completionHandler: completionHandler)
+                                process(dataManager, g3engine, service: service, wifi: wifi, completionHandler: completionHandler)
                                 return
                             } else {
                                 print("L'utilisateur est à l'étranger")
                                 dataManager.datas.set(placemark.isoCountryCode?.uppercased() ?? "ABO", forKey: "lastCountry")
                                 dataManager.datas.set(Date(), forKey: "timeLastCountry")
                                 dataManager.datas.synchronize()
-                                CoverageManager.addCurrentCoverageData(dataManager, aboard: directDataDCheck(dataManager, service: service))
-                                dataManager.datas.set("ABOARD", forKey: "g3lastcompletion")
+                                CoverageManager.addCurrentCoverageData(dataManager, abroad: directDataDCheck(dataManager, service: service, wifi: wifi))
+                                dataManager.datas.set("ABROAD", forKey: "g3lastcompletion")
                                 dataManager.datas.synchronize()
-                                completionHandler("ABOARD")
+                                completionHandler("ABROAD")
                                 return
                             }
                             
@@ -77,20 +77,20 @@ class RoamingManager {
                         NotificationManager.sendNotification(for: .locFailed)
                         dataManager.datas.set(Date(), forKey: "timeLastCountry")
                         dataManager.datas.synchronize()
-                        process(dataManager, g3engine, service: service, completionHandler: completionHandler)
+                        process(dataManager, g3engine, service: service, wifi: wifi, completionHandler: completionHandler)
                         return
                     }
                 } else {
                     if dataManager.lastCountry == service.card.land {
                         print("Utilisation du cache : Home Network")
-                        process(dataManager, g3engine, service: service, completionHandler: completionHandler)
+                        process(dataManager, g3engine, service: service, wifi: wifi, completionHandler: completionHandler)
                         return
                     } else {
                         print("Selon le cache, l'utilisateur est à l'étranger")
-                        CoverageManager.addCurrentCoverageData(dataManager, aboard: directDataDCheck(dataManager, service: service))
-                        dataManager.datas.set("ABOARD", forKey: "g3lastcompletion")
+                        CoverageManager.addCurrentCoverageData(dataManager, abroad: directDataDCheck(dataManager, service: service, wifi: wifi))
+                        dataManager.datas.set("ABROAD", forKey: "g3lastcompletion")
                         dataManager.datas.synchronize()
-                        completionHandler("ABOARD")
+                        completionHandler("ABROAD")
                         return
                     }
                 }
@@ -98,7 +98,7 @@ class RoamingManager {
             } else {
                 // L'utilisateur n'a pas donné son accord
                 print("The user has not allowed Country Detection")
-                process(dataManager, g3engine, service: service, completionHandler: completionHandler)
+                process(dataManager, g3engine, service: service, wifi: wifi, completionHandler: completionHandler)
                 return
             }
         } else {
@@ -155,11 +155,11 @@ class RoamingManager {
     }
     
     // Initialsation
-    static func initBackground(_ dataManager: DataManager = DataManager(), _ g3engine: Bool = false, service: FMNetwork, completionHandler: @escaping (String) -> ()) {
+    static func initBackground(_ dataManager: DataManager = DataManager(), _ g3engine: Bool = false, service: FMNetwork, wifi: WifiNetwork?, completionHandler: @escaping (String) -> ()) {
         // Traitement de l'iPad
         if UIDevice.current.userInterfaceIdiom == .pad {
             if (service.network.mcc == "---" && service.network.mnc == "--"){
-                iPadInit(dataManager, g3engine, service: service, completionHandler: completionHandler)
+                iPadInit(dataManager, g3engine, service: service, wifi: wifi, completionHandler: completionHandler)
                 return
             }
         }
@@ -183,7 +183,7 @@ class RoamingManager {
                 return
             }
             
-            process(dataManager, g3engine, service: service, completionHandler: completionHandler)
+            process(dataManager, g3engine, service: service, wifi: wifi, completionHandler: completionHandler)
             return
         } else {
             print("User wants the process to stop in background.")
@@ -195,18 +195,18 @@ class RoamingManager {
     }
     
     // La fonction qui vérifie si on doit appeler netfetch() ou pas (WiFi, à l'étranger...)
-    static func process(_ dataManager: DataManager = DataManager(), _ g3engine: Bool = false, service: FMNetwork, completionHandler: @escaping (String) -> ()) {
+    static func process(_ dataManager: DataManager = DataManager(), _ g3engine: Bool = false, service: FMNetwork, wifi: WifiNetwork?, completionHandler: @escaping (String) -> ()) {
         
         var request: Bool
         if #available(iOS 14.1, *) {
-            request = (service.network.mcc == service.card.mcc && service.network.mnc == service.card.itiMNC && (service.network.connected == CTRadioAccessTechnologyLTE || service.network.connected == CTRadioAccessTechnologyNR || service.network.connected == CTRadioAccessTechnologyNRNSA)) || (service.network.mcc == service.card.mcc && service.network.mnc == service.card.chasedMNC && (service.network.connected == CTRadioAccessTechnologyLTE || service.network.connected == CTRadioAccessTechnologyNR || service.network.connected == CTRadioAccessTechnologyNRNSA))
+            request = (service.network.mcc == service.card.mcc && service.network.mnc == service.card.itiMNC && (service.network.connected == CTRadioAccessTechnologyLTE || service.network.connected == CTRadioAccessTechnologyNR || service.network.connected == CTRadioAccessTechnologyNRNSA)) || (service.network.mcc == service.card.mcc && service.network.mnc == service.card.chasedMNC && (service.network.connected != CTRadioAccessTechnologyLTE || service.network.connected != CTRadioAccessTechnologyNR || service.network.connected != CTRadioAccessTechnologyNRNSA))
         } else {
             request = (service.network.mcc == service.card.mcc && service.network.mnc == service.card.itiMNC && service.network.connected == CTRadioAccessTechnologyLTE) || (service.network.mcc == service.card.mcc && service.network.mnc == service.card.chasedMNC && service.network.connected != CTRadioAccessTechnologyLTE)
         }
         
         if request {
                 // Le contrôle d'itinérance démarre.
-            netfetch(dataManager, g3engine, service: service, completionHandler: completionHandler)
+            netfetch(dataManager, g3engine, service: service, wifi: wifi, completionHandler: completionHandler)
                 return
         } else {
             // L'utilisateur est chez un autre opérateur
@@ -221,7 +221,7 @@ class RoamingManager {
     }
     
     // La fonction clé du programme qui vérifie l'itinérance
-    static func netfetch(_ dataManager: DataManager = DataManager(), _ g3engine: Bool = false, service: FMNetwork, completionHandler: @escaping (String) -> ()) {
+    static func netfetch(_ dataManager: DataManager = DataManager(), _ g3engine: Bool = false, service: FMNetwork, wifi: WifiNetwork?, completionHandler: @escaping (String) -> ()) {
         let now = Date()
         
         print(abs(dataManager.timecode.timeIntervalSinceNow))
@@ -360,11 +360,11 @@ class RoamingManager {
         if #available(iOS 14.1, *) {
             request = service.network.connected == CTRadioAccessTechnologyNR || service.network.connected == CTRadioAccessTechnologyNRNSA || service.network.connected == service.card.nrp || service.network.connected == CTRadioAccessTechnologyLTE
             request2 = (service.network.connected == service.card.nrp && !dataManager.allow013G) || (service.network.connected == CTRadioAccessTechnologyLTE && !dataManager.allow014G) || (service.network.connected == CTRadioAccessTechnologyNR && !dataManager.allow015G) || (service.network.connected == CTRadioAccessTechnologyNRNSA && !dataManager.allow015G)
-            request3 = !dataManager.femtoLOWDATA && (dataManager.femto || service.network.connected == CTRadioAccessTechnologyLTE || service.network.connected == CTRadioAccessTechnologyNR || service.network.connected == CTRadioAccessTechnologyNRNSA) && !DataManager.isWifiConnected()
+            request3 = !dataManager.femtoLOWDATA && (dataManager.femto || service.network.connected == CTRadioAccessTechnologyLTE || service.network.connected == CTRadioAccessTechnologyNR || service.network.connected == CTRadioAccessTechnologyNRNSA) && wifi == nil
         } else {
             request = service.network.connected == service.card.nrp || service.network.connected == CTRadioAccessTechnologyLTE
             request2 = (service.network.connected == service.card.nrp && !dataManager.allow013G) || (service.network.connected == CTRadioAccessTechnologyLTE && !dataManager.allow014G)
-            request3 = !dataManager.femtoLOWDATA && (dataManager.femto || service.network.connected == CTRadioAccessTechnologyLTE) && !DataManager.isWifiConnected()
+            request3 = !dataManager.femtoLOWDATA && (dataManager.femto || service.network.connected == CTRadioAccessTechnologyLTE) && wifi == nil
         }
         
         // Début des vérifications
@@ -677,20 +677,21 @@ class RoamingManager {
     static func checkDataDisabled(_ dataManager: DataManager = DataManager(), service: FMNetwork, completionHandler: @escaping (Bool) -> ()) {
         
         let zone = dataManager.zoneCheck(service: service)
-        
-        if DataManager.isConnectedToNetwork() && !DataManager.isWifiConnected() && service.network.mcc != service.card.mcc && (zone == "OUTZONE" || zone == "CALLS") {
-            completionHandler(true)
+        DataManager.getCurrentWifi { (wifi) in
+            if DataManager.isConnectedToNetwork() && wifi == nil && service.network.mcc != service.card.mcc && (zone == "OUTZONE" || zone == "CALLS") {
+                completionHandler(true)
+                return
+            }
+            completionHandler(false)
             return
         }
-        completionHandler(false)
-        return
     }
     
-    static func directDataDCheck(_ dataManager: DataManager = DataManager(), service: FMNetwork) -> Bool {
+    static func directDataDCheck(_ dataManager: DataManager = DataManager(), service: FMNetwork, wifi: WifiNetwork?) -> Bool {
         
         let zone = dataManager.zoneCheck(service: service)
         
-        if DataManager.isConnectedToNetwork() && !DataManager.isWifiConnected() && service.network.mcc != service.card.mcc && (zone == "OUTZONE" || zone == "CALLS") {
+        if DataManager.isConnectedToNetwork() && wifi == nil && service.network.mcc != service.card.mcc && (zone == "OUTZONE" || zone == "CALLS") {
             return true
         }
         return false
@@ -781,6 +782,16 @@ class RoamingManager {
     }
     
     static func engine(locations: [CLLocation] = [CLLocation](), g3engine: Bool = false, service: FMNetwork, completionHandler: @escaping (String) -> ()) {
+        
+        DataManager.getCurrentWifi { (wifi) in
+            trueEngine(locations: locations, g3engine: g3engine, service: service, wifi: wifi) { (completion) in
+                completionHandler(completion)
+            }
+        }
+        
+    }
+    
+    static func trueEngine(locations: [CLLocation] = [CLLocation](), g3engine: Bool = false, service: FMNetwork, wifi: WifiNetwork?, completionHandler: @escaping (String) -> ()) {
         print("TRIGGERED")
         
         let dataManager = DataManager()
@@ -885,14 +896,14 @@ class RoamingManager {
                 print("Country != land!")
                 print(country)
                 print(land)
-                CoverageManager.addCurrentCoverageData(dataManager, aboard: directDataDCheck(dataManager, service: service))
-                dataManager.datas.set("ABOARD", forKey: "g3lastcompletion")
+                CoverageManager.addCurrentCoverageData(dataManager, abroad: directDataDCheck(dataManager, service: service, wifi: wifi))
+                dataManager.datas.set("ABROAD", forKey: "g3lastcompletion")
                 dataManager.datas.synchronize()
-                completionHandler("ABOARD")
+                completionHandler("ABROAD")
                 return
             }
             
-            if DataManager.isWifiConnected() && !dataManager.verifyonwifi {
+            if wifi != nil && !dataManager.verifyonwifi {
                 // L'utilisateur est connecté au WiFi et est chez Free, et a demandé à ne pas controler le WiFi
                 print("L'utilisateur a désactivé le contrôle en WiFi")
                 dataManager.datas.set("WIFI", forKey: "g3lastcompletion")
@@ -1173,7 +1184,7 @@ class RoamingManager {
                     let currlon = locations.last?.coordinate.longitude ?? 0
                     
                     if currlat == 0 || currlon == 0 {
-                        initBackground(dataManager, g3engine, service: service, completionHandler: completionHandler)
+                        initBackground(dataManager, g3engine, service: service, wifi: wifi, completionHandler: completionHandler)
                         return
                     }
                     
@@ -1218,7 +1229,7 @@ class RoamingManager {
                         }
                         
                         if !detected {
-                            initBackground(dataManager, g3engine, service: service, completionHandler: completionHandler)
+                            initBackground(dataManager, g3engine, service: service, wifi: wifi, completionHandler: completionHandler)
                             return
                         } else {
                             print("detected one nearby hotspot, STOPING OPERATIONS.")
@@ -1230,7 +1241,7 @@ class RoamingManager {
                         }
                     } catch {
                         print("Failed")
-                        initBackground(dataManager, g3engine, service: service, completionHandler: completionHandler)
+                        initBackground(dataManager, g3engine, service: service, wifi: wifi, completionHandler: completionHandler)
                         return
                     }
                 } else {

@@ -124,7 +124,26 @@ class MapInfoTableViewController: UITableViewController, MapInfoContainer {
             if indexPath.row == 0 {
                 // Install FMobile
                 let handler: ((UIButton) -> Void) = { _ in
-                    
+                    if let url = URL(string: "fmobile://") {
+                        if #available(iOS 10.0, *) {
+                            UIApplication.shared.open(url) { (result) in
+                                if !result {
+                                    if let url2 = URL(string: "https://apps.apple.com/fr/app/fmobile-2/id1449356942") {
+                                        UIApplication.shared.open(url2)
+                                    }
+                                }
+                            }
+                        } else {
+                            // Fallback on earlier versions
+                            if UIApplication.shared.canOpenURL(url) {
+                                UIApplication.shared.openURL(url)
+                            } else {
+                                if let url2 = URL(string: "https://apps.apple.com/fr/app/fmobile-2/id1449356942") {
+                                    UIApplication.shared.openURL(url2)
+                                }
+                            }
+                        }
+                    }
                 }
                 
                 #if targetEnvironment(macCatalyst)
@@ -139,7 +158,26 @@ class MapInfoTableViewController: UITableViewController, MapInfoContainer {
             } else if indexPath.row == 1 {
                 // Install FWi-Fi
                 let handler: ((UIButton) -> Void) = { _ in
-                    
+                    if let url = URL(string: "fwifi://") {
+                        if #available(iOS 10.0, *) {
+                            UIApplication.shared.open(url) { (result) in
+                                if !result {
+                                    if let url2 = URL(string: "https://apps.apple.com/app/fwi-fi-for-ios/id1501218122") {
+                                        UIApplication.shared.open(url2)
+                                    }
+                                }
+                            }
+                        } else {
+                            // Fallback on earlier versions
+                            if UIApplication.shared.canOpenURL(url) {
+                                UIApplication.shared.openURL(url)
+                            } else {
+                                if let url2 = URL(string: "https://apps.apple.com/app/fwi-fi-for-ios/id1501218122") {
+                                    UIApplication.shared.openURL(url2)
+                                }
+                            }
+                        }
+                    }
                 }
                 
                 #if targetEnvironment(macCatalyst)
@@ -200,7 +238,13 @@ class MapInfoTableViewController: UITableViewController, MapInfoContainer {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             // Handle click on carrier cell
-            let mapCarrierVC = MapCarrierTableViewController(style: .grouped)
+            let mapCarrierVC: MapCarrierTableViewController
+            if #available(iOS 13.0, *) {
+                mapCarrierVC = MapCarrierTableViewController(style: .insetGrouped)
+            } else {
+                // Fallback on earlier versions
+                mapCarrierVC = MapCarrierTableViewController(style: .grouped)
+            }
             mapCarrierVC.delegate = delegate
             mapCarrierVC.delegate2 = self
             present(UINavigationController(rootViewController: mapCarrierVC), animated: true, completion: nil)
@@ -210,6 +254,13 @@ class MapInfoTableViewController: UITableViewController, MapInfoContainer {
             self.tableView.reloadData()
             delegate?.loadCoverageMap()
         }
+        #if FMOBILECOVERAGE
+        if indexPath.section == 2 {
+            if let element = tableView.cellForRow(at: indexPath) as? AppTableViewCell {
+                element.handler(element.button)
+            }
+        }
+        #endif
     }
     
     @objc func close(_ sender: UIBarButtonItem) {

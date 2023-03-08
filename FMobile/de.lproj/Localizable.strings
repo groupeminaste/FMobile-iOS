@@ -148,7 +148,7 @@
 "field_test_copied_confirmation" = "Code erfolgreich kopiert!";
 "select_url" = "Persönliche URL für den Geschwindigkeitstest";
 "about" = "Über uns";
-"about_description" = "Applikation und Kurzbefehle von Michaël Nass\nUI/UX, Deckungsmap, Speedtest und Optimierung von Nathan Fallet\nLogo von Bruno (@brunopaiva_15)\n\nDiese Applikation wurde von unabhängigen Entwicklern entwickelt und wird ohne jegliche Garantie kostenlos zur Verfügung gestellt.\n\nDer Groupe MINASTE (einschließlich ihrer FMobile Applikation) ist in keinem Fall mit irgend einer Mobilfunkbetreiber verbunden.\n\n© 2020 Groupe MINASTE";
+"about_description" = "Applikation und Kurzbefehle von Michaël Nass\nUI/UX, Deckungsmap, Speedtest und Optimierung von Nathan Fallet\nLogo von Bruno (@brunoleyoyo)\n\nDiese Applikation wurde von unabhängigen Entwicklern entwickelt und wird ohne jegliche Garantie kostenlos zur Verfügung gestellt.\n\nDer Groupe MINASTE (einschließlich ihrer FMobile Applikation) ist in keinem Fall mit irgend einer Mobilfunkbetreiber verbunden.\n\n© 2021 Groupe MINASTE";
 "donate" = "Spenden";
 "select_donation" = "Wählen Sie eine Spende";
 "donate_helloasso" = "Mit HelloAsso Spenden";
@@ -282,3 +282,7 @@
 "install_apps" = "Installieren Sie andere apps";
 "map_carrier_title" = "Wählen Sie einen Betreiber aus";
 "fwifi" = "FWLAN";
+"search_updates" = "OTA-Konfiguration herunterladen";
+"db_updated" = "OTA-Konfiguration installiert!";
+"db_updated_description" = "Die neueste OTA-Konfiguration ist jetzt auf Ihrem Gerät installiert.";
+"loading" = "Laden...";

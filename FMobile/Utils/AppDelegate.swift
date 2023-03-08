@@ -88,106 +88,109 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func WIFIDIS(){
         let dataManager = DataManager()
         
-        if DataManager.isWifiConnected() {
-            print("STILL CONNECTED")
-            return
-        } else {
-            print("ABORTED WIFI")
-            
-            self.timer?.invalidate()
-            
-            DispatchQueue.main.async {
-                self.window?.rootViewController?.dismiss(animated: true, completion: nil)
-            }
-            
-            delay(0.5){
-                let alert = UIAlertController(title: "Préparation en cours...", message: nil, preferredStyle: UIAlertController.Style.alert)
-                let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 3, y: 5, width: 50, height: 50))
-                loadingIndicator.hidesWhenStopped = true
-                if #available(iOS 13.0, *) {
-                    loadingIndicator.style = UIActivityIndicatorView.Style.medium
-                } else {
-                    loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        DataManager.getCurrentWifi { (wifi) in
+            if wifi != nil {
+                print("STILL CONNECTED")
+                return
+            } else {
+                print("ABORTED WIFI")
+                
+                self.timer?.invalidate()
+                
+                DispatchQueue.main.async {
+                    self.window?.rootViewController?.dismiss(animated: true, completion: nil)
                 }
-                loadingIndicator.startAnimating()
-                alert.view.addSubview(loadingIndicator)
                 
-                self.window?.rootViewController?.present(alert, animated: true, completion: nil)
-                
-                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
-                    DispatchQueue.main.async {
-                        print(speed ?? 0)
-                        if speed ?? 0 < dataManager.current.card.stms {
-                            print("ITI 35")
-                            dataManager.wasEnabled += 1
-                            dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                            if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNR {
-                                dataManager.datas.set("NR", forKey: "g3lastcompletion")
-                            } else if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA {
-                                dataManager.datas.set("NRNSA", forKey: "g3lastcompletion")
-                            } else if dataManager.current.network.connected == CTRadioAccessTechnologyLTE {
-                                dataManager.datas.set("LTE", forKey: "g3lastcompletion")
-                            } else if dataManager.current.card.nrp == CTRadioAccessTechnologyHSDPA {
-                                dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
+                self.delay(0.5){
+                    let alert = UIAlertController(title: "Préparation en cours...", message: nil, preferredStyle: UIAlertController.Style.alert)
+                    let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 3, y: 5, width: 50, height: 50))
+                    loadingIndicator.hidesWhenStopped = true
+                    if #available(iOS 13.0, *) {
+                        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+                    } else {
+                        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+                    }
+                    loadingIndicator.startAnimating()
+                    alert.view.addSubview(loadingIndicator)
+                    
+                    self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+                    
+                    Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
+                        DispatchQueue.main.async {
+                            print(speed ?? 0)
+                            if speed ?? 0 < dataManager.current.card.stms {
+                                print("ITI 35")
+                                dataManager.wasEnabled += 1
+                                dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
+                                if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNR {
+                                    dataManager.datas.set("NR", forKey: "g3lastcompletion")
+                                } else if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA {
+                                    dataManager.datas.set("NRNSA", forKey: "g3lastcompletion")
+                                } else if dataManager.current.network.connected == CTRadioAccessTechnologyLTE {
+                                    dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                                } else if dataManager.current.card.nrp == CTRadioAccessTechnologyHSDPA {
+                                    dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
+                                } else {
+                                    dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
+                                }
+                                dataManager.datas.set(Date(), forKey: "timecode")
+                                dataManager.datas.synchronize()
+                                if #available(iOS 12.0, *) {
+                                guard let link = DataManager.getShortcutURL() else { return }
+                                    UIApplication.shared.open(link)
+                                } else {
+                                    self.oldios()
+                                }
                             } else {
-                                dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
-                            }
-                            dataManager.datas.set(Date(), forKey: "timecode")
-                            dataManager.datas.synchronize()
-                            if #available(iOS 12.0, *) {
-                            guard let link = DataManager.getShortcutURL() else { return }
-                                UIApplication.shared.open(link)
-                            } else {
-                                self.oldios()
-                            }
-                        } else {
-                            print("S65")
-                            if CLLocationManager.authorizationStatus() == .authorizedAlways {
-                                // On verifie la localisation en arrière plan
-                                let locationManager = CLLocationManager()
-                                
-                                if #available(iOS 14.0, *) {
-                                    if locationManager.accuracyAuthorization != .fullAccuracy {
+                                print("S65")
+                                if CLLocationManager.authorizationStatus() == .authorizedAlways {
+                                    // On verifie la localisation en arrière plan
+                                    let locationManager = CLLocationManager()
+                                    
+                                    if #available(iOS 14.0, *) {
+                                        if locationManager.accuracyAuthorization != .fullAccuracy {
+                                            return
+                                        }
+                                    }
+                                    
+                                    let latitude = locationManager.location?.coordinate.latitude ?? 0
+                                    let longitude = locationManager.location?.coordinate.longitude ?? 0
+                                    
+                                    let context: NSManagedObjectContext
+                                    if #available(iOS 10.0, *) {
+                                        context = PermanentStorage.persistentContainer.viewContext
+                                    } else {
+                                        // Fallback on earlier versions
+                                        context = PermanentStorage.managedObjectContext
+                                    }
+                                    guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
                                         return
                                     }
+                                    let newCoo = NSManagedObject(entity: entity, insertInto: context)
+                                    
+                                    newCoo.setValue(latitude, forKey: "lat")
+                                    newCoo.setValue(longitude, forKey: "lon")
+                                    
+                                    context.performAndWait({
+                                        do {
+                                            try context.save()
+                                            print("COORDINATES SAVED!")
+                                        } catch {
+                                            print("Failed saving")
+                                        }
+                                    })
                                 }
-                                
-                                let latitude = locationManager.location?.coordinate.latitude ?? 0
-                                let longitude = locationManager.location?.coordinate.longitude ?? 0
-                                
-                                let context: NSManagedObjectContext
-                                if #available(iOS 10.0, *) {
-                                    context = PermanentStorage.persistentContainer.viewContext
-                                } else {
-                                    // Fallback on earlier versions
-                                    context = PermanentStorage.managedObjectContext
-                                }
-                                guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
-                                    return
-                                }
-                                let newCoo = NSManagedObject(entity: entity, insertInto: context)
-                                
-                                newCoo.setValue(latitude, forKey: "lat")
-                                newCoo.setValue(longitude, forKey: "lon")
-                                
-                                context.performAndWait({
-                                    do {
-                                        try context.save()
-                                        print("COORDINATES SAVED!")
-                                    } catch {
-                                        print("Failed saving")
-                                    }
-                                })
                             }
-                        }
-                        self.delay(0.3){
-                            self.window?.rootViewController?.dismiss(animated: true, completion: nil)
-                            UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+                            self.delay(0.3){
+                                self.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                                UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+                            }
                         }
                     }
                 }
             }
         }
+
     }
     
     // -----
@@ -204,167 +207,181 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         case UNNotificationDefaultActionIdentifier:
             let dataManager = DataManager()
             
-            let result = RoamingManager.directDataDCheck(dataManager, service: dataManager.current)
-                if result {
-                    if #available(iOS 13.0, *) {} else {
-                        NotificationManager.sendNotification(for: .alertDataDrainG3, with: "data_drain_notification_description_g3".localized().format([dataManager.current.network.name, dataManager.current.network.land]))
+            DataManager.getCurrentWifi { (wifi) in
+                let result = RoamingManager.directDataDCheck(dataManager, service: dataManager.current, wifi: wifi)
+                    if result {
+                        if #available(iOS 13.0, *) {} else {
+                            NotificationManager.sendNotification(for: .alertDataDrainG3, with: "data_drain_notification_description_g3".localized().format([dataManager.current.network.name, dataManager.current.network.land]))
+                        }
+                        if #available(iOS 12.0, *) {
+                        guard let link = DataManager.getShortcutURL(international: true) else { return }
+                            UIApplication.shared.open(link)
+                        } else {
+                            self.oldios()
+                        }
+                        completionHandler()
+                        return
+                }
+                    
+                    
+                
+                
+                if dataManager.current.card.minimalSetup && dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc != dataManager.current.card.mnc {
+                    dataManager.wasEnabled += 1
+                    dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
+                    if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNR {
+                        dataManager.datas.set("NR", forKey: "g3lastcompletion")
+                    } else if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA {
+                        dataManager.datas.set("NRNSA", forKey: "g3lastcompletion")
+                    } else if dataManager.current.network.connected == CTRadioAccessTechnologyLTE {
+                        dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                    } else if dataManager.current.network.connected == CTRadioAccessTechnologyHSDPA {
+                        dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
+                    } else {
+                        dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
                     }
+                    dataManager.datas.set(Date(), forKey: "timecode")
+                    dataManager.datas.synchronize()
                     if #available(iOS 12.0, *) {
-                    guard let link = DataManager.getShortcutURL(international: true) else { return }
+                    guard let link = DataManager.getShortcutURL() else { return }
                         UIApplication.shared.open(link)
                     } else {
                         self.oldios()
                     }
                     completionHandler()
                     return
-            }
-                
-                
-            
-            
-            if dataManager.current.card.minimalSetup && dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc != dataManager.current.card.mnc {
-                dataManager.wasEnabled += 1
-                dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNR {
-                    dataManager.datas.set("NR", forKey: "g3lastcompletion")
-                } else if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA {
-                    dataManager.datas.set("NRNSA", forKey: "g3lastcompletion")
-                } else if dataManager.current.network.connected == CTRadioAccessTechnologyLTE {
-                    dataManager.datas.set("LTE", forKey: "g3lastcompletion")
-                } else if dataManager.current.network.connected == CTRadioAccessTechnologyHSDPA {
-                    dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
-                } else {
-                    dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
                 }
-                dataManager.datas.set(Date(), forKey: "timecode")
-                dataManager.datas.synchronize()
-                if #available(iOS 12.0, *) {
-                guard let link = DataManager.getShortcutURL() else { return }
-                    UIApplication.shared.open(link)
-                } else {
-                    self.oldios()
-                }
-                completionHandler()
-                return
-            }
-            
-            if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.chasedMNC && !DataManager.isOnPhoneCall() {
-                if dataManager.current.network.connected == dataManager.current.card.nrp && !dataManager.allow013G {
-                    if dataManager.verifyonwifi && DataManager.isWifiConnected() && dataManager.current.card.nrdec && dataManager.femto {
-                        let alerteW = UIAlertController(title: "disconnect_from_wifi".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
-                        
-                        alerteW.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel) { (_) in
-                            self.timer?.invalidate()
-                        })
-                        
-                        self.window?.rootViewController?.present(alerteW, animated: true, completion: nil)
-                        
-                        timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
-                            self.WIFIDIS()
-                        }
-                        
-                        // NOW I NEED TO WAIT THAT THE USER IS INDEED DISCONNECTED TO WIFI BEFORE CONTINIUNG!
-                    } else if dataManager.femtoLOWDATA && dataManager.femto && dataManager.current.card.nrdec {
-                        let alert = UIAlertController(title: "preparation_inprogress".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
-                        
-                        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 3, y: 5, width: 50, height: 50))
-                        loadingIndicator.hidesWhenStopped = true
-                        if #available(iOS 13.0, *) {
-                            loadingIndicator.style = UIActivityIndicatorView.Style.medium
-                        } else {
-                            // Fallback on earlier versions
-                            loadingIndicator.style = UIActivityIndicatorView.Style.gray
-                        }
-                        loadingIndicator.startAnimating()
-                        
-                        alert.view.addSubview(loadingIndicator)
-                        
-                        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
-                        
-                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
-                            print("THIS SHOULD NOT BE CALLED...")
-                            DispatchQueue.main.async {
-                                print(speed ?? 0)
-                                if speed ?? 0 < dataManager.current.card.stms {
-                                    dataManager.wasEnabled += 1
-                                    dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                                    if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNR {
-                                        dataManager.datas.set("NR", forKey: "g3lastcompletion")
-                                    } else if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA {
-                                        dataManager.datas.set("NRNSA", forKey: "g3lastcompletion")
-                                    } else if dataManager.current.network.connected == CTRadioAccessTechnologyLTE {
-                                        dataManager.datas.set("LTE", forKey: "g3lastcompletion")
-                                    } else if dataManager.current.card.nrp == CTRadioAccessTechnologyHSDPA {
-                                        dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
+                
+                if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.chasedMNC && !DataManager.isOnPhoneCall() {
+                    if dataManager.current.network.connected == dataManager.current.card.nrp && !dataManager.allow013G {
+                        if dataManager.verifyonwifi && wifi != nil && dataManager.current.card.nrdec && dataManager.femto {
+                            let alerteW = UIAlertController(title: "disconnect_from_wifi".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
+                            
+                            alerteW.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel) { (_) in
+                                self.timer?.invalidate()
+                            })
+                            
+                            self.window?.rootViewController?.present(alerteW, animated: true, completion: nil)
+                            
+                            self.timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
+                                self.WIFIDIS()
+                            }
+                            
+                            // NOW I NEED TO WAIT THAT THE USER IS INDEED DISCONNECTED TO WIFI BEFORE CONTINIUNG!
+                        } else if dataManager.femtoLOWDATA && dataManager.femto && dataManager.current.card.nrdec {
+                            let alert = UIAlertController(title: "preparation_inprogress".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
+                            
+                            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 3, y: 5, width: 50, height: 50))
+                            loadingIndicator.hidesWhenStopped = true
+                            if #available(iOS 13.0, *) {
+                                loadingIndicator.style = UIActivityIndicatorView.Style.medium
+                            } else {
+                                // Fallback on earlier versions
+                                loadingIndicator.style = UIActivityIndicatorView.Style.gray
+                            }
+                            loadingIndicator.startAnimating()
+                            
+                            alert.view.addSubview(loadingIndicator)
+                            
+                            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+                            
+                            Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
+                                print("THIS SHOULD NOT BE CALLED...")
+                                DispatchQueue.main.async {
+                                    print(speed ?? 0)
+                                    if speed ?? 0 < dataManager.current.card.stms {
+                                        dataManager.wasEnabled += 1
+                                        dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
+                                        if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNR {
+                                            dataManager.datas.set("NR", forKey: "g3lastcompletion")
+                                        } else if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA {
+                                            dataManager.datas.set("NRNSA", forKey: "g3lastcompletion")
+                                        } else if dataManager.current.network.connected == CTRadioAccessTechnologyLTE {
+                                            dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                                        } else if dataManager.current.card.nrp == CTRadioAccessTechnologyHSDPA {
+                                            dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
+                                        } else {
+                                            dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
+                                        }
+                                        dataManager.datas.set(Date(), forKey: "timecode")
+                                        dataManager.datas.synchronize()
+                                        if #available(iOS 12.0, *) {
+                                            guard let link = DataManager.getShortcutURL() else { completionHandler(); return }
+                                            UIApplication.shared.open(link)
+                                        } else {
+                                            self.oldios()
+                                        }
                                     } else {
-                                        dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
-                                    }
-                                    dataManager.datas.set(Date(), forKey: "timecode")
-                                    dataManager.datas.synchronize()
-                                    if #available(iOS 12.0, *) {
-                                        guard let link = DataManager.getShortcutURL() else { completionHandler(); return }
-                                        UIApplication.shared.open(link)
-                                    } else {
-                                        self.oldios()
-                                    }
-                                } else {
-                                    if CLLocationManager.authorizationStatus() == .authorizedAlways {
-                                        // On verifie la localisation en arrière plan
-                                        let locationManager = CLLocationManager()
-                                        
-                                        if #available(iOS 14.0, *) {
-                                            if locationManager.accuracyAuthorization != .fullAccuracy {
+                                        if CLLocationManager.authorizationStatus() == .authorizedAlways {
+                                            // On verifie la localisation en arrière plan
+                                            let locationManager = CLLocationManager()
+                                            
+                                            if #available(iOS 14.0, *) {
+                                                if locationManager.accuracyAuthorization != .fullAccuracy {
+                                                    completionHandler()
+                                                    return
+                                                }
+                                            }
+                                            
+                                            let latitude = locationManager.location?.coordinate.latitude ?? 0
+                                            let longitude = locationManager.location?.coordinate.longitude ?? 0
+                                            
+                                            let context = PermanentStorage.persistentContainer.viewContext
+                                            guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
                                                 completionHandler()
                                                 return
                                             }
+                                            let newCoo = NSManagedObject(entity: entity, insertInto: context)
+                                            
+                                            newCoo.setValue(latitude, forKey: "lat")
+                                            newCoo.setValue(longitude, forKey: "lon")
+                                            
+                                            context.performAndWait({
+                                                do {
+                                                    try context.save()
+                                                    print("COORDINATES SAVED!")
+                                                } catch {
+                                                    print("Failed saving")
+                                                }
+                                            })
+                                            
                                         }
-                                        
-                                        let latitude = locationManager.location?.coordinate.latitude ?? 0
-                                        let longitude = locationManager.location?.coordinate.longitude ?? 0
-                                        
-                                        let context = PermanentStorage.persistentContainer.viewContext
-                                        guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
-                                            completionHandler()
-                                            return
-                                        }
-                                        let newCoo = NSManagedObject(entity: entity, insertInto: context)
-                                        
-                                        newCoo.setValue(latitude, forKey: "lat")
-                                        newCoo.setValue(longitude, forKey: "lon")
-                                        
-                                        context.performAndWait({
-                                            do {
-                                                try context.save()
-                                                print("COORDINATES SAVED!")
-                                            } catch {
-                                                print("Failed saving")
-                                            }
-                                        })
                                         
                                     }
-                                    
-                                }
-                                self.delay(0.3){
-                                    self.window?.rootViewController?.dismiss(animated: true, completion: nil)
-                                    UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+                                    self.delay(0.3){
+                                        self.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                                        UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+                                    }
                                 }
                             }
+                        } else {
+                            dataManager.wasEnabled += 1
+                            dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
+                            if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNR {
+                                dataManager.datas.set("NR", forKey: "g3lastcompletion")
+                            } else if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA {
+                                dataManager.datas.set("NRNSA", forKey: "g3lastcompletion")
+                            } else if dataManager.current.network.connected == CTRadioAccessTechnologyLTE {
+                                dataManager.datas.set("LTE", forKey: "g3lastcompletion")
+                            }
+                            if dataManager.current.card.nrp == CTRadioAccessTechnologyHSDPA {
+                                dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
+                            } else {
+                                dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
+                            }
+                            dataManager.datas.set(Date(), forKey: "timecode")
+                            dataManager.datas.synchronize()
+                            if #available(iOS 12.0, *) {
+                                guard let link = DataManager.getShortcutURL() else { completionHandler(); return }
+                                UIApplication.shared.open(link)
+                            } else {
+                                self.oldios()
+                            }
                         }
-                    } else {
+                    } else if dataManager.current.network.connected == CTRadioAccessTechnologyEdge && !dataManager.allow012G && dataManager.current.card.out2G {
                         dataManager.wasEnabled += 1
                         dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                        if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNR {
-                            dataManager.datas.set("NR", forKey: "g3lastcompletion")
-                        } else if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA {
-                            dataManager.datas.set("NRNSA", forKey: "g3lastcompletion")
-                        } else if dataManager.current.network.connected == CTRadioAccessTechnologyLTE {
-                            dataManager.datas.set("LTE", forKey: "g3lastcompletion")
-                        }
-                        if dataManager.current.card.nrp == CTRadioAccessTechnologyHSDPA {
-                            dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
-                        } else {
-                            dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
-                        }
+                        dataManager.datas.set("EDGE", forKey: "g3lastcompletion")
                         dataManager.datas.set(Date(), forKey: "timecode")
                         dataManager.datas.synchronize()
                         if #available(iOS 12.0, *) {
@@ -374,27 +391,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                             self.oldios()
                         }
                     }
-                } else if dataManager.current.network.connected == CTRadioAccessTechnologyEdge && !dataManager.allow012G && dataManager.current.card.out2G {
-                    dataManager.wasEnabled += 1
-                    dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                    dataManager.datas.set("EDGE", forKey: "g3lastcompletion")
-                    dataManager.datas.set(Date(), forKey: "timecode")
-                    dataManager.datas.synchronize()
-                    if #available(iOS 12.0, *) {
-                        guard let link = DataManager.getShortcutURL() else { completionHandler(); return }
-                        UIApplication.shared.open(link)
-                    } else {
-                        self.oldios()
-                    }
+                } else if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.chasedMNC && DataManager.isOnPhoneCall() {
+                    let alerteS = UIAlertController(title: "end_phonecall".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
+                    
+                    alerteS.addAction(UIAlertAction(title: "ok".localized(), style: UIAlertAction.Style.default, handler: nil))
+                    
+                    self.window?.rootViewController?.present(alerteS, animated: true, completion: nil)
+                } else {
+                    print("L'utilisateur n'est pas chez Free ou est en communication.")
                 }
-            } else if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.chasedMNC && DataManager.isOnPhoneCall() {
-                let alerteS = UIAlertController(title: "end_phonecall".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
-                
-                alerteS.addAction(UIAlertAction(title: "ok".localized(), style: UIAlertAction.Style.default, handler: nil))
-                
-                self.window?.rootViewController?.present(alerteS, animated: true, completion: nil)
-            } else {
-                print("L'utilisateur n'est pas chez Free ou est en communication.")
             }
 
         default:

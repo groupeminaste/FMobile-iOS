@@ -9,6 +9,7 @@
 import Foundation
 import CoreTelephony
 import SystemConfiguration.CaptiveNetwork
+import NetworkExtension
 import CallKit
 import UIKit
 
@@ -48,6 +49,7 @@ class DataManager {
     var coverageLowData = false
     var bluetoothOff = false
     var wifiOff = false
+    var timeCache = Date().addingTimeInterval(-800 * 60 * 60)
     
     var sim = FMNetwork(type: .sim)
     var esim = FMNetwork(type: .esim)
@@ -154,6 +156,9 @@ class DataManager {
         if let coverageLowData = datas.value(forKey: "coverageLowData") as? Bool {
             self.coverageLowData = coverageLowData
         }
+        if let timeCache = datas.value(forKey: "timeCache") as? Date {
+            self.timeCache = timeCache
+        }
 //        if let registeredService = datas.value(forKey: "registeredService") as? String {
 //            self.registeredService = registeredService
 //        }
@@ -169,6 +174,31 @@ class DataManager {
             simtrays.append(esim)
         }
 
+    }
+    
+    static func getCurrentWifi(completionHandler: @escaping (WifiNetwork?) -> ()) {
+        if #available(iOS 14.0, *) {
+            NEHotspotNetwork.fetchCurrent { (network) in
+                if let network = network {
+                    let network = WifiNetwork(network: network)
+                    WifiNetwork.currentWifiNetwork = network
+                    completionHandler(network)
+                } else {
+                    WifiNetwork.currentWifiNetwork = nil
+                    completionHandler(nil)
+                }
+            }
+        } else {
+            let wifiData = getWifiDataOlder()
+            if wifiData.status && wifiData.bssid != "" && wifiData.bssid != "00:00:00:00:00:00" {
+                let network = WifiNetwork(ssid: wifiData.ssid, bssid: wifiData.bssid)
+                WifiNetwork.currentWifiNetwork = network
+                completionHandler(network)
+            } else {
+                WifiNetwork.currentWifiNetwork = nil
+                completionHandler(nil)
+            }
+        }
     }
     
     // Vérification d'un appel en cours
@@ -190,40 +220,21 @@ class DataManager {
         return false
     }
     
-    // Vérification de la connexion au wifi
-    static func isWifiConnected() -> Bool {
+    @available (iOS, obsoleted: 14.0)
+    static func getWifiDataOlder() -> (status: Bool, ssid: String, bssid: String) {
         if let interface = CNCopySupportedInterfaces() {
             for i in 0 ..< CFArrayGetCount(interface) {
                 let interfaceName: UnsafeRawPointer = CFArrayGetValueAtIndex(interface, i)
                 let rec = unsafeBitCast(interfaceName, to: AnyObject.self)
                 if let unsafeInterfaceData = CNCopyCurrentNetworkInfo("\(rec)" as CFString), let interfaceData = unsafeInterfaceData as? [String : AnyObject] {
-                    print("BSSID: \(interfaceData["BSSID"] ?? "null" as AnyObject), SSID: \(interfaceData["SSID"] ?? "null" as AnyObject), SSIDDATA: \(interfaceData["SSIDDATA"] ?? "null" as AnyObject)")
-                    return true
+                    return (true, interfaceData["SSID"] as? String ?? "", interfaceData["BSSID"] as? String ?? "")
                 } else {
                     print("Not connected to wifi.")
-                    return false
+                    return (false, "", "")
                 }
             }
         }
-        return false
-    }
-    
-    // Même chose avec des strings
-    static func showWifiConnected() -> String {
-        if let interface = CNCopySupportedInterfaces() {
-            for i in 0 ..< CFArrayGetCount(interface) {
-                let interfaceName: UnsafeRawPointer = CFArrayGetValueAtIndex(interface, i)
-                let rec = unsafeBitCast(interfaceName, to: AnyObject.self)
-                if let unsafeInterfaceData = CNCopyCurrentNetworkInfo("\(rec)" as CFString), let interfaceData = unsafeInterfaceData as? [String : AnyObject] {
-                    print("BSSID: \(interfaceData["BSSID"] ?? "null" as AnyObject), SSID: \(interfaceData["SSID"] ?? "null" as AnyObject), SSIDDATA: \(interfaceData["SSIDDATA"] ?? "null" as AnyObject)")
-                    return interfaceData["SSID"] as? String ?? "null"
-                } else {
-                    print("Not connected to wifi.")
-                    return "null"
-                }
-            }
-        }
-        return "null"
+        return (false, "", "")
     }
     
     static func getShortcutURL(international: Bool = false) -> URL? {

@@ -90,7 +90,7 @@ class SwitchTableViewCell: UITableViewCell {
                 alert.addAction(UIAlertAction(title: "coveragemap_alert_accept".localized(), style: .default) { _ in
                     datas.set(true, forKey: "coveragemap")
                     datas.synchronize()
-                    table.loadUI()
+                    table.loadUI(wifi: WifiNetwork.currentWifiNetwork)
                     table.refreshSections()
                 })
                 alert.addAction(UIAlertAction(title: "coveragemap_alert_accept2".localized(), style: .default) { _ in
@@ -98,7 +98,7 @@ class SwitchTableViewCell: UITableViewCell {
                     datas.set(true, forKey: "coveragemap")
                     datas.set(true, forKey: "coveragemap_noalert")
                     datas.synchronize()
-                    table.loadUI()
+                    table.loadUI(wifi: WifiNetwork.currentWifiNetwork)
                     table.refreshSections()
                 })
                 alert.addAction(UIAlertAction(title: "coveragemap_alert_deny".localized(), style: .cancel) { _ in
@@ -124,16 +124,14 @@ class SwitchTableViewCell: UITableViewCell {
                     alert.addAction(UIAlertAction(title: "confirm_activation".localized(), style: .default) { _ in
                         datas.set(false, forKey: "allow014G")
                         datas.synchronize()
-                        table.loadUI()
-                        table.refreshSections()
+                        table.loadUI(wifi: WifiNetwork.currentWifiNetwork)
                     })
                     alert.addAction(UIAlertAction(title: "always_confirm_activation".localized(), style: .default) { _ in
                         // Save "Do not show again"
                         datas.set(false, forKey: "allow014G")
                         datas.set(true, forKey: "allow014G_noalert")
                         datas.synchronize()
-                        table.loadUI()
-                        table.refreshSections()
+                        table.loadUI(wifi: WifiNetwork.currentWifiNetwork)
                     })
                     alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel) { _ in
                         // Cancel switch
@@ -153,16 +151,14 @@ class SwitchTableViewCell: UITableViewCell {
                     alert.addAction(UIAlertAction(title: "confirm_activation".localized(), style: .default) { _ in
                         datas.set(false, forKey: "allow015G")
                         datas.synchronize()
-                        table.loadUI()
-                        table.refreshSections()
+                        table.loadUI(wifi: WifiNetwork.currentWifiNetwork)
                     })
                     alert.addAction(UIAlertAction(title: "always_confirm_activation".localized(), style: .default) { _ in
                         // Save "Do not show again"
                         datas.set(false, forKey: "allow015G")
                         datas.set(true, forKey: "allow015G_noalert")
                         datas.synchronize()
-                        table.loadUI()
-                        table.refreshSections()
+                        table.loadUI(wifi: WifiNetwork.currentWifiNetwork)
                     })
                     alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel) { _ in
                         // Cancel switch
@@ -174,8 +170,7 @@ class SwitchTableViewCell: UITableViewCell {
             }
             
             // Reload UI
-            table.loadUI()
-            table.refreshSections()
+            table.loadUI(wifi: WifiNetwork.currentWifiNetwork)
         }
     }
     

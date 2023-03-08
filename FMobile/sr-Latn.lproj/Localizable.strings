@@ -56,8 +56,8 @@
 "insert_sim_description" = "Molimo vas da unesite i otključajte SIM karticu da bi koristili FMobile.";
 "no_sim" = "Nema važeću SIM kartica";
 "sim_card" = "SIM kartica:";
-"no_esim" = "Nema aktivirana e-SIM";
-"esim" = "e-SIM:";
+"no_esim" = "Nema aktivirana eSIM";
+"esim" = "eSIM:";
 "generation" = "Motor: FMobile b%@ - Generacija %@";
 "status" = "Status";
 "netprefs" = "Mreže podešavanje";
@@ -148,7 +148,7 @@
 "field_test_copied_confirmation" = "Kod uspešno kopiran!";
 "select_url" = "Personalizovane URL za test brzinu";
 "about" = "O aplikaciju";
-"about_description" = "Aplikacija i Prečace napraveno od Mihajlo Nas\nKInt/KIsk, mapa pokrivanost, test brzinu i optimizacija od Natan Fale\nLogo od Bruno (@brunopaiva_15)\n\nOva aplikacija je developirana od nezavisne developere, i je dostupna besplatna bez nikakvu garanciju.\n\nGroupe MINASTE (inkluzivna svoju aplikacija FMobile) nije, ni u kom slučaju, povezan sa bilo koja operateri.\n\n© 2020 Groupe MINASTE";
+"about_description" = "Aplikacija i Prečace napraveno od Mihajlo Nas\nKInt/KIsk, mapa pokrivanost, test brzinu i optimizacija od Natan Fale\nLogo od Bruno (@brunoleyoyo)\n\nOva aplikacija je developirana od nezavisne developere, i je dostupna besplatna bez nikakvu garanciju.\n\nGroupe MINASTE (inkluzivna svoju aplikacija FMobile) nije, ni u kom slučaju, povezan sa bilo koja operateri.\n\n© 2021 Groupe MINASTE";
 "donate" = "Dodajte";
 "select_donation" = "Izaberite donaciju";
 "donate_helloasso" = "Dodajte sa HelloAsso";
@@ -282,3 +282,7 @@
 "install_apps" = "Instalirate drugi aplikaciјe";
 "map_carrier_title" = "Izaberite operater";
 "fwifi" = "FWi-Fi";
+"search_updates" = "Preuzmi OTA konfiguracija";
+"db_updated" = "OTA konfiguracija instalirana!";
+"db_updated_description" = "Najnovija OTA konfiguracuja je sada instalirana na vaš uređaj.";
+"loading" = "Učitavanje...";

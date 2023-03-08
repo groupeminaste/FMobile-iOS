@@ -23,7 +23,7 @@ class CoverageManager {
     
     #if !FMOBILECOVERAGE
     // Send current data
-    static func addCurrentCoverageData(_ dataManager: DataManager = DataManager(), isRoaming: Bool = false, aboard: Bool = false) {
+    static func addCurrentCoverageData(_ dataManager: DataManager = DataManager(), isRoaming: Bool = false, abroad: Bool = false) {
         // Check if user has accepted coverage map
         print("COVERAGE MAP CALLED")
         if dataManager.coveragemap {
@@ -116,19 +116,19 @@ class CoverageManager {
                 }
                 
                 // Flush
-                flushList(aboard: aboard)
+                flushList(abroad: abroad)
             }
         }
     }
     
     // Flush list
-    static func flushList(aboard: Bool = false) {
+    static func flushList(abroad: Bool = false) {
         // Check API configuration
         APIConfiguration.check()
         
         // Check that sending is allowed
-        guard aboard ? false : !(DataManager().coverageLowData) else {
-            print("Waiting next call to send coverage data! (aboard or coverageLowData)")
+        guard abroad ? false : !(DataManager().coverageLowData) else {
+            print("Waiting next call to send coverage data! (abroad or coverageLowData)")
             return
         }
         

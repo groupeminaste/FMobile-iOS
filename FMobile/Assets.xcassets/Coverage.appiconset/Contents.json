@@ -115,61 +115,61 @@
       "size" : "1024x1024"
     },
     {
-      "filename" : "Coverage-16.png",
+      "filename" : "AppIcon-16.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "16x16"
     },
     {
-      "filename" : "Coverage-33.png",
+      "filename" : "AppIcon-33.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "16x16"
     },
     {
-      "filename" : "Coverage-32.png",
+      "filename" : "AppIcon-32.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "32x32"
     },
     {
-      "filename" : "Coverage-64.png",
+      "filename" : "AppIcon-65.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
     },
     {
-      "filename" : "Coverage-128.png",
+      "filename" : "AppIcon-128.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
     },
     {
-      "filename" : "Coverage-257.png",
+      "filename" : "AppIcon-257.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
     },
     {
-      "filename" : "Coverage-256.png",
+      "filename" : "AppIcon-256.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "256x256"
     },
     {
-      "filename" : "Coverage-513.png",
+      "filename" : "AppIcon-513.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
     },
     {
-      "filename" : "Coverage-512.png",
+      "filename" : "AppIcon-512.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
-      "filename" : "Coverage-1025.png",
+      "filename" : "AppIcon-1025.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"

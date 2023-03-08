@@ -43,28 +43,6 @@ class CoveragePoint: Codable {
         self.connected_protocol = connected_protocol?.uppercased()
     }
     
-    required convenience init(from decoder: Decoder) throws {
-        // Read values
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        let latitude = try? values.decode(Double.self, forKey: .latitude)
-        let longitude = try? values.decode(Double.self, forKey: .longitude)
-        let home = try? values.decode(String.self, forKey: .home)
-        let connected = try? values.decode(String.self, forKey: .connected)
-        let connected_protocol = try? values.decode(String.self, forKey: .connected_protocol)
-        
-        // And init
-        self.init(latitude: latitude, longitude: longitude, home: home, connected: connected, connected_protocol: connected_protocol)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(latitude, forKey: .latitude)
-        try container.encode(longitude, forKey: .longitude)
-        try container.encode(home, forKey: .home)
-        try container.encode(connected, forKey: .connected)
-        try container.encode(connected_protocol, forKey: .connected_protocol)
-    }
-    
     func getPolygon(ofSize size: Double) -> MKPolygon {
         // Create coordinates
         let coordinates = [

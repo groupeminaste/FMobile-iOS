@@ -475,16 +475,14 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             alert.addAction(UIAlertAction(title: "coveragemap_alert_accept".localized(), style: .default) { _ in
                 dataManager.datas.set(true, forKey: "coveragemap")
                 dataManager.datas.synchronize()
-                self.loadUI()
-                self.refreshSections()
+                self.loadUI(wifi: WifiNetwork.currentWifiNetwork)
             })
             alert.addAction(UIAlertAction(title: "coveragemap_alert_accept2".localized(), style: .default) { _ in
                 // Save "Do not show again"
                 dataManager.datas.set(true, forKey: "coveragemap")
                 dataManager.datas.set(true, forKey: "coveragemap_noalert")
                 dataManager.datas.synchronize()
-                self.loadUI()
-                self.refreshSections()
+                self.loadUI(wifi: WifiNetwork.currentWifiNetwork)
             })
             alert.addAction(UIAlertAction(title: "coveragemap_alert_deny".localized(), style: .cancel) { _ in
                 // Cancel switch
@@ -512,10 +510,27 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             alert.addAction(UIAlertAction(title: "Vroooooom !", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
+        
+        // Nouveau tutoriel FMobile 5
+            if version < 182 && version != 0 {
+                let alert = UIAlertController(title: "Nouveau tutoriel", message: "Un nouveau tutoriel d'installation est disponible pour FMobile 5.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Voir le tutoriel", style: .default) { (_) in
+                    guard let link = URL(string: "https://youtu.be/JBcE_7jxYCk") else { return }
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(link)
+                    } else {
+                        UIApplication.shared.openURL(link)
+                    }
+                })
+                alert.addAction(UIAlertAction(title: "Fermer", style: .cancel, handler: nil))
+                present(alert, animated: true, completion: nil)
+            }
              
         
         dataManager.datas.set(appVersion, forKey: "version")
         dataManager.datas.synchronize()
+        
+        clearDatabase(dataManager: dataManager)
         
         print(dataManager.dispInfoNotif)
         if dataManager.dispInfoNotif {
@@ -563,8 +578,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         dataManager.datas.synchronize()
         
         start()
-        loadUI(dataManager)
-        refreshSections()
+        loadUI(dataManager, wifi: WifiNetwork.currentWifiNetwork)
         
         // On save certaines preferences
         dataManager.datas.set(false, forKey: "didAlertLB")
@@ -639,9 +653,10 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             return
         }
         print("Refresh started!")
-                
-        self.loadUI(dataManager)
-        self.refreshSections()
+        DataManager.getCurrentWifi { (wifi) in
+            self.loadUI(dataManager, wifi: wifi)
+        }
+        
     }
     
     @objc func timernetschedule() {
@@ -680,15 +695,26 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         } else if appVersion < version {
             downgrade()
         }
+        
+        if abs(dataManager.timeCache.timeIntervalSinceNow) > 750*60*60 {
+            clearDatabase(dataManager: dataManager)
+        }
     
         updateSetup(dataManager, false)
         
-        self.loadUI(dataManager)
-        self.refreshSections()
+        DataManager.getCurrentWifi { (wifi) in
+            self.loadUI(dataManager, wifi: wifi)
+        }
         
         timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.timerschedule), userInfo: nil, repeats: true)
         
         timernet = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(self.timernetschedule), userInfo: nil, repeats: true)
+    }
+    
+    func clearDatabase(dataManager: DataManager = DataManager()) {
+        CarrierConfiguration.clearDatabase()
+        dataManager.datas.setValue(Date(), forKey: "timeCache")
+        dataManager.datas.synchronize()
     }
         
     
@@ -745,6 +771,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         
         let dataManager = DataManager()
         
+        DataManager.getCurrentWifi { (wifi) in
         RoamingManager.engine(g3engine: false, service: dataManager.sim) { resultg2 in
         RoamingManager.engine(g3engine: true, service: dataManager.sim) { resultg3 in
 
@@ -788,7 +815,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 str += "Détail du forfait :\nDestinations incluses (ALL) : \(service.card.countriesVData)\nDestinations incluses (VOIX) : \(service.card.countriesVoice)\nDestinations incluses (DATA) : \(service.card.countriesData)\nOptions incluses (ALL) : \(service.card.includedVData)\nOptions incluses (VOIX) : \(service.card.includedVoice)\nOption incluses (DATA) : \(service.card.includedData)\n\nStatut opérateur :\nsimData : \(service.card.data)\ncurrentNetwork : \(service.network.data)\ncarrier: \(service.network.name)\ncarrierNetwork : \(service.network.connected)\ncarrierNetwork2 : \(dataManager.esim.network.connected)\ncarrierName : \(service.network.name)\n\nConfiguration opérateur :\nhp : \(service.card.hp)\nnrp : \(service.card.nrp)\ntargetMCC : \(service.card.mcc)\ntargetMNC : \(service.card.mnc)\nitiMNC : \(service.card.itiMNC)\nnrDEC : \(service.card.nrdec)\nout2G : \(service.card.out2G)\nchasedMNC : \(service.card.chasedMNC)\nconnectedMCC : \(service.network.mcc)\nconnectedMNC : \(service.network.mnc)\nipadMCC : \(service.network.mcc)\nipadMNC : \(service.network.mnc)\nitiName : \(service.card.itiName)\nhomeName : \(service.card.homeName)\nstms : \(service.card.stms)\nCarrier services : \(service.card.carrierServices)\nroamLTE : \(service.card.roamLTE)\nroam5G : \(service.card.roam5G)\nsetupDone : \(service.card.setupDone)\nMinimal setup : \(service.card.minimalSetup)\n\n"
             }
             
-            str += "Communications :\nWi-Fi : \(DataManager.isWifiConnected())\nCellulaire : \(DataManager.isConnectedToNetwork())\nMode avion : \(dataManager.airplanemode)\nCommunication en cours : \(DataManager.isOnPhoneCall())\nPrécision de localisation : \(locationAccuracy)"
+            str += "Communications :\nWi-Fi : \(wifi != nil)\nCellulaire : \(DataManager.isConnectedToNetwork())\nMode avion : \(dataManager.airplanemode)\nCommunication en cours : \(DataManager.isOnPhoneCall())\nPrécision de localisation : \(locationAccuracy)"
             
             if privacy {
                 str += "\n\nDonnées personnelles :\nLatitude = \(self.locationManager.location?.coordinate.latitude ?? 0)\nLongitude = \(self.locationManager.location?.coordinate.longitude ?? 0)"
@@ -834,6 +861,8 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         }
         }
         }
+        }
+
     }
     
     func radinCarrierName(mcc: String, mnc: String, carrier: String) -> String {
@@ -852,7 +881,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
     }
     
     
-    func connected(dataManager: DataManager, sim: FMNetwork, radincarrier: String, radinitiname: String, country: String) -> String {
+    func connected(dataManager: DataManager, sim: FMNetwork, radincarrier: String, radinitiname: String, country: String, wifi: WifiNetwork?) -> String {
         
         var timecoder = dataManager.datas.value(forKey: sim.card.type == .esim ? "etimecoder" : "timecoder") as? Date ?? Date()
         var lastnetr = dataManager.datas.value(forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr") as? String ?? "HSDPAO"
@@ -865,7 +894,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
             dataManager.datas.synchronize()
         } else if #available(iOS 14.1, *), sim.network.connected == CTRadioAccessTechnologyNR {
-            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && !DataManager.isWifiConnected() && sim.card.nrdec {
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && wifi == nil && sim.card.nrdec {
                     
                     print(abs(timecoder.timeIntervalSinceNow))
                     
@@ -922,7 +951,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
             dataManager.datas.synchronize()
         } else if #available(iOS 14.1, *), sim.network.connected == CTRadioAccessTechnologyNRNSA {
-            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && !DataManager.isWifiConnected() && sim.card.nrdec {
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && wifi == nil && sim.card.nrdec {
                     
                     print(abs(timecoder.timeIntervalSinceNow))
                     
@@ -979,7 +1008,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
             dataManager.datas.synchronize()
         } else if sim.network.connected == CTRadioAccessTechnologyLTE {
-            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && !DataManager.isWifiConnected() && sim.card.nrdec {
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && wifi == nil && sim.card.nrdec {
                     
                     print(abs(timecoder.timeIntervalSinceNow))
                     
@@ -1030,7 +1059,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                         "\(sim.network.name) 4G (LTE) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 4G"
                 }
         } else if sim.network.connected == CTRadioAccessTechnologyWCDMA {
-            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && !DataManager.isWifiConnected() && sim.network.connected == sim.card.nrp && sim.card.nrdec {
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && wifi == nil && sim.network.connected == sim.card.nrp && sim.card.nrdec {
                 
                 if dataManager.femto {
                     print(abs(timecoder.timeIntervalSinceNow))
@@ -1093,7 +1122,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                     "\(sim.network.name) 3G (WCDMA) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 3G"
             }
         } else if sim.network.connected == CTRadioAccessTechnologyHSDPA {
-            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && !DataManager.isWifiConnected() && sim.network.connected == sim.card.nrp && sim.card.nrdec {
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && wifi == nil && sim.network.connected == sim.card.nrp && sim.card.nrdec {
                 
                 if dataManager.femto {
                     print(abs(timecoder.timeIntervalSinceNow))
@@ -1218,7 +1247,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
     }
     
     
-    func loadUI(_ dataManager: DataManager = DataManager()) {
+    func loadUI(_ dataManager: DataManager = DataManager(), wifi: WifiNetwork?) {
         if dataManager.stopverification {
             locationManager.stopUpdatingLocation()
             locationManager.allowsBackgroundLocationUpdates = false
@@ -1258,18 +1287,18 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         let country = dataManager.sim.network.land
         let country2 = dataManager.esim.network.land
         
-        let radincarrier = dataManager.modeRadin ? radinCarrierName(mcc: dataManager.sim.network.mcc, mnc: dataManager.sim.network.mnc, carrier: dataManager.sim.network.name) : dataManager.sim.network.name
-        let radinitiname = dataManager.modeRadin ? radinCarrierName(mcc: dataManager.sim.network.mcc, mnc: dataManager.sim.card.itiMNC, carrier: dataManager.sim.card.itiName) : dataManager.sim.card.itiName
-        let radincarrier2 = dataManager.modeRadin ? radinCarrierName(mcc: dataManager.esim.network.mcc, mnc: dataManager.esim.network.mnc, carrier: dataManager.esim.network.name) : dataManager.esim.network.name
-        let radinitiname2 = dataManager.modeRadin ? radinCarrierName(mcc: dataManager.esim.network.mcc, mnc: dataManager.esim.card.itiMNC, carrier: dataManager.esim.card.itiName) : dataManager.esim.card.itiName
+        let radincarrier = dataManager.modeRadin ? self.radinCarrierName(mcc: dataManager.sim.network.mcc, mnc: dataManager.sim.network.mnc, carrier: dataManager.sim.network.name) : dataManager.sim.network.name
+        let radinitiname = dataManager.modeRadin ? self.radinCarrierName(mcc: dataManager.sim.network.mcc, mnc: dataManager.sim.card.itiMNC, carrier: dataManager.sim.card.itiName) : dataManager.sim.card.itiName
+        let radincarrier2 = dataManager.modeRadin ? self.radinCarrierName(mcc: dataManager.esim.network.mcc, mnc: dataManager.esim.network.mnc, carrier: dataManager.esim.network.name) : dataManager.esim.network.name
+        let radinitiname2 = dataManager.modeRadin ? self.radinCarrierName(mcc: dataManager.esim.network.mcc, mnc: dataManager.esim.card.itiMNC, carrier: dataManager.esim.card.itiName) : dataManager.esim.card.itiName
         
-        let connected1 = connected(dataManager: dataManager, sim: dataManager.sim, radincarrier: radincarrier, radinitiname: radinitiname, country: country)
-        let connected2 = connected(dataManager: dataManager, sim: dataManager.esim, radincarrier: radincarrier2, radinitiname: radinitiname2, country: country2)
+        let connected1 = self.connected(dataManager: dataManager, sim: dataManager.sim, radincarrier: radincarrier, radinitiname: radinitiname, country: country, wifi: wifi)
+        let connected2 = self.connected(dataManager: dataManager, sim: dataManager.esim, radincarrier: radincarrier2, radinitiname: radinitiname2, country: country2, wifi: wifi)
         
         let lastnetr = dataManager.datas.value(forKey: dataManager.current.card.type == .esim ? "elastnetr" : "lastnetr") as? String ?? "HSDPAO"
         
         
-//        if DataManager.isWifiConnected() {
+//        if dataManager.isWifiConnected() {
 //            if !dataManager.carrierNetwork.isEmpty{
 //                dataManager.carrierNetwork = "Wi-Fi + " + dataManager.carrierNetwork
 //            } else {
@@ -1280,15 +1309,15 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         print(connected1)
         print(connected2)
         
-        if !dataManager.current.card.setupDone && countryCode == "null" && mobileNetworkName == "null" && dataManager.current.network.connected == "" && !alertInit {
-            delay(0.05) {
+        if !dataManager.current.card.setupDone && countryCode == "null" && mobileNetworkName == "null" && dataManager.current.network.connected == "" && !self.alertInit {
+            self.delay(0.05) {
                 let alert = UIAlertController(title: "insert_sim_title".localized(), message:"insert_sim_description".localized(), preferredStyle: UIAlertController.Style.alert)
                 
                 alert.addAction(UIAlertAction(title: "ok".localized(), style: UIAlertAction.Style.default, handler: nil))
                 
                 UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
             }
-            alertInit = true
+            self.alertInit = true
         }
         
         var disp: String
@@ -1412,7 +1441,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         }
         
         if #available(iOS 10.3, *) {
-        delay(0.1) {
+            self.delay(0.1) {
             if dataManager.modeRadin {
                     if UIApplication.shared.alternateIconName == nil {
                         UIApplication.shared.setAlternateIconName("myradin-40"){ error in
@@ -1437,7 +1466,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         print(device)
         
         // Chargement des éléments de l'UI
-        sections = []
+        self.sections = []
         
         // Section status
         let net = Section(name: sta, elements: [], footer: perfmodefoo)
@@ -1631,9 +1660,9 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             }]
         }
         
-        let wifistat = DataManager.showWifiConnected()
+        let wifistat = wifi?.ssid
         
-        if wifistat != "null" {
+        if let wifistat = wifistat {
             net.elements += [
                 UIElementLabel(id: "wifi", text: dataManager.modeRadin ? "Wi-Fi radin : \(wifistat)" : "wifi_status".localized().format([wifistat]))
             ]
@@ -1747,6 +1776,18 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 }
             ]
         }
+        
+        femto.elements += [
+            UIElementButton(id: "", text: "search_updates".localized()) { (_) in
+                self.clearDatabase(dataManager: dataManager)
+                self.updateSetup(dataManager)
+                let alert = UIAlertController(title: "db_updated".localized(), message: "db_updated_description".localized(), preferredStyle: UIAlertController.Style.alert)
+                
+                alert.addAction(UIAlertAction(title: "ok".localized(), style: UIAlertAction.Style.default, handler: nil))
+                
+                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+            }
+        ]
         
         // Section country detection
         let cnt = Section(name: nland, elements: [
@@ -1878,7 +1919,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
             },
             UIElementButton(id: "", text: "video_tutorial".localized()) { (_) in
-                guard let mailto = URL(string: "https://youtu.be/GfI5JLqyqiY") else { return }
+                guard let mailto = URL(string: "https://youtu.be/JBcE_7jxYCk") else { return }
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(mailto)
                 } else {
@@ -1932,8 +1973,9 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 dataManager.datas.set(false, forKey: "allow015G_noalert")
                 dataManager.datas.synchronize()
                 self.updateSetup(dataManager, false)
-                self.loadUI()
-                self.refreshSections()
+                DataManager.getCurrentWifi { (wifi) in
+                    self.loadUI(wifi: wifi)
+                }
                 if let tabBar = self.tabBarController as? TabBarController {
                    tabBar.warning()
                 }
@@ -2051,20 +2093,24 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         
         
         
-        sections += [net]
+        self.sections += [net]
         
         if !dataManager.current.card.disableFMobileCore || dataManager.modeExpert {
-            sections += [pref]
+            self.sections += [pref]
         }
         
-        sections += [stats, back, cnt, femto]
+        self.sections += [stats, back, cnt, femto]
         // sections += [back, cnt, femto]
         
         if !conso.elements.isEmpty {
-            sections += [conso]
+            self.sections += [conso]
         }
         
-        sections += [aide, avance, plus]
+        self.sections += [aide, avance, plus]
+        
+        self.refreshSections()
+            
+        
     }
     
     func refreshSections() {

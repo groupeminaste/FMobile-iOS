@@ -162,6 +162,9 @@
 		ED88B7BE241AFA1500BE35CB /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ED653BAB233576A8002391B0 /* Intents.intentdefinition */; };
 		ED88B7BF241AFA2C00BE35CB /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ED653BAB233576A8002391B0 /* Intents.intentdefinition */; };
 		ED8D730424A0A66200B76FC6 /* DonateViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D730324A0A66200B76FC6 /* DonateViewControllerExtension.swift */; };
+		ED9192B9259F7BE30078F503 /* WifiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192B8259F7BE30078F503 /* WifiNetwork.swift */; };
+		ED9192BE259F7C320078F503 /* WifiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192B8259F7BE30078F503 /* WifiNetwork.swift */; };
+		ED9192C3259F7C330078F503 /* WifiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192B8259F7BE30078F503 /* WifiNetwork.swift */; };
 		ED97DA6324C512BF005533DF /* GroupeMINASTE in Frameworks */ = {isa = PBXBuildFile; productRef = ED97DA6224C512BF005533DF /* GroupeMINASTE */; };
 		ED97DA6524C513DE005533DF /* GroupeMINASTE in Frameworks */ = {isa = PBXBuildFile; productRef = ED97DA6424C513DE005533DF /* GroupeMINASTE */; };
 		ED97DA6724C513E6005533DF /* GroupeMINASTE in Frameworks */ = {isa = PBXBuildFile; productRef = ED97DA6624C513E6005533DF /* GroupeMINASTE */; };
@@ -359,6 +362,7 @@
 		ED8E94A922C2DE7000E57F27 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED8E94AA22C2DEB600E57F27 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ED8E94AB22C2E23600E57F27 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED9192B8259F7BE30078F503 /* WifiNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiNetwork.swift; sourceTree = "<group>"; };
 		ED95EC1B229AF4020008CB9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		ED95EC1D229AF4040008CB9E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		ED9B917D22A46891005B5F68 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -466,6 +470,7 @@
 				ED664BD024ACD69300ACA76B /* FMNetworkType.swift */,
 				ED01C635254CE502008D4319 /* PermanentStorage.swift */,
 				ED01C6EF254D8B28008D4319 /* DataUsage.swift */,
+				ED9192B8259F7BE30078F503 /* WifiNetwork.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -898,6 +903,7 @@
 				6A979907249C2249002B3AD5 /* MapInfoTableViewController.swift in Sources */,
 				ED01AAE5215F80D200693C03 /* AppDelegate.swift in Sources */,
 				ED6AFAC223DDF82400D4F871 /* CustomColor.swift in Sources */,
+				ED9192B9259F7BE30078F503 /* WifiNetwork.swift in Sources */,
 				3247789B2161890A003ADE47 /* UIElementSwitch.swift in Sources */,
 				ED664BC524ACCF7E00ACA76B /* FMNetworkSIMData.swift in Sources */,
 				ED664BC724ACCF9F00ACA76B /* FMNetwork.swift in Sources */,
@@ -1008,6 +1014,7 @@
 				6AD8652E2336B5FC000B40C4 /* CarrierConfiguration.swift in Sources */,
 				6A82728A249DFAE80055D0A9 /* EncodableExtension.swift in Sources */,
 				ED0F8DC122D69C3C0084B00F /* RoamingManager.swift in Sources */,
+				ED9192C3259F7C330078F503 /* WifiNetwork.swift in Sources */,
 				ED0F8DC222D69E650084B00F /* DATA.xcdatamodeld in Sources */,
 				ED653BA9233576A8002391B0 /* Intents.intentdefinition in Sources */,
 				ED664BCB24ACD5C900ACA76B /* FMNetwork.swift in Sources */,
@@ -1021,6 +1028,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED9192BE259F7C320078F503 /* WifiNetwork.swift in Sources */,
 				ED01C640254CE727008D4319 /* PermanentStorage.swift in Sources */,
 				6AD8652D2336B5FB000B40C4 /* CarrierConfiguration.swift in Sources */,
 				ED6AFAC523DDF89B00D4F871 /* CustomColor.swift in Sources */,
@@ -1317,7 +1325,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobile/FMobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 180;
+				CURRENT_PROJECT_VERSION = 184;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -1327,7 +1335,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.0.1;
 				OTHER_CFLAGS = "-DFMOBILE";
 				OTHER_SWIFT_FLAGS = "-DFMOBILE";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile;
@@ -1349,7 +1357,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobile/FMobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 180;
+				CURRENT_PROJECT_VERSION = 184;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -1359,7 +1367,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.0.1;
 				OTHER_CFLAGS = "-DFMOBILE";
 				OTHER_SWIFT_FLAGS = "-DFMOBILE";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile;
@@ -1380,16 +1388,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_ENTITLEMENTS = FMobileCoverage/FMobileCoverage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 180;
+				CURRENT_PROJECT_VERSION = 184;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = FMobileCoverage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.0.1;
 				OTHER_CFLAGS = "-DFMOBILECOVERAGE";
 				OTHER_SWIFT_FLAGS = "-DFMOBILECOVERAGE";
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.plugn.fmobile-older";
@@ -1407,16 +1416,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_ENTITLEMENTS = FMobileCoverage/FMobileCoverage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 180;
+				CURRENT_PROJECT_VERSION = 184;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = FMobileCoverage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.0.1;
 				OTHER_CFLAGS = "-DFMOBILECOVERAGE";
 				OTHER_SWIFT_FLAGS = "-DFMOBILECOVERAGE";
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.plugn.fmobile-older";
@@ -1434,7 +1444,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobileG3/FMobileG3.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 180;
+				CURRENT_PROJECT_VERSION = 184;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = FMobileG3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1443,7 +1453,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.0.1;
 				OTHER_CFLAGS = "-DFMOBILE_G3";
 				OTHER_SWIFT_FLAGS = "-DFMOBILE_G3";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.FMobileG3;
@@ -1462,7 +1472,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobileG3/FMobileG3.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 180;
+				CURRENT_PROJECT_VERSION = 184;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = FMobileG3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1471,7 +1481,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.0.1;
 				OTHER_CFLAGS = "-DFMOBILE_G3";
 				OTHER_SWIFT_FLAGS = "-DFMOBILE_G3";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.FMobileG3;
@@ -1490,7 +1500,7 @@
 				CODE_SIGN_ENTITLEMENTS = status/status.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 180;
+				CURRENT_PROJECT_VERSION = 184;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = status/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1499,7 +1509,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.0.1;
 				NEW_SETTING = "";
 				OTHER_CFLAGS = "-DSTATUS";
 				OTHER_SWIFT_FLAGS = "-DSTATUS";
@@ -1518,7 +1528,7 @@
 				CODE_SIGN_ENTITLEMENTS = status/status.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 180;
+				CURRENT_PROJECT_VERSION = 184;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = status/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1527,7 +1537,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.0.1;
 				NEW_SETTING = "";
 				OTHER_CFLAGS = "-DSTATUS";
 				OTHER_SWIFT_FLAGS = "-DSTATUS";

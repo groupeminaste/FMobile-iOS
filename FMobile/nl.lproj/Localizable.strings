@@ -115,7 +115,7 @@
 "esim_connected" = "eSIM aangesloten op: %@";
 "wifi_status" = "Wi-Fi: %@";
 "set_no_network" = "Definieer dit gebied zonder dekking";
-"no_network_zone_saved" = "Zone non couverte enregistrée";
+"no_network_zone_saved" = "Onbedekt gebied geregistreerd";
 "no_network_zone_saved_description" = "U ontvangt geen roamingwaarschuwingen meer in dit gebied.";
 "reset_countries_included" = "Reset de landen die in de verpakking zijn opgenomen";
 "reset_countries_done_title" = "De landen zijn gereset";
@@ -148,7 +148,7 @@
 "field_test_copied_confirmation" = "Code gekopieerd!";
 "select_url" = "Aangepaste URL voor flow test";
 "about" = "Over ons";
-"about_description" = "Applicatie en snelkoppelingen gemaakt door Michaël Nass\nUI/UX, dekkingskaart, flow test en optimalisatie door Nathan Fallet\nLogo by Bruno (@brunopaiva_15)\n\nDeze applicatie is ontwikkeld door onafhankelijke ontwikkelaars en wordt gratis en zonder enige garantie geleverd. \n\nDe Groupe MINASTE (inclusief de FMobile applicatie) is onder geen enkele voorwaarde verbonden aan een operator. \n\n© 2020 Groupe MINASTE";
+"about_description" = "Applicatie en snelkoppelingen gemaakt door Michaël Nass\nUI/UX, dekkingskaart, flow test en optimalisatie door Nathan Fallet\nLogo by Bruno (@brunoleyoyo)\n\nDeze applicatie is ontwikkeld door onafhankelijke ontwikkelaars en wordt gratis en zonder enige garantie geleverd. \n\nDe Groupe MINASTE (inclusief de FMobile applicatie) is onder geen enkele voorwaarde verbonden aan een operator. \n\n© 2021 Groupe MINASTE";
 "donate" = "Doe een donatie";
 "select_donation" = "Selecteer een donatie";
 "donate_helloasso" = "Doe een HelloAsso-donatie";
@@ -283,3 +283,7 @@
 "install_apps" = "Installeren van andere apps";
 "map_carrier_title" = "Selecteer een drager";
 "fwifi" = "FWi-Fi";
+"search_updates" = "Download OTA-configuratie";
+"db_updated" = "OTA-configuratie geïnstalleerd!";
+"db_updated_description" = "De laatste OTA-configuratie is nu op uw apparaat geïnstalleerd.";
+"loading" = "Opgeladen...";

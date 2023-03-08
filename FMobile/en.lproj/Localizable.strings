@@ -43,7 +43,7 @@
 "run_standard_setup" = "Start the standard configuration";
 "use_standard_setup" = "Use the standard configuration";
 "warning_title" = "RESPONSABILITY";
-"warning_description" = "IMPORTANT: This application is provided for free without any warranty. You are completely responsible of it, which means that every potential damage due to the usage of this app are under your exclusive responsibility (extra-costs on the phone bill, electric consumption, overheat, etc…). It is your job to regularly check the data consummption and to disable it when you go aboard. Do not send me your bills by email, you will not get any refund (it may seem obvious to some people, but this situation already happened…)";
+"warning_description" = "IMPORTANT: This application is provided for free without any warranty. You are completely responsible of it, which means that every potential damage due to the usage of this app are under your exclusive responsibility (extra-costs on the phone bill, electric consumption, overheat, etc…). It is your job to regularly check the data consummption and to disable it when you go abroad. Do not send me your bills by email, you will not get any refund (it may seem obvious to some people, but this situation already happened…)";
 "uninstall" = "Uninstall the application";
 "accept_conditions" = "I accept these terms";
 "first_update_succeeded" = "The initial update process succeeded.";
@@ -96,7 +96,7 @@
 "performance_mode" = "Perfomance+ mode";
 "performance_mode_footer" = "When the Performance+ mode is enabled, your device will check the roaming status every 1 to 10 seconds. It is recommended for those who suffer from national roaming very often. It is recommended to have an A11 Bionic chip and a strong GPS signal reception in order to limit the battery life loss.";
 "land_g1" = "Check the country in background";
-"land_footer_g1" = "By enabling this option, FMobile will check in background that you are still located in your home country in order to avoid the roaming verifications when you are aboard. Your current carrier is not yet compatible with FMobile's second generation on iPad, but if a compatible carrier is available, FMobile will automatically enable the second generation features here.";
+"land_footer_g1" = "By enabling this option, FMobile will check in background that you are still located in your home country in order to avoid the roaming verifications when you are abroad. Your current carrier is not yet compatible with FMobile's second generation on iPad, but if a compatible carrier is available, FMobile will automatically enable the second generation features here.";
 "background_loc_g1" = "Background location";
 "activation" = "Activating the FMobile engine…";
 "activate" = "Activate the FMobile engine";
@@ -148,7 +148,7 @@
 "field_test_copied_confirmation" = "Code successfully copied!";
 "select_url" = "Custom URL for the speed test";
 "about" = "About";
-"about_description" = "Application and Shortcut made by Michaël Nass\nUI/UX, coverage map, speedtest and optimization by Nathan Fallet\nLogo by Bruno (@brunopaiva_15)\n\nThis application has been developed by independent developers, and is provided for free without any warranty.\n\nThe Groupe MINASTE (including its FMobile application) is not, in any case, affiliated with any carrier.\n\n© 2020 Groupe MINASTE";
+"about_description" = "Application and Shortcut made by Michaël Nass\nUI/UX, coverage map, speedtest and optimization by Nathan Fallet\nLogo by Bruno (@brunoleyoyo)\n\nThis application has been developed by independent developers, and is provided for free without any warranty.\n\nThe Groupe MINASTE (including its FMobile application) is not, in any case, affiliated with any carrier.\n\n© 2021 Groupe MINASTE";
 "donate" = "Donate";
 "donate_helloasso" = "Donate using HelloAsso";
 "donate_iap" = "Donate using Apple iAP";
@@ -287,3 +287,7 @@
 "install_apps" = "Install other apps";
 "map_carrier_title" = "Select a carrier";
 "fwifi" = "FWi-Fi";
+"search_updates" = "Download the OTA configuration";
+"db_updated" = "Latest OTA configuration installed!";
+"db_updated_description" = "The latest OTA configuration is now installed on your device.";
+"loading" = "Loading...";

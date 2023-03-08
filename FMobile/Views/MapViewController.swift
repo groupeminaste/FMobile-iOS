@@ -87,7 +87,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, MapCarrierContaine
     
     @objc func openInfo(_ sender: UIBarButtonItem) {
         // Create an info view controller and open it
-        let mapInfoVC = MapInfoTableViewController(style: .grouped)
+        let mapInfoVC: MapInfoTableViewController
+        if #available(iOS 13.0, *) {
+            mapInfoVC = MapInfoTableViewController(style: .insetGrouped)
+        } else {
+            // Fallback on earlier versions
+            mapInfoVC = MapInfoTableViewController(style: .grouped)
+        }
         mapInfoVC.delegate = self
         present(UINavigationController(rootViewController: mapInfoVC), animated: true, completion: nil)
     }

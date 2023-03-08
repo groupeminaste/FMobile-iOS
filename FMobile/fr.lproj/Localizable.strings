@@ -147,7 +147,7 @@
 "field_test_copied_confirmation" = "Code copié !";
 "select_url" = "URL personnalisée pour le test de débit";
 "about" = "À propos";
-"about_description" = "Application et Raccourcis créés par Michaël Nass\nUI/UX, carte de couverture, test de débit et optimisation par Nathan Fallet\nLogo par Bruno (@brunopaiva_15)\n\nCette application a été développée par des développeurs indépendants et est fournie gratuitement sans aucune garantie.\n\nLe Groupe MINASTE (y compris son application FMobile) n'est, en aucun cas, affilié à quelconque opérateur.\n\n© 2020 Groupe MINASTE";
+"about_description" = "Application et Raccourcis créés par Michaël Nass\nUI/UX, carte de couverture, test de débit et optimisation par Nathan Fallet\nLogo par Bruno (@brunoleyoyo)\n\nCette application a été développée par des développeurs indépendants et est fournie gratuitement sans aucune garantie.\n\nLe Groupe MINASTE (y compris son application FMobile) n'est, en aucun cas, affilié à quelconque opérateur.\n\n© 2021 Groupe MINASTE";
 "donate" = "Faire un don";
 "donate_helloasso" = "Faire un don avec HelloAsso";
 "donate_iap" = "Faire un don avec Apple iAP";
@@ -283,3 +283,7 @@
 "install_apps" = "Installer d'autres apps";
 "map_carrier_title" = "Sélectionner un opérateur";
 "fwifi" = "FWi-Fi";
+"search_updates" = "Télécharger la configuration OTA";
+"db_updated" = "Configuration OTA installée !";
+"db_updated_description" = "La dernière configuration OTA est désormais installée sur votre appareil.";
+"loading" = "Chargement...";
