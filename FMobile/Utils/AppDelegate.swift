@@ -117,13 +117,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                     DispatchQueue.main.async {
                         print(speed ?? 0)
-                        if speed ?? 0 < dataManager.stms {
+                        if speed ?? 0 < dataManager.current.card.stms {
                             print("ITI 35")
                             dataManager.wasEnabled += 1
                             dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                            if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                            if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNR {
+                                dataManager.datas.set("NR", forKey: "g3lastcompletion")
+                            } else if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA {
+                                dataManager.datas.set("NRNSA", forKey: "g3lastcompletion")
+                            } else if dataManager.current.network.connected == CTRadioAccessTechnologyLTE {
                                 dataManager.datas.set("LTE", forKey: "g3lastcompletion")
-                            } else if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
+                            } else if dataManager.current.card.nrp == CTRadioAccessTechnologyHSDPA {
                                 dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                             } else {
                                 dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
@@ -141,15 +145,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                             if CLLocationManager.authorizationStatus() == .authorizedAlways {
                                 // On verifie la localisation en arrière plan
                                 let locationManager = CLLocationManager()
+                                
+                                if #available(iOS 14.0, *) {
+                                    if locationManager.accuracyAuthorization != .fullAccuracy {
+                                        return
+                                    }
+                                }
+                                
                                 let latitude = locationManager.location?.coordinate.latitude ?? 0
                                 let longitude = locationManager.location?.coordinate.longitude ?? 0
                                 
                                 let context: NSManagedObjectContext
                                 if #available(iOS 10.0, *) {
-                                    context = RoamingManager.persistentContainer.viewContext
+                                    context = PermanentStorage.persistentContainer.viewContext
                                 } else {
                                     // Fallback on earlier versions
-                                    context = RoamingManager.managedObjectContext
+                                    context = PermanentStorage.managedObjectContext
                                 }
                                 guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
                                     return
@@ -193,11 +204,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         case UNNotificationDefaultActionIdentifier:
             let dataManager = DataManager()
             
-            let result = RoamingManager.directDataDCheck(dataManager)
-                if result == true {
+            let result = RoamingManager.directDataDCheck(dataManager, service: dataManager.current)
+                if result {
                     if #available(iOS 13.0, *) {} else {
-                    let country = CarrierIdentification.getIsoCountryCode(String(dataManager.connectedMCC), String(dataManager.connectedMNC)).uppercased()
-                        NotificationManager.sendNotification(for: .alertDataDrainG3, with: "data_drain_notification_description_g3".localized().format([dataManager.carrier, country]))
+                        NotificationManager.sendNotification(for: .alertDataDrainG3, with: "data_drain_notification_description_g3".localized().format([dataManager.current.network.name, dataManager.current.network.land]))
                     }
                     if #available(iOS 12.0, *) {
                     guard let link = DataManager.getShortcutURL(international: true) else { return }
@@ -209,18 +219,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     return
             }
                 
-            if #available(iOS 14.1, *), dataManager.currentNetwork == CTRadioAccessTechnologyNR || dataManager.currentNetwork == CTRadioAccessTechnologyNRNSA {
-                print("5G not supported")
-                return
-            }
+                
             
             
-            if dataManager.minimalSetup && dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC != dataManager.targetMNC {
+            if dataManager.current.card.minimalSetup && dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc != dataManager.current.card.mnc {
                 dataManager.wasEnabled += 1
                 dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNR {
+                    dataManager.datas.set("NR", forKey: "g3lastcompletion")
+                } else if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA {
+                    dataManager.datas.set("NRNSA", forKey: "g3lastcompletion")
+                } else if dataManager.current.network.connected == CTRadioAccessTechnologyLTE {
                     dataManager.datas.set("LTE", forKey: "g3lastcompletion")
-                } else if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA {
+                } else if dataManager.current.network.connected == CTRadioAccessTechnologyHSDPA {
                     dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                 } else {
                     dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
@@ -237,9 +248,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 return
             }
             
-            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && !DataManager.isOnPhoneCall() {
-                if dataManager.carrierNetwork == dataManager.nrp && !dataManager.allow013G {
-                    if dataManager.verifyonwifi && DataManager.isWifiConnected() && dataManager.nrDEC && dataManager.femto {
+            if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.chasedMNC && !DataManager.isOnPhoneCall() {
+                if dataManager.current.network.connected == dataManager.current.card.nrp && !dataManager.allow013G {
+                    if dataManager.verifyonwifi && DataManager.isWifiConnected() && dataManager.current.card.nrdec && dataManager.femto {
                         let alerteW = UIAlertController(title: "disconnect_from_wifi".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
                         
                         alerteW.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel) { (_) in
@@ -253,7 +264,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         }
                         
                         // NOW I NEED TO WAIT THAT THE USER IS INDEED DISCONNECTED TO WIFI BEFORE CONTINIUNG!
-                    } else if dataManager.femtoLOWDATA && dataManager.femto && dataManager.nrDEC {
+                    } else if dataManager.femtoLOWDATA && dataManager.femto && dataManager.current.card.nrdec {
                         let alert = UIAlertController(title: "preparation_inprogress".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
                         
                         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 3, y: 5, width: 50, height: 50))
@@ -274,12 +285,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                             print("THIS SHOULD NOT BE CALLED...")
                             DispatchQueue.main.async {
                                 print(speed ?? 0)
-                                if speed ?? 0 < dataManager.stms {
+                                if speed ?? 0 < dataManager.current.card.stms {
                                     dataManager.wasEnabled += 1
                                     dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                                    if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                                    if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNR {
+                                        dataManager.datas.set("NR", forKey: "g3lastcompletion")
+                                    } else if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA {
+                                        dataManager.datas.set("NRNSA", forKey: "g3lastcompletion")
+                                    } else if dataManager.current.network.connected == CTRadioAccessTechnologyLTE {
                                         dataManager.datas.set("LTE", forKey: "g3lastcompletion")
-                                    } else if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
+                                    } else if dataManager.current.card.nrp == CTRadioAccessTechnologyHSDPA {
                                         dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                                     } else {
                                         dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
@@ -296,10 +311,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                     if CLLocationManager.authorizationStatus() == .authorizedAlways {
                                         // On verifie la localisation en arrière plan
                                         let locationManager = CLLocationManager()
+                                        
+                                        if #available(iOS 14.0, *) {
+                                            if locationManager.accuracyAuthorization != .fullAccuracy {
+                                                completionHandler()
+                                                return
+                                            }
+                                        }
+                                        
                                         let latitude = locationManager.location?.coordinate.latitude ?? 0
                                         let longitude = locationManager.location?.coordinate.longitude ?? 0
                                         
-                                        let context = RoamingManager.persistentContainer.viewContext
+                                        let context = PermanentStorage.persistentContainer.viewContext
                                         guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
                                             completionHandler()
                                             return
@@ -330,10 +353,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     } else {
                         dataManager.wasEnabled += 1
                         dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                        if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
+                        if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNR {
+                            dataManager.datas.set("NR", forKey: "g3lastcompletion")
+                        } else if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA {
+                            dataManager.datas.set("NRNSA", forKey: "g3lastcompletion")
+                        } else if dataManager.current.network.connected == CTRadioAccessTechnologyLTE {
                             dataManager.datas.set("LTE", forKey: "g3lastcompletion")
                         }
-                        if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
+                        if dataManager.current.card.nrp == CTRadioAccessTechnologyHSDPA {
                             dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                         } else {
                             dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
@@ -347,7 +374,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                             self.oldios()
                         }
                     }
-                } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge && !dataManager.allow012G && dataManager.out2G {
+                } else if dataManager.current.network.connected == CTRadioAccessTechnologyEdge && !dataManager.allow012G && dataManager.current.card.out2G {
                     dataManager.wasEnabled += 1
                     dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
                     dataManager.datas.set("EDGE", forKey: "g3lastcompletion")
@@ -360,7 +387,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         self.oldios()
                     }
                 }
-            } else if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && DataManager.isOnPhoneCall() {
+            } else if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.chasedMNC && DataManager.isOnPhoneCall() {
                 let alerteS = UIAlertController(title: "end_phonecall".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
                 
                 alerteS.addAction(UIAlertAction(title: "ok".localized(), style: UIAlertAction.Style.default, handler: nil))
@@ -547,10 +574,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 dataManager.datas.set(false, forKey: "didChangeSettings")
                 dataManager.datas.synchronize()
                 
-                let countryCode = dataManager.mycarrier.mobileCountryCode ?? "null"
-                let mobileNetworkName = dataManager.mycarrier.mobileNetworkCode ?? "null"
-                let carrierName = dataManager.mycarrier.carrierName ?? "null"
-                let isoCountrycode = dataManager.mycarrier.isoCountryCode ?? "null"
+                let countryCode = dataManager.current.card.carrier.mobileCountryCode ?? "null"
+                let mobileNetworkName = dataManager.current.card.carrier.mobileNetworkCode ?? "null"
+                let carrierName = dataManager.current.card.carrier.carrierName ?? "null"
+                let isoCountrycode = dataManager.current.card.carrier.isoCountryCode ?? "null"
                 
                 print(countryCode)
                 print(mobileNetworkName)
@@ -561,7 +588,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     if dataManager.perfmode{
                         NotificationManager.sendNotification(for: .batteryLow)
                     }
-                    if dataManager.connectedMCC == dataManager.targetMCC {
+                    if dataManager.current.network.mcc == dataManager.current.card.mcc {
                         if dataManager.allow012G && dataManager.allow013G {
                             NotificationManager.sendNotification(for: .allow2G3G)
                         } else if dataManager.allow013G {
@@ -588,7 +615,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func saveContext () {
         if #available(iOS 10.0, *) {
-            let context = RoamingManager.persistentContainer.viewContext
+            let context = PermanentStorage.persistentContainer.viewContext
             if context.hasChanges {
                 context.performAndWait({
                 do {
@@ -603,10 +630,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         } else {
             // iOS 9.0 and below - however you were previously handling it
-            if RoamingManager.managedObjectContext.hasChanges {
-                RoamingManager.managedObjectContext.performAndWait({
+            if PermanentStorage.managedObjectContext.hasChanges {
+                PermanentStorage.managedObjectContext.performAndWait({
                     do {
-                        try RoamingManager.managedObjectContext.save()
+                        try PermanentStorage.managedObjectContext.save()
                     } catch {
                         // Replace this implementation with code to handle the error appropriately.
                         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.

@@ -1,197 +1,200 @@
 "07Bqfc" = "Greška";
-
 "2Ic8Is" = "Dohvati SIM kartica MNC";
-
 "2O0Z0J" = "${roaming}";
-
 "37NcUM" = "Dohvati status od jednu nacionalnom Roaming povezanje. Vrati 0/1.";
-
 "4PBnst" = "${carrier}";
-
 "4bknAw" = "Greška";
-
 "4e5VzK" = "Vrati trenutno povezani mreže MCC";
-
 "5ELEwW" = "Zrakoplovni Mod Status";
-
 "5I4WMR" = "Vrati SIM kartica MNC";
-
 "6OSdTz" = "Greška";
-
 "6csoSr" = "Vrati SIM kartica MCC";
-
 "8F2iON" = "Mobilni Podaci Status";
-
 "9AoR98" = "${flightMode}";
-
 "9G9ZgU" = "${carrier}";
-
 "BmKG1n" = "Dohvati trenutan MCC";
-
 "CabRuh" = "${mnc}";
-
 "Cxh6DA" = "Dohvati trenutan MNC";
-
 "DdmfiG" = "Greška";
-
 "FpX2L5" = "Dohvati trenutan MNC";
-
 "GRNv06" = "${mnc}";
-
 "IT1l2g" = "Dohvati Zrakoplovni Mod Status";
-
 "InqGrV" = "Dohvati SIM operater";
-
 "JmoZDF" = "Dohvati trenutan operater";
-
 "K6bzVl" = "Dohvati SIM kartica MCC";
-
 "KSVtAz" = "${cellular}";
-
 "KT4ceM" = "Dohvati ime trenutno povezani operatere";
-
 "L3RtsF" = "${carrier}";
-
 "L6r1je" = "Greška";
-
 "LNAh5b" = "Greška";
-
 "OJuy1p" = "MCC";
-
 "OK3cDF" = "Dohvati trenutan MCC";
-
 "PLYmzh" = "Greška";
-
 "Q5Jwtl" = "Dohvati Nacionalni Roaming Status";
-
 "R5EoMD" = "Greška";
-
 "TKk3SA" = "Zrakoplovni Mod Status";
-
 "VO77Ks" = "${mcc}";
-
 "VhFC6Z" = "Greška";
-
 "Xk66YZ" = "${carrier}";
-
 "YmE9lQ" = "Wi-Fi Povezanje Status";
-
 "Yvwa99" = "Dohvati ime SIM kartice operatere";
-
 "Z5Q5Us" = "Nacionalni Roaming";
-
 "bUv2SI" = "MCC";
-
 "c2PAzW" = "MNC";
-
 "c4k2kQ" = "Dohvati SIM kartica MCC";
-
 "cj3edn" = "${flightMode}";
-
 "cwTJKe" = "${roaming}";
-
 "dOs4t4" = "Provera zabranjeni roaning status";
-
 "daFk7V" = "Dohvati SIM kartica MNC";
-
 "ewYgMQ" = "${mnc}";
-
 "fLwUtT" = "${cellular}";
-
 "fiYRii" = "${mcc}";
-
 "g1HYTa" = "Greška";
-
 "gGtAtZ" = "Greška";
-
 "h19Zqc" = "Roaming";
-
 "hDW63j" = "Greška";
-
 "hJqUW5" = "${wifi}";
-
 "i1UfNg" = "Wi-Fi Povezanje Status";
-
 "iWygLe" = "Provera ako je aparat povezan na Wi-Fi";
-
 "inubuu" = "Dohvati trenutan operater";
-
 "jJtlw3" = "Zrakoplovni Mod Status";
-
 "jRXlKB" = "${wifi}";
-
 "jUD9k1" = "Greška";
-
 "jacx6j" = "MNC";
-
 "k8b7Vd" = "Greška";
-
 "keKkJG" = "Greška";
-
 "kjbMlw" = "Provera ako je aparat povezan na Mobilni Podaci";
-
 "m20RCM" = "Mobilni Podaci Status";
-
 "npPdKC" = "${mcc}";
-
 "o3DgJm" = "Greška";
-
 "oNUcPB" = "Vrati trenutno povezani mreže MCC";
-
 "pHYkHd" = "Operater";
-
 "pQRBZP" = "Dohvati SIM operater";
-
 "paFIqg" = "Greška";
-
 "pxK0cA" = "${carrier}";
-
 "qW6cQD" = "Dohvati Zabranjeni Roaming Status";
-
 "riTDBK" = "Greška";
-
 "s0YZwR" = "Dohvati Zabranjeni Roaming Status";
-
 "s4kvV0" = "Mobilni Podaci povezanje";
-
 "sLkT1i" = "Greška";
-
 "shaxdE" = "Greška";
-
 "tv807z" = "Dohvati Nacionalni Roaming Status";
-
 "uOCw3O" = "Greška";
-
 "vv5HI8" = "Greška";
-
 "wU6jLX" = "${mnc}";
-
 "xqcFOJ" = "${carrier}";
-
 "y9r5ho" = "Wi-Fi Povezanje";
-
 "yTa07U" = "${mcc}";
-
 "yzYR7B" = "Operater";
-
-"4EJB3z" = "Dohvati SIM operater";
-
-"9BJ3lX" = "Mobilni Podaci Status";
-
-"DWAzah" = "Dohvati SIM kartica MNC";
-
-"IqyWoq" = "Dohvati Zabranjeni Roaming Status";
-
-"UH9up1" = "Dohvati trenutan MCC";
-
-"ahmmhB" = "Dohvati trenutan MNC";
-
-"aqaQK8" = "Dohvati SIM kartica MCC";
-
-"d2ttat" = "Dohvati trenutan operater";
-
-"i7nWTq" = "Dohvati Nacionalni Roaming Status";
-
-"i8YIPA" = "Zrakoplovni Mod Status";
-
-"xpTgr7" = "Wi-Fi Povezanje Status";
+"zLdk8p" = "Greška";
+"slEytG" = "Greška";
+"rrxb4g" = "Greška";
+"qv74q8" = "Greška";
+"ijI7Vn" = "Greška";
+"iDBYNj" = "Greška";
+"i2hb4Q" = "Greška";
+"dhDenA" = "Greška";
+"dOuQ9j" = "Greška";
+"Zf7rCW" = "Greška";
+"Uc9Ppq" = "Greška";
+"TeyeMQ" = "Greška";
+"OqoxXr" = "Greška";
+"MlTOyR" = "Greška";
+"MV5qnw" = "Greška";
+"MQFjcN" = "Greška";
+"MJNm5V" = "Greška";
+"L38oFp" = "Greška";
+"HAs2nd" = "Greška";
+"Gh4EUk" = "Greška";
+"FKqcpu" = "Greška";
+"DCalBq" = "Greška";
+"93Iveh" = "Greška";
+"8EWneU" = "Greška";
+"8ALZr8" = "Greška";
+"7f17i9" = "Greška";
+"3t3jle" = "Greška";
+"0Azo4z" = "Greška";
+"AuhMZS" = "${mnc}";
+"CtdaNC" = "Treba da Isključi Bluetooth";
+"FasfHq" = "Dohvati eSIM operater";
+"GFHUvV" = "Vrati trenutno povezani mreže MCC";
+"IBlV3Z" = "Vrati eSIM kartica MCC";
+"IeNhZ3" = "MCC";
+"S7a01Z" = "Dohvati eSIM povezan operater";
+"SGjPPA" = "Dohvati SIM povezan MCC";
+"SRtjQJ" = "Dohvati SIM povezan operater";
+"TQiKuD" = "Dohvati eSIM povezan MNC";
+"UCztsz" = "Vrati eSIM kartica MNC";
+"UbnCY5" = "${mcc}";
+"UsdRkv" = "${carrier}";
+"VxGSjY" = "Dohvati trenutan SIM operater";
+"WNaXUA" = "Dohvati eSIM MCC";
+"WVnEpv" = "Dohvati eSIM MNC";
+"XbjKn4" = "Operater";
+"Zcf0OF" = "${mcc}";
+"aRhK1Z" = "Dohvati informacija ako Bluetooth treba da se isključi";
+"cUXCL4" = "Bluetooth Isključeno";
+"dwErbz" = "Treba da Isključi Bluetooth";
+"eORP7u" = "Treba da Isključi Wi-Fi";
+"ekMfTN" = "Dohvati ime eSIM kartice operatere";
+"gFT6f9" = "${mnc}";
+"gcoyev" = "MCC";
+"hfAwVs" = "Dohvati eSIM povezan operater";
+"iWGbjo" = "${mnc}";
+"k4c1my" = "${bluetoothOff}";
+"k6KU3p" = "${carrier}";
+"kOVTA5" = "${carrier}";
+"mEGMS7" = "Vrati trenutno povezani eSIM mreže MNC";
+"meVzRq" = "Operater";
+"nBP2sV" = "${carrier}";
+"nyiPsg" = "Dohvati eSIM povezan MCC";
+"pCCCGn" = "${mnc}";
+"quHoq4" = "Vrati trenutno povezani eSIM mreže MCC";
+"uxnl6z" = "${mnc}";
+"uyadiC" = "Treba da Isključi Wi-Fi";
+"yY1Jsm" = "Dohvati SIM povezan MNC";
+"0uja0J" = "Operater";
+"1LgIwz" = "Dohvati eSIM operater";
+"1QMUJr" = "Dohvati SIM povezan MNC";
+"29814k" = "MCC";
+"2bQPzt" = "${mcc}";
+"4uO25q" = "Dohvati eSIM povezan MCC";
+"5Mu6E6" = "${mcc}";
+"5r3BiS" = "Dohvati eSIM MNC";
+"77HzjW" = "${mcc}";
+"7ik6K4" = "${mnc}";
+"7ys92x" = "Dohvati SIM povezan operater";
+"9NMyrF" = "Dohvati ime trenutni SIM mreže";
+"9kZATJ" = "${carrier}";
+"9qzmdB" = "Operater";
+"ASpnea" = "Dohvati SIM povezan MCC";
+"DGIqI4" = "MNC";
+"DNtRO8" = "MNC";
+"EdcywG" = "Vrati trenutno povezani mreže MNC";
+"Irws4k" = "Vrati trenutno povezani SIM mreže MNC";
+"L40ksf" = "Dohvati trenutan SIM MNC";
+"NodrLb" = "MCC";
+"PGQ7BS" = "Wi-Fi Isključeno";
+"Q1etrY" = "${mcc}";
+"RUPJGp" = "${mcc}";
+"Rps2zf" = "${wifiOff}";
+"TTigOu" = "Dohvati eSIM MCC";
+"Tfrt8U" = "Dohvati trenutan SIM operater";
+"TgfL2s" = "MNC";
+"c4cAEx" = "${mcc}";
+"cNspZr" = "Dohvati eSIM povezan MNC";
+"crpvx8" = "Dohvati trenutan SIM MCC";
+"dZdBzs" = "${carrier}";
+"e06Z3F" = "${carrier}";
+"fDWnMB" = "Vrati trenutno povezani SIM mreže MCC";
+"gF3HGn" = "${wifiOff}";
+"kguDl2" = "MNC";
+"oRIKao" = "${carrier}";
+"otXCnb" = "${bluetoothOff}";
+"r8O3wK" = "${mnc}";
+"uMN4id" = "Dohvati informacija ako Wi-Fi treba da se isključi";
+"vAupLV" = "${mnc}";
+"wXZEg4" = "Dohvati trenutan SIM MCC";
+"xP2MtK" = "Dohvati trenutan SIM MNC";
+"xTCoZj" = "Dohvati ime trenutni SIM kartice operatere";
+"xrgyiu" = "Dohvati ime trenutni eSIM mreže";

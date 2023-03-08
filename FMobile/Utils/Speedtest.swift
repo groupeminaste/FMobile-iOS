@@ -27,12 +27,12 @@ class Speedtest: NSObject, URLSessionDelegate, URLSessionDataDelegate {
     func testDownloadSpeedWithTimout(timeout: TimeInterval, usingURL: String = "null", withCompletionBlock: @escaping speedTestCompletionHandler) {
         // See https://www.thinkbroadband.com/download for file URLs
         // Voir http://test-debit.free.fr pour les autres fichiers
-        var fallbackURL = "http://test-debit.free.fr/512.rnd"
+        var fallbackURL = "http://raccourcis.ios.free.fr/fmobile/speedtest/nrcheck.rnd"
         
         if usingURL == "null" {
             
             if(datas.value(forKey: "URL") != nil){
-                fallbackURL = datas.value(forKey: "URL") as? String ?? "http://test-debit.free.fr/512.rnd"
+                fallbackURL = datas.value(forKey: "URL") as? String ?? "http://raccourcis.ios.free.fr/fmobile/speedtest/nrcheck.rnd"
             }
             
         } else {

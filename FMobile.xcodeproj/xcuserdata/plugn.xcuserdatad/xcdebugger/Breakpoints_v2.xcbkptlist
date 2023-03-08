@@ -14,25 +14,9 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1353"
-            endingLineNumber = "1353"
+            startingLineNumber = "1423"
+            endingLineNumber = "1423"
             landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1F8A2563-9537-47FF-9D0C-D0DAEEF2CB27"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/DataManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
-            landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -55,22 +39,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3887B189-CB43-41FA-893B-8DB90427B01D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/DataManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "364"
-            endingLineNumber = "364"
-            landmarkName = "init()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C2D6E7C8-B1DE-4350-916D-2FB7CFF3391A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -78,8 +46,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2051"
-            endingLineNumber = "2051"
+            startingLineNumber = "2209"
+            endingLineNumber = "2209"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +62,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2053"
-            endingLineNumber = "2053"
+            startingLineNumber = "2211"
+            endingLineNumber = "2211"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +78,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1198"
-            endingLineNumber = "1198"
+            startingLineNumber = "1286"
+            endingLineNumber = "1286"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +94,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1200"
-            endingLineNumber = "1200"
+            startingLineNumber = "1288"
+            endingLineNumber = "1288"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +110,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1202"
-            endingLineNumber = "1202"
+            startingLineNumber = "1290"
+            endingLineNumber = "1290"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +126,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1197"
-            endingLineNumber = "1197"
+            startingLineNumber = "1285"
+            endingLineNumber = "1285"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
             <Locations>
@@ -206,8 +174,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1196"
-            endingLineNumber = "1196"
+            startingLineNumber = "1284"
+            endingLineNumber = "1284"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -222,8 +190,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1203"
-            endingLineNumber = "1203"
+            startingLineNumber = "1291"
+            endingLineNumber = "1291"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -238,8 +206,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1205"
-            endingLineNumber = "1205"
+            startingLineNumber = "1293"
+            endingLineNumber = "1293"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -254,8 +222,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1393"
-            endingLineNumber = "1393"
+            startingLineNumber = "1458"
+            endingLineNumber = "1458"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,58 +238,42 @@
             filePath = "FMobileG3/CarrierIntentHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "handle(intent:completion:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "DC80A419-120A-435D-ACD0-8066BAD3B6A7 - 60fe6e4005f7edb1"
+                  uuid = "DC80A419-120A-435D-ACD0-8066BAD3B6A7 - 7fb13ef712b26ee9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "FMobile_4.CarrierIntentHandler.handle(intent: FMobile_4.CarrierIntent, completion: (FMobile_4.CarrierIntentResponse) -&gt; ()) -&gt; ()"
-                  moduleName = "FMobile 4"
+                  symbolName = "FMobile_5.CarrierIntentHandler.handle(intent: FMobile_5.CarrierIntent, completion: (FMobile_5.CarrierIntentResponse) -&gt; ()) -&gt; ()"
+                  moduleName = "FMobile 5"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Downloads/FMobile-81398fc520b36403cd465d14070d7ad5b63b893a/FMobileG3/CarrierIntentHandler.swift"
+                  urlString = "file:///Users/plugn/Documents/FMobile/FMobileG3/CarrierIntentHandler.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "133"
-                  endingLineNumber = "133"
-                  offsetFromSymbolStart = "156">
+                  startingLineNumber = "261"
+                  endingLineNumber = "261"
+                  offsetFromSymbolStart = "192">
                </Location>
                <Location
-                  uuid = "DC80A419-120A-435D-ACD0-8066BAD3B6A7 - 64748c65a02d7110"
+                  uuid = "DC80A419-120A-435D-ACD0-8066BAD3B6A7 - 57519d9aa7dbda07"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String) -&gt; () in FMobile_4.CarrierIntentHandler.handle(intent: FMobile_4.CarrierIntent, completion: (FMobile_4.CarrierIntentResponse) -&gt; ()) -&gt; ()"
-                  moduleName = "FMobile 4"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in FMobile_5.CarrierIntentHandler.handle(intent: FMobile_5.CarrierIntent, completion: (FMobile_5.CarrierIntentResponse) -&gt; ()) -&gt; ()"
+                  moduleName = "FMobile 5"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plugn/Downloads/FMobile-81398fc520b36403cd465d14070d7ad5b63b893a/FMobileG3/CarrierIntentHandler.swift"
+                  urlString = "file:///Users/plugn/Documents/FMobile/FMobileG3/CarrierIntentHandler.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "135"
-                  endingLineNumber = "135"
-                  offsetFromSymbolStart = "152">
+                  startingLineNumber = "259"
+                  endingLineNumber = "259"
+                  offsetFromSymbolStart = "52">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FB3AD656-F3FE-48FF-97FA-13FA3731E8F1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobileG3/CarrierIntentHandler.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "handle(intent:completion:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -334,8 +286,8 @@
             filePath = "FMobileG3/CarrierIntentHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
             landmarkName = "handle(intent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -350,8 +302,8 @@
             filePath = "FMobileG3/CarrierIntentHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
             landmarkName = "handle(intent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -366,8 +318,8 @@
             filePath = "FMobileG3/CarrierIntentHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "handle(intent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -382,8 +334,8 @@
             filePath = "FMobileG3/CarrierIntentHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "handle(intent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -398,8 +350,8 @@
             filePath = "FMobileG3/CarrierIntentHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "handle(intent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -414,8 +366,8 @@
             filePath = "FMobileG3/CarrierIntentHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "handle(intent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -430,8 +382,8 @@
             filePath = "FMobileG3/CarrierIntentHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "handle(intent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -446,40 +398,8 @@
             filePath = "FMobileG3/CarrierIntentHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "handle(intent:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F0F72DFB-4852-41C8-83B2-66D6EA47BB9F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobileG3/CarrierIntentHandler.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "handle(intent:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1AC5EACC-AB61-4531-B3CD-1149FE80B5D9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobileG3/CarrierIntentHandler.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
             landmarkName = "handle(intent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -494,8 +414,8 @@
             filePath = "FMobileG3/CarrierIntentHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "handle(intent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -510,8 +430,8 @@
             filePath = "FMobileG3/CarrierIntentHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "handle(intent:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -526,8 +446,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1395"
-            endingLineNumber = "1395"
+            startingLineNumber = "1460"
+            endingLineNumber = "1460"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -542,24 +462,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1386"
-            endingLineNumber = "1386"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D3FCC00F-4252-4A22-B523-A997872355EB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1385"
-            endingLineNumber = "1385"
+            startingLineNumber = "1455"
+            endingLineNumber = "1455"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -574,72 +478,8 @@
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1387"
-            endingLineNumber = "1387"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B95615B7-2EFB-4080-9726-04F4584BAE5C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1390"
-            endingLineNumber = "1390"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4D5B8579-E387-4BB8-92C7-1E79F3810437"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1389"
-            endingLineNumber = "1389"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "166EFC11-38DB-4F34-B627-2067031A6F5D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1391"
-            endingLineNumber = "1391"
-            landmarkName = "loadUI(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B27BD0B9-9685-42F0-859C-2F131087F2C8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Views/GeneralTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1392"
-            endingLineNumber = "1392"
+            startingLineNumber = "1456"
+            endingLineNumber = "1456"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -679,15 +519,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4E011CD8-6710-46D7-8F75-025095B4F7E1"
+            uuid = "6B957821-A73E-4E00-9997-846059B713C8"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "945"
-            endingLineNumber = "945"
+            startingLineNumber = "1500"
+            endingLineNumber = "1500"
             landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -695,289 +535,257 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F458D761-92D3-45FC-8704-BC3301F69DF0"
-            shouldBeEnabled = "Yes"
+            uuid = "DDB6489E-8081-4E53-ABA9-B2ED793EE9A7"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
+            filePath = "FMobile/Utils/FMNetwork.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
-            landmarkName = "netfetch(_:_:completionHandler:)"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
+            landmarkName = "init(type:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7CC56312-A959-4430-BCCA-B8E432B80DFF"
-            shouldBeEnabled = "Yes"
+            uuid = "813BDCE0-9A42-4A17-ADAC-4E3776E9A53B"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
+            filePath = "FMobile/Utils/FMNetwork.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
-            landmarkName = "netfetch(_:_:completionHandler:)"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "init(type:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D7F7FE85-947B-4CB4-8E15-E12B0CC873B4"
-            shouldBeEnabled = "Yes"
+            uuid = "B7C3689F-BDE7-442A-9F4A-9C3B9894F9AF"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
+            filePath = "FMobile/Utils/FMNetwork.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "316"
-            endingLineNumber = "316"
-            landmarkName = "netfetch(_:_:completionHandler:)"
+            startingLineNumber = "357"
+            endingLineNumber = "357"
+            landmarkName = "init(type:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "688AE55A-2DF9-4F36-B24A-750F3F522CDA"
-            shouldBeEnabled = "Yes"
+            uuid = "CB221D2C-2F44-4F83-AA56-279B81D3F176"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
+            filePath = "FMobile/Utils/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
-            landmarkName = "netfetch(_:_:completionHandler:)"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "23B32B00-F92A-40F0-AF76-A19AD5012030"
-            shouldBeEnabled = "Yes"
+            uuid = "082F72D3-F4D7-49C3-AFC8-F1E3EAC75F18"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
+            filePath = "FMobile/Utils/FMNetwork.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
-            landmarkName = "netfetch(_:_:completionHandler:)"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
+            landmarkName = "init(type:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A510C875-C1AF-406A-B227-462FF7AA9F42"
-            shouldBeEnabled = "Yes"
+            uuid = "0FC4D6E5-5A26-419F-B5EF-16C320D4ED13"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
+            filePath = "FMobile/Utils/FMNetwork.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "463"
-            endingLineNumber = "463"
-            landmarkName = "netfetch(_:_:completionHandler:)"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
+            landmarkName = "init(type:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CD1147C2-51C1-426D-9576-8FF12413D733"
+            uuid = "CD8E0F3F-221F-4091-B77C-BFD6B02D55DB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FMobile/Utils/FMNetwork.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "481"
+            endingLineNumber = "481"
+            landmarkName = "init(type:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CD8E0F3F-221F-4091-B77C-BFD6B02D55DB - 747b3746a44ed4d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FMobile_5.FMNetwork.init(type: FMobile_5.FMNetworkType) -&gt; FMobile_5.FMNetwork"
+                  moduleName = "FMobile 5"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/FMNetwork.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "477"
+                  endingLineNumber = "477"
+                  offsetFromSymbolStart = "35116">
+               </Location>
+               <Location
+                  uuid = "CD8E0F3F-221F-4091-B77C-BFD6B02D55DB - ff0b3185c12f7efc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (Swift.String) -&gt; () in FMobile_5.FMNetwork.init(type: FMobile_5.FMNetworkType) -&gt; FMobile_5.FMNetwork"
+                  moduleName = "FMobile 5"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/plugn/Documents/FMobile/FMobile/Utils/FMNetwork.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "477"
+                  endingLineNumber = "477"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7F7088B-D3E4-4C00-A60C-DD20BAC635AD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
+            filePath = "FMobile/Utils/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "492"
-            endingLineNumber = "492"
-            landmarkName = "netfetch(_:_:completionHandler:)"
+            startingLineNumber = "377"
+            endingLineNumber = "377"
+            landmarkName = "addCountryIncluded(country:list:service:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A33CFF6D-0CA2-4B24-ABA6-7E4C4D58AA50"
+            uuid = "233CAED2-BB4B-48B2-99EC-01A79BD80313"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
+            filePath = "FMobile/Utils/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "540"
-            endingLineNumber = "540"
-            landmarkName = "netfetch(_:_:completionHandler:)"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
+            landmarkName = "addCountryIncluded(country:list:service:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "90F4A1B7-ECEB-4953-A212-30F73BC25AE9"
+            uuid = "1FF8EF1D-7391-43E5-845B-03431C0A59DB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
+            filePath = "FMobile/Utils/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "798"
-            endingLineNumber = "798"
-            landmarkName = "engine(locations:g3engine:completionHandler:)"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
+            landmarkName = "addCountryIncluded(country:list:service:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E46C0AD1-BAF7-4F18-8E34-2557633CD70E"
+            uuid = "D3FB5D22-DAFE-4201-9414-16F502A13CDF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
+            filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "800"
-            endingLineNumber = "800"
-            landmarkName = "engine(locations:g3engine:completionHandler:)"
+            startingLineNumber = "1258"
+            endingLineNumber = "1258"
+            landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2D952A76-9024-4DB7-AC36-F3E50E66B06A"
+            uuid = "884880D6-48BE-454B-B89F-216E433607D5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
+            filePath = "FMobile/Views/GeneralTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "805"
-            endingLineNumber = "805"
-            landmarkName = "engine(locations:g3engine:completionHandler:)"
+            startingLineNumber = "1259"
+            endingLineNumber = "1259"
+            landmarkName = "loadUI(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E3CEF8F6-C9ED-43FD-B0B1-A3D9792D33C2"
-            shouldBeEnabled = "Yes"
+            uuid = "191CD046-CB30-4A0D-B210-59499D9D6F58"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
+            filePath = "FMobile/Utils/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "847"
-            endingLineNumber = "847"
-            landmarkName = "engine(locations:g3engine:completionHandler:)"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "464EE5A9-5067-4CDD-8C00-203D11215F07"
-            shouldBeEnabled = "Yes"
+            uuid = "99FDD915-DF64-4FC7-AEB6-36646FEBCCDD"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
+            filePath = "FMobile/Utils/CoverageLegend.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "918"
-            endingLineNumber = "918"
-            landmarkName = "engine(locations:g3engine:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CC422DFD-C5E6-4EF9-8EF7-F5A59423C63B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "963"
-            endingLineNumber = "963"
-            landmarkName = "engine(locations:g3engine:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "08DA1A42-A14E-4184-A1FB-6583354052A3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1072"
-            endingLineNumber = "1072"
-            landmarkName = "engine(locations:g3engine:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FFA3896D-5482-4546-8975-12AFD03E6BC0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "365"
-            endingLineNumber = "365"
-            landmarkName = "netfetch(_:_:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "ACB90983-FBE4-47D0-82D3-53DA1C13EB29"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "process(_:_:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4FD21F40-BC3E-48CE-AB21-CE7DE7A079C1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FMobile/Utils/RoamingManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
-            landmarkName = "process(_:_:completionHandler:)"
-            landmarkType = "7">
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "CoverageLegend"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

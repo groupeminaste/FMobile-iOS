@@ -136,10 +136,10 @@ class CarrierConfiguration: Codable {
     static func clearDatabase() {
         let context: NSManagedObjectContext
         if #available(iOS 10.0, *) {
-            context = RoamingManager.persistentContainer.viewContext
+            context = PermanentStorage.persistentContainer.viewContext
         } else {
             // Fallback on earlier versions
-            context = RoamingManager.managedObjectContext
+            context = PermanentStorage.managedObjectContext
         }
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Carriers")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
@@ -158,10 +158,10 @@ class CarrierConfiguration: Codable {
     static func insertInDatabase(item: CarrierConfiguration) {
         let context: NSManagedObjectContext
         if #available(iOS 10.0, *) {
-            context = RoamingManager.persistentContainer.viewContext
+            context = PermanentStorage.persistentContainer.viewContext
         } else {
             // Fallback on earlier versions
-            context = RoamingManager.managedObjectContext
+            context = PermanentStorage.managedObjectContext
         }
         guard let entity = NSEntityDescription.entity(forEntityName: "Carriers", in: context) else {
             print("Error: Carriers entity not found in Database!")
@@ -211,10 +211,10 @@ class CarrierConfiguration: Codable {
     static func getDatabaseCarrier(mcc: String, mnc: String) -> CarrierConfiguration? {
         let context: NSManagedObjectContext
         if #available(iOS 10.0, *) {
-            context = RoamingManager.persistentContainer.viewContext
+            context = PermanentStorage.persistentContainer.viewContext
         } else {
             // Fallback on earlier versions
-            context = RoamingManager.managedObjectContext
+            context = PermanentStorage.managedObjectContext
         }
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Carriers")

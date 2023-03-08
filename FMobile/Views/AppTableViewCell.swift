@@ -69,6 +69,7 @@ class AppTableViewCell: UITableViewCell {
         return self
     }
     
+    #if !targetEnvironment(macCatalyst)
     @available(iOS, obsoleted: 13.0)
     func with(name: String, desc: String, icon: UIImage?, handler: @escaping (UIButton) -> Void, darkMode: Bool) -> AppTableViewCell {
         self.handler = handler
@@ -88,6 +89,7 @@ class AppTableViewCell: UITableViewCell {
 
         return self
     }
+    #endif
     
     @objc func onClick(_ sender: UIButton) {
         handler(sender)

@@ -19,6 +19,7 @@ import CallKit
 import FileProvider
 import Intents
 import DonateViewController
+import GroupeMINASTE
 
 class GeneralTableViewController: UITableViewController, CLLocationManagerDelegate, DonateViewControllerDelegate {
     
@@ -55,16 +56,16 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         // Notify the user of any errors.
     }
     
-    func addCountry(country: String, dataManager: DataManager = DataManager()) {
+    func addCountry(country: String, dataManager: DataManager = DataManager(), service: FMNetwork) {
         let alert = UIAlertController(title: "new_country".localized(), message: "new_country_description".localized().format([country]), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "included_voice".localized(), style: .default) { (_) in
-            dataManager.addCountryIncluded(country: country, list: 0)
+            dataManager.addCountryIncluded(country: country, list: 0, service: service)
         })
         alert.addAction(UIAlertAction(title: "included_internet".localized(), style: .default) { (_) in
-            dataManager.addCountryIncluded(country: country, list: 1)
+            dataManager.addCountryIncluded(country: country, list: 1, service: service)
         })
         alert.addAction(UIAlertAction(title: "included_all".localized(), style: .default) { (_) in
-            dataManager.addCountryIncluded(country: country, list: 2)
+            dataManager.addCountryIncluded(country: country, list: 2, service: service)
         })
         alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
         UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
@@ -73,10 +74,10 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
     func resetAllRecords(in entity : String) {
         let context: NSManagedObjectContext
         if #available(iOS 10.0, *) {
-            context = RoamingManager.persistentContainer.viewContext
+            context = PermanentStorage.persistentContainer.viewContext
         } else {
             // Fallback on earlier versions
-            context = RoamingManager.managedObjectContext
+            context = PermanentStorage.managedObjectContext
         }
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
@@ -96,8 +97,8 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         })
     }
     
-    func resetCountriesIncluded(_ dataManager: DataManager = DataManager()) {
-            dataManager.resetCountryIncluded()
+    func resetCountriesIncluded(_ dataManager: DataManager = DataManager(), service: FMNetwork) {
+            dataManager.resetCountryIncluded(service: service)
             let alert = UIAlertController(title: "reset_zones_done".localized(), message: "reset_countries_done_description".localized(), preferredStyle: UIAlertController.Style.alert)
             
             alert.addAction(UIAlertAction(title: "ok".localized(), style: UIAlertAction.Style.default, handler: nil))
@@ -124,8 +125,8 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 }
                 
                 let defaultAction2 = UIAlertAction(title: "set_default_url".localized(), style: .default) { (_) in
-                    datas.set("http://test-debit.free.fr/512.rnd", forKey: "URL")
-                    datas.set("http://test-debit.free.fr/1048576.rnd", forKey: "URLST")
+                    datas.set("http://raccourcis.ios.free.fr/fmobile/speedtest/nrcheck.rnd", forKey: "URL")
+                    datas.set("http://raccourcis.ios.free.fr/fmobile/speedtest/speedtest.rnd", forKey: "URLST")
                     datas.synchronize()
                     return
                 }
@@ -150,8 +151,8 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 }
                 
                 let defaultAction2 = UIAlertAction(title: "set_default_url".localized(), style: .default) { (_) in
-                    datas.set("http://test-debit.free.fr/512.rnd", forKey: "URL")
-                    datas.set("http://test-debit.free.fr/1048576.rnd", forKey: "URLST")
+                    datas.set("http://raccourcis.ios.free.fr/fmobile/speedtest/nrcheck.rnd", forKey: "URL")
+                    datas.set("http://raccourcis.ios.free.fr/fmobile/speedtest/speedtest.rnd", forKey: "URLST")
                     datas.synchronize()
                     return
                 }
@@ -167,8 +168,8 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             }
             
             
-            datas.set(alertController.textFields?[0].text?.lowercased() ?? "http://test-debit.free.fr/512.rnd", forKey: "URL")
-            datas.set(alertController.textFields?[1].text?.lowercased() ?? "http://test-debit.free.fr/1048576.rnd", forKey: "URLST")
+            datas.set(alertController.textFields?[0].text?.lowercased() ?? "http://raccourcis.ios.free.fr/fmobile/speedtest/nrcheck.rnd", forKey: "URL")
+            datas.set(alertController.textFields?[1].text?.lowercased() ?? "http://raccourcis.ios.free.fr/fmobile/speedtest/speedtest.rnd", forKey: "URLST")
             datas.synchronize()
         }
         
@@ -178,8 +179,8 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         }
         
         let defaultAction = UIAlertAction(title: "set_default_url".localized(), style: .default) { (_) in
-            datas.set("http://test-debit.free.fr/512.rnd", forKey: "URL")
-            datas.set("http://test-debit.free.fr/1048576.rnd", forKey: "URLST")
+            datas.set("http://raccourcis.ios.free.fr/fmobile/speedtest/nrcheck.rnd", forKey: "URL")
+            datas.set("http://raccourcis.ios.free.fr/fmobile/speedtest/speedtest.rnd", forKey: "URLST")
             datas.synchronize()
             return
         }
@@ -201,35 +202,35 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func manualSetup(_ dataManager: DataManager = DataManager()) {
+    func manualSetup(_ dataManager: DataManager = DataManager(), service: FMNetwork) {
         let alertController = UIAlertController(title: "setup_title".localized(), message: "setup_description".localized(), preferredStyle: .alert)
         
         //the confirm action taking the inputs
         let confirmAction = UIAlertAction(title: "save".localized(), style: .default) { (_) in
-            dataManager.datas.set((alertController.textFields?[0].text! as NSString?)?.doubleValue ?? 0.768, forKey: "STMS")
-            dataManager.datas.set(alertController.textFields?[1].text?.uppercased() ?? "null", forKey: "HP")
-            dataManager.datas.set(alertController.textFields?[2].text?.uppercased() ?? "null", forKey: "NRP")
-            dataManager.datas.set(dataManager.mycarrier.mobileCountryCode ?? "---", forKey: "MCC")
-            dataManager.datas.set(dataManager.mycarrier.mobileNetworkCode ?? "--", forKey: "MNC")
-            dataManager.datas.set(dataManager.mycarrier.isoCountryCode?.uppercased() ?? "--", forKey: "LAND")
-            dataManager.datas.set(alertController.textFields?[3].text ?? "null", forKey: "ITINAME")
-            dataManager.datas.set(alertController.textFields?[4].text ?? "null", forKey: "HOMENAME")
-            dataManager.datas.set(alertController.textFields?[5].text ?? "null", forKey: "ITIMNC")
-            dataManager.datas.set(alertController.textFields?[6].text?.lowercased() ?? "null", forKey: "NRFEMTO")
-            dataManager.datas.set(alertController.textFields?[7].text?.lowercased() ?? "null", forKey: "OUT2G")
-            dataManager.datas.set([String](), forKey: "countriesData")
-            dataManager.datas.set([String](), forKey: "countriesVoice")
-            dataManager.datas.set([String](), forKey: "countriesVData")
-            dataManager.datas.set(true, forKey: "setupDone")
-            dataManager.datas.set(false, forKey: "minimalSetup")
-            dataManager.datas.set(false, forKey: "disableFMobileCore")
+            dataManager.datas.set((alertController.textFields?[0].text! as NSString?)?.doubleValue ?? 0.768, forKey: service.card.active ? "STMS" : "eSTMS")
+            dataManager.datas.set(alertController.textFields?[1].text?.uppercased() ?? "null", forKey: service.card.active ? "HP" : "eHP")
+            dataManager.datas.set(alertController.textFields?[2].text?.uppercased() ?? "null", forKey: service.card.active ? "NRP" : "eNRP")
+            dataManager.datas.set(service.card.carrier.mobileCountryCode ?? "---", forKey: service.card.active ? "MCC" : "eMCC")
+            dataManager.datas.set(service.card.carrier.mobileNetworkCode ?? "--", forKey: service.card.active ? "MNC" : "eMNC")
+            dataManager.datas.set(service.card.carrier.isoCountryCode?.uppercased() ?? "--", forKey: service.card.active ? "LAND" : "eLAND")
+            dataManager.datas.set(alertController.textFields?[3].text ?? "null", forKey: service.card.active ? "ITINAME" : "eITINAME")
+            dataManager.datas.set(alertController.textFields?[4].text ?? "null", forKey: service.card.active ? "HOMENAME" : "eHOMENAME")
+            dataManager.datas.set(alertController.textFields?[5].text ?? "null", forKey: service.card.active ? "ITIMNC" : "eITIMNC")
+            dataManager.datas.set(alertController.textFields?[6].text?.lowercased() ?? "null", forKey: service.card.active ? "NRFEMTO" : "eNRFEMTO")
+            dataManager.datas.set(alertController.textFields?[7].text?.lowercased() ?? "null", forKey: service.card.active ? "OUT2G" : "eOUT2G")
+            dataManager.datas.set([String](), forKey: service.card.active ? "countriesData" : "ecountriesData")
+            dataManager.datas.set([String](), forKey: service.card.active ? "countriesVoice" : "ecountriesVoice")
+            dataManager.datas.set([String](), forKey: service.card.active ? "countriesVData" : "ecountriesVData")
+            dataManager.datas.set(true, forKey: service.card.active ? "setupDone" : "esetupDone")
+            dataManager.datas.set(false, forKey: service.card.active ? "minimalSetup" : "eminimalSetup")
+            dataManager.datas.set(false, forKey: service.card.active ? "disableFMobileCore" : "edisableFMobileCore")
             dataManager.datas.set(false, forKey: "isSettingUp")
             dataManager.datas.synchronize()
         }
         
         //the cancel action doing nothing
         let cancelAction = UIAlertAction(title: "cancel".localized(), style: .cancel) { (_) in
-            dataManager.datas.set(false, forKey: "setupDone")
+            dataManager.datas.set(false, forKey: service.card.active ? "setupDone" : "esetupDone")
             dataManager.datas.set(false, forKey: "isSettingUp")
             dataManager.datas.synchronize()
         }
@@ -276,118 +277,108 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         dataManager.datas.set(true, forKey: "isSettingUp")
         dataManager.datas.synchronize()
         
-        let siminventory = DataManager.getSimInventory()
-        
-        var mcc = ""
-        var mnc = ""
-        var land = ""
-        
-        if siminventory.count > 0 {
-            mcc = siminventory[0].1.mobileCountryCode ?? "---"
-            mnc = siminventory[0].1.mobileNetworkCode ?? "--"
-            land = siminventory[0].1.isoCountryCode ?? "--"
-        }
-        
-        // On fetch la configuration depuis le serveur
-        CarrierConfiguration.fetch(forMCC: mcc, andMNC: mnc) { configuration in
-            // On vérifie si des valeurs sont trouvés
-            if let configuration = configuration {
-                // On enregistre les valeurs issues du serveur
-                dataManager.datas.set(configuration.stms, forKey: "STMS")
-                dataManager.datas.set(configuration.hp, forKey: "HP")
-                dataManager.datas.set(configuration.nrp, forKey: "NRP")
-                dataManager.datas.set(configuration.mcc, forKey: "MCC")
-                dataManager.datas.set(configuration.mnc, forKey: "MNC")
-                dataManager.datas.set(configuration.land, forKey: "LAND")
-                dataManager.datas.set(configuration.itiname, forKey: "ITINAME")
-                dataManager.datas.set(configuration.homename, forKey: "HOMENAME")
-                dataManager.datas.set(configuration.itimnc, forKey: "ITIMNC")
-                dataManager.datas.set(configuration.nrfemto, forKey: "NRFEMTO")
-                dataManager.datas.set(configuration.out2G, forKey: "OUT2G")
-                dataManager.datas.set(configuration.setupDone, forKey: "setupDone")
-                dataManager.datas.set(configuration.minimalSetup, forKey: "minimalSetup")
-                dataManager.datas.set(configuration.disableFMobileCore, forKey: "disableFMobileCore")
-                dataManager.datas.set(configuration.countriesData, forKey: "countriesData")
-                dataManager.datas.set(configuration.countriesVoice, forKey: "countriesVoice")
-                dataManager.datas.set(configuration.countriesVData, forKey: "countriesVData")
-                dataManager.datas.set(configuration.carrierServices, forKey: "carrierServices")
-                dataManager.datas.set(configuration.roamLTE, forKey: "roamLTE")
-                dataManager.datas.set(configuration.roam5G, forKey: "roam5G")
-                dataManager.datas.set(false, forKey: "isSettingUp")
-                dataManager.datas.synchronize()
-                // Fin de la configuration depuis le serveur
-            } else if !dataManager.setupDone && wasCalled {
-                // Aucune valeur trouvée (non existante ou non connecté à internet)
-                let alertController = UIAlertController(title: "choose_setup".localized(), message: "choose_setup_description".localized(), preferredStyle: .alert)
-                    
-                let confirmAction = UIAlertAction(title: "use_minimal_setup".localized(), style: .default) { (_) in
-                    dataManager.datas.set(mcc, forKey: "MCC")
-                    dataManager.datas.set(mnc, forKey: "MNC")
-                    dataManager.datas.set(land, forKey: "LAND")
-                    dataManager.datas.set(dataManager.carriersim, forKey: "HOMENAME")
-                    dataManager.datas.set(dataManager.carriersim, forKey: "ITINAME")
-                    dataManager.datas.set(99, forKey: "ITIMNC")
-                    dataManager.datas.set([String](), forKey: "countriesData")
-                    dataManager.datas.set([String](), forKey: "countriesVoice")
-                    dataManager.datas.set([String](), forKey: "countriesVData")
+        for service in dataManager.simtrays {
+            // On fetch la configuration depuis le serveur
+            CarrierConfiguration.fetch(forMCC: service.card.carrier.mobileCountryCode ?? "---", andMNC: service.card.carrier.mobileNetworkCode ?? "--") { configuration in
+                // On vérifie si des valeurs sont trouvés
+                if let configuration = configuration {
+                    // On enregistre les valeurs issues du serveur
+                    dataManager.datas.set(configuration.stms, forKey: service.card.type == .sim ? "STMS" : "eSTMS")
+                    dataManager.datas.set(configuration.hp, forKey: service.card.type == .sim ? "HP" : "eHP")
+                    dataManager.datas.set(configuration.nrp, forKey: service.card.type == .sim ? "NRP" : "eNRP")
+                    dataManager.datas.set(configuration.mcc, forKey: service.card.type == .sim ? "MCC" : "eMCC")
+                    dataManager.datas.set(configuration.mnc, forKey: service.card.type == .sim ? "MNC" : "eMNC")
+                    dataManager.datas.set(configuration.land, forKey: service.card.type == .sim ? "LAND" : "eLAND")
+                    dataManager.datas.set(configuration.itiname, forKey: service.card.type == .sim ? "ITINAME" : "eITINAME")
+                    dataManager.datas.set(configuration.homename, forKey: service.card.type == .sim ? "HOMENAME" : "eHOMENAME")
+                    dataManager.datas.set(configuration.itimnc, forKey: service.card.type == .sim ? "ITIMNC" : "eITIMNC")
+                    dataManager.datas.set(configuration.nrfemto, forKey: service.card.type == .sim ? "NRFEMTO" : "eNRFEMTO")
+                    dataManager.datas.set(configuration.out2G, forKey: service.card.type == .sim ? "OUT2G" : "eOUT2G")
+                    dataManager.datas.set(configuration.setupDone, forKey: service.card.type == .sim ? "setupDone" : "esetupDone")
+                    dataManager.datas.set(configuration.minimalSetup, forKey: service.card.type == .sim ? "minimalSetup" : "eminimalSetup")
+                    dataManager.datas.set(configuration.disableFMobileCore, forKey: service.card.type == .sim ? "disableFMobileCore" : "edisableFMobileCore")
+                    dataManager.datas.set(configuration.countriesData, forKey: service.card.type == .sim ? "countriesData" : "ecountriesData")
+                    dataManager.datas.set(configuration.countriesVoice, forKey: service.card.type == .sim ? "countriesVoice" : "ecountriesVoice")
+                    dataManager.datas.set(configuration.countriesVData, forKey: service.card.type == .sim ? "countriesVData" : "ecountriesVData")
+                    dataManager.datas.set(configuration.carrierServices, forKey: service.card.type == .sim ? "carrierServices" : "ecarrierServices")
+                    dataManager.datas.set(configuration.roamLTE, forKey: service.card.type == .sim ? "roamLTE" : "eroamLTE")
+                    dataManager.datas.set(configuration.roam5G, forKey: service.card.type == .sim ? "roam5G" : "eroam5G")
+                    dataManager.datas.set(false, forKey: "isSettingUp")
                     dataManager.datas.synchronize()
-                    
-                    let alert2 = UIAlertController(title: "checking_eligibility".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
-                    let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 5, width: 50, height: 50))
-                    loadingIndicator.hidesWhenStopped = true
-                    if #available(iOS 13.0, *) {
-                        loadingIndicator.style = UIActivityIndicatorView.Style.medium
-                    } else {
-                        // Fallback on earlier versions
-                        loadingIndicator.style = UIActivityIndicatorView.Style.gray
-                    }
-                    loadingIndicator.startAnimating()
-                    alert2.view.addSubview(loadingIndicator)
-                    
-                    self.present(alert2, animated: true, completion: nil)
-                    
-                    self.delay(4){
-                        UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
-                        if DataManager.isEligibleForMinimalSetup(){
-                            dataManager.datas.set(true, forKey: "minimalSetup")
-                            dataManager.datas.set(false, forKey: "disableFMobileCore")
-                            dataManager.datas.set(true, forKey: "setupDone")
-                            dataManager.datas.set(false, forKey: "isSettingUp")
-                            dataManager.datas.synchronize()
+                    // Fin de la configuration depuis le serveur
+                } else if !service.card.setupDone && wasCalled {
+                    // Aucune valeur trouvée (non existante ou non connecté à internet)
+                    let alertController = UIAlertController(title: "choose_setup".localized(), message: "choose_setup_description".localized(), preferredStyle: .alert)
+                        
+                    let confirmAction = UIAlertAction(title: "use_minimal_setup".localized(), style: .default) { (_) in
+                        dataManager.datas.set(service.card.carrier.mobileCountryCode ?? "---", forKey: service.card.type == .sim ? "MCC" : "eMCC")
+                        dataManager.datas.set(service.card.carrier.mobileNetworkCode ?? "--", forKey: service.card.type == .sim ? "MNC" : "eMNC")
+                        dataManager.datas.set(service.card.carrier.isoCountryCode ?? "--", forKey: service.card.type == .sim ? "LAND" : "eLAND")
+                        dataManager.datas.set(service.card.name, forKey: service.card.type == .sim ? "HOMENAME" : "eHOMENAME")
+                        dataManager.datas.set(service.card.name, forKey: service.card.type == .sim ? "ITINAME" : "eITINAME")
+                        dataManager.datas.set(99, forKey: service.card.type == .sim ? "ITIMNC" : "eITIMNC")
+                        dataManager.datas.set([String](), forKey: service.card.type == .sim ? "countriesData" : "ecountriesData")
+                        dataManager.datas.set([String](), forKey: service.card.type == .sim ? "countriesVoice" : "ecountriesVoice")
+                        dataManager.datas.set([String](), forKey: service.card.type == .sim ? "countriesVData" : "ecountriesVData")
+                        dataManager.datas.synchronize()
+                        
+                        let alert2 = UIAlertController(title: "checking_eligibility".localized(), message:nil, preferredStyle: UIAlertController.Style.alert)
+                        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 5, width: 50, height: 50))
+                        loadingIndicator.hidesWhenStopped = true
+                        if #available(iOS 13.0, *) {
+                            loadingIndicator.style = UIActivityIndicatorView.Style.medium
                         } else {
-                            let alertController2 = UIAlertController(title: "compatibility_issues".localized(), message: "compatibility_error_message".localized(), preferredStyle: .alert)
-                            let confirmAction2 = UIAlertAction(title: "force_minimal_setup".localized(), style: .destructive) { (_) in
-                                dataManager.datas.set(true, forKey: "minimalSetup")
-                                dataManager.datas.set(false, forKey: "disableFMobileCore")
-                                dataManager.datas.set(true, forKey: "setupDone")
+                            // Fallback on earlier versions
+                            loadingIndicator.style = UIActivityIndicatorView.Style.gray
+                        }
+                        loadingIndicator.startAnimating()
+                        alert2.view.addSubview(loadingIndicator)
+                        
+                        self.present(alert2, animated: true, completion: nil)
+                        
+                        self.delay(4){
+                            UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
+                            if service.card.eligibleminimalsetup {
+                                dataManager.datas.set(true, forKey: service.card.type == .sim ? "minimalSetup" : "eminimalSetup")
+                                dataManager.datas.set(false, forKey: service.card.type == .sim ? "disableFMobileCore" : "edisableFMobileCore")
+                                dataManager.datas.set(true, forKey: service.card.type == .sim ? "setupDone" : "esetupDone")
                                 dataManager.datas.set(false, forKey: "isSettingUp")
                                 dataManager.datas.synchronize()
-                            }
-                            let cancelAction2 = UIAlertAction(title: "run_standard_setup".localized(), style: .default) { (_) in
-                                self.manualSetup()
+                            } else {
+                                let alertController2 = UIAlertController(title: "compatibility_issues".localized(), message: "compatibility_error_message".localized(), preferredStyle: .alert)
+                                let confirmAction2 = UIAlertAction(title: "force_minimal_setup".localized(), style: .destructive) { (_) in
+                                    dataManager.datas.set(true, forKey: service.card.type == .sim ? "minimalSetup" : "eminimalSetup")
+                                    dataManager.datas.set(false, forKey: service.card.type == .sim ? "disableFMobileCore" : "edisableFMobileCore")
+                                    dataManager.datas.set(true, forKey: service.card.type == .sim ? "setupDone" : "esetupDone")
+                                    dataManager.datas.set(false, forKey: "isSettingUp")
+                                    dataManager.datas.synchronize()
+                                }
+                                let cancelAction2 = UIAlertAction(title: "run_standard_setup".localized(), style: .default) { (_) in
+                                    self.manualSetup(service: service)
+                                }
+                                
+                                alertController2.addAction(confirmAction2)
+                                alertController2.addAction(cancelAction2)
+                                
+                                self.present(alertController2, animated: true, completion: nil)
                             }
                             
-                            alertController2.addAction(confirmAction2)
-                            alertController2.addAction(cancelAction2)
-                            
-                            self.present(alertController2, animated: true, completion: nil)
                         }
-                        
                     }
+                    
+                    let cancelAction = UIAlertAction(title: "use_standard_setup".localized(), style: .default) { (_) in
+                        self.manualSetup(service: service)
+                    }
+                    
+                    alertController.addAction(confirmAction)
+                    alertController.addAction(cancelAction)
+                    
+                    //finally presenting the dialog box
+                    self.present(alertController, animated: true, completion: nil)
+                } else {
+                    dataManager.datas.set(false, forKey: "isSettingUp")
+                    dataManager.datas.synchronize()
                 }
-                
-                let cancelAction = UIAlertAction(title: "use_standard_setup".localized(), style: .default) { (_) in
-                    self.manualSetup()
-                }
-                
-                alertController.addAction(confirmAction)
-                alertController.addAction(cancelAction)
-                
-                //finally presenting the dialog box
-                self.present(alertController, animated: true, completion: nil)
-            } else {
-                dataManager.datas.set(false, forKey: "isSettingUp")
-                dataManager.datas.synchronize()
             }
         }
         dataManager.datas.set(false, forKey: "isSettingUp")
@@ -467,7 +458,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         // BUILD 114 - RESET STATSPREFS
          if version < 114 && version != 0 {
             dataManager.datas.set(false, forKey: "didFinishFirstStart")
-             let alert = UIAlertController(title: "Action requise - Migration depuis FMobile 1.3", message: "Bienvenue sur FMobile 4. Nous avons fait beaucoup de modifications pour iOS 13. Le raccourci RRFM ne sert plus dans cette version, car il a été remplacé par le raccourci ANIRC. Un tout nouveau tutoriel vidéo est également livré dans cette mise à jour. Pour vous faciliter la tâche, nous avons réinitialisé le statut du premier démarrage afin de vous permettre de visionner le nouveau tutoriel d'installation et d'installer plus rapidement le nouveau raccourci ANIRC (et éventuellement mettre à jour le raccourci CFM pour iOS 13). Il est vivement recommandé de regarder le nouveau tutoriel d'installation, même si vous êtes complètement à l'aise avec les nouveaux outils Automatisations dans Raccourcis.", preferredStyle: .alert)
+             let alert = UIAlertController(title: "Action requise - Migration depuis FMobile 1.3", message: "Bienvenue sur FMobile 5. Nous avons fait beaucoup de modifications pour iOS 13. Le raccourci RRFM ne sert plus dans cette version, car il a été remplacé par le raccourci ANIRC. Un tout nouveau tutoriel vidéo est également livré dans cette mise à jour. Pour vous faciliter la tâche, nous avons réinitialisé le statut du premier démarrage afin de vous permettre de visionner le nouveau tutoriel d'installation et d'installer plus rapidement le nouveau raccourci ANIRC (et éventuellement mettre à jour le raccourci CFM pour iOS 13). Il est vivement recommandé de regarder le nouveau tutoriel d'installation, même si vous êtes complètement à l'aise avec les nouveaux outils Automatisations dans Raccourcis.", preferredStyle: .alert)
              alert.addAction(UIAlertAction(title: "ok".localized(), style: .default) { (_) in
                 if let tabBar = self.tabBarController as? TabBarController {
                     tabBar.firstStart()
@@ -505,7 +496,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         
         // Nouveau Raccourci ANIRC v4 pour iOS 14
         if #available(iOS 13.0, *) {
-            if version < 173 && version != 0 {
+            if version < 174 && version != 0 {
                 let alert = UIAlertController(title: "Nouveau raccourci ANIRC v4", message: "Un nouveau raccourci ANIRC v4 est disponible et corrige de nombreux bugs et augmente l'efficacité de celui-ci, notamment sur iOS 14. Veuillez le mettre à jour maintenant.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Télécharger ANIRC", style: .default) { (_) in
                     guard let link = URL(string: "http://raccourcis.ios.free.fr/fmobile") else { return }
@@ -513,6 +504,13 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 })
                 present(alert, animated: true, completion: nil)
             }
+        }
+        
+        // Nouvelle technologie 5G
+        if version < 177 && version != 0 {
+            let alert = UIAlertController(title: "La technologie évolue, FMobile aussi.", message: "FMobile est désormais officiellement compatible avec la 5G sur iOS 14.1 ! La carte de couverture mondiale a été mise à jour pour l'accueillir. Si vous aviez configuré l'itinérance 5G précédemment, vos réglages sont désormais actifs. À très vite sur le réseau mobile le plus avancé au monde ! Nous sommes prêts.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Vroooooom !", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
         }
              
         
@@ -649,7 +647,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
     @objc func timernetschedule() {
         let dataManager = DataManager()
         
-        if !dataManager.setupDone && DataManager.isConnectedToNetwork() {
+        if ((dataManager.sim.card.active && !dataManager.sim.card.setupDone) || (dataManager.esim.card.active && !dataManager.esim.card.setupDone)) && DataManager.isConnectedToNetwork() {
             self.updateSetup(dataManager, false)
         }
         
@@ -685,6 +683,9 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
     
         updateSetup(dataManager, false)
         
+        self.loadUI(dataManager)
+        self.refreshSections()
+        
         timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.timerschedule), userInfo: nil, repeats: true)
         
         timernet = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(self.timernetschedule), userInfo: nil, repeats: true)
@@ -702,15 +703,9 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
     }
     
     @objc func timersimschedule() {
-        let siminventory = DataManager.getSimInventory()
         let dataManager = DataManager()
-        var mcc = ""
-        var mnc = ""
-        
-        if siminventory.count > 0 {
-            mcc = siminventory[0].1.mobileCountryCode ?? "---"
-            mnc = siminventory[0].1.mobileNetworkCode ?? "--"
-        }
+        let mcc = dataManager.current.card.carrier.mobileCountryCode ?? "---"
+        let mnc = dataManager.current.card.carrier.mobileNetworkCode ?? "--"
 
         let simready = (mcc == "---" || mcc == "null" || mcc.isEmpty || mnc == "--" || mnc == "null" || mnc.isEmpty)
         if !simready {
@@ -731,6 +726,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         })
         alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+
     }
     
     func diag(source: UIButton, privacy: Bool = false) {
@@ -747,20 +743,21 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         
         present(alert, animated: true, completion: nil)
         
-        RoamingManager.engine(g3engine: false) { resultg2 in
-        RoamingManager.engine(g3engine: true) { resultg3 in
-
         let dataManager = DataManager()
+        
+        RoamingManager.engine(g3engine: false, service: dataManager.sim) { resultg2 in
+        RoamingManager.engine(g3engine: true, service: dataManager.sim) { resultg3 in
+
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0"
         let buildVersion = Int(Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "0") ?? 0
         // Strings de l'UI
         
         var generation = ""
-        if dataManager.ipadMCC == "---" && !dataManager.nrDEC && UIDevice.current.userInterfaceIdiom == .pad {
+            if dataManager.current.network.mcc == "---" && !dataManager.current.card.nrdec && UIDevice.current.userInterfaceIdiom == .pad {
             generation = "FMobile b\(buildVersion) - Génération A1"
-        } else if dataManager.ipadMCC == "---" && UIDevice.current.userInterfaceIdiom == .pad {
+        } else if dataManager.current.network.mcc == "---" && UIDevice.current.userInterfaceIdiom == .pad {
             generation = "FMobile b\(buildVersion) - Génération 1"
-        } else if !dataManager.nrDEC || !dataManager.setupDone {
+        } else if !dataManager.current.card.nrdec || !dataManager.current.card.setupDone {
             if #available(iOS 13.1, *) {
                 generation = "FMobile b\(buildVersion) - Génération A3"
             } else {
@@ -782,13 +779,16 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             let month = Calendar.current.component(.month, from: date)
             let year = Calendar.current.component(.year, from: date)
             let dispDate = "\(day)/\(month)/\(year) à \(hour):\(minutes):\(seconds)"
-            var service = ""
-            if dataManager.siminventory.count > 0 {
-                service = dataManager.siminventory[0].0
-            }
+            
             let locationAccuracy = self.locationManager.location?.horizontalAccuracy ?? -1
 
-            var str = "Fichier de diagnostic FMobile \(appVersion)\n\nModèle : \(UIDevice.current.modelName)\nVersion de l'OS : \(UIDevice.current.systemVersion)\nMoteur : \(generation)\nRésultat du moteur G2 : \(resultg2)\nRésultat du moteur G3 : \(resultg3)\nDernier completion G3 : \(dataManager.g3lastcompletion)\nRésultat du moteur G3 international : \(dataManager.zoneCheck())\nDate : \(dispDate)\nsetupDone : \(dataManager.setupDone)\nMinimal setup : \(dataManager.minimalSetup)\n\nDétail du forfait :\nDestinations incluses (ALL) : \(dataManager.countriesVData)\nDestinations incluses (VOIX) : \(dataManager.countriesVoice)\nDestinations incluses (DATA) : \(dataManager.countriesData)\nOptions incluses (ALL) : \(dataManager.includedVData)\nOptions incluses (VOIX) : \(dataManager.includedVoice)\nOption incluses (DATA) : \(dataManager.includedData)\n\nConfiguration :\nmodeRadin : \(dataManager.modeRadin)\nallow013G : \(dataManager.allow013G)\nallow012G : \(dataManager.allow012G)\nallow014G : \(dataManager.allow014G)\nallow015G : \(dataManager.allow015G)\nfemtoLOWDATA : \(dataManager.femtoLOWDATA)\nfemto : \(dataManager.femto)\nverifyonwifi : \(dataManager.verifyonwifi)\nstopverification : \(dataManager.stopverification)\ntimecode : \(dataManager.timecode)\ntimecode G3: \(dataManager.g3timecode)\nlastnet : \(dataManager.lastnet)\ncount : \(dataManager.count)\nwasEnabled : \(dataManager.wasEnabled)\nperfmode : \(dataManager.perfmode)\ndidChangeSettings : \(dataManager.didChangeSettings)\nntimer : \(dataManager.ntimer)\ndispInfoNotif : \(dataManager.dispInfoNotif)\nallowCountryDetection : \(dataManager.allowCountryDetection)\ntimeLastCountry : \(dataManager.timeLastCountry)\nlastCountry : \(dataManager.lastCountry)\n\nStatut opérateur :\nsimData : \(dataManager.simData)\ncurrentNetwork : \(dataManager.currentNetwork)\ncarrier: \(dataManager.carrier)\ncarrierNetwork : \(dataManager.carrierNetwork)\ncarrierNetwork2 : \(dataManager.carrierNetwork2)\ncarrierName : \(dataManager.carrierName)\n\nConfiguration opérateur :\nhp : \(dataManager.hp)\nnrp : \(dataManager.nrp)\ntargetMCC : \(dataManager.targetMCC)\ntargetMNC : \(dataManager.targetMNC)\nitiMNC : \(dataManager.itiMNC)\nnrDEC : \(dataManager.nrDEC)\nout2G : \(dataManager.out2G)\nchasedMNC : \(dataManager.chasedMNC)\nconnectedMCC : \(dataManager.connectedMCC)\nconnectedMNC : \(dataManager.connectedMNC)\nipadMCC : \(dataManager.ipadMCC)\nipadMNC : \(dataManager.ipadMNC)\nitiName : \(dataManager.itiName)\nhomeName : \(dataManager.homeName)\nstms : \(dataManager.stms)\nregisteredService : \(dataManager.registeredService)\nservice : \(service)\nsiminventory : \(dataManager.siminventory)\nCarrier services : \(dataManager.carrierServices)\nroamLTE : \(dataManager.roamLTE)\nroam5G : \(dataManager.roam5G)\n\nCommunications :\nWi-Fi : \(DataManager.isWifiConnected())\nCellulaire : \(DataManager.isConnectedToNetwork())\nMode avion : \(dataManager.airplanemode)\nCommunication en cours : \(DataManager.isOnPhoneCall())\nPrécision de localisation : \(locationAccuracy)"
+            var str = "Fichier de diagnostic FMobile \(appVersion)\n\nModèle : \(UIDevice.current.modelName)\nVersion de l'OS : \(UIDevice.current.systemVersion)\nMoteur : \(generation)\nRésultat du moteur G2 : \(resultg2)\nRésultat du moteur G3 : \(resultg3)\nDernier completion G3 : \(dataManager.g3lastcompletion)\nRésultat du moteur G3 international : \(dataManager.zoneCheck(service: dataManager.sim))\nDate : \(dispDate)\n\nConfiguration :\nmodeRadin : \(dataManager.modeRadin)\nallow013G : \(dataManager.allow013G)\nallow012G : \(dataManager.allow012G)\nallow014G : \(dataManager.allow014G)\nallow015G : \(dataManager.allow015G)\nfemtoLOWDATA : \(dataManager.femtoLOWDATA)\nfemto : \(dataManager.femto)\nverifyonwifi : \(dataManager.verifyonwifi)\nstopverification : \(dataManager.stopverification)\ntimecode : \(dataManager.timecode)\ntimecode G3: \(dataManager.g3timecode)\nlastnet : \(dataManager.lastnet)\ncount : \(dataManager.count)\nwasEnabled : \(dataManager.wasEnabled)\nperfmode : \(dataManager.perfmode)\ndidChangeSettings : \(dataManager.didChangeSettings)\nntimer : \(dataManager.ntimer)\ndispInfoNotif : \(dataManager.dispInfoNotif)\nallowCountryDetection : \(dataManager.allowCountryDetection)\ntimeLastCountry : \(dataManager.timeLastCountry)\nlastCountry : \(dataManager.lastCountry)\n\n"
+            
+            for service in dataManager.simtrays {
+                str += "Détail du forfait :\nDestinations incluses (ALL) : \(service.card.countriesVData)\nDestinations incluses (VOIX) : \(service.card.countriesVoice)\nDestinations incluses (DATA) : \(service.card.countriesData)\nOptions incluses (ALL) : \(service.card.includedVData)\nOptions incluses (VOIX) : \(service.card.includedVoice)\nOption incluses (DATA) : \(service.card.includedData)\n\nStatut opérateur :\nsimData : \(service.card.data)\ncurrentNetwork : \(service.network.data)\ncarrier: \(service.network.name)\ncarrierNetwork : \(service.network.connected)\ncarrierNetwork2 : \(dataManager.esim.network.connected)\ncarrierName : \(service.network.name)\n\nConfiguration opérateur :\nhp : \(service.card.hp)\nnrp : \(service.card.nrp)\ntargetMCC : \(service.card.mcc)\ntargetMNC : \(service.card.mnc)\nitiMNC : \(service.card.itiMNC)\nnrDEC : \(service.card.nrdec)\nout2G : \(service.card.out2G)\nchasedMNC : \(service.card.chasedMNC)\nconnectedMCC : \(service.network.mcc)\nconnectedMNC : \(service.network.mnc)\nipadMCC : \(service.network.mcc)\nipadMNC : \(service.network.mnc)\nitiName : \(service.card.itiName)\nhomeName : \(service.card.homeName)\nstms : \(service.card.stms)\nCarrier services : \(service.card.carrierServices)\nroamLTE : \(service.card.roamLTE)\nroam5G : \(service.card.roam5G)\nsetupDone : \(service.card.setupDone)\nMinimal setup : \(service.card.minimalSetup)\n\n"
+            }
+            
+            str += "Communications :\nWi-Fi : \(DataManager.isWifiConnected())\nCellulaire : \(DataManager.isConnectedToNetwork())\nMode avion : \(dataManager.airplanemode)\nCommunication en cours : \(DataManager.isOnPhoneCall())\nPrécision de localisation : \(locationAccuracy)"
             
             if privacy {
                 str += "\n\nDonnées personnelles :\nLatitude = \(self.locationManager.location?.coordinate.latitude ?? 0)\nLongitude = \(self.locationManager.location?.coordinate.longitude ?? 0)"
@@ -836,6 +836,388 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         }
     }
     
+    func radinCarrierName(mcc: String, mnc: String, carrier: String) -> String {
+        if mcc == "208" && mnc == "01" {
+            return "Agrume F"
+        } else if mcc == "208" && mnc == "10" {
+            return "Patoche"
+        } else if mcc == "208" && mnc == "15" {
+            return "Radin"
+        } else if mcc == "208" && mnc == "20" {
+            return "Béton"
+        } else if mcc == "208" && mnc == "26" {
+            return "Redbull"
+        }
+        return carrier
+    }
+    
+    
+    func connected(dataManager: DataManager, sim: FMNetwork, radincarrier: String, radinitiname: String, country: String) -> String {
+        
+        var timecoder = dataManager.datas.value(forKey: sim.card.type == .esim ? "etimecoder" : "timecoder") as? Date ?? Date()
+        var lastnetr = dataManager.datas.value(forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr") as? String ?? "HSDPAO"
+        
+        
+        if #available(iOS 14.1, *), (sim.network.connected == CTRadioAccessTechnologyNR && (dataManager.allow015G || (dataManager.modeExpert ? false : !sim.card.roam5G))) {
+            sim.network.connected = dataManager.modeRadin ? "5G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                "\(sim.network.name) 5G (NR) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 5G"
+            lastnetr = "NR"
+            dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+            dataManager.datas.synchronize()
+        } else if #available(iOS 14.1, *), sim.network.connected == CTRadioAccessTechnologyNR {
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && !DataManager.isWifiConnected() && sim.card.nrdec {
+                    
+                    print(abs(timecoder.timeIntervalSinceNow))
+                    
+                    if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "NRO" {
+                        DispatchQueue.main.async {
+                            sim.network.connected = dataManager.modeRadin ? "Itinérance Pop radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                                "\(sim.card.itiName) 5G (NR) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" :  "\(sim.card.itiName) 5G \("itinerance".localized())"
+                            self.refreshSections()
+                            print("CACHE ORANGE F")
+                        }
+                    } else if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "NRF" {
+                        DispatchQueue.main.async {
+                            sim.network.connected = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                                "\(sim.network.name) 5G (NR) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 5G (Femto)"
+                            self.refreshSections()
+                            print("CACHE FEMTO")
+                        }
+                    } else {
+                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
+                            DispatchQueue.main.async {
+                                if speed ?? 0 < sim.card.stms{
+                                    sim.network.connected = dataManager.modeRadin ? "Itinérance Pop radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                                        "\(sim.card.itiName) 5G (NR) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" :  "\(sim.card.itiName) 5G \("itinerance".localized())"
+                                    lastnetr = "NRO"
+                                } else {
+                                    sim.network.connected = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                                        "\(sim.network.name) 5G (NR) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 5G (Femto)"
+                                    lastnetr = "NRF"
+                                }
+                                timecoder = Date()
+                                dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+                                dataManager.datas.set(timecoder, forKey: sim.card.type == .esim ? "etimecoder" : "timecoder")
+                                dataManager.datas.synchronize()
+                                self.refreshSections()
+                            }
+                        }
+                    }
+                } else {
+                    lastnetr = "NR"
+                    dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+                    dataManager.datas.synchronize()
+                }
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.itiMNC && sim.network.connected == CTRadioAccessTechnologyNR {
+                sim.network.connected = dataManager.modeRadin ? "Itinérance Pop radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                    "\(sim.card.itiName) 5G (NR) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" : "\(sim.card.itiName) 5G \("itinerance".localized())"
+                } else {
+                    sim.network.connected = dataManager.modeRadin ? "5G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                        "\(sim.network.name) 5G (NR) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 5G"
+                }
+        } else if #available(iOS 14.1, *), (sim.network.connected == CTRadioAccessTechnologyNRNSA && (dataManager.allow015G || (dataManager.modeExpert ? false : !sim.card.roam5G))) {
+            sim.network.connected = dataManager.modeRadin ? "5G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                "\(sim.network.name) 5G (NR NSA) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 5G"
+            lastnetr = "NRNSA"
+            dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+            dataManager.datas.synchronize()
+        } else if #available(iOS 14.1, *), sim.network.connected == CTRadioAccessTechnologyNRNSA {
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && !DataManager.isWifiConnected() && sim.card.nrdec {
+                    
+                    print(abs(timecoder.timeIntervalSinceNow))
+                    
+                    if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "NRNSAO" {
+                        DispatchQueue.main.async {
+                            sim.network.connected = dataManager.modeRadin ? "Itinérance Pop radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                                "\(sim.card.itiName) 5G (NR NSA) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" :  "\(sim.card.itiName) 5G \("itinerance".localized())"
+                            self.refreshSections()
+                            print("CACHE ORANGE F")
+                        }
+                    } else if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "NRNSAF" {
+                        DispatchQueue.main.async {
+                            sim.network.connected = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                                "\(sim.network.name) 5G (NR NSA) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 5G (Femto)"
+                            self.refreshSections()
+                            print("CACHE FEMTO")
+                        }
+                    } else {
+                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
+                            DispatchQueue.main.async {
+                                if speed ?? 0 < sim.card.stms{
+                                    sim.network.connected = dataManager.modeRadin ? "Itinérance Pop radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                                        "\(sim.card.itiName) 5G (NR NSA) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" :  "\(sim.card.itiName) 5G \("itinerance".localized())"
+                                    lastnetr = "NRNSAO"
+                                } else {
+                                    sim.network.connected = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                                        "\(sim.network.name) 5G (NR NSA) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 5G (Femto)"
+                                    lastnetr = "NRNSAF"
+                                }
+                                timecoder = Date()
+                                dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+                                dataManager.datas.set(timecoder, forKey: sim.card.type == .esim ? "etimecoder" : "timecoder")
+                                dataManager.datas.synchronize()
+                                self.refreshSections()
+                            }
+                        }
+                    }
+                } else {
+                    lastnetr = "NRNSA"
+                    dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+                    dataManager.datas.synchronize()
+                }
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.itiMNC && sim.network.connected == CTRadioAccessTechnologyNRNSA {
+                sim.network.connected = dataManager.modeRadin ? "Itinérance Pop radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                    "\(sim.card.itiName) 5G (NR NSA) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" : "\(sim.card.itiName) 5G \("itinerance".localized())"
+                } else {
+                    sim.network.connected = dataManager.modeRadin ? "5G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                        "\(sim.network.name) 5G (NR NSA) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 5G"
+                }
+        } else if (sim.network.connected == CTRadioAccessTechnologyLTE && (dataManager.allow014G || (dataManager.modeExpert ? false : !sim.card.roamLTE))) {
+            sim.network.connected = dataManager.modeRadin ? "4G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                "\(sim.network.name) 4G (LTE) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 4G"
+            lastnetr = "LTE"
+            dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+            dataManager.datas.synchronize()
+        } else if sim.network.connected == CTRadioAccessTechnologyLTE {
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && !DataManager.isWifiConnected() && sim.card.nrdec {
+                    
+                    print(abs(timecoder.timeIntervalSinceNow))
+                    
+                    if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "LTEO" {
+                        DispatchQueue.main.async {
+                            sim.network.connected = dataManager.modeRadin ? "Itinérance Delta S radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                                "\(sim.card.itiName) 4G (LTE) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" :  "\(sim.card.itiName) 4G \("itinerance".localized())"
+                            self.refreshSections()
+                            print("CACHE ORANGE F")
+                        }
+                    } else if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "LTEF" {
+                        DispatchQueue.main.async {
+                            sim.network.connected = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                                "\(sim.network.name) 4G (LTE) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 4G (Femto)"
+                            self.refreshSections()
+                            print("CACHE FEMTO")
+                        }
+                    } else {
+                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
+                            DispatchQueue.main.async {
+                                if speed ?? 0 < sim.card.stms{
+                                    sim.network.connected = dataManager.modeRadin ? "Itinérance Delta S radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                                        "\(sim.card.itiName) 4G (LTE) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" :  "\(sim.card.itiName) 4G \("itinerance".localized())"
+                                    lastnetr = "LTEO"
+                                } else {
+                                    sim.network.connected = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                                        "\(sim.network.name) 4G (LTE) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 4G (Femto)"
+                                    lastnetr = "LTEF"
+                                }
+                                timecoder = Date()
+                                dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+                                dataManager.datas.set(timecoder, forKey: sim.card.type == .esim ? "etimecoder" : "timecoder")
+                                dataManager.datas.synchronize()
+                                self.refreshSections()
+                            }
+                        }
+                    }
+                } else {
+                    lastnetr = "LTE"
+                    dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+                    dataManager.datas.synchronize()
+                }
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.itiMNC && sim.network.connected == CTRadioAccessTechnologyLTE {
+                sim.network.connected = dataManager.modeRadin ? "Itinérance Delta S radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                    "\(sim.card.itiName) 4G (LTE) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" : "\(sim.card.itiName) 4G \("itinerance".localized())"
+                } else {
+                    sim.network.connected = dataManager.modeRadin ? "4G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                        "\(sim.network.name) 4G (LTE) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 4G"
+                }
+        } else if sim.network.connected == CTRadioAccessTechnologyWCDMA {
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && !DataManager.isWifiConnected() && sim.network.connected == sim.card.nrp && sim.card.nrdec {
+                
+                if dataManager.femto {
+                    print(abs(timecoder.timeIntervalSinceNow))
+                    
+                    if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "WCDMAO" {
+                        DispatchQueue.main.async {
+                            sim.network.connected = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                                "\(sim.card.itiName) 3G (WCDMA) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" :  "\(sim.card.itiName) 3G \("itinerance".localized())"
+                            self.refreshSections()
+                            print("CACHE ORANGE F")
+                        }
+                    } else if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "WCDMAF" {
+                        DispatchQueue.main.async {
+                            sim.network.connected = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                                "\(sim.network.name) 3G (WCDMA) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 3G (Femto)"
+                            self.refreshSections()
+                            print("CACHE FEMTO")
+                        }
+                    } else {
+                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
+                            DispatchQueue.main.async {
+                                if speed ?? 0 < sim.card.stms{
+                                    sim.network.connected = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                                        "\(sim.card.itiName) 3G (WCDMA) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" :  "\(sim.card.itiName) 3G \("itinerance".localized())"
+                                    lastnetr = "WCDMAO"
+                                } else {
+                                    sim.network.connected = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                                        "\(sim.network.name) 3G (WCDMA) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 3G (Femto)"
+                                    lastnetr = "WCDMAF"
+                                }
+                                timecoder = Date()
+                                dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+                                dataManager.datas.set(timecoder, forKey: sim.card.type == .esim ? "etimecoder" : "timecoder")
+                                dataManager.datas.synchronize()
+                                self.refreshSections()
+                            }
+                        }
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        sim.network.connected = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                            "\(sim.card.itiName) 3G (WCDMA) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" :  "\(sim.card.itiName) 3G \("itinerance".localized())"
+                        self.refreshSections()
+                        lastnetr = "WCDMAE"
+                        dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+                        dataManager.datas.synchronize()
+                    }
+                }
+                
+            } else {
+                lastnetr = "WCDMA"
+                dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+                dataManager.datas.synchronize()
+            }
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && sim.network.connected == sim.card.nrp {
+                sim.network.connected = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                    "\(sim.card.itiName) 3G (WCDMA) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" :  "\(sim.card.itiName) 3G \("itinerance".localized())"
+            } else {
+                sim.network.connected = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                    "\(sim.network.name) 3G (WCDMA) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 3G"
+            }
+        } else if sim.network.connected == CTRadioAccessTechnologyHSDPA {
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && !DataManager.isWifiConnected() && sim.network.connected == sim.card.nrp && sim.card.nrdec {
+                
+                if dataManager.femto {
+                    print(abs(timecoder.timeIntervalSinceNow))
+                    
+                    if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "HSDPAO" {
+                        DispatchQueue.main.async {
+                            sim.network.connected = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                                "\(sim.card.itiName) 3G (HSDPA) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" :  "\(sim.card.itiName) 3G \("itinerance".localized())"
+                            self.refreshSections()
+                            print("CACHE ORANGE F")
+                        }
+                    } else if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "HSDPAF" {
+                        DispatchQueue.main.async {
+                            sim.network.connected = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                                "\(sim.network.name) 3G (HSDPA) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 3G (Femto)"
+                            self.refreshSections()
+                            print("CACHE FEMTO")
+                        }
+                    } else {
+                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
+                            DispatchQueue.main.async {
+                                if speed ?? 0 < sim.card.stms {
+                                    sim.network.connected = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                                        "\(sim.card.itiName) 3G (HSDPA) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" :  "\(sim.card.itiName) 3G \("itinerance".localized())"
+                                    lastnetr = "HSDPAO"
+                                } else {
+                                    sim.network.connected = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                                        "\(sim.network.name) 3G (HSDPA) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 3G (Femto)"
+                                    lastnetr = "HSDPAF"
+                                }
+                                timecoder = Date()
+                                dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+                                dataManager.datas.set(timecoder, forKey: sim.card.type == .esim ? "etimecoder" : "timecoder")
+                                dataManager.datas.synchronize()
+                                self.refreshSections()
+                            }
+                        }
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        sim.network.connected = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                            "\(sim.card.itiName) 3G (HSDPA) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" :  "\(sim.card.itiName) 3G \("itinerance".localized())"
+                        self.refreshSections()
+                        lastnetr = "HSDPAE"
+                        dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+                        dataManager.datas.synchronize()
+                    }
+                }
+                
+            } else {
+                lastnetr = "HSDPA"
+                dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+                dataManager.datas.synchronize()
+            }
+            if sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && sim.network.connected == sim.card.nrp {
+                sim.network.connected = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
+                    "\(sim.card.itiName) 3G (HSDPA) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" :  "\(sim.card.itiName) 3G \("itinerance".localized())"
+            } else {
+                sim.network.connected = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                    "\(sim.network.name) 3G (HSDPA) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 3G"
+            }
+        } else if sim.network.connected == CTRadioAccessTechnologyEdge {
+            sim.network.connected = sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && sim.card.out2G ?
+                (dataManager.modeRadin ? "Itinérance tupperware radine : \(radinitiname) (\(country))" : dataManager.modeExpert ? "\(sim.card.itiName) 2G (EDGE) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" : "\(sim.card.itiName) 2G \("itinerance".localized())") : (dataManager.modeRadin ? "2G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ? "\(sim.network.name) 2G (EDGE) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" : "\(sim.network.name) 2G")
+            lastnetr = "Edge"
+            dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+            dataManager.datas.synchronize()
+        } else if sim.network.connected == CTRadioAccessTechnologyGPRS {
+            sim.network.connected = sim.network.mcc == sim.card.mcc && sim.network.mnc == sim.card.chasedMNC && sim.card.out2G ?
+                (dataManager.modeRadin ? "Itinérance VHS radine : \(radinitiname) (\(country))" : dataManager.modeExpert ? "\(sim.card.itiName) G (GPRS) [\(sim.network.mcc) \(sim.card.itiMNC)] (\(country))" : "\(sim.card.itiName) G \("itinerance".localized())") : (dataManager.modeRadin ? "G radin : \(radincarrier) (\(country))" : dataManager.modeExpert ? "\(sim.network.name) G (GPRS) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" : "\(sim.network.name) G")
+            lastnetr = "GPRS"
+            dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+            dataManager.datas.synchronize()
+        } else if sim.network.connected == CTRadioAccessTechnologyeHRPD {
+            sim.network.connected = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                "\(sim.network.name) 3G (eHRPD) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 3G"
+            lastnetr = "HRPD"
+            dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+            dataManager.datas.synchronize()
+        } else if sim.network.connected == CTRadioAccessTechnologyHSUPA {
+            sim.network.connected = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                "\(sim.network.name) 3G (HSUPA) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 3G"
+            lastnetr = "HSUPA"
+            dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+            dataManager.datas.synchronize()
+        } else if sim.network.connected == CTRadioAccessTechnologyCDMA1x {
+            sim.network.connected = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                "\(sim.network.name) 3G (CDMA2000) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 3G"
+            lastnetr = "CDMA1x"
+            dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+            dataManager.datas.synchronize()
+        } else if sim.network.connected == CTRadioAccessTechnologyCDMAEVDORev0 {
+            sim.network.connected = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                "\(sim.network.name) 3G (EvDO) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 3G"
+            lastnetr = "CDMAEVDORev0"
+            dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+            dataManager.datas.synchronize()
+        } else if sim.network.connected == CTRadioAccessTechnologyCDMAEVDORevA {
+            sim.network.connected = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                "\(sim.network.name) 3G (EvDO-A) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 3G"
+            lastnetr = "CDMAEVDORevA"
+            dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+            dataManager.datas.synchronize()
+        } else if sim.network.connected == CTRadioAccessTechnologyCDMAEVDORevB {
+            sim.network.connected = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
+                "\(sim.network.name) 3G (EvDO-B) [\(sim.network.mcc) \(sim.network.mnc)] (\(country))" :  "\(sim.network.name) 3G"
+            lastnetr = "CDMAEVDORevB"
+            dataManager.datas.set(lastnetr, forKey: sim.card.type == .esim ? "elastnetr" : "lastnetr")
+            dataManager.datas.synchronize()
+        }
+        
+        if !dataManager.modeRadin && !dataManager.modeExpert && sim.network.land != sim.card.land && sim.network.land != "--" && sim.network.connected != "" && !sim.network.connected.isEmpty {
+            sim.network.connected += " (\(country))"
+        }
+        
+        if sim.network.connected != "" && !sim.network.connected.isEmpty && ((dataManager.current.card.type == .esim && sim.card.type == .esim) || (dataManager.current.card.type == .sim && sim.card.type == .sim)) && dataManager.esim.card.active && dataManager.sim.card.active {
+            sim.network.connected += " ☑️"
+        }
+        
+        return sim.network.connected
+        
+    }
+    
+    
     func loadUI(_ dataManager: DataManager = DataManager()) {
         if dataManager.stopverification {
             locationManager.stopUpdatingLocation()
@@ -861,300 +1243,31 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             
         }
         
-        let lastCountry = dataManager.datas.value(forKey: "lastCountry") as? String ?? "FR"
-        var timecoder = dataManager.datas.value(forKey: "timecoder") as? Date ?? Date()
-        var lastnetr = dataManager.datas.value(forKey: "lastnetr") as? String ?? "HSDPAO"
+        print(dataManager.current.network.connected)
         
-        print(lastCountry)
-        print(lastnetr)
+        let countryCode = dataManager.sim.card.mcc
+        let mobileNetworkName = dataManager.sim.card.mnc
+        let carrierName = dataManager.sim.card.name
+        let isoCountrycode = dataManager.sim.card.land
         
-        print(dataManager.carrierNetwork)
+        let countryCode2 = dataManager.esim.card.mcc
+        let mobileNetworkName2 = dataManager.esim.card.mnc
+        let carrierName2 = dataManager.esim.card.name
+        let isoCountrycode2 = dataManager.esim.card.land
         
-        let countryCode = dataManager.mycarrier.mobileCountryCode ?? "null"
-        let mobileNetworkName = dataManager.mycarrier.mobileNetworkCode ?? "null"
-        let carrierName = dataManager.carrierName
-        let isoCountrycode = dataManager.mycarrier.isoCountryCode?.uppercased() ?? "null"
+        let country = dataManager.sim.network.land
+        let country2 = dataManager.esim.network.land
         
-        let countryCode2 = dataManager.mycarrier2.mobileCountryCode ?? "null"
-        let mobileNetworkName2 = dataManager.mycarrier2.mobileNetworkCode ?? "null"
-        let carrierName2 = dataManager.mycarrier2.carrierName ?? "null"
-        let isoCountrycode2 = dataManager.mycarrier2.isoCountryCode?.uppercased() ?? "null"
+        let radincarrier = dataManager.modeRadin ? radinCarrierName(mcc: dataManager.sim.network.mcc, mnc: dataManager.sim.network.mnc, carrier: dataManager.sim.network.name) : dataManager.sim.network.name
+        let radinitiname = dataManager.modeRadin ? radinCarrierName(mcc: dataManager.sim.network.mcc, mnc: dataManager.sim.card.itiMNC, carrier: dataManager.sim.card.itiName) : dataManager.sim.card.itiName
+        let radincarrier2 = dataManager.modeRadin ? radinCarrierName(mcc: dataManager.esim.network.mcc, mnc: dataManager.esim.network.mnc, carrier: dataManager.esim.network.name) : dataManager.esim.network.name
+        let radinitiname2 = dataManager.modeRadin ? radinCarrierName(mcc: dataManager.esim.network.mcc, mnc: dataManager.esim.card.itiMNC, carrier: dataManager.esim.card.itiName) : dataManager.esim.card.itiName
         
-        let country = CarrierIdentification.getIsoCountryCode(dataManager.connectedMCC, dataManager.connectedMNC)
+        let connected1 = connected(dataManager: dataManager, sim: dataManager.sim, radincarrier: radincarrier, radinitiname: radinitiname, country: country)
+        let connected2 = connected(dataManager: dataManager, sim: dataManager.esim, radincarrier: radincarrier2, radinitiname: radinitiname2, country: country2)
         
-        var radincarrier = dataManager.carrier
-        var radinitiname = dataManager.itiName
-        if dataManager.modeRadin {
-            if dataManager.connectedMCC == "208" && dataManager.connectedMNC == "01" {
-                radincarrier = "Agrume F"
-            } else if dataManager.connectedMCC == "208" && dataManager.connectedMNC == "10" {
-                radincarrier = "Patoche"
-            } else if dataManager.connectedMCC == "208" && dataManager.connectedMNC == "15" {
-                radincarrier = "Radin"
-            } else if dataManager.connectedMCC == "208" && dataManager.connectedMNC == "20" {
-                radincarrier = "Béton"
-            } else if dataManager.connectedMCC == "208" && dataManager.connectedMNC == "26" {
-                radincarrier = "Redbull"
-            }
-        }
-        if dataManager.modeRadin {
-            if dataManager.connectedMCC == "208" && dataManager.itiMNC == "01"{
-                radinitiname = "Agrume F"
-            } else if dataManager.connectedMCC == "208" && dataManager.itiMNC == "10"{
-                radinitiname = "Patoche"
-            } else if dataManager.connectedMCC == "208" && dataManager.itiMNC == "15"{
-                radinitiname = "Radin"
-            } else if dataManager.connectedMCC == "208" && dataManager.itiMNC == "20"{
-                radinitiname = "Béton"
-            }
-            else if dataManager.connectedMCC == "208" && dataManager.itiMNC == "26"{
-                radinitiname = "Redbull"
-            }
-            
-        }
+        let lastnetr = dataManager.datas.value(forKey: dataManager.current.card.type == .esim ? "elastnetr" : "lastnetr") as? String ?? "HSDPAO"
         
-        if #available(iOS 14.1, *), dataManager.carrierNetwork == CTRadioAccessTechnologyNR || dataManager.carrierNetwork == CTRadioAccessTechnologyNRNSA {
-            dataManager.carrierNetwork = dataManager.modeRadin ? "5G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                "\(dataManager.carrier) 5G (\("5G_unsupported".localized())) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 5G"
-            lastnetr = "LTE"
-            dataManager.datas.set(lastnetr, forKey: "lastnetr")
-            dataManager.datas.synchronize()
-        } else if (dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && (dataManager.allow014G || (dataManager.modeExpert ? false : !dataManager.roamLTE))) {
-            dataManager.carrierNetwork = dataManager.modeRadin ? "4G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 4G"
-            lastnetr = "LTE"
-            dataManager.datas.set(lastnetr, forKey: "lastnetr")
-            dataManager.datas.synchronize()
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
-                if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && !DataManager.isWifiConnected() && dataManager.nrDEC {
-                
-                    print(abs(timecoder.timeIntervalSinceNow))
-                    
-                    if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "LTEO" {
-                        DispatchQueue.main.async {
-                            dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta S radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
-                                "\(dataManager.itiName) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 4G \("itinerance".localized())"
-                            self.refreshSections()
-                            print("CACHE ORANGE F")
-                        }
-                    } else if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "LTEF" {
-                        DispatchQueue.main.async {
-                            dataManager.carrierNetwork = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                                "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 4G (Femto)"
-                            self.refreshSections()
-                            print("CACHE FEMTO")
-                        }
-                    } else {
-                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
-                            DispatchQueue.main.async {
-                                if speed ?? 0 < dataManager.stms{
-                                    dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta S radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
-                                        "\(dataManager.itiName) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 4G \("itinerance".localized())"
-                                    lastnetr = "LTEO"
-                                } else {
-                                    dataManager.carrierNetwork = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                                        "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 4G (Femto)"
-                                    lastnetr = "LTEF"
-                                }
-                                timecoder = Date()
-                                dataManager.datas.set(lastnetr, forKey: "lastnetr")
-                                dataManager.datas.set(timecoder, forKey: "timecoder")
-                                dataManager.datas.synchronize()
-                                self.refreshSections()
-                            }
-                        }
-                    }
-                } else {
-                    lastnetr = "LTE"
-                    dataManager.datas.set(lastnetr, forKey: "lastnetr")
-                    dataManager.datas.synchronize()
-                }
-                if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.itiMNC && dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
-                    dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta S radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
-                    "\(dataManager.itiName) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 4G \("itinerance".localized())"
-                } else {
-                dataManager.carrierNetwork = dataManager.modeRadin ? "4G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                    "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 4G"
-                }
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyWCDMA {
-            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && !DataManager.isWifiConnected() && dataManager.carrierNetwork == dataManager.nrp && dataManager.nrDEC {
-                
-                if dataManager.femto {
-                    print(abs(timecoder.timeIntervalSinceNow))
-                    
-                    if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "WCDMAO" {
-                        DispatchQueue.main.async {
-                            dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
-                                "\(dataManager.itiName) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 3G \("itinerance".localized())"
-                            self.refreshSections()
-                            print("CACHE ORANGE F")
-                        }
-                    } else if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "WCDMAF" {
-                        DispatchQueue.main.async {
-                            dataManager.carrierNetwork = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                                "\(dataManager.carrier) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 3G (Femto)"
-                            self.refreshSections()
-                            print("CACHE FEMTO")
-                        }
-                    } else {
-                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
-                            DispatchQueue.main.async {
-                                if speed ?? 0 < dataManager.stms{
-                                    dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
-                                        "\(dataManager.itiName) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 3G \("itinerance".localized())"
-                                    lastnetr = "WCDMAO"
-                                } else {
-                                    dataManager.carrierNetwork = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                                        "\(dataManager.carrier) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 3G (Femto)"
-                                    lastnetr = "WCDMAF"
-                                }
-                                timecoder = Date()
-                                dataManager.datas.set(lastnetr, forKey: "lastnetr")
-                                dataManager.datas.set(timecoder, forKey: "timecoder")
-                                dataManager.datas.synchronize()
-                                self.refreshSections()
-                            }
-                        }
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
-                            "\(dataManager.itiName) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 3G \("itinerance".localized())"
-                        self.refreshSections()
-                        lastnetr = "WCDMAE"
-                        dataManager.datas.set(lastnetr, forKey: "lastnetr")
-                        dataManager.datas.synchronize()
-                    }
-                }
-                
-            } else {
-                lastnetr = "WCDMA"
-                dataManager.datas.set(lastnetr, forKey: "lastnetr")
-                dataManager.datas.synchronize()
-            }
-            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.carrierNetwork == dataManager.nrp {
-                dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
-                "\(dataManager.itiName) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 3G \("itinerance".localized())"
-            } else {
-            dataManager.carrierNetwork = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                "\(dataManager.carrier) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 3G"
-            }
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA {
-            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && !DataManager.isWifiConnected() && dataManager.carrierNetwork == dataManager.nrp && dataManager.nrDEC {
-                
-                if dataManager.femto {
-                    print(abs(timecoder.timeIntervalSinceNow))
-                    
-                    if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "HSDPAO" {
-                        DispatchQueue.main.async {
-                            dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
-                                "\(dataManager.itiName) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 3G \("itinerance".localized())"
-                            self.refreshSections()
-                            print("CACHE ORANGE F")
-                        }
-                    } else if abs(timecoder.timeIntervalSinceNow) < 10*60 && lastnetr == "HSDPAF" {
-                        DispatchQueue.main.async {
-                            dataManager.carrierNetwork = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                                "\(dataManager.carrier) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 3G (Femto)"
-                            self.refreshSections()
-                            print("CACHE FEMTO")
-                        }
-                    } else {
-                        Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
-                            DispatchQueue.main.async {
-                                if speed ?? 0 < dataManager.stms {
-                                    dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
-                                        "\(dataManager.itiName) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 3G \("itinerance".localized())"
-                                    lastnetr = "HSDPAO"
-                                } else {
-                                    dataManager.carrierNetwork = dataManager.modeRadin ? "Femto ou mutualisation radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                                        "\(dataManager.carrier) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 3G (Femto)"
-                                    lastnetr = "HSDPAF"
-                                }
-                                timecoder = Date()
-                                dataManager.datas.set(lastnetr, forKey: "lastnetr")
-                                dataManager.datas.set(timecoder, forKey: "timecoder")
-                                dataManager.datas.synchronize()
-                                self.refreshSections()
-                            }
-                        }
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
-                            "\(dataManager.itiName) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 3G \("itinerance".localized())"
-                        self.refreshSections()
-                        lastnetr = "HSDPAE"
-                        dataManager.datas.set(lastnetr, forKey: "lastnetr")
-                        dataManager.datas.synchronize()
-                    }
-                }
-                
-            } else {
-                lastnetr = "HSDPA"
-                dataManager.datas.set(lastnetr, forKey: "lastnetr")
-                dataManager.datas.synchronize()
-            }
-            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.carrierNetwork == dataManager.nrp {
-                dataManager.carrierNetwork = dataManager.modeRadin ? "Itinérance Delta radine : \(radinitiname) (\(country))" : dataManager.modeExpert ?
-                "\(dataManager.itiName) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" :  "\(dataManager.itiName) 3G \("itinerance".localized())"
-            } else {
-            dataManager.carrierNetwork = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                "\(dataManager.carrier) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 3G"
-            }
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge {
-            dataManager.carrierNetwork = dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.out2G ?
-                (dataManager.modeRadin ? "Itinérance tupperware radine : \(radinitiname) (\(country))" : dataManager.modeExpert ? "\(dataManager.itiName) 2G (EDGE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" : "\(dataManager.itiName) 2G \("itinerance".localized())") : (dataManager.modeRadin ? "2G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ? "\(dataManager.carrier) 2G (EDGE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" : "\(dataManager.carrier) 2G")
-            lastnetr = "Edge"
-            dataManager.datas.set(lastnetr, forKey: "lastnetr")
-            dataManager.datas.synchronize()
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyGPRS {
-            dataManager.carrierNetwork = dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.out2G ?
-                (dataManager.modeRadin ? "Itinérance VHS radine : \(radinitiname) (\(country))" : dataManager.modeExpert ? "\(dataManager.itiName) G (GPRS) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" : "\(dataManager.itiName) G \("itinerance".localized())") : (dataManager.modeRadin ? "G radin : \(radincarrier) (\(country))" : dataManager.modeExpert ? "\(dataManager.carrier) G (GPRS) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" : "\(dataManager.carrier) G")
-            lastnetr = "GPRS"
-            dataManager.datas.set(lastnetr, forKey: "lastnetr")
-            dataManager.datas.synchronize()
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyeHRPD {
-            dataManager.carrierNetwork = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                "\(dataManager.carrier) 3G (eHRPD) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 3G"
-            lastnetr = "HRPD"
-            dataManager.datas.set(lastnetr, forKey: "lastnetr")
-            dataManager.datas.synchronize()
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyHSUPA {
-            dataManager.carrierNetwork = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                "\(dataManager.carrier) 3G (HSUPA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 3G"
-            lastnetr = "HSUPA"
-            dataManager.datas.set(lastnetr, forKey: "lastnetr")
-            dataManager.datas.synchronize()
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyCDMA1x {
-            dataManager.carrierNetwork = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                "\(dataManager.carrier) 3G (CDMA2000) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 3G"
-            lastnetr = "CDMA1x"
-            dataManager.datas.set(lastnetr, forKey: "lastnetr")
-            dataManager.datas.synchronize()
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyCDMAEVDORev0 {
-            dataManager.carrierNetwork = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                "\(dataManager.carrier) 3G (EvDO) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 3G"
-            lastnetr = "CDMAEVDORev0"
-            dataManager.datas.set(lastnetr, forKey: "lastnetr")
-            dataManager.datas.synchronize()
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyCDMAEVDORevA {
-            dataManager.carrierNetwork = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                "\(dataManager.carrier) 3G (EvDO-A) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 3G"
-            lastnetr = "CDMAEVDORevA"
-            dataManager.datas.set(lastnetr, forKey: "lastnetr")
-            dataManager.datas.synchronize()
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyCDMAEVDORevB {
-            dataManager.carrierNetwork = dataManager.modeRadin ? "3G radine : \(radincarrier) (\(country))" : dataManager.modeExpert ?
-                "\(dataManager.carrier) 3G (EvDO-B) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))" :  "\(dataManager.carrier) 3G"
-            lastnetr = "CDMAEVDORevB"
-            dataManager.datas.set(lastnetr, forKey: "lastnetr")
-            dataManager.datas.synchronize()
-        }
-        
-        if !dataManager.modeRadin && !dataManager.modeExpert && CarrierIdentification.getIsoCountryCode(dataManager.connectedMCC, dataManager.connectedMNC) != CarrierIdentification.getIsoCountryCode(dataManager.targetMCC, dataManager.targetMNC) && CarrierIdentification.getIsoCountryCode(dataManager.connectedMCC, dataManager.connectedMNC) != "--" && dataManager.carrierNetwork != "" && !dataManager.carrierNetwork.isEmpty{
-            dataManager.carrierNetwork += " (\(country))"
-        }
         
 //        if DataManager.isWifiConnected() {
 //            if !dataManager.carrierNetwork.isEmpty{
@@ -1164,36 +1277,10 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
 //            }
 //        }
         
-        if #available(iOS 14.1, *), dataManager.currentNetwork == CTRadioAccessTechnologyNR || dataManager.currentNetwork == CTRadioAccessTechnologyNRNSA {
-            dataManager.carrierNetwork2 = dataManager.modeRadin ? "5G" : dataManager.modeExpert ? "5G (\("5g_unsupported".localized()))" : "5G"
-        } else if dataManager.carrierNetwork2 == CTRadioAccessTechnologyLTE {
-            dataManager.carrierNetwork2 = dataManager.modeRadin ? "4G" : dataManager.modeExpert ? "4G (LTE)" : "4G"
-        } else if dataManager.carrierNetwork2 == CTRadioAccessTechnologyWCDMA {
-            dataManager.carrierNetwork2 = dataManager.modeRadin ? "3G" : dataManager.modeExpert ? "3G (WCDMA)" : "3G"
-        } else if dataManager.carrierNetwork2 == CTRadioAccessTechnologyHSDPA {
-            dataManager.carrierNetwork2 = dataManager.modeRadin ? "3G" : dataManager.modeExpert ? "3G (HSDPA)" : "3G"
-        } else if dataManager.carrierNetwork2 == CTRadioAccessTechnologyEdge {
-            dataManager.carrierNetwork2 = dataManager.modeRadin ? "2G" : dataManager.modeExpert ? "2G (EDGE)" : "2G"
-        } else if dataManager.carrierNetwork2 == CTRadioAccessTechnologyGPRS {
-            dataManager.carrierNetwork2 = dataManager.modeRadin ? "G" : dataManager.modeExpert ? "G (GPRS)" : "G"
-        } else if dataManager.carrierNetwork2 == CTRadioAccessTechnologyeHRPD {
-            dataManager.carrierNetwork2 = dataManager.modeRadin ? "3G" : dataManager.modeExpert ? "3G (eHRPD)" : "3G"
-        } else if dataManager.carrierNetwork2 == CTRadioAccessTechnologyHSUPA {
-            dataManager.carrierNetwork2 = dataManager.modeRadin ? "3G" : dataManager.modeExpert ? "3G (HSUPA)" : "3G"
-        } else if dataManager.carrierNetwork2 == CTRadioAccessTechnologyCDMA1x {
-            dataManager.carrierNetwork2 = dataManager.modeRadin ? "3G" : dataManager.modeExpert ? "3G (CDMA2000)" : "3G"
-        } else if dataManager.carrierNetwork2 == CTRadioAccessTechnologyCDMAEVDORev0 {
-            dataManager.carrierNetwork2 = dataManager.modeRadin ? "3G" : dataManager.modeExpert ? "3G (EvDO)" : "3G"
-        } else if dataManager.carrierNetwork2 == CTRadioAccessTechnologyCDMAEVDORevA {
-            dataManager.carrierNetwork2 = dataManager.modeRadin ? "3G" : dataManager.modeExpert ? "3G (EvDO-A)" : "3G"
-        } else if dataManager.carrierNetwork2 == CTRadioAccessTechnologyCDMAEVDORevB {
-            dataManager.carrierNetwork2 = dataManager.modeRadin ? "3G" : dataManager.modeExpert ? "3G (EvDO-B)" : "3G"
-        }
+        print(connected1)
+        print(connected2)
         
-        print(dataManager.carrierNetwork)
-        print(dataManager.carrierNetwork2)
-        
-        if !dataManager.setupDone && countryCode == "null" && mobileNetworkName == "null" && dataManager.carrierNetwork == "" && !alertInit {
+        if !dataManager.current.card.setupDone && countryCode == "null" && mobileNetworkName == "null" && dataManager.current.network.connected == "" && !alertInit {
             delay(0.05) {
                 let alert = UIAlertController(title: "insert_sim_title".localized(), message:"insert_sim_description".localized(), preferredStyle: UIAlertController.Style.alert)
                 
@@ -1205,78 +1292,60 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         }
         
         var disp: String
-        if countryCode == "null" || countryCode.isEmpty {
+        var disp2: String
+        
+        if countryCode == "null" || countryCode.isEmpty || !dataManager.sim.card.active {
             disp = dataManager.modeRadin ? "Pas de carte SIM radine détéctée" : "no_sim".localized()
         } else {
             if countryCode == "208" && mobileNetworkName == "15" {
                 disp = "\("sim_card".localized()) \(dataManager.modeRadin ? "Radin" : carrierName)"
-                if dataManager.modeExpert {
-                    disp += " [\(countryCode) \(mobileNetworkName)] (\(isoCountrycode))"
-                }
             } else if countryCode == "208" && mobileNetworkName == "01" {
                 disp = "\("sim_card".localized()) \(dataManager.modeRadin ? "Agrume France" : carrierName)"
-                if dataManager.modeExpert {
-                    disp += " [\(countryCode) \(mobileNetworkName)] (\(isoCountrycode))"
-                }
             } else if countryCode == "208" && mobileNetworkName == "10" {
                 disp = "\("sim_card".localized()) \(dataManager.modeRadin ? "Patoche has no limits" : carrierName)"
-                if dataManager.modeExpert {
-                    disp += " [\(countryCode) \(mobileNetworkName)] (\(isoCountrycode))"
-                }
             } else if countryCode == "208" && mobileNetworkName == "20" {
                 disp = "\("sim_card".localized()) \(dataManager.modeRadin ? "Béton Télécom" : carrierName)"
-                if dataManager.modeExpert {
-                    disp += " [\(countryCode) \(mobileNetworkName)] (\(isoCountrycode))"
-                }
             } else if countryCode == "208" && mobileNetworkName == "26" {
                 disp = "\("sim_card".localized()) \(dataManager.modeRadin ? "Redbull Mobile" : carrierName)"
-                if dataManager.modeExpert {
-                    disp += " [\(countryCode) \(mobileNetworkName)] (\(isoCountrycode))"
-                }
             }
             
             else {
                 disp = "\("sim_card".localized()) \(carrierName)"
-                if dataManager.modeExpert {
-                    disp += " [\(countryCode) \(mobileNetworkName)] (\(isoCountrycode))"
-                }
+            }
+            
+            if dataManager.modeExpert {
+                disp += " [\(countryCode) \(mobileNetworkName)] (\(isoCountrycode))"
+            }
+            
+            if dataManager.current.card.type == .sim && dataManager.esim.card.active && dataManager.sim.card.active {
+                disp += " ☑️"
             }
         }
         
-        var disp2: String
-        if countryCode2 == "null" || countryCode2.isEmpty {
+        
+        if countryCode2 == "null" || countryCode2.isEmpty || !dataManager.esim.card.active {
             disp2 = dataManager.modeRadin ? "Pas de eSIM radine activée" : "no_esim".localized()
         } else {
             if countryCode2 == "208" && mobileNetworkName2 == "15" {
                 disp2 = "\("esim".localized()) \(dataManager.modeRadin ? "Radin" : carrierName2)"
-                if dataManager.modeExpert {
-                    disp2 += " [\(countryCode2) \(mobileNetworkName2)] (\(isoCountrycode2))"
-                }
             } else if countryCode2 == "208" && mobileNetworkName2 == "01" {
                 disp2 = "\("esim".localized()) \(dataManager.modeRadin ? "Agrume France" : carrierName2)"
-                if dataManager.modeExpert {
-                    disp2 += " [\(countryCode2) \(mobileNetworkName2)] (\(isoCountrycode2))"
-                }
             } else if countryCode2 == "208" && mobileNetworkName2 == "10" {
                 disp2 = "\("esim".localized()) \(dataManager.modeRadin ? "Patoche has no limits" : carrierName2)"
-                if dataManager.modeExpert {
-                    disp2 += " [\(countryCode2) \(mobileNetworkName2)] (\(isoCountrycode2))"
-                }
             } else if countryCode2 == "208" && mobileNetworkName2 == "20" {
                 disp2 = "\("esim".localized()) \(dataManager.modeRadin ? "Béton Télécom" : carrierName2)"
-                if dataManager.modeExpert {
-                    disp2 += " [\(countryCode2) \(mobileNetworkName2)] (\(isoCountrycode2))"
-                }
             } else if countryCode2 == "208" && mobileNetworkName2 == "26" {
                 disp2 = "\("esim".localized()) \(dataManager.modeRadin ? "Redbull Mobile" : carrierName2)"
-                if dataManager.modeExpert {
-                    disp2 += " [\(countryCode2) \(mobileNetworkName2)] (\(isoCountrycode2))"
-                }
             } else {
                 disp2 = "\("esim".localized()) \(carrierName2)"
-                if dataManager.modeExpert {
-                    disp2 += " [\(countryCode2) \(mobileNetworkName2)] (\(isoCountrycode2))"
-                }
+            }
+            
+            if dataManager.modeExpert {
+                disp2 += " [\(countryCode2) \(mobileNetworkName2)] (\(isoCountrycode2))"
+            }
+            
+            if dataManager.current.card.type == .esim && dataManager.esim.card.active && dataManager.sim.card.active {
+                disp2 += " ☑️"
             }
         }
         
@@ -1285,11 +1354,11 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         // Strings de l'UI
         
         var generation = ""
-        if dataManager.ipadMCC == "---" && !dataManager.nrDEC && UIDevice.current.userInterfaceIdiom == .pad {
+        if dataManager.current.network.mcc == "---" && !dataManager.current.card.nrdec && UIDevice.current.userInterfaceIdiom == .pad {
             generation = "generation".localized().format([String(appVersion), "A1"])
-        } else if dataManager.ipadMCC == "---" && UIDevice.current.userInterfaceIdiom == .pad {
+        } else if dataManager.current.network.mcc == "---" && UIDevice.current.userInterfaceIdiom == .pad {
             generation = "generation".localized().format([String(appVersion), "1"])
-        } else if !dataManager.nrDEC || !dataManager.setupDone {
+        } else if !dataManager.current.card.nrdec || !dataManager.current.card.setupDone {
             if #available(iOS 13.1, *) {
                 generation = "generation".localized().format([String(appVersion), "A3"])
             } else {
@@ -1306,12 +1375,12 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         let sta = dataManager.modeRadin ? "État du réseau radin" : "status".localized()
         let prefsnet = dataManager.modeRadin ? "Préférences radines" : "netprefs".localized()
         let prefsstats = dataManager.modeRadin ? "Statistiques radines" : "statsprefs".localized()
-        let iti5G = dataManager.modeRadin ? "Itinérance Utopique autorisée" : "allow5g".localized()
-        let iti4G = dataManager.modeRadin ? "Itinérance Delta^4 autorisée" : "allow4g".localized()
+        let iti5G = dataManager.modeRadin ? "Itinérance Pop autorisée" : "allow5g".localized()
+        let iti4G = dataManager.modeRadin ? "Itinérance Delta S autorisée" : "allow4g".localized()
         let iti3G = dataManager.modeRadin ? "Itinérance Delta autorisée" : "allow3g".localized()
         let iti2G = dataManager.modeRadin ? "Itinérance tupperware autorisée" : "allow2g".localized()
         let wifiaut = dataManager.modeRadin ? "Vérifier sur ma Radinbox" : "verifywifi".localized()
-        let wififoo = dataManager.modeRadin ? "En activant cette option, les vérifications de l'itinérance radine auront lieu même lorsque vous êtes connecté à une Radinbox. Afin d'optimiser la batterie (sauf pour la génération A2), il est recommandé de garder cette option radine désactivée." : dataManager.modeExpert ? "wififooter".localized() : ""
+        let wififoo = dataManager.modeExpert ? (dataManager.modeRadin ? "En activant cette option, les vérifications de l'itinérance radine auront lieu même lorsque vous êtes connecté à une Radinbox. Afin d'optimiser la batterie (sauf pour la génération A2), il est recommandé de garder cette option radine désactivée." : "wififooter".localized()) : ""
         let stvr = dataManager.modeRadin ? "Arrêter la surveillance radine" : "stop_background_tasks".localized()
         let fmt = dataManager.modeRadin ? "Mutualisation et Femto radins" : dataManager.modeExpert ? "detect_ransharing".localized() : "detect_femto".localized()
         let bkg = dataManager.modeRadin ? "Arrière plan radin" : "background".localized()
@@ -1331,14 +1400,14 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         let perfmodefoo = dataManager.modeRadin ? "Lorsque le mode Rocket+ est activé, votre appareil rafraichit le statut d'itinérance radine toutes les 1 à 10 secondes. Cette option est recommandée pour les utilisateurs trop fidèles à Radin. Il est recommandé de posséder une puce A11 Bionic ou supérieure et d'avoir une bonne récéption GPS pour profiter de cette option tout en limitant la perte d'autonomie de batterie radine." : "performance_mode_footer".localized()
         
         if UIDevice.current.userInterfaceIdiom == .pad {
-            if (dataManager.ipadMCC == "---" && dataManager.ipadMNC == "--"){
+            if (dataManager.current.network.mcc == "---" && dataManager.current.network.mnc == "--"){
                 land = dataManager.modeRadin ? "Vérifier les voyages radins" : "land_g1".localized()
                 fland = dataManager.modeRadin ? "En activant cette option, nous allons vérifier en arrière plan que vous vous situez toujours dans votre pays Radin afin d'empêcher les tâches pour sortir de l'itinérance radine lorsque vous êtes à l'étranger car les opérateurs étrangers ne possèdent pas notre réseau révolutionnaire à 768kbps. Votre opérateur Radin n'est pas encore compatible avec la 2ème génération de FMobile sur iPad, mais si un opérateur éligible est disponible, FMobile activera ici les fonctionalités de la 2ème génération automatiquement." : "land_footer_g1".localized()
                 nland = "background_loc_g1".localized()
             }
         }
         
-        if !dataManager.modeExpert && !(dataManager.targetMCC == "208" && dataManager.targetMNC == "15" && dataManager.setupDone) {
+        if !dataManager.modeExpert && !(dataManager.current.card.mcc == "208" && dataManager.current.card.mnc == "15" && dataManager.current.card.setupDone) {
             sat = ""
         }
         
@@ -1373,7 +1442,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         // Section status
         let net = Section(name: sta, elements: [], footer: perfmodefoo)
         
-        if !dataManager.setupDone {
+        if !dataManager.current.card.setupDone {
             if dataManager.isSettingUp || (abs(dataManager.syncNewSIM.timeIntervalSinceNow) < 20) {
                 net.elements += [
                     UIElementLabel(id: "activ", text: "🕗 \("activation".localized())")
@@ -1381,15 +1450,10 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             } else {
                 net.elements += [
                     UIElementButton(id: "", text: "⚠️ \("activate".localized())") { (_) in
-                        
-                        let siminventory = DataManager.getSimInventory()
-                        var mcc = "---"
-                        var mnc = "--"
-                        
-                        if siminventory.count > 0 {
-                            mcc = siminventory[0].1.mobileCountryCode ?? "---"
-                            mnc = siminventory[0].1.mobileNetworkCode ?? "--"
-                        }
+ 
+                        let mcc = dataManager.current.card.carrier.mobileCountryCode ?? "---"
+                        let mnc = dataManager.current.card.carrier.mobileNetworkCode ?? "--"
+
                         let simready = (mcc == "---" || mcc == "null" || mcc.isEmpty || mnc == "--" || mnc == "null" || mnc.isEmpty)
                             
                             if simready {
@@ -1432,35 +1496,62 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         }
         
         // SIM 1
-        net.elements += [UIElementLabel(id: "networkstatus", text: disp)]
+        if !dataManager.esim.card.active || dataManager.sim.card.active {
+            net.elements += [UIElementLabel(id: "networkstatus", text: disp)]
+        }
         // SIM 2 (complète avec ta condition sur ce if et change le texte avec la valeur de la deuxième sim)
-        if ((device >= 11 && UIDevice.current.modelName.contains("iPhone")) || (device >= 8 && UIDevice.current.modelName.contains("iPad"))) && (countryCode2 != "null" && !countryCode2.isEmpty) {
+        if ((device >= 11 && UIDevice.current.modelName.contains("iPhone")) || (device >= 8 && UIDevice.current.modelName.contains("iPad"))) && (countryCode2 != "null" && !countryCode2.isEmpty) && dataManager.esim.card.active {
             net.elements += [UIElementLabel(id: "networkstatus2", text: disp2)]
         }
         
         // Reste de la section status
-        net.elements += [UIElementLabel(id: "connected", text: "") { () -> String in
-            if dataManager.airplanemode {
-                return dataManager.modeRadin ? "Mode jet radin activé" : "airplane_mode_enabled".localized()
-            }
-                else if dataManager.carrierNetwork == "null" || dataManager.carrierNetwork.isEmpty  {
-                    if countryCode == "null" || countryCode.isEmpty {
+        if !dataManager.esim.card.active || dataManager.sim.card.active {
+            net.elements += [UIElementLabel(id: "connected", text: "") { () -> String in
+                if dataManager.airplanemode {
+                    return dataManager.modeRadin ? "Mode jet radin activé" : "airplane_mode_enabled".localized()
+                }
+                else if connected1 == "null" || connected1.isEmpty || !dataManager.sim.card.active {
+                    if countryCode == "null" || countryCode.isEmpty || !dataManager.sim.card.active {
                         return dataManager.modeRadin ? "Pas de connexion radine" : "not_connected".localized()
                     } else {
-                        return dataManager.modeRadin ? "Réseau radin perdu : \(dataManager.fullCarrierName)" : (dataManager.modeExpert ? "not_connected_searching".localized().format([dataManager.fullCarrierName]) + " [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(CarrierIdentification.getIsoCountryCode(dataManager.connectedMCC, dataManager.connectedMNC)))" : "not_connected_searching".localized().format([dataManager.fullCarrierName]) + (CarrierIdentification.getIsoCountryCode(dataManager.connectedMCC, dataManager.connectedMNC) != CarrierIdentification.getIsoCountryCode(dataManager.targetMCC, dataManager.targetMNC) ? " (\(CarrierIdentification.getIsoCountryCode(dataManager.connectedMCC, dataManager.connectedMNC)))" : ""))
+                        return dataManager.modeRadin ? "Réseau radin perdu : \(dataManager.sim.network.fullname)" : (dataManager.modeExpert ? "not_connected_searching".localized().format([dataManager.sim.network.fullname]) + " [\(dataManager.sim.network.mcc) \(dataManager.sim.network.mnc)] (\(dataManager.sim.network.land))" : "not_connected_searching".localized().format([dataManager.sim.network.fullname]) + (dataManager.sim.network.land != dataManager.sim.card.land ? " (\(dataManager.sim.network.land))" : ""))
                     }
                 } else {
-                    return dataManager.modeRadin ? "\(dataManager.carrierNetwork)" : "connected".localized().format([dataManager.carrierNetwork])
+                    return dataManager.modeRadin ? "\(connected1)" : "connected".localized().format([connected1])
                 }
             }]
+        }
         
-        if ((dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.minimalSetup) || (dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC)) && (((!dataManager.allow013G || !dataManager.allow014G) && (lastnetr == "LTEE" || lastnetr == "LTEO" || lastnetr == "HSDPA" || lastnetr == "HSDPAE" || lastnetr == "HSDPAO" || lastnetr == "WCDMAO" || lastnetr == "WCDMAE" || lastnetr == "WCDMA")) || (!dataManager.allow012G && dataManager.out2G && lastnetr == "Edge") || (!dataManager.allow014G && dataManager.roamLTE && lastnetr == "LTE")) && DataManager.isConnectedToNetwork() {
+        if ((device >= 8 && UIDevice.current.modelName.contains("iPad")) || (device >= 11 && UIDevice.current.modelName.contains("iPhone"))) && (countryCode2 != "null" && !countryCode2.isEmpty) && dataManager.esim.card.active {
+            net.elements += [UIElementLabel(id: "connected2", text: "") { () -> String in
+                if dataManager.airplanemode {
+                    return dataManager.modeRadin ? "Mode jet radin activé" : "airplane_mode_enabled".localized()
+                }
+                else if connected2 == "null" || connected2.isEmpty  {
+                        if countryCode2 == "null" || countryCode2.isEmpty {
+                            return dataManager.modeRadin ? "Pas de connexion eSIM radine" : "esim_not_connected".localized()
+                        } else {
+                            return dataManager.modeRadin ? "Réseau eSIM radin perdu : \(dataManager.esim.network.fullname)" : (dataManager.modeExpert ? "esim_not_connected_searching".localized().format([dataManager.esim.network.fullname]) + " [\(dataManager.esim.network.mcc) \(dataManager.esim.network.mnc)] (\(dataManager.esim.network.land))" : "esim_not_connected_searching".localized().format([dataManager.esim.network.fullname]) + (dataManager.esim.network.land != dataManager.esim.card.land ? " (\(dataManager.esim.network.land))" : ""))
+                        }
+                    } else {
+                        return dataManager.modeRadin ? "eSIM en \(connected2)" : "esim_connected".localized().format([connected2])
+                    }
+            }]
+        }
+        
+//        net.elements += [UIElementLabel(id: "liveSpeed", text: "Down: \(DataUsage.getDataUsage().wifiReceived) | Up = \(DataUsage.getDataUsage().wifiSent)")]
+        
+        if ((dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.chasedMNC && dataManager.current.card.minimalSetup) || (dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.chasedMNC)) && (((!dataManager.allow013G || !dataManager.allow014G || !dataManager.allow015G) && (lastnetr == "NRE" || lastnetr == "NRO" || lastnetr == "NRNSAE" || lastnetr == "NRNSAO" || lastnetr == "LTEE" || lastnetr == "LTEO" || lastnetr == "HSDPA" || lastnetr == "HSDPAE" || lastnetr == "HSDPAO" || lastnetr == "WCDMAO" || lastnetr == "WCDMAE" || lastnetr == "WCDMA")) || (!dataManager.allow012G && dataManager.current.card.out2G && lastnetr == "Edge") || (!dataManager.allow014G && dataManager.current.card.roamLTE && lastnetr == "LTE") || (!dataManager.allow015G && dataManager.current.card.roam5G && lastnetr == "NR") || (!dataManager.allow015G && dataManager.current.card.roam5G && lastnetr == "NRNSA")) && DataManager.isConnectedToNetwork() {
             net.elements += [UIElementButton(id: "", text: "exit_roaming".localized()) { (_) in
                 dataManager.wasEnabled += 1
                 dataManager.datas.set(dataManager.wasEnabled, forKey: "wasEnabled")
-                if dataManager.currentNetwork == CTRadioAccessTechnologyLTE {
+                if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNR {
+                    dataManager.datas.set("NR", forKey: "g3lastcompletion")
+                } else if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA {
+                    dataManager.datas.set("NRNSA", forKey: "g3lastcompletion")
+                } else if dataManager.current.network.data == CTRadioAccessTechnologyLTE {
                     dataManager.datas.set("LTE", forKey: "g3lastcompletion")
-                } else if dataManager.nrp == CTRadioAccessTechnologyHSDPA {
+                } else if dataManager.current.card.nrp == CTRadioAccessTechnologyHSDPA {
                     dataManager.datas.set("HPLUS", forKey: "g3lastcompletion")
                 } else {
                     dataManager.datas.set("WCDMA", forKey: "g3lastcompletion")
@@ -1476,38 +1567,26 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 }]
         }
         
-        let zone = dataManager.zoneCheck()
-        if dataManager.connectedMCC != dataManager.targetMCC && (zone == "OUTZONE" || zone == "CALLS") && CarrierIdentification.getIsoCountryCode(String(dataManager.connectedMCC), String(dataManager.connectedMNC)) != "--" && countryCode != "null" && dataManager.setupDone {
-            net.elements += [UIElementButton(id: "", text: "country_included_button".localized().format([CarrierIdentification.getIsoCountryCode(String(dataManager.connectedMCC), String(dataManager.connectedMNC))])) { (_) in
+        let zone = dataManager.zoneCheck(service: dataManager.current)
+        if dataManager.current.network.mcc != dataManager.current.card.mcc && (zone == "OUTZONE" || zone == "CALLS") && dataManager.current.network.land != "--" && countryCode != "null" && dataManager.current.card.setupDone && dataManager.current.card.active {
+            net.elements += [UIElementButton(id: "", text: "country_included_button".localized().format([dataManager.current.network.land])) { (_) in
                 
-                let country = CarrierIdentification.getIsoCountryCode(String(dataManager.connectedMCC), String(dataManager.connectedMNC))
+                let country = dataManager.current.network.land
                 
-                if dataManager.europeland.contains(country) {
+                if CarrierIdentification.europeland.contains(country) {
                     let addEuropeAlert = UIAlertController(title: "add_europe".localized(), message: "add_europe_description".localized().format([country]), preferredStyle: .alert)
                     addEuropeAlert.addAction(UIAlertAction(title: "add_europe_only".localized(), style: .default) { (_) in
-                        self.addCountry(country: "UE", dataManager: dataManager)
+                        self.addCountry(country: "UE", dataManager: dataManager, service: dataManager.current)
                     })
                     addEuropeAlert.addAction(UIAlertAction(title: "add_country_only".localized().format([country]), style: .default) { (_) in
-                        self.addCountry(country: country, dataManager: dataManager)
+                        self.addCountry(country: country, dataManager: dataManager, service: dataManager.current)
                     })
                     addEuropeAlert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
                     
                     UIApplication.shared.windows.first?.rootViewController?.present(addEuropeAlert, animated: true, completion: nil)
                     
                 } else {
-                    self.addCountry(country: country, dataManager: dataManager)
-                }
-            }]
-        }
-        if ((device >= 8 && UIDevice.current.modelName.contains("iPad")) || (device >= 11 && UIDevice.current.modelName.contains("iPhone"))) && (countryCode2 != "null" && !countryCode2.isEmpty) {
-            net.elements += [UIElementLabel(id: "connected2", text: "") { () -> String in
-                if dataManager.airplanemode {
-                    return dataManager.modeRadin ? "Mode jet radin activé" : "airplane_mode_enabled".localized()
-                }
-                if dataManager.carrierNetwork2 == "null" || dataManager.carrierNetwork2.isEmpty {
-                    return dataManager.modeRadin ? "Pas de connexion eSIM radine" : "esim_not_connected".localized()
-                } else {
-                    return dataManager.modeRadin ? "\(dataManager.carrierNetwork2) radine" : "esim_connected".localized().format([dataManager.carrierNetwork2])
+                    self.addCountry(country: country, dataManager: dataManager, service: dataManager.current)
                 }
             }]
         }
@@ -1565,7 +1644,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             ]
         }
         
-        if !dataManager.disableFMobileCore || dataManager.modeExpert || (dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC){
+        if !dataManager.current.card.disableFMobileCore || dataManager.modeExpert || (dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.mnc){
             net.elements += [
                 UIElementButton(id: "", text: "set_no_network".localized()) { (_) in
                     if CLLocationManager.authorizationStatus() == .authorizedAlways {
@@ -1573,12 +1652,18 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                         let latitude = locationManager.location?.coordinate.latitude ?? 0
                         let longitude = locationManager.location?.coordinate.longitude ?? 0
                         
+                        if #available(iOS 14.0, *) {
+                            if locationManager.accuracyAuthorization != .fullAccuracy {
+                                return
+                            }
+                        }
+
                         let context: NSManagedObjectContext
                         if #available(iOS 10.0, *) {
-                            context = RoamingManager.persistentContainer.viewContext
+                            context = PermanentStorage.persistentContainer.viewContext
                         } else {
                             // Fallback on earlier versions
-                            context = RoamingManager.managedObjectContext
+                            context = PermanentStorage.managedObjectContext
                         }
                         guard let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context) else {
                             return
@@ -1614,10 +1699,10 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         // Section préférences
         let pref = Section(name: prefsnet, elements: [], footer: wififoo)
         
-        if dataManager.roam5G || dataManager.modeExpert {
+        if dataManager.current.card.roam5G || dataManager.modeExpert {
             pref.elements += [UIElementSwitch(id: "allow015G", text: iti5G, d: true)]
         }
-        if dataManager.roamLTE || dataManager.modeExpert {
+        if dataManager.current.card.roamLTE || dataManager.modeExpert {
             pref.elements += [UIElementSwitch(id: "allow014G", text: iti4G, d: true)]
         }
         
@@ -1638,7 +1723,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         let back = Section(name: bkg, elements: [
             UIElementSwitch(id: "stopverification", text: stvr, d: false)], footer: sat)
         
-        if dataManager.modeExpert || (dataManager.targetMCC == "208" && dataManager.targetMNC == "15" && dataManager.setupDone) {
+        if dataManager.modeExpert || (dataManager.current.card.mcc == "208" && dataManager.current.card.mnc == "15" && dataManager.current.card.setupDone) {
             back.elements += [
                 UIElementSwitch(id: "femto", text: fmt, d: true),
                 UIElementSwitch(id: "femtoLOWDATA", text: eco, d: false)
@@ -1647,7 +1732,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         
         let femto = Section(name: "", elements: [])
         
-        if !dataManager.disableFMobileCore || dataManager.modeExpert || (dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC){
+        if !dataManager.current.card.disableFMobileCore || dataManager.modeExpert || (dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.mnc){
             femto.elements += [
                 UIElementButton(id: "", text: zns) { (_) in
                     self.resetAllRecords(in: "Locations")
@@ -1655,10 +1740,10 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             ]
         }
         
-        if dataManager.setupDone{
+        if dataManager.current.card.setupDone{
             femto.elements += [
                 UIElementButton(id: "", text: "reset_countries_included".localized()) { (_) in
-                    self.resetCountriesIncluded(dataManager)
+                    self.resetCountriesIncluded(dataManager, service: dataManager.current)
                 }
             ]
         }
@@ -1672,7 +1757,7 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         let conso = Section(name: cso, elements: [])
         
         
-        for service in dataManager.carrierServices {
+        for service in dataManager.current.card.carrierServices {
             if service.2 == "copy_callcode" {
                 conso.elements += [
                     UIElementButton(id: "", text: service.2.localized()) { (_) in
@@ -1842,6 +1927,9 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 dataManager.datas.set(false, forKey: "coveragemap_noalert")
                 dataManager.datas.set(false, forKey: "locationAuthorizationAvoided")
                 dataManager.datas.set(false, forKey: "locationAuthorizationBadsetup")
+                dataManager.datas.set(false, forKey: "locationAuthorizationAvoided")
+                dataManager.datas.set(false, forKey: "allow014G_noalert")
+                dataManager.datas.set(false, forKey: "allow015G_noalert")
                 dataManager.datas.synchronize()
                 self.updateSetup(dataManager, false)
                 self.loadUI()
@@ -1854,7 +1942,12 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
             UIElementSwitch(id: "modeExpert", text: "expert_mode".localized(), d: false),
         ], footer: Locale.current.languageCode == "fr" ? "Le mode Radin est un clin d'oeil à Xavier Radiniel (@XRadiniel sur l'oiseau bleu), un compte parodique autour de la galaxie Niel. Il modifie l'interface de l'application mais n'apporte aucune fonctionalité supplémentaire." : "\n\n")
         
-        if #available(iOS 13.0, *) {} else {
+        if #available(iOS 13.0, *) {
+            if dataManager.modeExpert {
+                avance.elements += [UIElementSwitch(id: "bluetoothOff", text: "shut_bluetooth".localized(), d: false),
+                                UIElementSwitch(id: "wifiOff", text: "shut_wifi".localized(), d: false)]
+            }
+        } else {
             avance.elements += [UIElementSwitch(id: "isDarkMode", text: "dark_mode".localized(), d: true)]
         }
         
@@ -1889,17 +1982,78 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
                 alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: nil))
                 UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
             },
-            UIElementButton(id: "", text: "donate".localized()) { (_) in
+            UIElementButton(id: "", text: "minaste_center".localized()) { (_) in
+                
+                let mainController = GroupeMINASTEController()
+                mainController.navigationItem.title = "minaste_center".localized()
+                
+                let close = UIBarButtonItem(title: "close".localized(), style: .done, target: self, action: #selector(self.closeAction))
+                mainController.navigationItem.setLeftBarButton(close, animated: true)
+                
+                let controller = UINavigationController(rootViewController: mainController)
+                
+                
+                self.present(controller, animated: true, completion: nil)
+            }
+            , UIElementButton(id: "", text: "donate".localized()) { (_) in
+                
                 self.openDonateViewController()
+                
+//                let text = "donate_unable_description".localized()
+//                let alert = UIAlertController(title: "donate_unable".localized(), message: text, preferredStyle: .alert)
+//
+//                alert.addAction(UIAlertAction(title: "close".localized(), style: .default, handler: nil))
+//                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+//
+//
+//                let text = "donate_warning_french_citizenship".localized()
+//                let alert = UIAlertController(title: "donate_warning".localized(), message: text, preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "donate_helloasso".localized(), style: .default) { (_) in
+//                    guard let link = URL(string: "https://www.helloasso.com/associations/groupe-minaste/formulaires/1") else { return }
+//                    if #available(iOS 10.0, *) {
+//                        UIApplication.shared.open(link)
+//                    } else {
+//                        UIApplication.shared.openURL(link)
+//                    }
+//                    })
+//                alert.addAction(UIAlertAction(title: "donate_iap".localized(), style: .default) { (_) in
+//                    self.openDonateViewController()
+//
+//                })
+//                alert.addAction(UIAlertAction(title: "cancel".localized(), style: .default, handler: nil))
             }
         ], footer: "donate_description".localized())
 //        ], footer: "")
         
-//        plus.elements += [UIElementApp(name: T##String, desc: T##String, icon: T##UIImage, completionHandler: T##(UIButton) -> Void)]
+        plus.elements += [UIElementApp(name: "fwifi".localized(), desc: "install_fwifi_desc".localized(), icon: UIImage(named: "fwifi"), completionHandler: { (UIButton) in
+            print("YES !!!")
+            if let url = URL(string: "fwifi://") {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url) { (result) in
+                        if !result {
+                            if let url2 = URL(string: "https://apps.apple.com/app/fwi-fi-for-ios/id1501218122") {
+                                UIApplication.shared.open(url2)
+                            }
+                        }
+                    }
+                } else {
+                    // Fallback on earlier versions
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.openURL(url)
+                    } else {
+                        if let url2 = URL(string: "https://apps.apple.com/app/fwi-fi-for-ios/id1501218122") {
+                            UIApplication.shared.openURL(url2)
+                        }
+                    }
+                }
+            }
+        })]
+        
+        
         
         sections += [net]
         
-        if !dataManager.disableFMobileCore || dataManager.modeExpert {
+        if !dataManager.current.card.disableFMobileCore || dataManager.modeExpert {
             sections += [pref]
         }
         
@@ -1922,9 +2076,13 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         tableView.reloadData()
     }
     
+    @objc func closeAction() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func openDonateViewController() {
         // Create the view controller
-        let controller: DonateViewController
+        let controller:DonateViewController
         
         if #available(iOS 13.0, *) {
             controller = DonateViewController()
@@ -1941,9 +2099,9 @@ class GeneralTableViewController: UITableViewController, CLLocationManagerDelega
         controller.delegate = self
         
         // Add donations
-        controller.add(identifier: "fr.plugn.fmobile.donation01")
-        controller.add(identifier: "fr.plugn.fmobile.donation02")
-        controller.add(identifier: "fr.plugn.fmobile.donation03")
+        controller.add(identifier: "fr.plugn.fmobile.donation1")
+        controller.add(identifier: "fr.plugn.fmobile.donation2")
+        controller.add(identifier: "fr.plugn.fmobile.donation3")
         
         // ... (add as many donations as you want)
         

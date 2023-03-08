@@ -38,30 +38,66 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         text?.adjustsFontSizeToFitWidth = true
         
         let dataManager = DataManager()
-        let country = CarrierIdentification.getIsoCountryCode(dataManager.connectedMCC, dataManager.connectedMNC)
+        let country = dataManager.current.network.land
         var status = ""
         
-        if #available(iOS 14.1, *), dataManager.currentNetwork == CTRadioAccessTechnologyNR || dataManager.currentNetwork == CTRadioAccessTechnologyNRNSA {
-            dataManager.carrierNetwork = "\(dataManager.carrier) 5G (\("5g_unsupported".localized())) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+        
+        if #available(iOS 14.1, *), (dataManager.current.network.connected == CTRadioAccessTechnologyNR && (dataManager.allow015G || (dataManager.modeExpert ? false : !dataManager.current.card.roam5G))) || (dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA && (dataManager.allow015G || (dataManager.modeExpert ? false : !dataManager.current.card.roam5G))) {
+            dataManager.current.network.connected = "\(dataManager.current.network.name) 5G (\(dataManager.current.network.connected == CTRadioAccessTechnologyNR ? "NR" : "NR NSA") [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country))"
             status = "✅"
+        } else if #available(iOS 14.1, *), dataManager.current.network.connected == CTRadioAccessTechnologyNR || dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA {
+            if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.mnc && (dataManager.current.network.connected == CTRadioAccessTechnologyNR || dataManager.current.network.connected == CTRadioAccessTechnologyNRNSA) && dataManager.current.card.nrdec {
+                status = "⚠️"
+            } else {
+                status = "✅"
+            }
+            if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.chasedMNC && !DataManager.isWifiConnected() && dataManager.current.card.nrdec {
+                text?.text = "Veuillez patienter..."
+                dataManager.current.network.connected = "\(dataManager.current.network.name) 5G (\(dataManager.current.network.connected == CTRadioAccessTechnologyNR ? "NR" : "NR NSA") [Vérification...]"
+                Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
+                    DispatchQueue.main.async {
+                        if speed ?? 0 < dataManager.current.card.stms {
+                            dataManager.current.network.connected = "\(dataManager.current.card.itiName) 5G (\(dataManager.current.network.connected == CTRadioAccessTechnologyNR ? "NR" : "NR NSA") [\(dataManager.current.network.mcc) \(dataManager.current.card.itiMNC)] (\(country))"
+                            guard let link = DataManager.getShortcutURL() else { return }
+                            self.extensionContext?.open(link, completionHandler: { success in
+                                print("fun=success=\(success)")
+                            })
+                        } else {
+                            dataManager.current.network.connected = "\(dataManager.current.network.name) 5G (\(dataManager.current.network.connected == CTRadioAccessTechnologyNR ? "NR" : "NR NSA") [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country)"
+                        }
+                        self.text?.reloadInputViews()
+                    }
+                }
+            } else if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.itiMNC {
+                dataManager.current.network.connected = "\(dataManager.current.card.itiName) 5G (\(dataManager.current.network.connected == CTRadioAccessTechnologyNR ? "NR" : "NR NSA") [\(dataManager.current.network.mcc) \(dataManager.current.card.itiMNC)] (\(country))"
+                guard let link = DataManager.getShortcutURL() else { return }
+                self.extensionContext?.open(link, completionHandler: { success in
+                    print("fun=success=\(success)")
+                })
+                self.text?.reloadInputViews()
+            } else {
+                dataManager.current.network.connected = "\(dataManager.current.network.name) 5G (\(dataManager.current.network.connected == CTRadioAccessTechnologyNR ? "NR" : "NR NSA") [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country))"
+            }
+            
         }
         
-        else if (dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && (dataManager.allow014G || (dataManager.modeExpert ? false : !dataManager.roamLTE))) {
-            dataManager.carrierNetwork = "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+        
+        else if (dataManager.current.network.connected == CTRadioAccessTechnologyLTE && (dataManager.allow014G || (dataManager.modeExpert ? false : !dataManager.current.card.roamLTE))) {
+            dataManager.current.network.connected = "\(dataManager.current.network.name) 4G (LTE) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country))"
             status = "✅"
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyLTE {
-            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && dataManager.isNRDECstatus(){
+        } else if dataManager.current.network.connected == CTRadioAccessTechnologyLTE {
+            if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.mnc && dataManager.current.network.connected == CTRadioAccessTechnologyLTE && dataManager.current.card.nrdec {
                 status = "⚠️"
             } else {
                 status = "✅"
             }
-            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && !DataManager.isWifiConnected() && dataManager.carrierNetwork == CTRadioAccessTechnologyLTE && dataManager.isNRDECstatus() {
+            if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.chasedMNC && !DataManager.isWifiConnected() && dataManager.current.card.nrdec {
                 text?.text = "Veuillez patienter..."
-                dataManager.carrierNetwork = "\(dataManager.carrier) 4G (LTE) [Vérification...]"
+                dataManager.current.network.connected = "\(dataManager.current.network.name) 4G (LTE) [Vérification...]"
                 Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                     DispatchQueue.main.async {
-                        if speed ?? 0 < dataManager.stms {
-                            dataManager.carrierNetwork = "\(dataManager.itiName) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
+                        if speed ?? 0 < dataManager.current.card.stms {
+                            dataManager.current.network.connected = "\(dataManager.current.card.itiName) 4G (LTE) [\(dataManager.current.network.mcc) \(dataManager.current.card.itiMNC)] (\(country))"
                             if #available(iOS 12.0, *) {
                             guard let link = DataManager.getShortcutURL() else { return }
                             self.extensionContext?.open(link, completionHandler: { success in
@@ -69,13 +105,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                             })
                             }
                         } else {
-                            dataManager.carrierNetwork = "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country)"
+                            dataManager.current.network.connected = "\(dataManager.current.network.name) 4G (LTE) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country)"
                         }
                         self.text?.reloadInputViews()
                     }
                 }
-            } else if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.itiMNC {
-                dataManager.carrierNetwork = "\(dataManager.itiName) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
+            } else if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.itiMNC {
+                dataManager.current.network.connected = "\(dataManager.current.card.itiName) 4G (LTE) [\(dataManager.current.network.mcc) \(dataManager.current.card.itiMNC)] (\(country))"
                 if #available(iOS 12.0, *) {
                 guard let link = DataManager.getShortcutURL() else { return }
                 self.extensionContext?.open(link, completionHandler: { success in
@@ -84,22 +120,22 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 }
                 self.text?.reloadInputViews()
             } else {
-               dataManager.carrierNetwork = "\(dataManager.carrier) 4G (LTE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+                dataManager.current.network.connected = "\(dataManager.current.network.name) 4G (LTE) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country))"
             }
             
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyWCDMA {
-            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && dataManager.carrierNetwork == dataManager.nrp && dataManager.isNRDECstatus(){
+        } else if dataManager.current.network.connected == CTRadioAccessTechnologyWCDMA {
+            if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.mnc && dataManager.current.network.connected == dataManager.current.card.nrp && dataManager.current.card.nrdec{
                 status = "⚠️"
             } else {
                 status = "✅"
             }
-            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && !DataManager.isWifiConnected() && dataManager.carrierNetwork == dataManager.nrp && dataManager.isNRDECstatus() {
+            if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.mnc && !DataManager.isWifiConnected() && dataManager.current.network.connected == dataManager.current.card.nrp && dataManager.current.card.nrdec {
                 text?.text = "Veuillez patienter..."
-                dataManager.carrierNetwork = "\(dataManager.carrier) 3G (WCDMA) [Vérification...]"
+                dataManager.current.network.connected = "\(dataManager.current.network.name) 3G (WCDMA) [Vérification...]"
                 Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                     DispatchQueue.main.async {
-                        if speed ?? 0 < dataManager.stms {
-                            dataManager.carrierNetwork = "\(dataManager.itiName) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
+                        if speed ?? 0 < dataManager.current.card.stms {
+                            dataManager.current.network.connected = "\(dataManager.current.card.itiName) 3G (WCDMA) [\(dataManager.current.network.mcc) \(dataManager.current.card.itiMNC)] (\(country))"
                             if #available(iOS 12.0, *) {
                             guard let link = DataManager.getShortcutURL() else { return }
                             self.extensionContext?.open(link, completionHandler: { success in
@@ -107,13 +143,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                             })
                             }
                         } else {
-                            dataManager.carrierNetwork = "\(dataManager.carrier) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country)"
+                            dataManager.current.network.connected = "\(dataManager.current.network.name) 3G (WCDMA) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country)"
                         }
                         self.text?.reloadInputViews()
                     }
                 }
-            } else if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.itiMNC {
-                dataManager.carrierNetwork = "\(dataManager.itiName) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
+            } else if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.itiMNC {
+                dataManager.current.network.connected = "\(dataManager.current.card.itiName) 3G (WCDMA) [\(dataManager.current.network.mcc) \(dataManager.current.card.itiMNC)] (\(country))"
                 if #available(iOS 12.0, *) {
                 guard let link = DataManager.getShortcutURL() else { return }
                 self.extensionContext?.open(link, completionHandler: { success in
@@ -122,22 +158,22 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 }
                 self.text?.reloadInputViews()
             } else {
-                dataManager.carrierNetwork = "\(dataManager.carrier) 3G (WCDMA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+                dataManager.current.network.connected = "\(dataManager.current.network.name) 3G (WCDMA) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country))"
             }
             
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyHSDPA {
-            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && dataManager.carrierNetwork == dataManager.nrp && dataManager.isNRDECstatus(){
+        } else if dataManager.current.network.connected == CTRadioAccessTechnologyHSDPA {
+            if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.mnc && dataManager.current.network.connected == dataManager.current.card.nrp && dataManager.current.card.nrdec{
                 status = "⚠️"
             } else {
-                status = "✅ \(dataManager.chasedMNC)"
+                status = "✅ \(dataManager.current.card.chasedMNC)"
             }
-            if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.targetMNC && !DataManager.isWifiConnected() && dataManager.carrierNetwork == dataManager.nrp && dataManager.isNRDECstatus() {
+            if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.mnc && !DataManager.isWifiConnected() && dataManager.current.network.connected == dataManager.current.card.nrp && dataManager.current.card.nrdec {
                 text?.text = "Veuillez patienter..."
-                dataManager.carrierNetwork = "\(dataManager.carrier) 3G (HSDPA) [Vérification...]"
+                dataManager.current.network.connected = "\(dataManager.current.network.name) 3G (HSDPA) [Vérification...]"
                 Speedtest().testDownloadSpeedWithTimout(timeout: 5.0, usingURL: dataManager.url) { (speed, _) in
                     DispatchQueue.main.async {
-                        if speed ?? 0 < dataManager.stms {
-                            dataManager.carrierNetwork = "\(dataManager.itiName) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
+                        if speed ?? 0 < dataManager.current.card.stms {
+                            dataManager.current.network.connected = "\(dataManager.current.card.itiName) 3G (HSDPA) [\(dataManager.current.network.mcc) \(dataManager.current.card.itiMNC)] (\(country))"
                             if #available(iOS 12.0, *) {
                             guard let link = DataManager.getShortcutURL() else { return }
                             self.extensionContext?.open(link, completionHandler: { success in
@@ -145,13 +181,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                             })
                             }
                         } else {
-                            dataManager.carrierNetwork = "\(dataManager.carrier) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country)"
+                            dataManager.current.network.connected = "\(dataManager.current.network.name) 3G (HSDPA) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country)"
                         }
                         self.text?.reloadInputViews()
                     }
                 }
-            } else if dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.itiMNC {
-                dataManager.carrierNetwork = "\(dataManager.itiName) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))"
+            } else if dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.itiMNC {
+                dataManager.current.network.connected = "\(dataManager.current.card.itiName) 3G (HSDPA) [\(dataManager.current.network.mcc) \(dataManager.current.card.itiMNC)] (\(country))"
                 if #available(iOS 12.0, *) {
                 guard let link = DataManager.getShortcutURL() else { return }
                 self.extensionContext?.open(link, completionHandler: { success in
@@ -160,50 +196,51 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 }
                 self.text?.reloadInputViews()
             } else {
-                dataManager.carrierNetwork = "\(dataManager.carrier) 3G (HSDPA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+                dataManager.current.network.connected = "\(dataManager.current.network.name) 3G (HSDPA) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country))"
             }
             
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyEdge {
-            dataManager.carrierNetwork = dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.out2G ?
-                "\(dataManager.itiName) 2G (EDGE) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" : "\(dataManager.carrier) 2G (EDGE) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+        } else if dataManager.current.network.connected == CTRadioAccessTechnologyEdge {
+            dataManager.current.network.connected = dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.chasedMNC && dataManager.current.card.out2G ?
+                "\(dataManager.current.card.itiName) 2G (EDGE) [\(dataManager.current.network.mcc) \(dataManager.current.card.itiMNC)] (\(country))" : "\(dataManager.current.network.name) 2G (EDGE) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country))"
             status = "🛑"
-        } else if dataManager.carrierNetwork == "GPRS"{
-            dataManager.carrierNetwork = dataManager.connectedMCC == dataManager.targetMCC && dataManager.connectedMNC == dataManager.chasedMNC && dataManager.out2G ?
-                "\(dataManager.itiName) G (GPRS) [\(dataManager.connectedMCC) \(dataManager.itiMNC)] (\(country))" : "\(dataManager.carrier) G (GPRS) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+        } else if dataManager.current.network.connected == "GPRS"{
+            dataManager.current.network.connected = dataManager.current.network.mcc == dataManager.current.card.mcc && dataManager.current.network.mnc == dataManager.current.card.chasedMNC && dataManager.current.card.out2G ?
+                "\(dataManager.current.card.itiName) G (GPRS) [\(dataManager.current.network.mcc) \(dataManager.current.card.itiMNC)] (\(country))" : "\(dataManager.current.network.name) G (GPRS) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country))"
             status = "⛔️"
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyeHRPD {
-            dataManager.carrierNetwork = "\(dataManager.carrier) 3G (eHRPD) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+        } else if dataManager.current.network.connected == CTRadioAccessTechnologyeHRPD {
+            dataManager.current.network.connected = "\(dataManager.current.network.name) 3G (eHRPD) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country))"
             status = "🛂"
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyHSUPA {
-            dataManager.carrierNetwork = "\(dataManager.carrier) 3G (HSUPA) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+        } else if dataManager.current.network.connected == CTRadioAccessTechnologyHSUPA {
+            dataManager.current.network.connected = "\(dataManager.current.network.name) 3G (HSUPA) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country))"
             status = "🛂"
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyCDMA1x {
-            dataManager.carrierNetwork = "\(dataManager.carrier) 3G (CDMA2000) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+        } else if dataManager.current.network.connected == CTRadioAccessTechnologyCDMA1x {
+            dataManager.current.network.connected = "\(dataManager.current.network.name) 3G (CDMA2000) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country))"
             status = "🛂"
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyCDMAEVDORev0 {
-            dataManager.carrierNetwork = "\(dataManager.carrier) 3G (EvDO) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+        } else if dataManager.current.network.connected == CTRadioAccessTechnologyCDMAEVDORev0 {
+            dataManager.current.network.connected = "\(dataManager.current.network.name) 3G (EvDO) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country))"
             status = "🛂"
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyCDMAEVDORevA {
-            dataManager.carrierNetwork = "\(dataManager.carrier) 3G (EvDO-A) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+        } else if dataManager.current.network.connected == CTRadioAccessTechnologyCDMAEVDORevA {
+            dataManager.current.network.connected = "\(dataManager.current.network.name) 3G (EvDO-A) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country))"
             status = "🛂"
-        } else if dataManager.carrierNetwork == CTRadioAccessTechnologyCDMAEVDORevB {
-            dataManager.carrierNetwork = "\(dataManager.carrier) 3G (EvDO-B) [\(dataManager.connectedMCC) \(dataManager.connectedMNC)] (\(country))"
+        } else if dataManager.current.network.connected == CTRadioAccessTechnologyCDMAEVDORevB {
+            dataManager.current.network.connected = "\(dataManager.current.network.name) 3G (EvDO-B) [\(dataManager.current.network.mcc) \(dataManager.current.network.mnc)] (\(country))"
             status = "🛂"
         }
     
-        if dataManager.carrierNetwork == "" {
-            dataManager.carrierNetwork = "Réseau cellulaire indisponible"
+        if dataManager.current.network.connected == "" {
+            dataManager.current.network.connected = "Réseau cellulaire indisponible"
             status = "❌"
         }
         if DataManager.isWifiConnected() {
-            dataManager.carrierNetwork = dataManager.carrierNetwork + " (Wi-Fi)"
+            dataManager.current.network.connected = dataManager.current.network.connected + " (Wi-Fi)"
         }
         
-        print(dataManager.carrierNetwork)
+        print(dataManager.current.network.connected)
         
-        text?.text = "\(status) \(dataManager.carrierNetwork)"
+        text?.text = "\(status) \(dataManager.current.network.connected)"
     }
         
+    @available(iOSApplicationExtension 10.0, *)
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         completionHandler(NCUpdateResult.newData)
     }

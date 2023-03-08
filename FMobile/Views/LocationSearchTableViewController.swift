@@ -23,6 +23,7 @@ class LocationSearchTableViewController: UITableViewController, UISearchResultsU
         // On enregistre les cellules
         tableView.register(LabelTableViewCell.self, forCellReuseIdentifier: "labelCell")
         
+        #if !targetEnvironment(macCatalyst)
         if #available(iOS 13.0, *) {} else {
             // Ecoute les changements de couleurs
             NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
@@ -31,6 +32,7 @@ class LocationSearchTableViewController: UITableViewController, UISearchResultsU
             // On initialise les couleurs
             isDarkMode() ? enableDarkMode() : disableDarkMode()
         }
+        #endif
     }
 
     // MARK: - Table view data source
@@ -46,12 +48,15 @@ class LocationSearchTableViewController: UITableViewController, UISearchResultsU
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: "labelCell", for: indexPath) as! LabelTableViewCell)
         let item = matchingItems[indexPath.row]
-        
+        #if targetEnvironment(macCatalyst)
+        return cell.with(text: item.name ?? "")
+        #else
         if #available(iOS 13, *) {
             return cell.with(text: item.name ?? "")
         } else {
             return cell.with(text: item.name ?? "", darkMode: isDarkMode())
         }
+        #endif
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -82,6 +87,7 @@ class LocationSearchTableViewController: UITableViewController, UISearchResultsU
         }
     }
     
+    #if !targetEnvironment(macCatalyst)
     @available(iOS, obsoleted: 13.0)
     deinit {
         NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
@@ -135,5 +141,6 @@ class LocationSearchTableViewController: UITableViewController, UISearchResultsU
         self.navigationController?.view.backgroundColor = CustomColor.lightBackground
         self.navigationController?.navigationBar.tintColor = CustomColor.lightActive
     }
+    #endif
 
 }

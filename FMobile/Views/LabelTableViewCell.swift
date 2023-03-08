@@ -41,6 +41,7 @@ class LabelTableViewCell: UITableViewCell {
         return self
     }
     
+    #if !targetEnvironment(macCatalyst)
     @available(iOS, obsoleted: 13.0)
     func with(text: String, accessory: UITableViewCell.AccessoryType = .none, darkMode: Bool) -> LabelTableViewCell {
            label.text = text
@@ -55,5 +56,5 @@ class LabelTableViewCell: UITableViewCell {
            }
            return self
        }
-
+    #endif
 }

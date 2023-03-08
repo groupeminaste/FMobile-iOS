@@ -14,6 +14,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, MapCarrierContaine
     // Map view
     let map = MKMapView()
     let total = UILabel()
+    let loading = UIActivityIndicatorView()
     
     // Location
     let locationManager = CLLocationManager()
@@ -31,6 +32,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, MapCarrierContaine
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        #if !targetEnvironment(macCatalyst)
         if #available(iOS 13.0, *) {} else {
             // Notifs de changements de couleur
             NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
@@ -38,6 +40,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, MapCarrierContaine
             
             isDarkMode() ? enableDarkMode() : disableDarkMode()
         }
+        #endif
+        
+        #if FMOBILECOVERAGE
+        locationManager.requestWhenInUseAuthorization()
+        #endif
         
         // Add the view
         view.addSubview(map)
@@ -64,7 +71,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, MapCarrierContaine
         // Nav bar
         navigationItem.title = "map_view_title".localized()
         navigationItem.leftBarButtonItems = [
-            UIBarButtonItem(customView: total)
+            UIBarButtonItem(customView: total),
+            UIBarButtonItem(customView: loading)
         ]
         navigationItem.rightBarButtonItems = [
             InfoBarButtonItem(target: self, action: #selector(openInfo(_:))),
@@ -85,11 +93,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, MapCarrierContaine
     }
     
     func loadCoverageMap() {
+        // Filter protocols
+        let protocols = CoverageLegend.legend.filter({ $0.selected }).map({ $0.ids }).reduce([], +);
+        
+        // Start loading indicator
+        loading.startAnimating()
+        
         // Fetch map
-        CoverageManager.getCoverage(center: map.centerCoordinate, radius: map.currentRadius()) { coverageMap in
+        CoverageManager.getCoverage(center: map.centerCoordinate, radius: map.currentRadius(), protocols: protocols) { coverageMap in
             // Save map if exists
             if let coverageMap = coverageMap {
+                // Save coverage map
                 self.coverageMap = coverageMap
+                
+                // Stop loading animation
+                self.loading.stopAnimating()
             }
             
             // Update overlays
@@ -123,8 +141,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, MapCarrierContaine
         // Check if a carrier is selected
         if current == nil {
             // Get carrier from data manager
+            #if targetEnvironment(macCatalyst)
+            self.current = carriers.first
+            #elseif FMOBILECOVERAGE
+            self.current = carriers.first
+            #else
             let dataManager = DataManager()
-            self.current = carriers.first(where: { $0.mcc == dataManager.connectedMCC && $0.mnc == dataManager.connectedMNC }) ?? carriers.first
+            self.current = carriers.first(where: { $0.mcc == dataManager.current.network.mcc && $0.mnc == dataManager.current.network.mnc }) ?? carriers.first
+            #endif
         }
         
         // Sort carriers
@@ -148,24 +172,33 @@ class MapViewController: UIViewController, MKMapViewDelegate, MapCarrierContaine
             }
             
             // Alphabetic order
-            return first.homename ?? "" < second.homename ?? ""
+            let firstStr = (first.land ?? "00") + (first.homename ?? "")
+            let secondStr = (second.land ?? "00") + (second.homename ?? "")
+            return firstStr < secondStr
         })
         
         // Calculate points with this carrier
-        let points = coverageMap.points?.filter({
+        let points = coverageMap.points?.filter({ pt in
             // Define home and iti strings
             let home = "\(current?.mcc ?? "---")-\(current?.mnc ?? "--")"
             let iti = "\(current?.mcc ?? "---")-\(current?.itimnc ?? "--")"
             let homec = "\(current?.mcc ?? "---")-"
             
             // If home and connected are this one
-            return ($0.home == home && $0.connected == home)
+            return ((pt.home == home && pt.connected == home)
             
             // Or home is this one and iti its iti one
-            || ($0.home == home && $0.connected == iti)
+            || (pt.home == home && pt.connected == iti)
             
             // Or connected to this one from another country
-            || (!($0.home?.starts(with: homec) ?? false) && $0.connected == home)
+            || (!(pt.home?.starts(with: homec) ?? false) && pt.connected == home))
+            
+            // And eventually check protocol
+            && (CoverageLegend.legend.contains(where: { prots in
+                prots.selected &&
+                prots.ids.contains(pt.connected_protocol ?? "") &&
+                prots.roaming == pt.isRoaming
+            }))
         })
         
         // Update on the map
@@ -190,8 +223,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, MapCarrierContaine
     }
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        RoamingManager.engine(g3engine: true) { result in
-            if result == "LTE" {
+        
+        #if FMOBILE
+        let dataManager = DataManager()
+        RoamingManager.engine(g3engine: true, service: dataManager.current) { result in
+            if result == "NR" {
+                NotificationManager.sendNotification(for: .alert5G)
+            } else if result == "NRNSA" {
+                NotificationManager.sendNotification(for: .alert5G)
+            } else if result == "LTE" {
                 NotificationManager.sendNotification(for: .alertLTE)
             } else if result == "HPLUS" {
                 NotificationManager.sendNotification(for: .alertHPlus)
@@ -201,14 +241,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, MapCarrierContaine
                 NotificationManager.sendNotification(for: .alertWCDMA)
             } else if result == "POSSWCDMA" {
                 NotificationManager.sendNotification(for: .alertPossibleWCDMA)
+            } else if result == "POSSNR" {
+                NotificationManager.sendNotification(for: .alertPossible5G)
+            } else if result == "POSSNRNSA" {
+                NotificationManager.sendNotification(for: .alertPossible5G)
             } else if result == "POSSLTE" {
                 NotificationManager.sendNotification(for: .alertPossibleLTE)
             } else if result == "EDGE" {
                 NotificationManager.sendNotification(for: .alertEdge)
             }
         }
+        #endif
     }
     
+    #if !targetEnvironment(macCatalyst)
     @available(iOS, obsoleted: 13.0)
     deinit {
         NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
@@ -232,5 +278,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, MapCarrierContaine
         navigationController?.navigationBar.barStyle = .default
         total.textColor = .black
     }
+    #endif
 
 }

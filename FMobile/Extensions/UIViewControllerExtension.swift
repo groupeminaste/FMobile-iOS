@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+#if !targetEnvironment(macCatalyst)
 @available(iOS, obsoleted: 13.0)
 extension UIViewController {
     
@@ -46,3 +47,4 @@ extension UIViewController {
     }
     
 }
+#endif

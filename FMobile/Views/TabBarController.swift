@@ -30,7 +30,9 @@ class TabBarController: UITabBarController {
             locationAccuracyAuthorizationBadsetup = dataManager.datas.value(forKey: "locationAccuracyAuthorizationBadsetup") as? Bool ?? false
         }
         
-        let authorizationStatus = CLLocationManager.authorizationStatus()
+        let authorizationStatus: CLAuthorizationStatus
+        
+        authorizationStatus = CLLocationManager.authorizationStatus()
         
         if authorizationStatus == .denied && !locationAuthorizationAvoided {
             let alert = UIAlertController(title: "location_denied".localized(), message: "location_denied_description".localized(), preferredStyle: .alert)
@@ -184,6 +186,15 @@ class TabBarController: UITabBarController {
             isDarkMode() ? enableDarkMode() : disableDarkMode()
         }
         
+//        // Init status
+//        let status = UINavigationController(rootViewController: StatusViewController())
+//        if #available(iOS 13.0, *) {
+//            status.tabBarItem = UITabBarItem(title: "status_view_title".localized(), image: UIImage(systemName: "info.circle"), tag: 0)
+//        } else {
+//            // Fallback on earlier versions
+//            status.tabBarItem = UITabBarItem(title: "status_view_title".localized(), image: UIImage(named: "info.circle"), tag: 0)
+//        }
+        
         // Init general
         let general = UINavigationController(rootViewController: GeneralTableViewController(style: .grouped))
         if #available(iOS 13.0, *) {
@@ -212,6 +223,7 @@ class TabBarController: UITabBarController {
         }
         
         // Add everything to tab bar
+        //viewControllers = [status, general, map, speedtest]
         viewControllers = [general, map, speedtest]
 //        viewControllers = [general, speedtest]
         

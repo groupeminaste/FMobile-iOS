@@ -8,12 +8,9 @@
 
 import UIKit
 
-class CarrierSelectionTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class CarrierSelectionTableViewCell: UITableViewCell {
 
-    weak var delegate: MapCarrierContainer?
-    let textField = UITextField()
-    let pickerView = UIPickerView()
-    let pickerAccessory = UIToolbar()
+    let label = UILabel()
     
     var expertMode: Bool {
         let datas = UserDefaults(suiteName: "group.fr.plugn.fmobile") ?? Foundation.UserDefaults.standard
@@ -26,28 +23,15 @@ class CarrierSelectionTableViewCell: UITableViewCell, UIPickerViewDataSource, UI
         selectionStyle = .none
         separatorInset = .zero
         
-        contentView.addSubview(textField)
+        contentView.addSubview(label)
         
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor).isActive = true
-        textField.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
-        textField.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor).isActive = true
-        textField.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
-        textField.font = UIFont.preferredFont(forTextStyle: .body)
-        textField.adjustsFontSizeToFitWidth = true
-        textField.inputView = pickerView
-        textField.inputAccessoryView = pickerAccessory
-        textField.delegate = self
-        
-        pickerView.dataSource = self
-        pickerView.delegate = self
-        
-        pickerAccessory.autoresizingMask = .flexibleHeight
-        pickerAccessory.items = [
-            UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(pickerViewCancel(_:))),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(pickerViewDone(_:)))
-        ]
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor).isActive = true
+        label.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
+        label.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontSizeToFitWidth = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,58 +39,30 @@ class CarrierSelectionTableViewCell: UITableViewCell, UIPickerViewDataSource, UI
     }
     
     @available(iOS 13.0, *)
-    func with(delegate: MapCarrierContainer?) -> CarrierSelectionTableViewCell {
-        self.delegate = delegate
-        updateText()
+    func with(carrier: CarrierConfiguration?) -> CarrierSelectionTableViewCell {
+        updateText(for: carrier)
         
         return self
     }
     
+    #if !targetEnvironment(macCatalyst)
     @available(iOS, obsoleted: 13.0)
-    func with(delegate: MapCarrierContainer?, darkMode: Bool) -> CarrierSelectionTableViewCell {
-        self.delegate = delegate
-        updateText()
+    func with(carrier: CarrierConfiguration?, darkMode: Bool) -> CarrierSelectionTableViewCell {
+        updateText(for: carrier)
     
         if darkMode {
             backgroundColor = CustomColor.darkBackground
-            textField.textColor = CustomColor.darkText
+            label.textColor = CustomColor.darkText
         } else {
             backgroundColor = CustomColor.lightBackground
-            textField.textColor = CustomColor.lightText
+            label.textColor = CustomColor.lightText
         }
         return self
     }
+    #endif
     
-    func updateText() {
-        textField.text = delegate?.current?.toString(expertMode: expertMode)
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return delegate?.carriers.count ?? 0
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return (delegate?.carriers.count ?? 0 > row ? delegate?.carriers[row] : nil)?.toString(expertMode: expertMode) ?? ""
-    }
-    
-    @objc func pickerViewCancel(_ sender: UIBarButtonItem) {
-        textField.resignFirstResponder()
-    }
-    
-    @objc func pickerViewDone(_ sender: UIBarButtonItem) {
-        let index = pickerView.selectedRow(inComponent: 0)
-        
-        textField.resignFirstResponder()
-        delegate?.current = delegate?.carriers.count ?? 0 > index ? delegate?.carriers[index] : nil
-        updateText()
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return false
+    func updateText(for carrier: CarrierConfiguration?) {
+        label.text = carrier?.toString(expertMode: expertMode)
     }
 
 }
@@ -115,5 +71,6 @@ protocol MapCarrierContainer: class {
     
     var carriers: [CarrierConfiguration] { get set }
     var current: CarrierConfiguration? { get set }
+    func loadCoverageMap()
     
 }

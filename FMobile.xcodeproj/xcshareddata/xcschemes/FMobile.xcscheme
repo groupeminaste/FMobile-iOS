@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1210"
+   LastUpgradeVersion = "1230"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ED01AAE0215F80D100693C03"
-               BuildableName = "FMobile 4.app"
+               BuildableName = "FMobile 5.app"
                BlueprintName = "FMobile"
                ReferencedContainer = "container:FMobile.xcodeproj">
             </BuildableReference>
@@ -27,15 +27,6 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ED01AAE0215F80D100693C03"
-            BuildableName = "FMobile 4.app"
-            BlueprintName = "FMobile"
-            ReferencedContainer = "container:FMobile.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -74,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED01AAE0215F80D100693C03"
-            BuildableName = "FMobile 4.app"
+            BuildableName = "FMobile 5.app"
             BlueprintName = "FMobile"
             ReferencedContainer = "container:FMobile.xcodeproj">
          </BuildableReference>
@@ -91,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED01AAE0215F80D100693C03"
-            BuildableName = "FMobile 4.app"
+            BuildableName = "FMobile 5.app"
             BlueprintName = "FMobile"
             ReferencedContainer = "container:FMobile.xcodeproj">
          </BuildableReference>

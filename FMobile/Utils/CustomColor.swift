@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+#if !targetEnvironment(macCatalyst)
 @available (iOS, obsoleted: 13.0)
 class CustomColor {
     
@@ -39,3 +40,4 @@ class CustomColor {
     static let blueButton = UIColor(red: 0, green: 0.478431, blue: 1, alpha: 1)
     
 }
+#endif

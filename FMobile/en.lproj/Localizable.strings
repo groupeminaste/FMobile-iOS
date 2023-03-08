@@ -7,7 +7,7 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 4";
+"fmobile" = "FMobile 5";
 "reset_zones_done" = "Reset done";
 "reset_zones_done_description" = "All Femto and ran-sharing zones has been reset.";
 "close" = "Close";
@@ -43,7 +43,7 @@
 "run_standard_setup" = "Start the standard configuration";
 "use_standard_setup" = "Use the standard configuration";
 "warning_title" = "RESPONSABILITY";
-"warning_description" = "IMPORTANT: This application is provided for free without any warranty. You are completely responsible of it, which means that every potential damage due to the usage of this app are under your exclusive responsibility. It is your job to regularly check the data consummption and to disable it when you go aboard. Do not send me your bills by email, you will not get any refund (it may seem obvious to some people, but this situation already happened…)";
+"warning_description" = "IMPORTANT: This application is provided for free without any warranty. You are completely responsible of it, which means that every potential damage due to the usage of this app are under your exclusive responsibility (extra-costs on the phone bill, electric consumption, overheat, etc…). It is your job to regularly check the data consummption and to disable it when you go aboard. Do not send me your bills by email, you will not get any refund (it may seem obvious to some people, but this situation already happened…)";
 "uninstall" = "Uninstall the application";
 "accept_conditions" = "I accept these terms";
 "first_update_succeeded" = "The initial update process succeeded.";
@@ -111,7 +111,8 @@
 "included_internet" = "Includes Internet only";
 "included_all" = "Includes everything";
 "esim_not_connected" = "You are not connected on the eSIM";
-"esim_connected" = "eSIM connected on the %@ network";
+"esim_not_connected_searching" = "eSIM searching for %@…";
+"esim_connected" = "eSIM connected: %@";
 "wifi_status" = "Wi-Fi: %@";
 "set_no_network" = "Set this zone as not covered";
 "no_network_zone_saved" = "Non-covered zone saved";
@@ -162,11 +163,11 @@
 "donate_unable_description" = "Let's get straight to the point.\nYou cannot donate here.\n\nApple is blocking us from accepting donations because they force us according to their guidelines to use in-app purchases. Now let us stop you, of course the 30% tax of this payment system is very frustrating for a small non-profit organization, and we do not feel it is morally acceptable to make Apple wealthier through the non-profit sector, but this is not the blocking point.\n\nWe are a french law-1901 type non-profit organization, and we need to deliver donation certificates with your identity for citizens of the French Republic for tax declaration purposes. Apple iAP only sends a regular bill, which cannot be used as an official state document.\n\nWe made a step in Apple's direction, by including both systems in the app, asking french citizens to proceed to the national donation platform HelloAsso. They still refused, as they want 100% of the donations to transit through iAP, which we cannot do legally due to our non-profit status.\n\nDue to the lack of cooperation and understanding of our situation from Apple, we decided to remove in-app donations, including through iAP, for the entire the world. You could thank Apple for it's guidelines preventing you to help non-profit build other lifetime 100% free services for you, but the most important to us, at any time, is that you enjoy the free app, and that it has a real usefulness for you.\n\nDon't worry for the donation, we'll survive no matter what stick Apple throws at our bike wheels.";
 "donate_description" = "No matter what, FMobile will stay free and ad-free. The donation is a way to thank me for the app, even if I'm already super happy if you just give me a feedback about it. You will contribute to the funding of my Extopy project. Please make sure to fully test the application and be 100% sure you want to leave me a tip before doing so.";
 "ok" = "OK";
-"statistics_agreement" = "Participate at the 208 16-campaign";
+"statistics_agreement" = "Participate at the 208-16 campaign";
 "old_ios_warning" = "iOS %@ is missing important features!";
 "old_ios_description" = "This apps works best with the Apple Shortcuts app, which is only available on iOS 12 and later. Please update your iOS device to iOS 12 or any later version. If your iOS device can run iOS 13, you will also be able to update the FMobile app to its latest version made for iOS 13. On your iOS version, the operations to exit roaming are manual.";
 "location_denied" = "Location access denied";
-"location_denied_description" = "FMobile 4 needs to have access your location for technical and practical reasons, in order to be able to run in the background. You decided to deny the permanent access to your location data. Please note that none of your personal data will ever be sent anywhere without your explicit consent. Setting the location access to \"Always\" is not considered as an explicit consent: it only allows the app to operate normally on your device, locally. Be aware that FMobile 4 will lose a lot of its efficiency if you don't set the location access to \"Always\".";
+"location_denied_description" = "FMobile 5 needs to have access your location for technical and practical reasons, in order to be able to run in the background. You decided to deny the permanent access to your location data. Please note that none of your personal data will ever be sent anywhere without your explicit consent. Setting the location access to \"Always\" is not considered as an explicit consent: it only allows the app to operate normally on your device, locally. Be aware that FMobile 5 will lose a lot of its efficiency if you don't set the location access to \"Always\".";
 "location_denied_change" = "Change the location setting to \"Always\"";
 "location_denied_agree" = "Temporarily force deny location access";
 "location_denied_agree_forever" = "Permanently force deny location access";
@@ -191,6 +192,8 @@
 "5G_unsupported" = "5G not compatible";
 "5G_unsupported_description" = "FMobile isn't yet ready to manage 5G roaming. We will update FMobile as soon as we can to bring the support of this technology. Your setting is now saved, and will be applied as soon as we activate the 5G support.";
 "ignore" = "Ignore";
+"shut_bluetooth" = "Turn Bluetooth off after ANIRC";
+"shut_wifi" = "Turn Wi-Fi off after ANIRC";
     // SpeedtestViewController
 "speedtest_view_title" = "Speedtest";
 "speedtest_start" = "Start";
@@ -246,7 +249,7 @@
 "preparation_inprogress" = "Preparation in progress…";
 "end_phonecall" = "Please end your phone call and retry";
 "data_drain_notification_description" = "Click to disable your cellular data immediately, your consumption is overcharged. %@ %@";
-"data_drain_notification_description_g3" = "FMobile 4 just disabled your Cellular Data to avoid roaming fees. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 5 just disabled your Cellular Data to avoid roaming fees. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@): Welcome!";
 "general_view_title" = "Settings";
     // Map
@@ -258,9 +261,29 @@
 "map_info_legend_edge" = "EDGE";
 "map_info_legend_3g" = "3G";
 "map_info_legend_lte" = "LTE";
+"map_info_legend_5g" = "5G";
+"map_info_legend_5g_r" = "5G (Roaming)";
 "map_info_legend_gprs_r" = "GPRS (Roaming)";
 "map_info_legend_edge_r" = "EDGE (Roaming)";
 "map_info_legend_3g_r" = "3G (Roaming)";
 "map_info_legend_lte_r" = "LTE (Roaming)";
 "map_info_legend_nonetwork" = "No service";
 "map_info_legend_unknown" = "Unknown";
+"map_carrier_title" = "Select a carrier";
+"status_view_title" = "Status";
+"minaste_center" = "MINASTE Center (beta)";
+"install_apps" = "Install FMobile and FWi-Fi";
+"install_fmobile" = "If you want to participate to the coverage map, please install the standard FMobile app on a cellular capable device.";
+"install_fmobile_desc" = "The roaming management app";
+"install_fwifi_desc" = "Easy Wi-Fi Authentification";
+"LTE_roaming_not_certified" = "LTE national roaming not certified";
+"LTE_roaming_not_certified_description" = "The LTE national roaming was not certified for your carrier. Make sure you disallow it only if you are sure that your carrier has an LTE roaming agreement.";
+"5G_roaming_not_certified" = "5G national roaming not certified";
+"5G_roaming_not_certified_description" = "The 5G national roaming was not certified for your carrier. Make sure you disallow it only if you are sure that your carrier has a 5G roaming agreement.";
+"confirm_activation" = "Confirm to disallow";
+"always_confirm_activation" = "Confirm and don't ask again";
+"install_fwifi_desc" = "Easy Wi-Fi authentication";
+"install_fmobile_desc" = "The roaming management app";
+"install_apps" = "Install other apps";
+"map_carrier_title" = "Select a carrier";
+"fwifi" = "FWi-Fi";

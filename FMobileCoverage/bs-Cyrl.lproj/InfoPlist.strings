@@ -1,0 +1,17 @@
+/* 
+  InfoPlist.strings
+  FMobile
+
+  Created by PlugN on 31.10.20..
+  Copyright © 2020 Groupe MINASTE. All rights reserved.
+*/
+
+NSLocationAlwaysUsageDescription = "Потребан нам је приступ вашој локацији да бисмо вас пронашли на мапи.";
+
+NSLocationAlwaysAndWhenInUseUsageDescription = "Потребан нам је приступ вашој локацији да бисмо вас пронашли на мапи.";
+
+NSLocationUsageDescription = "Потребан нам је приступ вашој локацији да бисмо вас пронашли на мапи.";
+
+NSLocationWhenInUseUsageDescription = "Потребан нам је приступ вашој локацији да бисмо вас пронашли на мапи.";
+
+CFBundleDisplayName = "Покриваност";

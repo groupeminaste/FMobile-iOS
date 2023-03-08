@@ -1,197 +1,200 @@
 "07Bqfc" = "Error";
-
 "2Ic8Is" = "Krijg SIM-kaart MNC";
-
 "2O0Z0J" = "${roaming}";
-
 "37NcUM" = "De status van een nationale roamingverbinding opvragen. Geeft 0/1 terug.";
-
 "4PBnst" = "${carrier}";
-
 "4bknAw" = "Error";
-
 "4e5VzK" = "Retourneert de huidige MCC van het verbonden netwerk";
-
 "5ELEwW" = "Vliegtuigmodus Status";
-
 "5I4WMR" = "Retourneert de SIM-kaart MNC";
-
 "6OSdTz" = "Error";
-
 "6csoSr" = "Retourneert de SIM-kaart MCC";
-
 "8F2iON" = "Status van de mobiele verbinding";
-
 "9AoR98" = "${flightMode}";
-
 "9G9ZgU" = "${carrier}";
-
 "BmKG1n" = "Haal de huidige MCC op";
-
 "CabRuh" = "${mnc}";
-
 "Cxh6DA" = "Haal de huidige MNC op";
-
 "DdmfiG" = "Error";
-
 "FpX2L5" = "Haal de huidige MNC op";
-
 "GRNv06" = "${mnc}";
-
 "IT1l2g" = "Haal de Vliegtuigmodus Status";
-
 "InqGrV" = "Krijg de SIM-operator";
-
 "JmoZDF" = "Krijg de huidige operator";
-
 "K6bzVl" = "Haal SIM-kaart op MCC";
-
 "KSVtAz" = "${cellular}";
-
 "KT4ceM" = "Krijg de naam op van de momenteel aangemelde operator";
-
 "L3RtsF" = "${carrier}";
-
 "L6r1je" = "Error";
-
 "LNAh5b" = "Error";
-
 "OJuy1p" = "MCC";
-
 "OK3cDF" = "Haal de huidige MCC op";
-
 "PLYmzh" = "Error";
-
 "Q5Jwtl" = "Krijg de Nationale Roaming-Status";
-
 "R5EoMD" = "Error";
-
 "TKk3SA" = "Vliegtuigmodus Status";
-
 "VO77Ks" = "${mcc}";
-
 "VhFC6Z" = "Error";
-
 "Xk66YZ" = "${carrier}";
-
 "YmE9lQ" = "Wi-Fi-verbindingsstatus";
-
 "Yvwa99" = "Haalt de naam van de SIM-kaartdrager op";
-
 "Z5Q5Us" = "Nationale Roaming";
-
 "bUv2SI" = "MCC";
-
 "c2PAzW" = "MNC";
-
 "c4k2kQ" = "Haal SIM-kaart op MCC";
-
 "cj3edn" = "${flightMode}";
-
 "cwTJKe" = "${roaming}";
-
 "dOs4t4" = "Controleert verboden roaming-status";
-
 "daFk7V" = "Krijg SIM-kaart MNC";
-
 "ewYgMQ" = "${mnc}";
-
 "fLwUtT" = "${cellular}";
-
 "fiYRii" = "${mcc}";
-
 "g1HYTa" = "Error";
-
 "gGtAtZ" = "Error";
-
 "h19Zqc" = "Roaming";
-
 "hDW63j" = "Error";
-
 "hJqUW5" = "${wifi}";
-
 "i1UfNg" = "Wi-Fi-verbindingsstatus";
-
 "iWygLe" = "Controleert of het apparaat is verbonden met Wi-Fi";
-
 "inubuu" = "Krijg de huidige operator";
-
 "jJtlw3" = "Vliegtuigmodus Status";
-
 "jRXlKB" = "${wifi}";
-
 "jUD9k1" = "Error";
-
 "jacx6j" = "MNC";
-
 "k8b7Vd" = "Error";
-
 "keKkJG" = "Error";
-
 "kjbMlw" = "Controleert of het apparaat is aangesloten op mobiel";
-
 "m20RCM" = "Status van de mobiele verbinding";
-
 "npPdKC" = "${mcc}";
-
 "o3DgJm" = "Error";
-
 "oNUcPB" = "Retourneert de huidige MCC van het verbonden netwerk";
-
 "pHYkHd" = "Operator";
-
 "pQRBZP" = "Krijg de SIM-operator";
-
 "paFIqg" = "Error";
-
 "pxK0cA" = "${carrier}";
-
 "qW6cQD" = "Krijg Verboden Roaming-status";
-
 "riTDBK" = "Error";
-
 "s0YZwR" = "Krijg Verboden Roaming-status";
-
 "s4kvV0" = "Mobiele aansluiting";
-
 "sLkT1i" = "Error";
-
 "shaxdE" = "Error";
-
 "tv807z" = "Krijg de Nationale Roaming-Status";
-
 "uOCw3O" = "Error";
-
 "vv5HI8" = "Error";
-
 "wU6jLX" = "${mnc}";
-
 "xqcFOJ" = "${carrier}";
-
 "y9r5ho" = "Wi-Fi-verbinding";
-
 "yTa07U" = "${mcc}";
-
 "yzYR7B" = "Operator";
-
-"4EJB3z" = "Krijg de SIM-operator";
-
-"9BJ3lX" = "Status van de mobiele verbinding";
-
-"DWAzah" = "Krijg SIM-kaart MNC";
-
-"IqyWoq" = "Krijg Verboden Roaming-status";
-
-"UH9up1" = "Haal de huidige MCC op";
-
-"ahmmhB" = "Haal de huidige MNC op";
-
-"aqaQK8" = "Krijg SIM-kaart MCC";
-
-"d2ttat" = "Krijg de huidige operator";
-
-"i7nWTq" = "Krijg de Nationale Roaming-Status";
-
-"i8YIPA" = "Vliegtuigmodus Status";
-
-"xpTgr7" = "Wi-Fi-verbindingsstatus";
+"zLdk8p" = "Wekker";
+"slEytG" = "Wekker";
+"rrxb4g" = "Wekker";
+"qv74q8" = "Wekker";
+"ijI7Vn" = "Wekker";
+"iDBYNj" = "Wekker";
+"i2hb4Q" = "Wekker";
+"dhDenA" = "Wekker";
+"dOuQ9j" = "Wekker";
+"Zf7rCW" = "Wekker";
+"Uc9Ppq" = "Wekker";
+"TeyeMQ" = "Wekker";
+"OqoxXr" = "Wekker";
+"MlTOyR" = "Wekker";
+"MV5qnw" = "Wekker";
+"MQFjcN" = "Wekker";
+"MJNm5V" = "Wekker";
+"L38oFp" = "Wekker";
+"HAs2nd" = "Wekker";
+"Gh4EUk" = "Wekker";
+"FKqcpu" = "Wekker";
+"DCalBq" = "Wekker";
+"93Iveh" = "Wekker";
+"8EWneU" = "Wekker";
+"8ALZr8" = "Wekker";
+"7f17i9" = "Wekker";
+"3t3jle" = "Wekker";
+"0Azo4z" = "Wekker";
+"aRhK1Z" = "Krijgt de informatie als Bluetooth moet worden uitgeschakeld";
+"dwErbz" = "Moet Bluetooth uitschakelen";
+"eORP7u" = "Moet Wi-Fi uitschakelen";
+"0uja0J" = "Operator";
+"1LgIwz" = "Krijg de eSIM-operator";
+"1QMUJr" = "Krijg SIM-kaart Aangesloten MNC";
+"29814k" = "MCC";
+"2bQPzt" = "${mcc}";
+"4uO25q" = "Haal eSIM Aangesloten op MCC";
+"5Mu6E6" = "${mcc}";
+"5r3BiS" = "Krijg eSIM MNC";
+"77HzjW" = "${mcc}";
+"7ik6K4" = "${mnc}";
+"7ys92x" = "Krijg SIM-kaart Aangesloten operator";
+"9NMyrF" = "Krijgt de naam van het huidige SIM-kaartnetwerk";
+"9kZATJ" = "${carrier}";
+"9qzmdB" = "Operator";
+"ASpnea" = "Krijg SIM-kaart Aangesloten MCC";
+"AuhMZS" = "${mnc}";
+"CtdaNC" = "Moet Bluetooth uitschakelen";
+"DGIqI4" = "MNC";
+"DNtRO8" = "MNC";
+"EdcywG" = "Retourneert de huidige MNC van het SIM-kaart";
+"FasfHq" = "Krijg de eSIM-operator";
+"GFHUvV" = "Retourneert de huidige MCC van het SIM-kaart";
+"IBlV3Z" = "Retourneert de huidige MCC van het eSIM";
+"IeNhZ3" = "MCC";
+"Irws4k" = "Retourneert de huidige MNC van het SIM-kaart netwerk";
+"L40ksf" = "Haal de huidige SIM-kaart MNC op";
+"NodrLb" = "MCC";
+"Q1etrY" = "${mcc}";
+"RUPJGp" = "${mcc}";
+"Rps2zf" = "${wifiOff}";
+"S7a01Z" = "Krijg eSIM Aangesloten operator";
+"SGjPPA" = "Krijg SIM-kaart Aangesloten MCC";
+"SRtjQJ" = "Krijg SIM-kaart Aangesloten operator";
+"TQiKuD" = "Haal eSIM Aangesloten op MNC";
+"TTigOu" = "Krijg eSIM MCC";
+"Tfrt8U" = "Krijg de huidige SIM-kaart operator";
+"TgfL2s" = "MNC";
+"PGQ7BS" = "Wi-Fi uit";
+"UCztsz" = "Retourneert de huidige MNC van het eSIM";
+"UbnCY5" = "${mcc}";
+"UsdRkv" = "${carrier}";
+"VxGSjY" = "Krijg de huidige SIM-kaart operator";
+"WNaXUA" = "Krijg eSIM MCC";
+"WVnEpv" = "Krijg eSIM MNC";
+"XbjKn4" = "Operator";
+"Zcf0OF" = "${mcc}";
+"c4cAEx" = "${mcc}";
+"cNspZr" = "Haal eSIM Aangesloten op MNC";
+"cUXCL4" = "Bluetooth uit";
+"crpvx8" = "Haal de huidige SIM-kaart MCC op";
+"dZdBzs" = "${carrier}";
+"e06Z3F" = "${carrier}";
+"ekMfTN" = "Haalt de naam van de eSIM-kaartdrager op";
+"fDWnMB" = "Retourneert de huidige MCC van het SIM-kaart netwerk";
+"gF3HGn" = "${wifiOff}";
+"gFT6f9" = "${mnc}";
+"gcoyev" = "MCC";
+"hfAwVs" = "Krijg eSIM Aangesloten operator";
+"iWGbjo" = "${mnc}";
+"k4c1my" = "${bluetoothOff}";
+"k6KU3p" = "${carrier}";
+"kOVTA5" = "${carrier}";
+"kguDl2" = "MNC";
+"mEGMS7" = "Retourneert de huidige MNC van het eSIM netwerk";
+"meVzRq" = "Operator";
+"nBP2sV" = "${carrier}";
+"nyiPsg" = "Haal eSIM Aangesloten op MCC";
+"oRIKao" = "${carrier}";
+"otXCnb" = "${bluetoothOff}";
+"pCCCGn" = "${mnc}";
+"quHoq4" = "Retourneert de huidige MCC van het eSIM netwerk";
+"r8O3wK" = "${mnc}";
+"uMN4id" = "Krijgt de informatie als Wi-Fi moet worden uitgeschakeld";
+"uxnl6z" = "${mnc}";
+"uyadiC" = "Moet Wi-Fi uitschakelen";
+"vAupLV" = "${mnc}";
+"wXZEg4" = "Haal de huidige SIM-kaart MCC op";
+"xP2MtK" = "Haal de huidige SIM-kaart MNC op";
+"xTCoZj" = "Krijgt de naam van het huidige SIM-kaart operator";
+"xrgyiu" = "Krijgt de naam van het huidige eSIM-kaartnetwerk";
+"yY1Jsm" = "Krijg SIM-kaart Aangesloten MNC";

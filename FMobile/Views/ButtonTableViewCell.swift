@@ -44,6 +44,7 @@ class ButtonTableViewCell: UITableViewCell {
         return self
     }
     
+    #if !targetEnvironment(macCatalyst)
     @available(iOS, obsoleted: 13.0)
     func with(title: String, alignment: UIControl.ContentHorizontalAlignment = .center, handler: @escaping (UIButton) -> Void, darkMode: Bool) -> ButtonTableViewCell {
         self.handler = handler
@@ -59,6 +60,7 @@ class ButtonTableViewCell: UITableViewCell {
         }
         return self
     }
+    #endif
     
     @objc func onClick(_ sender: UIButton) {
         handler(sender)

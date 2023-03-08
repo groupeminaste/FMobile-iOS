@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  FMobile
+
+  Created by PlugN on 31.10.20..
+  Copyright © 2020 Groupe MINASTE. All rights reserved.
+*/
+
+NSLocationAlwaysUsageDescription = "We need the access to your location in order to locate you on the map.";
+
+NSLocationAlwaysAndWhenInUseUsageDescription = "We need the access to your location in order to locate you on the map.";
+
+NSLocationUsageDescription = "We need the access to your location in order to locate you on the map.";
+
+NSLocationWhenInUseUsageDescription = "We need the access to your location in order to locate you on the map.";

@@ -95,9 +95,9 @@ class SpeedtestProgressView: UIView {
             
             let datas = UserDefaults(suiteName: "group.fr.plugn.fmobile") ?? Foundation.UserDefaults.standard
             
-            var urlst = "http://test-debit.free.fr/1048576.rnd"
+            var urlst = "http://raccourcis.ios.free.fr/fmobile/speedtest/speedtest.rnd"
             if datas.value(forKey: "URLST") != nil {
-                urlst = datas.value(forKey: "URLST") as? String ?? "http://test-debit.free.fr/1048576.rnd"
+                urlst = datas.value(forKey: "URLST") as? String ?? "http://raccourcis.ios.free.fr/fmobile/speedtest/speedtest.rnd"
             }
             
             speedtest?.testDownloadSpeedWithTimout(timeout: 15.0, usingURL: urlst) { (speed, _) in

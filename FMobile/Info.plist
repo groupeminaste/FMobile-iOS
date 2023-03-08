@@ -12,7 +12,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>fr</string>
 	<key>CFBundleDisplayName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>FMobile 5</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIcons</key>
@@ -132,12 +132,26 @@
 		<string>GetCurrentCarrierIntent</string>
 		<string>GetCurrentMCCIntent</string>
 		<string>GetCurrentMNCIntent</string>
+		<string>GetCurrentSIMCarrierIntent</string>
+		<string>GetCurrentSIMMCCIntent</string>
+		<string>GetCurrentSIMMNCIntent</string>
+		<string>GetESIMCarrierIntent</string>
+		<string>GetESIMConnectedCarrierIntent</string>
+		<string>GetESIMConnectedMCCIntent</string>
+		<string>GetESIMConnectedMNCIntent</string>
+		<string>GetESIMMCCIntent</string>
+		<string>GetESIMMNCIntent</string>
+		<string>GetSIMConnectedCarrierIntent</string>
+		<string>GetSIMConnectedMCCIntent</string>
+		<string>GetSIMConnectedMNCIntent</string>
 		<string>GetSimCarrierIntent</string>
 		<string>GetSimMCCIntent</string>
 		<string>GetSimMNCIntent</string>
 		<string>IllegalRoamingIntent</string>
 		<string>IsNetworkConnectedIntent</string>
 		<string>IsWifiConnectedIntent</string>
+		<string>ShutBluetoothIntent</string>
+		<string>ShutWifiIntent</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

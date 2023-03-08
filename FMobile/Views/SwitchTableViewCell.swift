@@ -115,10 +115,62 @@ class SwitchTableViewCell: UITableViewCell {
                 }
             }
             
-            if id == "allow015G" && !switchElement.isOn {
-                let alert = UIAlertController(title: "⚠️ \("5G_unsupported".localized())", message: "5G_unsupported_description".localized(), preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: nil))
-                table.present(alert, animated: true, completion: nil)
+            if id == "allow014G" && !datas.bool(forKey: "allow014G_noalert") {
+                let dataManager = DataManager()
+                if !dataManager.current.card.roamLTE && !switchElement.isOn {
+                    datas.set(true, forKey: "allow014G")
+                    datas.synchronize()
+                    let alert = UIAlertController(title: "LTE_roaming_not_certified".localized(), message: "LTE_roaming_not_certified_description".localized(), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "confirm_activation".localized(), style: .default) { _ in
+                        datas.set(false, forKey: "allow014G")
+                        datas.synchronize()
+                        table.loadUI()
+                        table.refreshSections()
+                    })
+                    alert.addAction(UIAlertAction(title: "always_confirm_activation".localized(), style: .default) { _ in
+                        // Save "Do not show again"
+                        datas.set(false, forKey: "allow014G")
+                        datas.set(true, forKey: "allow014G_noalert")
+                        datas.synchronize()
+                        table.loadUI()
+                        table.refreshSections()
+                    })
+                    alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel) { _ in
+                        // Cancel switch
+                        datas.set(true, forKey: "allow014G")
+                        datas.synchronize()
+                    })
+                    table.present(alert, animated: true, completion: nil)
+                }
+            }
+            
+            if id == "allow015G" && !datas.bool(forKey: "allow015G_noalert") {
+                let dataManager = DataManager()
+                if !dataManager.current.card.roam5G && !switchElement.isOn {
+                    datas.set(true, forKey: "allow015G")
+                    datas.synchronize()
+                    let alert = UIAlertController(title: "5G_roaming_not_certified".localized(), message: "5G_roaming_not_certified_description".localized(), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "confirm_activation".localized(), style: .default) { _ in
+                        datas.set(false, forKey: "allow015G")
+                        datas.synchronize()
+                        table.loadUI()
+                        table.refreshSections()
+                    })
+                    alert.addAction(UIAlertAction(title: "always_confirm_activation".localized(), style: .default) { _ in
+                        // Save "Do not show again"
+                        datas.set(false, forKey: "allow015G")
+                        datas.set(true, forKey: "allow015G_noalert")
+                        datas.synchronize()
+                        table.loadUI()
+                        table.refreshSections()
+                    })
+                    alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel) { _ in
+                        // Cancel switch
+                        datas.set(true, forKey: "allow015G")
+                        datas.synchronize()
+                    })
+                    table.present(alert, animated: true, completion: nil)
+                }
             }
             
             // Reload UI

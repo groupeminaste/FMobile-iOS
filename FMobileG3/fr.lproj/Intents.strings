@@ -1,197 +1,200 @@
 "07Bqfc" = "Erreur";
-
 "2Ic8Is" = "Obtenir le MNC de la carte SIM";
-
 "2O0Z0J" = "${roaming}";
-
 "37NcUM" = "Obtient le statut d'une connexion en itinérance nationale. Retourne 0/1.";
-
 "4PBnst" = "${carrier}";
-
 "4bknAw" = "Erreur";
-
 "4e5VzK" = "Retourne le MCC du réseau connecté";
-
 "5ELEwW" = "Statut du mode avion";
-
 "5I4WMR" = "Retourne le MNC de la carte SIM";
-
 "6OSdTz" = "Erreur";
-
 "6csoSr" = "Retourne le MCC de la carte SIM";
-
 "8F2iON" = "Statut de connexion cellulaire";
-
 "9AoR98" = "${flightMode}";
-
 "9G9ZgU" = "${carrier}";
-
 "BmKG1n" = "Obtenir le MCC actuel";
-
 "CabRuh" = "${mnc}";
-
 "Cxh6DA" = "Obtenir le MNC actuel";
-
 "DdmfiG" = "Erreur";
-
 "FpX2L5" = "Obtenir le MNC actuel";
-
 "GRNv06" = "${mnc}";
-
 "IT1l2g" = "Obtenir le statut du mode avion";
-
 "InqGrV" = "Obtenir l'opérateur SIM";
-
 "JmoZDF" = "Obtenir l'opérateur actuel";
-
 "K6bzVl" = "Obtenir le MCC de la carte SIM";
-
 "KSVtAz" = "${cellular}";
-
 "KT4ceM" = "Obtient le nom de l'opérateur connecté";
-
 "L3RtsF" = "${carrier}";
-
 "L6r1je" = "Erreur";
-
 "LNAh5b" = "Erreur";
-
 "OJuy1p" = "MCC";
-
 "OK3cDF" = "Obtenir le MCC actuel";
-
 "PLYmzh" = "Erreur";
-
 "Q5Jwtl" = "Obtenir le Statut d'Itinérance Nationale";
-
 "R5EoMD" = "Erreur";
-
 "TKk3SA" = "Statut du mode avion";
-
 "VO77Ks" = "${mcc}";
-
 "VhFC6Z" = "Erreur";
-
 "Xk66YZ" = "${carrier}";
-
 "YmE9lQ" = "Statut de connexion Wi-Fi";
-
 "Yvwa99" = "Obtient le nom de l'opérateur de la carte SIM";
-
 "Z5Q5Us" = "Itinérance Nationale";
-
 "bUv2SI" = "MCC";
-
 "c2PAzW" = "MNC";
-
 "c4k2kQ" = "Obtenir le MCC de la carte SIM";
-
 "cj3edn" = "${flightMode}";
-
 "cwTJKe" = "${roaming}";
-
 "dOs4t4" = "Vérifie le statut de l'itinérance interdite";
-
 "daFk7V" = "Obtenir le MNC de la carte SIM";
-
 "ewYgMQ" = "${mnc}";
-
 "fLwUtT" = "${cellular}";
-
 "fiYRii" = "${mcc}";
-
 "g1HYTa" = "Erreur";
-
 "gGtAtZ" = "Erreur";
-
 "h19Zqc" = "Itinérance";
-
 "hDW63j" = "Erreur";
-
 "hJqUW5" = "${wifi}";
-
 "i1UfNg" = "Statut de connexion Wi-Fi";
-
 "iWygLe" = "Vérifie si l'appareil est connecté au Wi-FI";
-
 "inubuu" = "Obtenir l'opérateur actuel";
-
 "jJtlw3" = "Statut du mode avion";
-
 "jRXlKB" = "${wifi}";
-
 "jUD9k1" = "Erreur";
-
 "jacx6j" = "MNC";
-
 "k8b7Vd" = "Erreur";
-
 "keKkJG" = "Erreur";
-
 "kjbMlw" = "Vérifie si l'appareil est connecté au réseau cellulaire";
-
 "m20RCM" = "Statut de connexion cellulaire";
-
 "npPdKC" = "${mcc}";
-
 "o3DgJm" = "Erreur";
-
 "oNUcPB" = "Retourne le MCC du réseau connecté";
-
 "pHYkHd" = "Opérateur";
-
 "pQRBZP" = "Obtenir l'opérateur SIM";
-
 "paFIqg" = "Erreur";
-
 "pxK0cA" = "${carrier}";
-
 "qW6cQD" = "Obtenir le Statut d'Itinérance Interdite";
-
 "riTDBK" = "Erreur";
-
 "s0YZwR" = "Obtenir le Statut d'Itinérance Interdite";
-
 "s4kvV0" = "Connexion cellulaire";
-
 "sLkT1i" = "Erreur";
-
 "shaxdE" = "Erreur";
-
 "tv807z" = "Obtenir le Statut d'Itinérance Nationale";
-
 "uOCw3O" = "Erreur";
-
 "vv5HI8" = "Erreur";
-
 "wU6jLX" = "${mnc}";
-
 "xqcFOJ" = "${carrier}";
-
 "y9r5ho" = "Connexion Wi-Fi";
-
 "yTa07U" = "${mcc}";
-
 "yzYR7B" = "Opérateur";
-
-"4EJB3z" = "Obtenir l'opérateur SIM";
-
-"9BJ3lX" = "Statut de connexion cellulaire";
-
-"DWAzah" = "Obtenir le MNC de la carte SIM";
-
-"IqyWoq" = "Obtenir le Statut d'Itinérance Interdite";
-
-"UH9up1" = "Obtenir le MCC actuel";
-
-"ahmmhB" = "Obtenir le MNC actuel";
-
-"aqaQK8" = "Obtenir le MCC de la carte SIM";
-
-"d2ttat" = "Obtenir l'opérateur actuel";
-
-"i7nWTq" = "Obtenir le Statut d'Itinérance Nationale";
-
-"i8YIPA" = "Statut du mode avion";
-
-"xpTgr7" = "Statut de connexion Wi-Fi";
+"zLdk8p" = "Erreur";
+"slEytG" = "Erreur";
+"rrxb4g" = "Erreur";
+"qv74q8" = "Erreur";
+"ijI7Vn" = "Erreur";
+"iDBYNj" = "Erreur";
+"i2hb4Q" = "Erreur";
+"dhDenA" = "Erreur";
+"dOuQ9j" = "Erreur";
+"Zf7rCW" = "Erreur";
+"Uc9Ppq" = "Erreur";
+"TeyeMQ" = "Erreur";
+"OqoxXr" = "Erreur";
+"MlTOyR" = "Erreur";
+"MV5qnw" = "Erreur";
+"MQFjcN" = "Erreur";
+"MJNm5V" = "Erreur";
+"L38oFp" = "Erreur";
+"HAs2nd" = "Erreur";
+"Gh4EUk" = "Erreur";
+"FKqcpu" = "Erreur";
+"DCalBq" = "Erreur";
+"93Iveh" = "Erreur";
+"8EWneU" = "Erreur";
+"8ALZr8" = "Erreur";
+"7f17i9" = "Erreur";
+"3t3jle" = "Erreur";
+"0Azo4z" = "Erreur";
+"yY1Jsm" = "Obtenir le MNC connecté de la carte SIM";
+"xrgyiu" = "Obtient le nom de l'opérateur connecté de l'eSIM";
+"xTCoZj" = "Obtient le nom de l'opérateur de la carte SIM";
+"xP2MtK" = "Obtenir le MNC actuel de la carte SIM";
+"wXZEg4" = "Obtenir le MCC actuel de la carte SIM";
+"vAupLV" = "${mnc}";
+"uyadiC" = "Devrait désactiver le Wi-Fi";
+"uxnl6z" = "${mnc}";
+"uMN4id" = "Obtient l'information si le Wi-Fi devrait être désactivé";
+"r8O3wK" = "${mnc}";
+"quHoq4" = "Retourne le MCC connecté de l'eSIM";
+"pCCCGn" = "${mnc}";
+"otXCnb" = "${bluetoothOff}";
+"oRIKao" = "${carrier}";
+"nyiPsg" = "Obtenir le MCC connecté de l'eSIM";
+"nBP2sV" = "${carrier}";
+"meVzRq" = "Opérateur";
+"mEGMS7" = "Retourne le MNC connecté de l'eSIM";
+"kguDl2" = "MNC";
+"kOVTA5" = "${carrier}";
+"k6KU3p" = "${carrier}";
+"k4c1my" = "${bluetoothOff}";
+"iWGbjo" = "${mnc}";
+"hfAwVs" = "Obtenir l'opérateur connecté de la carte eSIM";
+"gcoyev" = "MCC";
+"gFT6f9" = "${mnc}";
+"gF3HGn" = "${wifiOff}";
+"fDWnMB" = "Retourne le MCC connecté de la carte SIM";
+"ekMfTN" = "Obtient le nom de l'opérateur de l'eSIM";
+"eORP7u" = "Devrait désactiver le Wi-Fi";
+"e06Z3F" = "${carrier}";
+"dwErbz" = "Devrait désactiver le Bluetooth";
+"dZdBzs" = "${carrier}";
+"crpvx8" = "Obtenir le MCC actuel de la carte SIM";
+"cUXCL4" = "Bluetooth Désactivé";
+"cNspZr" = "Obtenir le MNC connecté de l'eSIM";
+"c4cAEx" = "${mcc}";
+"aRhK1Z" = "Obtient l'information si le Bluetooth devrait être désactivé";
+"Zcf0OF" = "${mcc}";
+"XbjKn4" = "Opérateur";
+"WVnEpv" = "Obtenir le MNC de l'eSIM";
+"WNaXUA" = "Obtenir le MCC de l'eSIM";
+"VxGSjY" = "Obtenir l'opérateur actuel de la carte SIM";
+"UsdRkv" = "${carrier}";
+"UbnCY5" = "${mcc}";
+"UCztsz" = "Retourne le MNC actuel de la carte eSIM";
+"TgfL2s" = "MNC";
+"Tfrt8U" = "Obtenir l'opérateur actuel de la carte SIM";
+"TTigOu" = "Obtenir le MCC de l'eSIM";
+"TQiKuD" = "Obtenir le MNC connecté de l'eSIM";
+"SRtjQJ" = "Obtenir l'opérateur connecté de la carte SIM";
+"SGjPPA" = "Obtenir le MCC connecté de la carte SIM";
+"S7a01Z" = "Obtenir l'opérateur connecté de la carte eSIM";
+"Rps2zf" = "${wifiOff}";
+"RUPJGp" = "${mcc}";
+"Q1etrY" = "${mcc}";
+"PGQ7BS" = "Wi-Fi Désactivé";
+"NodrLb" = "MCC";
+"L40ksf" = "Obtenir le MNC actuel de la carte SIM";
+"Irws4k" = "Retourne le MNC connecté de la carte SIM";
+"IeNhZ3" = "MCC";
+"IBlV3Z" = "Retourne le MCC actuel de la carte eSIM";
+"GFHUvV" = "Retourne le MCC de la carte SIM actuelle";
+"FasfHq" = "Obtenir l'opérateur eSIM";
+"EdcywG" = "Retourne le MNC de la carte SIM actuelle";
+"DNtRO8" = "MNC";
+"DGIqI4" = "MNC";
+"CtdaNC" = "Devrait désactiver le Bluetooth";
+"AuhMZS" = "${mnc}";
+"ASpnea" = "Obtenir le MCC connecté de la carte SIM";
+"9qzmdB" = "Opérateur";
+"9kZATJ" = "${carrier}";
+"9NMyrF" = "Obtient le nom de l'opérateur de la carte SIM actuelle";
+"7ys92x" = "Obtenir l'opérateur connecté de la carte SIM";
+"7ik6K4" = "${mnc}";
+"77HzjW" = "${mcc}";
+"5r3BiS" = "Obtenir le MNC de l'eSIM";
+"5Mu6E6" = "${mcc}";
+"4uO25q" = "Obtenir le MCC connecté de l'eSIM";
+"2bQPzt" = "${mcc}";
+"29814k" = "MCC";
+"1QMUJr" = "Obtenir le MNC connecté de la carte SIM";
+"1LgIwz" = "Obtenir l'opérateur eSIM";
+"0uja0J" = "Opérateur";

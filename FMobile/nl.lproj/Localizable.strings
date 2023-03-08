@@ -7,7 +7,7 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 4";
+"fmobile" = "FMobile 5";
 "reset_zones_done" = "Reset uitgevoerd";
 "reset_zones_done_description" = "Alle Femto en randzones zijn gereset.";
 "close" = "Sluit";
@@ -43,7 +43,7 @@
 "run_standard_setup" = "Start de standaardconfiguratie";
 "use_standard_setup" = "Gebruik de standaardconfiguratie";
 "warning_title" = "RESPONSIBILITEIT";
-"warning_description" = "BELANGRIJK: Deze toepassing wordt gratis en zonder garantie aangeboden. U bent er volledig verantwoordelijk voor, met andere woorden, alle schade die verband houdt met de toepassing valt onder uw exclusieve verantwoordelijkheid. Het is aan u om regelmatig het verbruik van de applicatie te controleren en uit te schakelen als u naar het buitenland gaat. Stuur mij uw facturen niet per e-mail, u krijgt geen terugbetaling (het lijkt voor sommigen misschien duidelijk, maar het is al gebeurd…)";
+"warning_description" = "BELANGRIJK: Deze toepassing wordt gratis en zonder garantie aangeboden. U bent er volledig verantwoordelijk voor, met andere woorden, alle schade die verband houdt met de toepassing valt onder uw exclusieve verantwoordelijkheid (met uitzondering van mobiele plannen, stroomverbruik, oververhitting, enz…). Het is aan u om regelmatig het verbruik van de applicatie te controleren en uit te schakelen als u naar het buitenland gaat. Stuur mij uw facturen niet per e-mail, u krijgt geen terugbetaling (het lijkt voor sommigen misschien duidelijk, maar het is al gebeurd…)";
 "uninstall" = "Deïnstalleer de applicatie";
 "accept_conditions" = "Ik accepteer deze voorwaarden";
 "first_update_succeeded" = "Het eerste updateproces was succesvol.";
@@ -111,7 +111,8 @@
 "included_internet" = "Alleen inclusief internet";
 "included_all" = "Alles is inbegrepen";
 "esim_not_connected" = "U bent niet verbonden met de eSIM";
-"esim_connected" = "Aangesloten op het eSIM-netwerk %@@";
+"esim_not_connected_searching" = "eSIM op zoek naar %@…";
+"esim_connected" = "eSIM aangesloten op: %@";
 "wifi_status" = "Wi-Fi: %@";
 "set_no_network" = "Definieer dit gebied zonder dekking";
 "no_network_zone_saved" = "Zone non couverte enregistrée";
@@ -166,7 +167,7 @@
 "old_ios_warning" = "iOS% @ mist belangrijke functies!";
 "old_ios_description" = "Deze apps werken het beste met de Apple Shortcuts-app, die alleen beschikbaar is op iOS 12 en hoger. Werk uw iOS-apparaat bij naar iOS 12 of een latere versie. Als uw iOS-apparaat iOS 13 kan uitvoeren, kunt u ook de FMobile-app bijwerken naar de nieuwste versie die is gemaakt voor iOS 13. Op uw iOS-versie zijn de bewerkingen om Roaming af te sluiten handmatig.";
 "location_denied" = "Locatietoegang geweigerd";
-"location_denied_description" = "FMobile 4 moet om technische en praktische redenen toegang hebben tot uw locatie om op de achtergrond te kunnen werken. U hebt besloten de permanente toegang tot uw locatiegegevens te weigeren. Houd er rekening mee dat geen van uw persoonlijke gegevens ooit ergens naartoe zal worden verzonden zonder uw uitdrukkelijke toestemming. Het instellen van de locatietoegang op \"Altijd\" wordt niet beschouwd als een expliciete toestemming: het laat de app alleen normaal op uw apparaat werken, lokaal. Houd er rekening mee dat FMobile 4 veel van zijn efficiëntie verliest als u de locatietoegang niet instelt op \"Altijd\".";
+"location_denied_description" = "FMobile 5 moet om technische en praktische redenen toegang hebben tot uw locatie om op de achtergrond te kunnen werken. U hebt besloten de permanente toegang tot uw locatiegegevens te weigeren. Houd er rekening mee dat geen van uw persoonlijke gegevens ooit ergens naartoe zal worden verzonden zonder uw uitdrukkelijke toestemming. Het instellen van de locatietoegang op \"Altijd\" wordt niet beschouwd als een expliciete toestemming: het laat de app alleen normaal op uw apparaat werken, lokaal. Houd er rekening mee dat FMobile 5 veel van zijn efficiëntie verliest als u de locatietoegang niet instelt op \"Altijd\".";
 "location_denied_change" = "Wijzig de locatie-instelling in \"Altijd\"";
 "location_denied_agree" = "Toegang tot locatie tijdelijk forceren";
 "location_denied_agree_forever" = "Toegang tot locatie permanent forceren";
@@ -174,7 +175,7 @@
 "location_ws_agree" = "Instelling \"Wanneer in gebruik\" tijdelijk forceren";
 "location_ws_agree_forever" = "Instelling \"Wanneer in gebruik\" permanent forceren";
 "location_accuracy_wrong_setting" = "Verkeerde Locatie nauwkeurigheid instelling";
-"location_accuracy_description" = "FMobile heeft een volledig nauwkeurige locatie nodig om goed te kunnen werken. FMobile zal niet werken zoals verwacht en kan onverwacht gedrag vertonen totdat u die instelling wijzigt. Uw locatiegegevens blijven altijd lokaal, tenzij u besluit om anoniem deel te nemen aan de dekkingskaart";
+"location_accuracy_description" = "FMobile heeft een volledig nauwkeurige locatie nodig om goed te kunnen werken. FMobile zal niet werken zoals verwacht en kan onverwacht gedrag vertonen totdat u die instelling wijzigt. Uw locatiegegevens blijven altijd lokaal, tenzij u besluit om anoniem deel te nemen aan de dekkingskaart.";
 "location_accuracy_change" = "Verandering in volledige nauwkeurigheid";
 "location_accuracy_agree" = "Houd verminderde nauwkeurigheid";
 "location_accuracy_agree_forever" = "Houd verminderde nauwkeurigheid voor altijd";
@@ -191,6 +192,8 @@
 "5G_unsupported" = "5G niet compatibel";
 "5G_unsupported_description" = "FMobile is nog niet klaar om 5G roaming te beheren. We zullen FMobile zo snel mogelijk updaten om deze technologie te ondersteunen. Uw instelling is nu opgeslagen, en zal worden toegepast zodra we de 5G ondersteuning activeren.";
 "ignore" = "Negeren";
+"shut_bluetooth" = "Schakel Bluetooth uit na ANIRC";
+"shut_wifi" = "Schakel Wi-Fi uit na ANIRC";
     // SpeedtestViewController
 "speedtest_view_title" = "Stroomtest";
 "speedtest_start" = "Opstarten";
@@ -246,7 +249,7 @@
 "preparation_inprogress" = "De voorbereiding is in volle gang…";
 "end_phonecall" = "Beëindig uw gesprek en probeer het opnieuw";
 "data_drain_notification_description" = "Klik om de cellulaire gegevens onmiddellijk te deactiveren, uw verbruik wordt overbelast. %@ %@";
-"data_drain_notification_description_g3" = "FMobile 4 heeft zojuist uw mobiele gegevens gedeactiveerd om overladen te voorkomen. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 5 heeft zojuist uw mobiele gegevens gedeactiveerd om overladen te voorkomen. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@) : Welkom!";
 "general_view_title" = "Instellingen";
 "map_view_title" = "Omslagkaart";
@@ -258,9 +261,25 @@
 "map_info_legend_edge_r" = "EDGE (Roaming)";
 "map_info_legend_gprs_r" = "GPRS (Roaming)";
 "map_info_legend_lte" = "4G";
+"map_info_legend_5g" = "5G";
+"map_info_legend_5g_r" = "5G (Roaming)";
 "map_info_legend_3g" = "3G";
 "map_info_legend_edge" = "EDGE";
 "map_info_legend_gprs" = "GPRS";
 "map_info_legend" = "Kaartlegenda";
 "map_info_carrier" = "Weergegeven operator";
 "map_info_title" = "Kaart informatie";
+"status_view_title" = "Toestand";
+"minaste_center" = "MINASTE Center (beta)";
+"install_fmobile" = "Als u wilt deelnemen aan de dekkingskaart, installeer dan de standaard FMobile app op een mobiel apparaat.";
+"LTE_roaming_not_certified" = "National Roaming 4G uncertificated";
+"LTE_roaming_not_certified_description" = "4G nationale roaming is niet gecertificeerd voor uw operator. Zorg ervoor dat u het alleen ontautoriseert als u er zeker van bent dat uw operator een 4G-roamingcontract heeft";
+"5G_roaming_not_certified" = "5G nationale roaming niet gecertificeerd";
+"5G_roaming_not_certified_description" = "5G nationale roaming is niet gecertificeerd voor uw operator. Zorg ervoor dat u het alleen decertificeren als u er zeker van bent dat uw operator een 5G-roamingcontract heeft";
+"confirm_activation" = "Bevestig de-autorisatie";
+"always_confirm_activation" = "Bevestigen en niet opnieuw vragen";
+"install_fwifi_desc" = "Easy Wi-Fi authentication";
+"install_fmobile_desc" = "The roaming management app";
+"install_apps" = "Installeren van andere apps";
+"map_carrier_title" = "Selecteer een drager";
+"fwifi" = "FWi-Fi";

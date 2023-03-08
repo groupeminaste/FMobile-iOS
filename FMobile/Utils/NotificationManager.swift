@@ -351,7 +351,7 @@ class NotificationManager {
             notification.fireDate = NSDate(timeIntervalSinceNow: TimeInterval(time)) as Date
             notification.soundName = UILocalNotificationDefaultSoundName
             
-            #if FMOBILE3
+            #if FMOBILE
             UIApplication.shared.scheduleLocalNotification(notification)
             #endif
         }

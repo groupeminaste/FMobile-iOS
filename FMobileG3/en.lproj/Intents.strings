@@ -1,198 +1,200 @@
 "07Bqfc" = "Error";
-
+"0Azo4z" = "Error";
+"0uja0J" = "Carrier";
+"1LgIwz" = "Get eSIM Carrier";
+"1QMUJr" = "Get SIM Connected MNC";
+"29814k" = "MCC";
 "2Ic8Is" = "Get SIM card MNC";
-
 "2O0Z0J" = "${roaming}";
-
+"2bQPzt" = "${mcc}";
 "37NcUM" = "Gets the status of a National Roaming connection. Returns 0/1.";
-
-"4EJB3z" = "Get SIM Carrier";
-
+"3t3jle" = "Error";
 "4PBnst" = "${carrier}";
-
 "4bknAw" = "Error";
-
 "4e5VzK" = "Returns the current MCC of the connected network";
-
+"4uO25q" = "Get eSIM Connected MCC";
 "5ELEwW" = "Airplane Mode Status";
-
 "5I4WMR" = "Returns the SIM card MNC";
-
+"5Mu6E6" = "${mcc}";
+"5r3BiS" = "Get eSIM MNC";
 "6OSdTz" = "Error";
-
 "6csoSr" = "Returns the SIM card MCC";
-
+"77HzjW" = "${mcc}";
+"7f17i9" = "Error";
+"7ik6K4" = "${mnc}";
+"7ys92x" = "Get SIM Connected Carrier";
+"8ALZr8" = "Error";
+"8EWneU" = "Error";
 "8F2iON" = "Cellular Connection Status";
-
+"93Iveh" = "Error";
 "9AoR98" = "${flightMode}";
-
-"9BJ3lX" = "Cellular Connection Status";
-
 "9G9ZgU" = "${carrier}";
-
+"9NMyrF" = "Gets the name of the current SIM card network";
+"9kZATJ" = "${carrier}";
+"9qzmdB" = "Carrier";
+"ASpnea" = "Get SIM Connected MCC";
+"AuhMZS" = "${mnc}";
 "BmKG1n" = "Get Current MCC";
-
 "CabRuh" = "${mnc}";
-
+"CtdaNC" = "Should Turn Bluetooth Off";
 "Cxh6DA" = "Get Current MNC";
-
-"DWAzah" = "Get SIM card MNC";
-
+"DCalBq" = "Error";
+"DGIqI4" = "MNC";
+"DNtRO8" = "MNC";
 "DdmfiG" = "Error";
-
+"EdcywG" = "Returns the current MNC of the current SIM card";
+"FKqcpu" = "Error";
+"FasfHq" = "Get eSIM Carrier";
 "FpX2L5" = "Get Current MNC";
-
+"GFHUvV" = "Returns the current MCC of the current SIM card";
 "GRNv06" = "${mnc}";
-
+"Gh4EUk" = "Error";
+"HAs2nd" = "Error";
+"IBlV3Z" = "Returns the current MCC of the eSIM card";
 "IT1l2g" = "Get Airplane Mode Status";
-
+"IeNhZ3" = "MCC";
 "InqGrV" = "Get SIM Carrier";
-
-"IqyWoq" = "Get Forbidden Roaming Status";
-
+"Irws4k" = "Returns the current MNC of the SIM card network";
 "JmoZDF" = "Get Current Carrier";
-
 "K6bzVl" = "Get SIM card MCC";
-
 "KSVtAz" = "${cellular}";
-
 "KT4ceM" = "Gets the current connected carrier name";
-
+"L38oFp" = "Error";
 "L3RtsF" = "${carrier}";
-
+"L40ksf" = "Get Current SIM MNC";
 "L6r1je" = "Error";
-
 "LNAh5b" = "Error";
-
+"MJNm5V" = "Error";
+"MQFjcN" = "Error";
+"MV5qnw" = "Error";
+"MlTOyR" = "Error";
+"NodrLb" = "MCC";
 "OJuy1p" = "MCC";
-
 "OK3cDF" = "Get Current MCC";
-
+"OqoxXr" = "Error";
+"PGQ7BS" = "Wi-Fi Off";
 "PLYmzh" = "Error";
-
+"Q1etrY" = "${mcc}";
 "Q5Jwtl" = "Get National Romaing Status";
-
 "R5EoMD" = "Error";
-
+"RUPJGp" = "${mcc}";
+"Rps2zf" = "${wifiOff}";
+"S7a01Z" = "Get eSIM Connected Carrier";
+"SGjPPA" = "Get SIM Connected MCC";
+"SRtjQJ" = "Get SIM Connected Carrier";
 "TKk3SA" = "Airplane Mode Status";
-
-"UH9up1" = "Get Current MCC";
-
+"TQiKuD" = "Get eSIM Connected MNC";
+"TTigOu" = "Get eSIM MCC";
+"TeyeMQ" = "Error";
+"Tfrt8U" = "Get Current SIM Carrier";
+"TgfL2s" = "MNC";
+"UCztsz" = "Returns the current MNC of the eSIM card";
+"UbnCY5" = "${mcc}";
+"Uc9Ppq" = "Error";
+"UsdRkv" = "${carrier}";
 "VO77Ks" = "${mcc}";
-
 "VhFC6Z" = "Error";
-
+"VxGSjY" = "Get Current SIM Carrier";
+"WNaXUA" = "Get eSIM MCC";
+"WVnEpv" = "Get eSIM MNC";
+"XbjKn4" = "Carrier";
 "Xk66YZ" = "${carrier}";
-
 "YmE9lQ" = "Wi-Fi Connection Status";
-
 "Yvwa99" = "Gets the name of the SIM card carrier";
-
 "Z5Q5Us" = "National Roaming";
-
-"ahmmhB" = "Get Current MNC";
-
-"aqaQK8" = "Get SIM card MCC";
-
+"Zcf0OF" = "${mcc}";
+"Zf7rCW" = "Error";
+"aRhK1Z" = "Gets the information if Bluetooth should be turned off";
 "bUv2SI" = "MCC";
-
 "c2PAzW" = "MNC";
-
+"c4cAEx" = "${mcc}";
 "c4k2kQ" = "Get SIM card MCC";
-
+"cNspZr" = "Get eSIM Connected MNC";
+"cUXCL4" = "Bluetooth Off";
 "cj3edn" = "${flightMode}";
-
+"crpvx8" = "Get Current SIM MCC";
 "cwTJKe" = "${roaming}";
-
-"d2ttat" = "Get Current Carrier";
-
 "dOs4t4" = "Checks forbidden roaming status";
-
+"dOuQ9j" = "Error";
+"dZdBzs" = "${carrier}";
 "daFk7V" = "Get SIM card MNC";
-
+"dhDenA" = "Error";
+"dwErbz" = "Should Turn Bluetooth Off";
+"e06Z3F" = "${carrier}";
+"eORP7u" = "Should Turn Wi-Fi Off";
+"ekMfTN" = "Gets the name of the eSIM card carrier";
 "ewYgMQ" = "${mnc}";
-
+"fDWnMB" = "Returns the current MCC of the SIM card network";
 "fLwUtT" = "${cellular}";
-
 "fiYRii" = "${mcc}";
-
 "g1HYTa" = "Error";
-
+"gF3HGn" = "${wifiOff}";
+"gFT6f9" = "${mnc}";
 "gGtAtZ" = "Error";
-
+"gcoyev" = "MCC";
 "h19Zqc" = "Roaming";
-
 "hDW63j" = "Error";
-
 "hJqUW5" = "${wifi}";
-
+"hfAwVs" = "Get eSIM Connected Carrier";
 "i1UfNg" = "Wi-Fi Connection Status";
-
-"i7nWTq" = "Get National Romaing Status";
-
-"i8YIPA" = "Airplane Mode Status";
-
+"i2hb4Q" = "Error";
+"iDBYNj" = "Error";
+"iWGbjo" = "${mnc}";
 "iWygLe" = "Checks if the device is connected to Wi-Fi";
-
+"ijI7Vn" = "Error";
 "inubuu" = "Get Current Carrier";
-
 "jJtlw3" = "Airplane Mode Status";
-
 "jRXlKB" = "${wifi}";
-
 "jUD9k1" = "Error";
-
 "jacx6j" = "MNC";
-
+"k4c1my" = "${bluetoothOff}";
+"k6KU3p" = "${carrier}";
 "k8b7Vd" = "Error";
-
+"kOVTA5" = "${carrier}";
 "keKkJG" = "Error";
-
+"kguDl2" = "MNC";
 "kjbMlw" = "Checks if the device is connected to Cellular";
-
 "m20RCM" = "Cellular Connection Status";
-
+"mEGMS7" = "Returns the current MNC of the eSIM network";
+"meVzRq" = "Carrier";
+"nBP2sV" = "${carrier}";
 "npPdKC" = "${mcc}";
-
+"nyiPsg" = "Get eSIM Connected MCC";
 "o3DgJm" = "Error";
-
 "oNUcPB" = "Returns the current MCC of the connected network";
-
+"oRIKao" = "${carrier}";
+"otXCnb" = "${bluetoothOff}";
+"pCCCGn" = "${mnc}";
 "pHYkHd" = "Carrier";
-
 "pQRBZP" = "Get SIM Carrier";
-
 "paFIqg" = "Error";
-
 "pxK0cA" = "${carrier}";
-
 "qW6cQD" = "Get Forbidden Roaming Status";
-
+"quHoq4" = "Returns the current MCC of the eSIM network";
+"qv74q8" = "Error";
+"r8O3wK" = "${mnc}";
 "riTDBK" = "Error";
-
+"rrxb4g" = "Error";
 "s0YZwR" = "Get Forbidden Roaming Status";
-
 "s4kvV0" = "Cellular connection";
-
 "sLkT1i" = "Error";
-
 "shaxdE" = "Error";
-
+"slEytG" = "Error";
 "tv807z" = "Get National Romaing Status";
-
+"uMN4id" = "Gets the information if the Wi-Fi should be turned off";
 "uOCw3O" = "Error";
-
+"uxnl6z" = "${mnc}";
+"uyadiC" = "Should Turn Wi-Fi Off";
+"vAupLV" = "${mnc}";
 "vv5HI8" = "Error";
-
 "wU6jLX" = "${mnc}";
-
-"xpTgr7" = "Wi-Fi Connection Status";
-
+"wXZEg4" = "Get Current SIM MCC";
+"xP2MtK" = "Get Current SIM MNC";
+"xTCoZj" = "Gets the name of the current SIM card carrier";
 "xqcFOJ" = "${carrier}";
-
+"xrgyiu" = "Gets the name of the current eSIM network";
 "y9r5ho" = "Wi-Fi connection";
-
 "yTa07U" = "${mcc}";
-
+"yY1Jsm" = "Get SIM Connected MNC";
 "yzYR7B" = "Carrier";
-
+"zLdk8p" = "Error";

@@ -9,6 +9,10 @@
 import Foundation
 
 class CarrierIdentification {
+    
+    static let europe = ["FR", "DE", "AT", "BE", "BG", "CY", "HR", "DK", "ES", "EE", "FI", "GI", "GR", "HU", "IE", "IS", "IT", "LV", "LI", "LT", "LU", "MT", "NO", "NL", "PL", "PT", "CZ", "RO", "SK", "SI", "SE", "GP", "GF", "MQ", "YT", "RE", "BL", "MF"]
+    
+    static let europeland = ["FR", "DE", "AT", "BE", "BG", "CY", "HR", "DK", "ES", "EE", "FI", "GI", "GR", "HU", "IE", "IS", "IT", "LV", "LI", "LT", "LU", "MT", "NO", "NL", "PL", "PT", "CZ", "RO", "SK", "SI", "SE"]
 
     static func getIsoCountryCode (_ country : String, _ mnc : String) -> String {
         let dictCodes = [
@@ -307,7 +311,7 @@ class CarrierIdentification {
             valueToReturn = "MP"
         }
         
-        return valueToReturn
+        return valueToReturn.uppercased()
     }
 
 }

@@ -18,9 +18,14 @@ class CoverageManager {
     // Sending status
     static var sending = false
     
+    // Last APIRequest instance
+    private static var lastRequest: APIRequest?
+    
+    #if !FMOBILECOVERAGE
     // Send current data
     static func addCurrentCoverageData(_ dataManager: DataManager = DataManager(), isRoaming: Bool = false, aboard: Bool = false) {
         // Check if user has accepted coverage map
+        print("COVERAGE MAP CALLED")
         if dataManager.coveragemap {
             // Get location manager and user location
             let locationManager = CLLocationManager()
@@ -32,80 +37,86 @@ class CoverageManager {
             }
             
             // Check if location is valid
-            if let location = locationManager.location, location.horizontalAccuracy >= 0 {
-                // Get informations
-                let latitude = location.coordinate.latitude
-                let longitude = location.coordinate.longitude
-                var home = "\(dataManager.targetMCC)-\(dataManager.targetMNC)"
-                var connected = "\(dataManager.connectedMCC)-\(isRoaming ? dataManager.itiMNC : dataManager.connectedMNC)"
-                var connected_protocol: String
+            if let location = locationManager.location, location.horizontalAccuracy >= 0, location.coordinate.latitude != 0, location.coordinate.longitude != 0 {
                 
-                switch dataManager.carrierNetwork {
-                case CTRadioAccessTechnologyLTE:
-                    connected_protocol = "LTE"
-                case CTRadioAccessTechnologyWCDMA:
-                    connected_protocol = "WCDMA"
-                case CTRadioAccessTechnologyHSDPA:
-                    connected_protocol = "HSDPA"
-                case CTRadioAccessTechnologyEdge:
-                    connected_protocol = "Edge"
-                case CTRadioAccessTechnologyGPRS:
-                    connected_protocol = "GPRS"
-                case CTRadioAccessTechnologyeHRPD:
-                    connected_protocol = "eHRPD"
-                case CTRadioAccessTechnologyHSUPA:
-                    connected_protocol = "HSUPA"
-                case CTRadioAccessTechnologyCDMA1x:
-                    connected_protocol = "CDMA"
-                case CTRadioAccessTechnologyCDMAEVDORev0:
-                    connected_protocol = "CDMAEvDoRev0"
-                case CTRadioAccessTechnologyCDMAEVDORevA:
-                    connected_protocol = "CDMAEvDoRevA"
-                case CTRadioAccessTechnologyCDMAEVDORevB:
-                    connected_protocol = "CDMAEvDoRevA"
-                default:
-                    connected_protocol = "UNKNOWN" // In the short run, this will probably be 5G.
-                }
-                
-                // Adding 5G support for sending only
-                if #available(iOS 14.1, *) {
-                    if dataManager.carrierNetwork == CTRadioAccessTechnologyNR {
-                        connected_protocol = "NR"
-                    }
-                    if dataManager.carrierNetwork == CTRadioAccessTechnologyNRNSA {
-                        connected_protocol = "NRNSA"
-                    }
-                }
-                
-                if dataManager.carrierNetwork.isEmpty || dataManager.carrierNetwork == "" {
-                    connected_protocol = "NONETWORK"
-                }
-                
-                connected_protocol = connected_protocol.uppercased()
-                
-                // Check for dashes to replace
-                if home == "------" && connected != "------" {
-                    // Set home to connected value (cause home is not defined)
-                    home = connected
-                }
-                if home != "------" && connected == "------" {
-                    // Set connected to home or F-Contact value (cause connected is not defined)
-                    if dataManager.simData != "------" {
-                        connected = "999-999"
-                    } else {
-                        connected = home
-                    }
-                }
-                
-                // Check values
-                if latitude != 0 && longitude != 0 && home != "------" && connected != "------" {
-                    // Add to list
-                    print("ABOUT TO SEND \(home) \(connected) \(connected_protocol) on location \(latitude) \(longitude)")
-                    insertInDatabase(item: CoveragePoint(latitude: latitude, longitude: longitude, home: home, connected: connected, connected_protocol: connected_protocol))
+                for service in dataManager.simtrays {
+                    // Get informations
+                    let latitude = location.coordinate.latitude
+                    let longitude = location.coordinate.longitude
+                    var home = "\(service.card.mcc)-\(service.card.mnc)"
+                    var connected = "\(service.network.mcc)-\(isRoaming ? service.card.itiMNC : service.network.mnc)"
+                    var connected_protocol = String()
                     
-                    // Flush
-                    flushList(aboard: aboard)
+                    if #available(iOS 14.1, *) {
+                        if service.network.connected == CTRadioAccessTechnologyNR {
+                            connected_protocol = "NR"
+                        } else if service.network.connected == CTRadioAccessTechnologyNRNSA {
+                            connected_protocol = "NRNSA"
+                        }
+                    }
+                    
+                    if connected_protocol.isEmpty {
+                        switch service.network.connected {
+                        case CTRadioAccessTechnologyLTE:
+                            connected_protocol = "LTE"
+                        case CTRadioAccessTechnologyWCDMA:
+                            connected_protocol = "WCDMA"
+                        case CTRadioAccessTechnologyHSDPA:
+                            connected_protocol = "HSDPA"
+                        case CTRadioAccessTechnologyEdge:
+                            connected_protocol = "Edge"
+                        case CTRadioAccessTechnologyGPRS:
+                            connected_protocol = "GPRS"
+                        case CTRadioAccessTechnologyeHRPD:
+                            connected_protocol = "eHRPD"
+                        case CTRadioAccessTechnologyHSUPA:
+                            connected_protocol = "HSUPA"
+                        case CTRadioAccessTechnologyCDMA1x:
+                            connected_protocol = "CDMA"
+                        case CTRadioAccessTechnologyCDMAEVDORev0:
+                            connected_protocol = "CDMAEvDoRev0"
+                        case CTRadioAccessTechnologyCDMAEVDORevA:
+                            connected_protocol = "CDMAEvDoRevA"
+                        case CTRadioAccessTechnologyCDMAEVDORevB:
+                            connected_protocol = "CDMAEvDoRevB"
+                        default:
+                            connected_protocol = "UNKNOWN" // In the short run, this will probably be 5G.
+                        }
+                    }
+                    
+                    if service.network.connected.isEmpty || service.network.connected == "" {
+                        connected_protocol = "NONETWORK"
+                    }
+                    
+                    connected_protocol = connected_protocol.uppercased()
+                    
+                    // Check for dashes to replace
+                    if home == "------" && connected != "------" {
+                        // Set home to connected value (cause home is not defined)
+                        home = connected
+                    }
+                    if home != "------" && connected == "------" {
+                        // Set connected to home or F-Contact value (cause connected is not defined)
+                        if service.card.data != "------" {
+                            connected = "999-999"
+                        } else {
+                            connected = home
+                        }
+                    }
+                    
+                    print("PRE - ABOUT TO SEND \(home) \(connected) \(connected_protocol) on location \(latitude) \(longitude)")
+                    
+                    // Check values
+                    if latitude != 0 && longitude != 0 && home != "------" && connected != "------" {
+                        // Add to list
+                        print("ABOUT TO SEND \(home) \(connected) \(connected_protocol) on location \(latitude) \(longitude)")
+                        insertInDatabase(item: CoveragePoint(latitude: latitude, longitude: longitude, home: home, connected: connected, connected_protocol: connected_protocol))
+                        
+                    }
                 }
+                
+                // Flush
+                flushList(aboard: aboard)
             }
         }
     }
@@ -159,10 +170,10 @@ class CoverageManager {
     static func clearDatabase() {
         let context: NSManagedObjectContext
         if #available(iOS 10.0, *) {
-            context = RoamingManager.persistentContainer.viewContext
+            context = PermanentStorage.persistentContainer.viewContext
         } else {
             // Fallback on earlier versions
-            context = RoamingManager.managedObjectContext
+            context = PermanentStorage.managedObjectContext
         }
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Coverage")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
@@ -181,10 +192,10 @@ class CoverageManager {
     static func insertInDatabase(item: CoveragePoint) {
         let context: NSManagedObjectContext
         if #available(iOS 10.0, *) {
-            context = RoamingManager.persistentContainer.viewContext
+            context = PermanentStorage.persistentContainer.viewContext
         } else {
             // Fallback on earlier versions
-            context = RoamingManager.managedObjectContext
+            context = PermanentStorage.managedObjectContext
         }
         guard let entity = NSEntityDescription.entity(forEntityName: "Coverage", in: context) else {
             print("Error: Coverage entity not found in Database!")
@@ -201,7 +212,7 @@ class CoverageManager {
         
         context.performAndWait({
             let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Coverage")
-            deleteFetch.predicate = NSPredicate(format: "(latitude == %lf) AND (longitude == %lf)", latitude, longitude)
+            deleteFetch.predicate = NSPredicate(format: "(latitude == %lf) AND (longitude == %lf) AND (home == %@) AND (connected == %@)", latitude, longitude, item.home ?? "------", item.connected ?? "------")
             deleteFetch.returnsObjectsAsFaults = false
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
             do {
@@ -236,10 +247,10 @@ class CoverageManager {
     static func retrieveDatabase() -> [CoveragePoint] {
         let context: NSManagedObjectContext
         if #available(iOS 10.0, *) {
-            context = RoamingManager.persistentContainer.viewContext
+            context = PermanentStorage.persistentContainer.viewContext
         } else {
             // Fallback on earlier versions
-            context = RoamingManager.managedObjectContext
+            context = PermanentStorage.managedObjectContext
         }
         
         var CoveragePoints = [CoveragePoint]()
@@ -266,14 +277,18 @@ class CoverageManager {
         
         return CoveragePoints
     }
+    #endif
     
     // Get points from the server, centered on a location with a radius
-    static func getCoverage(center: CLLocationCoordinate2D, radius: Double, completionHandler: @escaping (CoverageMap?) -> ()) {
+    static func getCoverage(center: CLLocationCoordinate2D, radius: Double, protocols: [String], completionHandler: @escaping (CoverageMap?) -> ()) {
         // Check API configuration
         APIConfiguration.check()
         
+        // Cancel last request if needed
+        lastRequest?.cancel()
+        
         // Query API
-        APIRequest("GET", path: "/coverage/map.php").with(name: "latitude", value: center.latitude).with(name: "longitude", value: center.longitude).with(name: "radius", value: radius).execute(CoverageMap.self) { data, _ in
+        lastRequest = APIRequest("GET", path: "/coverage/map.php").with(name: "latitude", value: center.latitude).with(name: "longitude", value: center.longitude).with(name: "radius", value: radius).with(name: "protocols", value: protocols.joined(separator: ",")).execute(CoverageMap.self) { data, _ in
             // Return data
             completionHandler(data)
         }

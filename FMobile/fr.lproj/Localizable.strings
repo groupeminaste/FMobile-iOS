@@ -7,7 +7,7 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 4";
+"fmobile" = "FMobile 5";
 "reset_zones_done" = "Réinitialisation effectuée";
 "reset_zones_done_description" = "Toutes les zones de Femto et ran-sharing ont étés réinitialisés.";
 "close" = "Fermer";
@@ -43,7 +43,7 @@
 "run_standard_setup" = "Lancer la configuration standard";
 "use_standard_setup" = "Utiliser la configuration standard";
 "warning_title" = "RESPONSABILITÉ";
-"warning_description" = "IMPORTANT : Cette application est fournie gratuitement sans garantie. Vous en êtes entièrement responsable, autrement dit tous les dommages liés à l'application sont sous votre responsabilité exclusivement. C'est à vous de régulièrement vérifier la consommation de l'application et de la désactiver lorsque vous partez à l'étranger. Ne venez pas m'envoyer vos factures par mail, vous n'obtiendrez aucun remboursement (ça peut paraître évident pour certains mais c'est déjà arrivé…)";
+"warning_description" = "IMPORTANT : Cette application est fournie gratuitement sans garantie. Vous en êtes entièrement responsable, autrement dit tous les dommages liés à l'application sont sous votre responsabilité exclusivement (hors-forfait mobile, consommation électrique, surchauffe, etc…). C'est à vous de régulièrement vérifier la consommation de l'application et de la désactiver lorsque vous partez à l'étranger. Ne venez pas m'envoyer vos factures par mail, vous n'obtiendrez aucun remboursement (ça peut paraître évident pour certains mais c'est déjà arrivé…)";
 "uninstall" = "Désinstaller l'application";
 "accept_conditions" = "J'accepte ces conditions";
 "first_update_succeeded" = "Le processus de mise à jour initial a réussi.";
@@ -111,7 +111,8 @@
 "included_internet" = "Inclus Internet uniquement";
 "included_all" = "Tout est inclus";
 "esim_not_connected" = "Vous n'êtes pas connecté sur l'eSIM";
-"esim_connected" = "Connecté au réseau eSIM %@";
+"esim_not_connected_searching" = "eSIM recherche de %@…";
+"esim_connected" = "eSIM connectée : %@";
 "wifi_status" = "Wi-Fi : %@";
 "set_no_network" = "Définir cette zone sans couverture";
 "no_network_zone_saved" = "Zone non couverte enregistrée";
@@ -161,11 +162,11 @@
 "donate_unable_description" = "Allons droit au but.\nVous ne pouvez pas donner ici.\n\nApple nous empêche d'accepter des dons car ils nous obligent, conformément à leurs directives, à utiliser les achats intégrés. On vous arrête tout de suite, bien sûr que la taxe de 30% de ce système de paiement est très frustrante pour une petite association à but non lucratif, et nous ne pensons pas qu'il soit moralement acceptable de rendre Apple plus riche grâce au secteur à but non-lucratif, mais ce n'est pas le point de blocage.\n\nNous sommes une association loi 1901, et nous devons délivrer des certificats de dons avec votre identité. Apple iAP envoie uniquement une simple facture, qui ne peut pas être utilisée comme document officiel.\n\nNous avons fait un pas dans la direction d'Apple, en incluant les deux systèmes dans l'application, en demandant aux citoyens français de passer à la plateforme nationale de dons HelloAsso. Ils ont toujours refusé, car ils veulent que 100% des dons transitent par iAP, ce que nous ne pouvons pas faire légalement en raison de notre statut d'association.\n\nFace au manque de coopération et de compréhension de notre situation de la part d'Apple, nous avons décidé de supprimer les dons intégrés à l'application, y compris via iAP, pour le monde entier. Vous pourriez remercier Apple pour ses directives vous empêchant d'aider les organisations à but non lucratif à créer pour vous d'autres services à vie 100% gratuits, mais le plus important pour nous, à tout moment, est que vous appréciez l'application gratuite et qu'elle ait une réelle utilité pour vous.\n\nNe vous inquiétez pas pour le don, nous survivrons quel que soit le bâton qu'Apple lance sur nos roues.";
 "donate_description" = "Quoi qu'il arrive, FMobile restera gratuite et sans publicités. Le don est une manière de me remercier pour l'app, même si je suis déjà super content si vous ne faites que me donner vos retours. Vous contribuerez au financement de mon projet Extopy. Merci de bien tester l'application et soyez sûr et certain de vouloir me de laisser un tip avant de le faire.";
 "ok" = "OK";
-"statistics_agreement" = "Participer à l'enquête 208 16";
+"statistics_agreement" = "Participer à l'enquête 208-16";
 "old_ios_warning" = "iOS %@ manque de fonctinonalités importantes !";
 "old_ios_description" = "Cette application fonctionne au mieux avec l'application Raccourcis d'Apple, qui n'est disponible que dans iOS 12 et plus. Merci de mettre à jour votre appareil vers iOS 12 ou version supérieure. Si votre appareil supporte iOS 13, vous pourrez également mettre à jour FMobile vers sa dernière version créée pour iOS 13. Sur votre version actuelle, les opérations pour sortir de l'itinérance sont manuelles.";
 "location_denied" = "Accès à la localisation refusé";
-"location_denied_description" = "FMobile 4 doit avoir accès à votre localisation pour des raisons techniques et pratiques, afin de pouvoir s'éxécuter en arrière-plan. Vous avez décidé de refuser l'accès permanent à la localisation. Notez que vos données personnelles ne sortiront de votre appareil sans votre consentement explicite. Choisir \"Toujours\" comme réglage d'accès à la localisation n'est pas considéré comme un consentement explicite à quelconque collecte de données : cela permet uniquement à l'application de fonctionner normalement sur votre appareil, localement. Soyez averti que FMobile 4 va perdre beaucoup de son efficacité si vous ne réglez pas l'accès à la localisation sur \"Toujours\".";
+"location_denied_description" = "FMobile 5 doit avoir accès à votre localisation pour des raisons techniques et pratiques, afin de pouvoir s'éxécuter en arrière-plan. Vous avez décidé de refuser l'accès permanent à la localisation. Notez que vos données personnelles ne sortiront de votre appareil sans votre consentement explicite. Choisir \"Toujours\" comme réglage d'accès à la localisation n'est pas considéré comme un consentement explicite à quelconque collecte de données : cela permet uniquement à l'application de fonctionner normalement sur votre appareil, localement. Soyez averti que FMobile 5 va perdre beaucoup de son efficacité si vous ne réglez pas l'accès à la localisation sur \"Toujours\".";
 "location_denied_change" = "Mettre l'accès à localisation sur \"Toujours\"";
 "location_denied_agree" = "Forcer le refus d'accès à la localisation";
 "location_denied_agree_forever" = "Mémoriser et forcer le refus d'accès";
@@ -190,6 +191,8 @@
 "5G_unsupported" = "5G incompatible";
 "5G_unsupported_description" = "FMobile n'est pas encore prêt à gérer l'itinérance 5G. Nous mettrons à jour FMobile dès que possible pour apporter le support de cette technologie. Votre réglage est maintenant enregistré, et sera appliqué dès que nous aurons activé le support de la 5G.";
 "ignore" = "Ignorer";
+"shut_bluetooth" = "Désactiver le Bluetooth après ANIRC";
+"shut_wifi" = "Désactiver le Wi-Fi après ANIRC";
     // SpeedtestViewController
 "speedtest_view_title" = "Test de débit";
 "speedtest_start" = "Démarrer";
@@ -245,7 +248,7 @@
 "preparation_inprogress" = "Préparation en cours…";
 "end_phonecall" = "Veuillez terminer votre conversation puis réessayez";
 "data_drain_notification_description" = "Cliquez pour désactiver immédiatement les données cellulaires, votre consommation est surtaxée. %@ %@";
-"data_drain_notification_description_g3" = "FMobile 4 vient de désactiver vos données cellulaires pour éviter la surfacturation. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 5 vient de désactiver vos données cellulaires pour éviter la surfacturation. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@) : Bienvenue !";
 "general_view_title" = "Réglages";
 "reset_countries_done_title" = "Les pays ont été réinitialisé";
@@ -258,9 +261,25 @@
 "map_info_legend_edge" = "EDGE";
 "map_info_legend_3g" = "3G";
 "map_info_legend_lte" = "4G";
+"map_info_legend_5g" = "5G";
+"map_info_legend_5g_r" = "5G (Itinérance)";
 "map_info_legend_gprs_r" = "GPRS (Itinérance)";
 "map_info_legend_edge_r" = "EDGE (Itinérance)";
 "map_info_legend_3g_r" = "3G (Itinérance)";
 "map_info_legend_lte_r" = "4G (Itinérance)";
 "map_info_legend_nonetwork" = "Aucun service";
 "map_info_legend_unknown" = "Inconnu";
+"status_view_title" = "Statut";
+"minaste_center" = "Centrale MINASTE (beta)";
+"install_fmobile" = "Si vous voulez participer à la carte de couverture, veuillez installer l'application standard FMobile sur un appareil disposant de capacités cellulaires.";
+"LTE_roaming_not_certified" = "Itinérance nationale 4G non certifiée";
+"LTE_roaming_not_certified_description" = "L'itinérance nationale 4G n'a pas été certifiée pour votre opérateur. Assurez vous de la désautoriser uniquement si vous êtes certain que votre opérateur dispose d'un contrat d'itinérance 4G.";
+"5G_roaming_not_certified" = "Itinérance nationale 5G non certifiée";
+"5G_roaming_not_certified_description" = "L'itinérance nationale 5G n'a pas été certifiée pour votre opérateur. Assurez vous de la désautoriser uniquement si vous êtes certain que votre opérateur dispose d'un contrat d'itinérance 5G.";
+"confirm_activation" = "Confirmer la désautorisation";
+"always_confirm_activation" = "Confirmer et ne plus demander";
+"install_fwifi_desc" = "Authentification Wi-Fi facile";
+"install_fmobile_desc" = "L'app de gestion d'itinérance";
+"install_apps" = "Installer d'autres apps";
+"map_carrier_title" = "Sélectionner un opérateur";
+"fwifi" = "FWi-Fi";

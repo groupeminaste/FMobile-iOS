@@ -45,14 +45,17 @@ class LegendTableViewCell: UITableViewCell {
     func with(current: CoverageLegend) -> LegendTableViewCell {
         label.text = current.name.localized()
         color.backgroundColor = current.color
+        accessoryType = current.selected ? .checkmark : .none
         
         return self
     }
     
+    #if !targetEnvironment(macCatalyst)
     @available(iOS, obsoleted: 13.0)
     func with(current: CoverageLegend, darkMode: Bool) -> LegendTableViewCell {
         label.text = current.name.localized()
         color.backgroundColor = current.color
+        accessoryType = current.selected ? .checkmark : .none
     
         if darkMode {
             backgroundColor = CustomColor.darkBackground
@@ -63,5 +66,6 @@ class LegendTableViewCell: UITableViewCell {
         }
         return self
     }
+    #endif
 
 }

@@ -86,6 +86,14 @@ class CoveragePoint: Codable {
         }
         
         // Standard
+        // 5G NR
+        if connected_protocol == "NR".uppercased() && !isRoaming {
+            return UIColor(red: 200/255, green: 0/255, blue: 195/255, alpha: 0.8) // Very strong purple
+        }
+        // 5G NR NSA
+        if connected_protocol == "NRNSA".uppercased() && !isRoaming {
+            return UIColor(red: 200/255, green: 0/255, blue: 195/255, alpha: 0.8) // Very strong purple
+        }
         // LTE
         if connected_protocol == "LTE".uppercased() && !isRoaming {
             return UIColor(red: 0/255, green: 204/255, blue: 0/255, alpha: 0.75) // Strong green
@@ -106,17 +114,25 @@ class CoveragePoint: Codable {
         if connected_protocol == "GPRS".uppercased() && !isRoaming{
             return UIColor(red: 153/255, green: 255/255, blue: 255/255, alpha: 0.4) // Super light blue
         }
+        // 5G NR R
+        if connected_protocol == "NR".uppercased() && isRoaming {
+            return UIColor(red: 201/255, green: 122/255, blue: 4/255, alpha: 0.8) // Very Strong yellow
+        }
+        // 5G NR NSA R
+        if connected_protocol == "NRNSA".uppercased() && isRoaming {
+            return UIColor(red: 201/255, green: 122/255, blue: 4/255, alpha: 0.8) // Very Strong yellow
+        }
         // LTE R
         if connected_protocol == "LTE".uppercased() && isRoaming {
-            return UIColor(red: 255/255, green: 255/255, blue: 51/255, alpha: 0.75) // Strong yellow
+            return UIColor(red: 255/255, green: 160/255, blue: 110/255, alpha: 0.75) // Strong yellow
         }
         // WCDMA R
         if connected_protocol == "WCDMA".uppercased() && isRoaming {
-            return UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.6) // Clear orange
+            return UIColor(red: 190/255, green: 153/255, blue: 51/255, alpha: 0.6) // Clear orange
         }
         // HSDPA R
         if connected_protocol == "HSDPA".uppercased() && isRoaming {
-            return UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.6) // Clear orange
+            return UIColor(red: 190/255, green: 153/255, blue: 51/255, alpha: 0.6) // Clear orange
         }
         // EDGE R
         if connected_protocol == "EDGE".uppercased() && isRoaming{
@@ -156,27 +172,27 @@ class CoveragePoint: Codable {
         // Roaming specific protocols (all in clear orange)
         // eHRPD R
         if connected_protocol == "EHRPD".uppercased() && isRoaming {
-            return UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.6)
+            return UIColor(red: 190/255, green: 153/255, blue: 51/255, alpha: 0.6)
         }
         // HSUPA R
         if connected_protocol == "HSUPA".uppercased() && isRoaming {
-            return UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.6)
+            return UIColor(red: 190/255, green: 153/255, blue: 51/255, alpha: 0.6)
         }
         // CDMA R
         if connected_protocol == "CDMA".uppercased() && isRoaming {
-            return UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.6)
+            return UIColor(red: 190/255, green: 153/255, blue: 51/255, alpha: 0.6)
         }
         // CDMA EvDo Rev 0 R
         if connected_protocol == "CDMAEvDoRev0".uppercased() && isRoaming {
-            return UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.6)
+            return UIColor(red: 190/255, green: 153/255, blue: 51/255, alpha: 0.6)
         }
         // CDMA EvDo Rev A R
         if connected_protocol == "CDMAEvDoRevA".uppercased() && isRoaming {
-            return UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.6)
+            return UIColor(red: 190/255, green: 153/255, blue: 51/255, alpha: 0.6)
         }
         // CDMA EvDo Rev B R
         if connected_protocol == "CDMAEvDoRevA".uppercased() && isRoaming {
-            return UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.6)
+            return UIColor(red: 190/255, green: 153/255, blue: 51/255, alpha: 0.6)
         }
         
         // Default

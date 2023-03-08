@@ -7,30 +7,14 @@
 //
 
 import UIKit
+#if FMOBILECOVERAGE
+import GroupeMINASTE
+#endif
 
-class MapInfoTableViewController: UITableViewController {
+class MapInfoTableViewController: UITableViewController, MapInfoContainer {
     
     // Delegate
     weak var delegate: MapCarrierContainer?
-    
-    // Legend data
-    let legend = [
-        // Standard
-        CoverageLegend(name: "map_info_legend_gprs", color: UIColor(red: 153/255, green: 255/255, blue: 255/255, alpha: 0.4)),
-        CoverageLegend(name: "map_info_legend_edge", color: UIColor(red: 51/255, green: 255/255, blue: 255/255, alpha: 0.5)),
-        CoverageLegend(name: "map_info_legend_3g", color: UIColor(red: 178/255, green: 255/255, blue: 102/255, alpha: 0.6)),
-        CoverageLegend(name: "map_info_legend_lte", color: UIColor(red: 0/255, green: 204/255, blue: 0/255, alpha: 0.75)),
-        
-        // Roaming
-        CoverageLegend(name: "map_info_legend_gprs_r", color: UIColor(red: 255/255, green: 102/255, blue: 102/255, alpha: 0.4)),
-        CoverageLegend(name: "map_info_legend_edge_r", color: UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.5)),
-        CoverageLegend(name: "map_info_legend_3g_r", color: UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.6)),
-        CoverageLegend(name: "map_info_legend_lte_r", color: UIColor(red: 255/255, green: 255/255, blue: 51/255, alpha: 0.75)),
-        
-        // Unknown
-        CoverageLegend(name: "map_info_legend_nonetwork", color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.75)),
-        CoverageLegend(name: "map_info_legend_unknown", color: UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 0.75))
-    ]
     
     // Currently selected carrier
     var current: CarrierConfiguration?
@@ -41,7 +25,10 @@ class MapInfoTableViewController: UITableViewController {
         // On enregistre les cellules
         tableView.register(CarrierSelectionTableViewCell.self, forCellReuseIdentifier: "carrierCell")
         tableView.register(LegendTableViewCell.self, forCellReuseIdentifier: "legendCell")
+        tableView.register(ButtonTableViewCell.self, forCellReuseIdentifier: "buttonCell")
+        tableView.register(AppTableViewCell.self, forCellReuseIdentifier: "appCell")
         
+        #if !targetEnvironment(macCatalyst)
         if #available(iOS 13.0, *) {} else {
             // Ecoute les changements de couleurs
             NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
@@ -50,59 +37,186 @@ class MapInfoTableViewController: UITableViewController {
             // On initialise les couleurs
             isDarkMode() ? enableDarkMode() : disableDarkMode()
         }
-
+        #endif
+        
         // Navigation bar
         title = "map_info_title".localized()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(close(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(close(_:)))
+    }
+    
+    func reloadInformation() {
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
+        #if FMOBILECOVERAGE
+        return 4
+        #else
         return 2
+        #endif
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        #if FMOBILECOVERAGE
+        if section == 0 {
+            return "install_fmobile".localized()
+        }
+        #endif
+        return ""
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        #if FMOBILECOVERAGE
+        if section == 2 {
+            return "install_apps".localized()
+        } else if section == 3 {
+            return ""
+        }
+        #endif
         return section == 0 ? "map_info_carrier".localized() : "map_info_legend".localized()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 1 : legend.count
+        #if FMOBILECOVERAGE
+        if section == 2 {
+            return 2
+        } else if section == 3 {
+            return 1
+        }
+        #endif
+        return section == 0 ? 1 : CoverageLegend.legend.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             // Put it into the cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "carrierCell", for: indexPath) as! CarrierSelectionTableViewCell
+            #if targetEnvironment(macCatalyst)
+            return cell.with(carrier: delegate?.current)
+            #else
             if #available(iOS 13.0, *) {
-                return cell.with(delegate: delegate)
+                return cell.with(carrier: delegate?.current)
             } else {
-                return cell.with(delegate: delegate, darkMode: isDarkMode())
+                return cell.with(carrier: delegate?.current, darkMode: isDarkMode())
             }
+            #endif
         } else if indexPath.section == 1 {
             // Get legend data
-            let current = legend[indexPath.row]
+            let current = CoverageLegend.legend[indexPath.row]
             
             // Put it into the cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "legendCell", for: indexPath) as! LegendTableViewCell
+            #if targetEnvironment(macCatalyst)
+            return cell.with(current: current)
+            #else
             if #available(iOS 13.0, *) {
                 return cell.with(current: current)
             } else {
                 return cell.with(current: current, darkMode: isDarkMode())
             }
+            #endif
         }
+        #if FMOBILECOVERAGE
+        if indexPath.section == 2 {
+            // Check element
+            if indexPath.row == 0 {
+                // Install FMobile
+                let handler: ((UIButton) -> Void) = { _ in
+                    
+                }
+                
+                #if targetEnvironment(macCatalyst)
+                return (tableView.dequeueReusableCell(withIdentifier: "appCell", for: indexPath) as! AppTableViewCell).with(name: "fmobile".localized(), desc: "install_fmobile_desc".localized(), icon: UIImage(named: "IMG_4533"), handler: handler)
+                #else
+                if #available(iOS 13.0, *) {
+                    return (tableView.dequeueReusableCell(withIdentifier: "appCell", for: indexPath) as! AppTableViewCell).with(name: "fmobile".localized(), desc: "install_fmobile_desc".localized(), icon: UIImage(named: "IMG_4533"), handler: handler)
+                } else {
+                    return (tableView.dequeueReusableCell(withIdentifier: "appCell", for: indexPath) as! AppTableViewCell).with(name: "fmobile".localized(), desc: "install_fmobile_desc".localized(), icon: UIImage(named: "IMG_4533"), handler: handler, darkMode: isDarkMode())
+                }
+                #endif
+            } else if indexPath.row == 1 {
+                // Install FWi-Fi
+                let handler: ((UIButton) -> Void) = { _ in
+                    
+                }
+                
+                #if targetEnvironment(macCatalyst)
+                return (tableView.dequeueReusableCell(withIdentifier: "appCell", for: indexPath) as! AppTableViewCell).with(name: "fwifi".localized(), desc: "install_fwifi_desc".localized(), icon: UIImage(named: "fwifi"), handler: handler)
+                #else
+                if #available(iOS 13.0, *) {
+                    return (tableView.dequeueReusableCell(withIdentifier: "appCell", for: indexPath) as! AppTableViewCell).with(name: "fwifi".localized(), desc: "install_fwifi_desc".localized(), icon: UIImage(named: "fwifi"), handler: handler)
+                } else {
+                    return (tableView.dequeueReusableCell(withIdentifier: "appCell", for: indexPath) as! AppTableViewCell).with(name: "fwifi".localized(), desc: "install_fwifi_desc".localized(), icon: UIImage(named: "fwifi"), handler: handler, darkMode: isDarkMode())
+                }
+                #endif
+            }
+        } else {
+            // Button handler
+            let handler: ((UIButton) -> Void) = { _ in
+                let mainController = GroupeMINASTEController()
+                mainController.navigationItem.title = "minaste_center".localized()
+                    
+                let close = UIBarButtonItem(title: "close".localized(), style: .done, target: self, action: #selector(self.closeAction))
+                mainController.navigationItem.setLeftBarButton(close, animated: true)
+                
+                let controller = UINavigationController(rootViewController: mainController)
+                    
+                self.present(controller, animated: true, completion: nil)
+            }
+            
+            #if targetEnvironment(macCatalyst)
+            return (tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as! ButtonTableViewCell).with(title: "minaste_center".localized(), alignment: .left, handler: handler)
+            #else
+            if #available(iOS 13.0, *) {
+                return (tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as! ButtonTableViewCell).with(title: "minaste_center".localized(), alignment: .left, handler: handler)
+            } else {
+                // Fallback on earlier versions
+                    return (tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as! ButtonTableViewCell).with(title: "minaste_center".localized(), alignment: .left, handler: handler, darkMode: isDarkMode())
+            }
+            #endif
+        }
+        #endif
         
         return UITableViewCell()
     }
     
+    #if FMOBILECOVERAGE
+    @objc func closeAction() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    #endif
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        #if FMOBILECOVERAGE
+        if indexPath.section == 2 {
+            return 68
+        }
+        #endif
         return 48
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            // Handle click on carrier cell
+            let mapCarrierVC = MapCarrierTableViewController(style: .grouped)
+            mapCarrierVC.delegate = delegate
+            mapCarrierVC.delegate2 = self
+            present(UINavigationController(rootViewController: mapCarrierVC), animated: true, completion: nil)
+        } else if indexPath.section == 1 {
+            // Handle protocol selection
+            CoverageLegend.legend[indexPath.row].selected.toggle()
+            self.tableView.reloadData()
+            delegate?.loadCoverageMap()
+        }
     }
     
     @objc func close(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    #if !targetEnvironment(macCatalyst)
     @available(iOS, obsoleted: 13.0)
     deinit {
         NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
@@ -156,5 +270,12 @@ class MapInfoTableViewController: UITableViewController {
         self.navigationController?.view.backgroundColor = CustomColor.lightBackground
         self.navigationController?.navigationBar.tintColor = CustomColor.lightActive
     }
+    #endif
 
+}
+
+protocol MapInfoContainer: class {
+    
+    func reloadInformation()
+    
 }

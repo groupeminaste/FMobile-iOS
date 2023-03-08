@@ -14,9 +14,9 @@ class UIElementApp: UIElement {
     var handler: (UIButton) -> Void
     var name: String
     var desc: String
-    var icon: UIImage
+    var icon: UIImage?
     
-    init(name: String, desc: String, icon:UIImage, completionHandler: @escaping (UIButton) -> Void) {
+    init(name: String, desc: String, icon: UIImage?, completionHandler: @escaping (UIButton) -> Void) {
         self.handler = completionHandler
         self.name = name
         self.desc = desc

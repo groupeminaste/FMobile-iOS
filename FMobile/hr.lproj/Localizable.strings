@@ -7,7 +7,7 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 4";
+"fmobile" = "FMobile 5";
 "reset_zones_done" = "Resetovanje završio";
 "reset_zones_done_description" = "Svaki Femto i ran-šering zone su sad resetovan.";
 "close" = "Zatvori";
@@ -43,7 +43,7 @@
 "run_standard_setup" = "Koristite standardni konfiguracija umesto";
 "use_standard_setup" = "Koristite standardni konfiguracija";
 "warning_title" = "ODGOVORNOST";
-"warning_description" = "VAŽNO: Ovu aplikaciju je besplatna i bez garanciju. Vi ste potpuno odgovorni na nju, a to znaće da sve potencijalne štete od ovu aplikaciju su na vašu ekskluzivna odgovor. Morate vi da kontrolirate mobilne podaci potrošnje i da ga isključite kada putujete. Nemojte da meni šaljite vaše račni na emajlom, nećete nikako naknada da dobijete (ovo verovatno mora da bude logično za puno ljudi, ali ovo se već jedanput desio…)";
+"warning_description" = "VAŽNO: Ovu aplikaciju je besplatna i bez garanciju. Vi ste potpuno odgovorni na nju, a to znaće da sve potencijalne štete od ovu aplikaciju su na vašu ekskluzivna odgovor (korišteni telefonski kredit, struja potrošnja, pregrevanje, itd…). Morate vi da kontrolirate mobilne podaci potrošnje i da ga isključite kada putujete. Nemojte da meni šaljite vaše račni na emajlom, nećete nikako naknada da dobijete (ovo verovatno mora da bude logično za puno ljudi, ali ovo se već jedanput desio…)";
 "uninstall" = "Obriši aplikaciju";
 "accept_conditions" = "Slažem se sa ove uslove";
 "first_update_succeeded" = "Inicijalna ažuriranja je uspela.";
@@ -111,7 +111,8 @@
 "included_internet" = "Samo za Internet";
 "included_all" = "Sve inkluzivno";
 "esim_not_connected" = "Niste povezan na eSIM";
-"esim_connected" = "eSIM povezan na %@ mrežu";
+"esim_not_connected_searching" = "eSIM pretraženje za %@…";
+"esim_connected" = "eSIM povezan: %@";
 "wifi_status" = "Wi-Fi: %@";
 "set_no_network" = "Napati ovog zonu kao ne pokriveno";
 "no_network_zone_saved" = "Ne pokrivana zonu napatio";
@@ -153,7 +154,7 @@
 "donate_helloasso" = "Dodajte sa HelloAsso";
 "donate_iap" = "Dodajte Apple iAP";
 "donate_warning" = "VAŽNO OBJAVEST ZA FRANCUSKE GRAĐANE";
-"donate_warning_french_citizenship" = "FMobilom upravlja Groupe MINASTE, francuska neprofitna organizacija zakona-1901. Ako ste državljanin Francuske Republike i plaćate porez u Francuskoj, molimo vas da ga donirate putem državne donacijske platforme HelloAsso, pružajući državne priznate potvrde o donaciji. Ako država zahteva da dokažete svoje donacije, nastavite putem HelloAsso (samo EUR). U suprotnom, možete proći kroz Apple iAP, bez davanja sertifikata i uzimanje 30% od iznosa koji donirate.";
+"donate_warning_french_citizenship" = "FMobilom upravlja Groupe MINASTE, francuska neprofitna organizacija zakona-1901. Ako ste državljanin Francuske Republike i plaćate porez u Francuskoj, molimo vas da ga donirate putem državne donacijske platforme HelloAsso, pružajući državne priznate potvrde o donaciji. Ako država zahteva da dokažete svoje donacije, nastavite putem HelloAsso (samo EUR). U suprotnom, možete proći kroz Apple iAP, bez davanja sertifikata i uzimanje 30% od iznosa koji donirate.";
 "donate_thank_you" = "Hvala!";
 "donate_thank_you_description" = "Grupa MINASTE zahvaljuje na donaciji. Nadamo se da ćete biti u potpunosti zadovoljni njegovom upotrebom za poboljšanje naših usluga.";
 "donate_aborted" = "Donacija prekinuta";
@@ -165,7 +166,7 @@
 "old_ios_warning" = "iOS %@ fali važne funkcije!";
 "old_ios_description" = "Ovu aplikaciju radi najbolje sa Apel Prećaci aplikaciju, ko je samo dostupna od iOS 12 ili kasnije. Molimo vas da ažurirajte vašu iOS aparat na iOS 12 ili bilo koja kasnija verzija. Ako vaš aparat može da instalira iOS 13, možete osto da instalirajte najnova FMobile aplikaciju ko radi samo za iOS 13. Na vašu iOS verzija, sve operacije da izlazite iz roaming mrežu su manuelne.";
 "location_denied" = "Lokacija pristup odbijen";
-"location_denied_description" = "FMobile 4 mora imati pristup vašoj lokaciji iz tehničkih i praktičnih razloga, kako bi se mogao pokrenuti u pozadini. Odlučili ste da odbijete stalni pristup podacima vaše lokacije. Imajte na umu da nijedan vaš lični podatak nikada neće biti poslat bilo gde bez vašeg izričitog pristanka. Postavljanje pristupa lokaciji \"Uvek\" ne smatra se izričitim pristankom: samo omogućava aplikaciji da normalno radi na vašem uređaju, lokalno. Morate da znate da će FMobile 4 izgubiti veliku efikasnost ako ne postavite pristup lokaciji na \"Uvek\".";
+"location_denied_description" = "FMobile 5 mora imati pristup vašoj lokaciji iz tehničkih i praktičnih razloga, kako bi se mogao pokrenuti u pozadini. Odlučili ste da odbijete stalni pristup podacima vaše lokacije. Imajte na umu da nijedan vaš lični podatak nikada neće biti poslat bilo gde bez vašeg izričitog pristanka. Postavljanje pristupa lokaciji \"Uvek\" ne smatra se izričitim pristankom: samo omogućava aplikaciji da normalno radi na vašem uređaju, lokalno. Morate da znate da će FMobile 5 izgubiti veliku efikasnost ako ne postavite pristup lokaciji na \"Uvek\".";
 "location_denied_change" = "Promeni lokacija postava na \"Uvek\"";
 "location_denied_agree" = "Privremeno prisiliti zabraniti pristup";
 "location_denied_agree_forever" = "Trajno prisiliti zabraniti pristup lokaciji";
@@ -190,6 +191,8 @@
 "5G_unsupported" = "5G nije kompatibilan";
 "5G_unsupported_description" = "FMobile nije još spreman da upravlja 5G romingu. Ažuririćemo FMobile najranije što možemo da donesimo upravlju ovu tehnologiju. Vaš postavka je sada saćuvana, i biče u korišćenje od kada aktiviraćemo 5G upravlju.";
 "ignore" = "Ignoriraj";
+"shut_bluetooth" = "Iskljući Bluetooth posle ANIRC";
+"shut_wifi" = "Iskljući Wi-Fi posle ANIRC";
     // SpeedtestViewController
 "speedtest_view_title" = "Test brzina";
 "speedtest_start" = "Započni";
@@ -246,7 +249,7 @@
 "preparation_inprogress" = "Priprema u toku…";
 "end_phonecall" = "Molimo vas da završite vaš telefon razgovor i da ponovite";
 "data_drain_notification_description" = "Pretisnite da Isključite odmah vaše mobilne podace, vaša potrošona je preopterećen. %@ %@";
-"data_drain_notification_description_g3" = "FMobile 4 je vam sada isključio vaše mobilne podace, da vaša potrošona ne bude preopterećen. %@ %@";
+"data_drain_notification_description_g3" = "FMobile 5 je vam sada isključio vaše mobilne podace, da vaša potrošona ne bude preopterećen. %@ %@";
 "new_country_welcome_title" = "%@ %@ (%@): Dobro došli!";
 "general_view_title" = "Podešavanje";
 "map_view_title" = "Mapa pokrivenosti";
@@ -257,9 +260,25 @@
 "map_info_legend_edge_r" = "EDGE (Roaming)";
 "map_info_legend_gprs_r" = "GPRS (Roaming)";
 "map_info_legend_lte" = "4G";
+"map_info_legend_5g" = "5G";
+"map_info_legend_5g_r" = "5G (Roaming)";
 "map_info_legend_3g" = "3G";
 "map_info_legend_edge" = "EDGE";
 "map_info_legend_gprs" = "GPRS";
 "map_info_legend" = "Legenda mapa";
 "map_info_carrier" = "Prikazan operater";
 "map_info_title" = "Informacije mapa";
+"status_view_title" = "Status";
+"minaste_center" = "MINASTE Centar (beta)";
+"install_fmobile" = "Ako želite da učestvujete na mapi pokrivenosti, instalirajte standardnu aplikaciju FMobile na uređaj sa mobilni podaci.";
+"LTE_roaming_not_certified" = "4G Nacionalnu Roaming nije certifirana";
+"LTE_roaming_not_certified_description" = "4G Nacionalni Roaming nije sertifikovan za vašeg operatera. Obavezno ga odjavite samo ako ste sigurni da vaš operater ima ugovor o 4G roamingu.";
+"5G_roaming_not_certified" = "5G Nacionalnu Roaming nije certifirana";
+"5G_roaming_not_certified_description" = "5G Nacionalni Roaming nije sertifikovan za vašeg operatera. Obavezno ga odjavite samo ako ste sigurni da vaš operater ima ugovor o 5G roamingu.";
+"confirm_activation" = "Potvrdite uklanjanje ovlašćenja";
+"always_confirm_activation" = "Potvrdite i ne pitaj više";
+"install_fwifi_desc" = "Lako Wi-Fi autentifikaciјa";
+"install_fmobile_desc" = "Roaming upravljanje aplikaciјa";
+"install_apps" = "Instalirate drugi aplikaciјe";
+"map_carrier_title" = "Izaberite operater";
+"fwifi" = "FWi-Fi";

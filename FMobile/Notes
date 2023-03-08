@@ -22,7 +22,7 @@
 
 
 func freeZoneCheck() -> String{
-     let country = CarrierIdentification.getIsoCountryCode(connectedMCC).uppercased()
+     let country = CarrierIdentification.getIsoCountryCode(connectedMCC)
      if country == "FR"{
          return "HOME"
      } else if country == "--"{
