@@ -1,0 +1,16 @@
+{
+  "mcc": "350",
+  "mnc": "00",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "BM",
+  "itiname": "CELLONE",
+  "homename": "CELLONE",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

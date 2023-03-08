@@ -154,17 +154,17 @@ class CoverageManager {
         print("CoverageManager: sending waiting list... (\(list.count) items)")
         
         // Send data
-        APIRequest("POST", path: "/coverage/map.php").with(body: list).execute(Bool.self) { data, status in
-            // Check status
-            if status != .ok && status != .badRequest {
-                // Not sent, add back to the waiting list
-                print("APIRequest CALLBACK with list size : \(list.count)")
-                for point in list { insertInDatabase(item: point) }
-            }
-            
-            // No more sending
-            sending = false
-        }
+//        APIRequest("POST", path: "/coverage/map.php").with(body: list).execute(Bool.self) { data, status in
+//            // Check status
+//            if status != .ok && status != .badRequest {
+//                // Not sent, add back to the waiting list
+//                print("APIRequest CALLBACK with list size : \(list.count)")
+//                for point in list { insertInDatabase(item: point) }
+//            }
+//
+//            // No more sending
+//            sending = false
+//        }
     }
     
     static func clearDatabase() {
@@ -288,10 +288,10 @@ class CoverageManager {
         lastRequest?.cancel()
         
         // Query API
-        lastRequest = APIRequest("GET", path: "/coverage/map.php").with(name: "latitude", value: center.latitude).with(name: "longitude", value: center.longitude).with(name: "radius", value: radius).with(name: "protocols", value: protocols.joined(separator: ",")).execute(CoverageMap.self) { data, _ in
-            // Return data
-            completionHandler(data)
-        }
+//        lastRequest = APIRequest("GET", path: "/coverage/map.php").with(name: "latitude", value: center.latitude).with(name: "longitude", value: center.longitude).with(name: "radius", value: radius).with(name: "protocols", value: protocols.joined(separator: ",")).execute(CoverageMap.self) { data, _ in
+//            // Return data
+//            completionHandler(data)
+//        }
     }
     
 }

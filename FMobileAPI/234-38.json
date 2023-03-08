@@ -1,0 +1,16 @@
+{
+  "mcc": "234",
+  "mnc": "38",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "GB",
+  "itiname": "EE",
+  "homename": "Virgin",
+  "itimnc": "30",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

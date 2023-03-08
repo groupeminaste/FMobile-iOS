@@ -1,0 +1,16 @@
+{
+  "mcc": "231",
+  "mnc": "06",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "SK",
+  "itiname": "O2 - SK",
+  "homename": "O2 - SK",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

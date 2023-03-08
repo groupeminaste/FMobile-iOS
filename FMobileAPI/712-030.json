@@ -1,0 +1,16 @@
+{
+  "mcc": "712",
+  "mnc": "030",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "CR",
+  "itiname": "Claro",
+  "homename": "Claro",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

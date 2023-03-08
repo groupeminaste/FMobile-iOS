@@ -1,0 +1,16 @@
+{
+  "mcc": "208",
+  "mnc": "27",
+  "stms": 50000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "FR",
+  "itiname": "Coriolis",
+  "homename": "Coriolis",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

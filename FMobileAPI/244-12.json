@@ -1,0 +1,16 @@
+{
+  "mcc": "244",
+  "mnc": "12",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "FI",
+  "itiname": "DNA",
+  "homename": "DNA",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

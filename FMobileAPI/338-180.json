@@ -1,0 +1,16 @@
+{
+  "mcc": "338",
+  "mnc": "180",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "JM",
+  "itiname": "LIME",
+  "homename": "LIME",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

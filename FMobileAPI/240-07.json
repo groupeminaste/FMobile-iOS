@@ -1,0 +1,16 @@
+{
+  "mcc": "240",
+  "mnc": "07",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "SE",
+  "itiname": "Tele2",
+  "homename": "Tele2",
+  "itimnc": "05",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

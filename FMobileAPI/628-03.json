@@ -1,0 +1,16 @@
+{
+  "mcc": "628",
+  "mnc": "03",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "GA",
+  "itiname": "Airtel",
+  "homename": "Airtel",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

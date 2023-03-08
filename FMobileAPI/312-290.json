@@ -1,0 +1,16 @@
+{
+  "mcc": "312",
+  "mnc": "290",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "US",
+  "itiname": "SRATA",
+  "homename": "STRATA",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

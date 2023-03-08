@@ -1,0 +1,16 @@
+{
+  "mcc": "647",
+  "mnc": "00",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "RE",
+  "itiname": "Orange Re",
+  "homename": "Orange Re",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

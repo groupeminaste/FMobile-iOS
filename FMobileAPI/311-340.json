@@ -1,0 +1,16 @@
+{
+  "mcc": "311",
+  "mnc": "340",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "US",
+  "itiname": "Illinois Valley Cellular",
+  "homename": "Illinois Valley Cellular",
+  "itimnc": "560",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

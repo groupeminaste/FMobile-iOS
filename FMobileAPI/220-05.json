@@ -1,0 +1,18 @@
+{
+  "mcc": "220",
+  "mnc": "05",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "RS",
+  "itiname": "mt:s d.o.o.",
+  "homename": "A1 SRB",
+  "itimnc": "03",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": false,
+  "carrierServices": [["Moj A1", "*123#", "copy_callcode"], ["060 1234", "tel://0601234", "call_service"], ["060 1230", "tel://0601230", "call_service"]],
+  "countriesVData": ["BA", "ME", "AL", "MK", "XK"]
+}

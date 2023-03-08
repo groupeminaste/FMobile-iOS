@@ -1,0 +1,20 @@
+{
+  "mcc": "208",
+  "mnc": "15",
+  "stms": 0.384,
+  "hp": "WCDMA",
+  "nrp": "HSDPA",
+  "land": "FR",
+  "itiname": "Orange F",
+  "homename": "Free",
+  "itimnc": "01",
+  "nrfemto": true,
+  "out2G": true,
+  "setupDone": true,
+  "minimalSetup": false,
+  "disableFMobileCore": false,
+  "countriesVData": ["EU", "GB", "ZA", "AU", "CA", "US", "IL", "NZ"],
+  "countriesVoice": ["PM"],
+  "countriesData": ["DZ", "AR", "AM", "BD", "BY", "BR", "CN", "GE", "GG", "IM", "IN", "JE", "KZ", "MK", "MY", "MX", "ME", "UZ", "PK", "RU", "RS", "LK", "CH", "TH", "TN", "TR", "UA"],
+  "carrierServices": [["Espace Abonné", "https://mobile.free.fr/account/", "open"], ["555", "tel://555", "call_conso"], ["3244", "tel://3244", "call_service"]]
+}

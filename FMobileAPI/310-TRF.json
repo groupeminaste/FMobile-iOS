@@ -1,0 +1,16 @@
+{
+  "mcc": "310",
+  "mnc": "TRF",
+  "stms": 5000,
+  "hp": "CDMA",
+  "nrp": "WCDMA",
+  "land": "US",
+  "itiname": "TFW",
+  "homename": "TFW",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

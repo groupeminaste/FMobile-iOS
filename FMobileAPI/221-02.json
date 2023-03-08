@@ -1,0 +1,17 @@
+{
+  "mcc": "221",
+  "mnc": "02",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "XK",
+  "itiname": "IPKO",
+  "homename": "IPKO",
+  "itimnc": "41",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true,
+  "countriesVData": ["BA", "ME", "AL", "MK", "RS"]
+}

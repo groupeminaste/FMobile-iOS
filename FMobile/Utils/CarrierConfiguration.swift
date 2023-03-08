@@ -38,95 +38,106 @@ class CarrierConfiguration: Codable {
     
     // On fetch le fichier et retourne les valeurs
     static func fetch(forMCC mcc: String, andMNC mnc: String, completionHandler: @escaping (CarrierConfiguration?) -> ()) {
+        
         // On check le cache
-        if let carrier = CarrierConfiguration.getDatabaseCarrier(mcc: mcc, mnc: mnc) {
-            // On return depuis le cache
-            completionHandler(carrier)
+//        if let carrier = CarrierConfiguration.getDatabaseCarrier(mcc: mcc, mnc: mnc) {
+//            // On return depuis le cache
+//            completionHandler(carrier)
+//            return
+//        }
+        
+        // Check de l'api
+        // APIConfiguration.check()
+        
+        // On appel l'API
+        
+        guard let fMobileAPIendpoint = Bundle.main.path(forResource: "\(mcc)-\(mnc)", ofType: "json") else {
+            completionHandler(nil)
+            return
+        }
+        guard let fmobileapi = FileManager.default.contents(atPath: fMobileAPIendpoint) else {
+            completionHandler(nil)
             return
         }
         
-        // Check de l'api
-        APIConfiguration.check()
+        let data = try? JSONDecoder().decode(CarrierConfiguration.self, from: fmobileapi)
         
-        // On appel l'API
-        APIRequest("GET", path: "/carrierconfiguration/\(mcc)-\(mnc).json").execute(CarrierConfiguration.self) { data, _ in
-            // On vérifie la validité de la configuration (non nil, avec bon MCC et MNC)
-            if let configuration = data, configuration.mcc == mcc, configuration.mnc == mnc {
-                // Update de la config
-                if UIDevice.current.userInterfaceIdiom == .pad {
-                    if let mcc = configuration.iPadOverwrite?["mcc"]?.value() as? String {
-                        configuration.mcc = mcc
-                    }
-                    if let mnc = configuration.iPadOverwrite?["mnc"]?.value() as? String {
-                        configuration.mnc = mnc
-                    }
-                    if let stms = configuration.iPadOverwrite?["stms"]?.value() as? Double {
-                        configuration.stms = stms
-                    }
-                    if let hp = configuration.iPadOverwrite?["hp"]?.value() as? String {
-                        configuration.hp = hp
-                    }
-                    if let nrp = configuration.iPadOverwrite?["nrp"]?.value() as? String {
-                        configuration.nrp = nrp
-                    }
-                    if let land = configuration.iPadOverwrite?["land"]?.value() as? String {
-                        configuration.land = land
-                    }
-                    if let itiname = configuration.iPadOverwrite?["itiname"]?.value() as? String {
-                        configuration.itiname = itiname
-                    }
-                    if let homename = configuration.iPadOverwrite?["homename"]?.value() as? String {
-                        configuration.homename = homename
-                    }
-                    if let itimnc = configuration.iPadOverwrite?["itimnc"]?.value() as? String {
-                        configuration.itimnc = itimnc
-                    }
-                    if let nrfemto = configuration.iPadOverwrite?["nrfemto"]?.value() as? Bool {
-                        configuration.nrfemto = nrfemto
-                    }
-                    if let out2G = configuration.iPadOverwrite?["out2G"]?.value() as? Bool {
-                        configuration.out2G = out2G
-                    }
-                    if let setupDone = configuration.iPadOverwrite?["setupDone"]?.value() as? Bool {
-                        configuration.setupDone = setupDone
-                    }
-                    if let minimalSetup = configuration.iPadOverwrite?["minimalSetup"]?.value() as? Bool {
-                        configuration.minimalSetup = minimalSetup
-                    }
-                    if let disableFMobileCore = configuration.iPadOverwrite?["disableFMobileCore"]?.value() as? Bool {
-                        configuration.disableFMobileCore = disableFMobileCore
-                    }
-                    if let countriesData = configuration.iPadOverwrite?["countriesData"]?.value() as? [String] {
-                        configuration.countriesData = countriesData
-                    }
-                    if let countriesVoice = configuration.iPadOverwrite?["countriesVoice"]?.value() as? [String] {
-                        configuration.countriesVoice = countriesVoice
-                    }
-                    if let countriesVData = configuration.iPadOverwrite?["countriesVData"]?.value() as? [String] {
-                        configuration.countriesVData = countriesVData
-                    }
-                    if let carrierServices = configuration.iPadOverwrite?["carrierServices"]?.value() as? [[String]] {
-                        configuration.carrierServices = carrierServices
-                    }
-                    if let roamLTE = configuration.iPadOverwrite?["roamLTE"]?.value() as? Bool {
-                        configuration.roamLTE = roamLTE
-                    }
-                    if let roam5G = configuration.iPadOverwrite?["roam5G"]?.value() as? Bool {
-                        configuration.roam5G = roam5G
-                    }
+        // On vérifie la validité de la configuration (non nil, avec bon MCC et MNC)
+        if let configuration = data, configuration.mcc == mcc, configuration.mnc == mnc {
+            // Update de la config
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                if let mcc = configuration.iPadOverwrite?["mcc"]?.value() as? String {
+                    configuration.mcc = mcc
                 }
-                
-                // On save en cache
-                CarrierConfiguration.insertInDatabase(item: configuration)
-                
-                // Return
-                completionHandler(configuration)
-                return
+                if let mnc = configuration.iPadOverwrite?["mnc"]?.value() as? String {
+                    configuration.mnc = mnc
+                }
+                if let stms = configuration.iPadOverwrite?["stms"]?.value() as? Double {
+                    configuration.stms = stms
+                }
+                if let hp = configuration.iPadOverwrite?["hp"]?.value() as? String {
+                    configuration.hp = hp
+                }
+                if let nrp = configuration.iPadOverwrite?["nrp"]?.value() as? String {
+                    configuration.nrp = nrp
+                }
+                if let land = configuration.iPadOverwrite?["land"]?.value() as? String {
+                    configuration.land = land
+                }
+                if let itiname = configuration.iPadOverwrite?["itiname"]?.value() as? String {
+                    configuration.itiname = itiname
+                }
+                if let homename = configuration.iPadOverwrite?["homename"]?.value() as? String {
+                    configuration.homename = homename
+                }
+                if let itimnc = configuration.iPadOverwrite?["itimnc"]?.value() as? String {
+                    configuration.itimnc = itimnc
+                }
+                if let nrfemto = configuration.iPadOverwrite?["nrfemto"]?.value() as? Bool {
+                    configuration.nrfemto = nrfemto
+                }
+                if let out2G = configuration.iPadOverwrite?["out2G"]?.value() as? Bool {
+                    configuration.out2G = out2G
+                }
+                if let setupDone = configuration.iPadOverwrite?["setupDone"]?.value() as? Bool {
+                    configuration.setupDone = setupDone
+                }
+                if let minimalSetup = configuration.iPadOverwrite?["minimalSetup"]?.value() as? Bool {
+                    configuration.minimalSetup = minimalSetup
+                }
+                if let disableFMobileCore = configuration.iPadOverwrite?["disableFMobileCore"]?.value() as? Bool {
+                    configuration.disableFMobileCore = disableFMobileCore
+                }
+                if let countriesData = configuration.iPadOverwrite?["countriesData"]?.value() as? [String] {
+                    configuration.countriesData = countriesData
+                }
+                if let countriesVoice = configuration.iPadOverwrite?["countriesVoice"]?.value() as? [String] {
+                    configuration.countriesVoice = countriesVoice
+                }
+                if let countriesVData = configuration.iPadOverwrite?["countriesVData"]?.value() as? [String] {
+                    configuration.countriesVData = countriesVData
+                }
+                if let carrierServices = configuration.iPadOverwrite?["carrierServices"]?.value() as? [[String]] {
+                    configuration.carrierServices = carrierServices
+                }
+                if let roamLTE = configuration.iPadOverwrite?["roamLTE"]?.value() as? Bool {
+                    configuration.roamLTE = roamLTE
+                }
+                if let roam5G = configuration.iPadOverwrite?["roam5G"]?.value() as? Bool {
+                    configuration.roam5G = roam5G
+                }
             }
             
-            // Sinon soit la configuration n'existe pas, soit le device est hors ligne
-            completionHandler(nil)
+//            // On save en cache
+//            CarrierConfiguration.insertInDatabase(item: configuration)
+            
+            // Return
+            completionHandler(configuration)
+            return
         }
+        
+//        APIRequest("GET", path: "/carrierconfiguration/\(mcc)-\(mnc).json").execute(CarrierConfiguration.self) { data, _ in
+//        }
     }
     
     func toString(expertMode: Bool) -> String {

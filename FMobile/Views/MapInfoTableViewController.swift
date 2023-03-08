@@ -325,7 +325,7 @@ class MapInfoTableViewController: UITableViewController, MapInfoContainer {
 
 }
 
-protocol MapInfoContainer: class {
+protocol MapInfoContainer: AnyObject {
     
     func reloadInformation()
     

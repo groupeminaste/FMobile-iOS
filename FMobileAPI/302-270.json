@@ -1,0 +1,16 @@
+{
+  "mcc": "302",
+  "mnc": "270",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "CA",
+  "itiname": "Eastlink",
+  "homename": "Eastlink",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

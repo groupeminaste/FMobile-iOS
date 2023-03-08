@@ -1,0 +1,16 @@
+{
+  "mcc": "222",
+  "mnc": "99",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "IT",
+  "itiname": "3 ITA",
+  "homename": "3 ITA",
+  "itimnc": "98",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

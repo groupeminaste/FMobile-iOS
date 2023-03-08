@@ -1,0 +1,16 @@
+{
+  "mcc": "214",
+  "mnc": "03",
+  "stms": 50000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "ES",
+  "itiname": "Orange",
+  "homename": "Orange",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

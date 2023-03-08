@@ -1,0 +1,16 @@
+{
+  "mcc": "312",
+  "mnc": "870",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "US",
+  "itiname": "GigSky",
+  "homename": "GigSky",
+  "itimnc": "560",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

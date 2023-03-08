@@ -1,0 +1,16 @@
+{
+  "mcc": "405",
+  "mnc": "855",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "IN",
+  "itiname": "Jio",
+  "homename": "Jio",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

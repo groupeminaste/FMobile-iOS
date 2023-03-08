@@ -1,0 +1,16 @@
+{
+  "mcc": "530",
+  "mnc": "24",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "NZ",
+  "itiname": "Voda NZ",
+  "homename": "2degrees",
+  "itimnc": "01",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": false
+}

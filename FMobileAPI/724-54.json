@@ -1,0 +1,16 @@
+{
+  "mcc": "724",
+  "mnc": "54",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "BR",
+  "itiname": "Porto Conecta",
+  "homename": "Porto Conecta",
+  "itimnc": "02",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

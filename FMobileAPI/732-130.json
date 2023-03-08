@@ -1,0 +1,16 @@
+{
+  "mcc": "732",
+  "mnc": "130",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "CO",
+  "itiname": "Claro",
+  "homename": "Avantel",
+  "itimnc": "101",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": false
+}

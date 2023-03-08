@@ -1,0 +1,16 @@
+{
+  "mcc": "310",
+  "mnc": "580",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "US",
+  "itiname": "Inland Cellular",
+  "homename": "Inland Cellular",
+  "itimnc": "560",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

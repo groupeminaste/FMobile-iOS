@@ -1,0 +1,16 @@
+{
+  "mcc": "502",
+  "mnc": "19",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "MY",
+  "itiname": "CELCOM",
+  "homename": "CELCOM",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

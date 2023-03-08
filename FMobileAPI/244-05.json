@@ -1,0 +1,16 @@
+{
+  "mcc": "244",
+  "mnc": "05",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "FI",
+  "itiname": "elisa",
+  "homename": "elisa",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

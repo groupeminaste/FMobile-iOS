@@ -1,0 +1,16 @@
+{
+  "mcc": "230",
+  "mnc": "01",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "CZ",
+  "itiname": "T-Mobile CZ",
+  "homename": "T-Mobile CZ",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

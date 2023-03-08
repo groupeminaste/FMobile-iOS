@@ -1,0 +1,16 @@
+{
+  "mcc": "415",
+  "mnc": "03",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "LB",
+  "itiname": "touch",
+  "homename": "touch",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

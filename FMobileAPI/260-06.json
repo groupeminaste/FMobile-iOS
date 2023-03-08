@@ -1,0 +1,16 @@
+{
+  "mcc": "260",
+  "mnc": "06",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "PL",
+  "itiname": "Orange",
+  "homename": "PLAY",
+  "itimnc": "03",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": false,
+  "disableFMobileCore": false
+}

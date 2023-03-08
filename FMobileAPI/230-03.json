@@ -1,0 +1,16 @@
+{
+  "mcc": "230",
+  "mnc": "03",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "CZ",
+  "itiname": "Vodafone CZ",
+  "homename": "Vodafone CZ",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

@@ -1,0 +1,17 @@
+{
+  "mcc": "647",
+  "mnc": "04",
+  "stms": 0.768,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "RE",
+  "itiname": "Orange Re",
+  "homename": "Zeop",
+  "itimnc": "00",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": false,
+  "roamLTE": true
+}

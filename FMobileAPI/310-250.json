@@ -1,0 +1,16 @@
+{
+  "mcc": "310",
+  "mnc": "250",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "US",
+  "itiname": "T-Mobile",
+  "homename": "T-Mobile",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

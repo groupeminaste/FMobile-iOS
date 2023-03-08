@@ -7,7 +7,11 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 5";
+"fmobile" = "👋 Adiós FMobile";
+"important" = "Importante";
+"fmobile_discontinued_title" = "¡FMobile ya está descontinuado!";
+"fmobile_discontinued" = "Desde el 1 de enero 2022, FMobile está descontinuado y ya no recibe soporte. Gracias por participar en la aventura.";
+"learn_more" = "Сазнајте више";
 "reset_zones_done" = "Reinicio hecho";
 "reset_zones_done_description" = "Se han restablecido todas las zonas de Femto y de distribución compartida.";
 "close" = "Cerrar";
@@ -55,9 +59,9 @@
 "insert_sim_title" = "Por favor, inserte una tarjeta SIM";
 "insert_sim_description" = "Por favor, inserte y desbloquee una tarjeta SIM para comenzar a utilizar FMobile.";
 "no_sim" = "No se detectó una tarjeta SIM válida";
-"sim_card" = "Tarjeta SIM:";
+"sim_card" = "SIM 1:";
 "no_esim" = "Sin eSIM activado";
-"esim" = "eSIM:";
+"esim" = "SIM 2:";
 "generation" = "Motor: FMobile b%@ - Generación %@";
 "status" = "Estado";
 "netprefs" = "Preferencias de red";
@@ -102,7 +106,7 @@
 "activate" = "Activar el motor de FMobile";
 "updating" = "Actualización del motor de FMobile…";
 "not_connected" = "No esta conectado";
-"not_connected_searching" = "Buscando %@…";
+"not_connected_searching" = "buscando";
 "connected" = "Conectado: %@";
 "country_included_button" = "Este país %@ está incluido en mi plan";
 "new_country" = "Nuevo país incluido";
@@ -148,7 +152,7 @@
 "field_test_copied_confirmation" = "¡Código copiado exitosamente!";
 "select_url" = "URL personalizada para la prueba de velocidad";
 "about" = "Sobre";
-"about_description" = "Aplicación y atajo realizado por Michaël Nass\nUI/UX, mapa de cobertura, prueba de velocidad y optimización por Nathan Fallet\nLogo por Bruno (@brunoleyoyo)\n\nEsta aplicación ha sido desarrollada por desarrolladores independientes y se proporciona de forma gratuita sin ninguna garantía.\n\nEl Groupe MINASTE (incluyendo su aplicación FMobile) no está, en ningún caso, afiliado a ningún operador.\n\n© 2021 Groupe MINASTE";
+"about_description" = "Aplicación y atajo realizado por Michaël Nass\nUI/UX, mapa de cobertura, prueba de velocidad y optimización por Nathan Fallet\nLogo por Bruno (@brunoleyoyo)\n\nEsta aplicación ha sido desarrollada por desarrolladores independientes y se proporciona de forma gratuita sin ninguna garantía.\n\nEl Groupe MINASTE (incluyendo su aplicación FMobile) no está, en ningún caso, afiliado a ningún operador.\n\n© 2018 - 2022 Groupe MINASTE";
 "donate" = "Hacer una donación";
 "select_donation" = "Selecciona una donación";
 "donate_helloasso" = "Hacer una donación con HelloAsso";

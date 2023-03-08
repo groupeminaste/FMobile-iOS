@@ -7,7 +7,11 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 5";
+"fmobile" = "👋 Afscheid FMobile";
+"important" = "Belangrijk";
+"fmobile_discontinued_title" = "FMobile is nu opgeheven!";
+"fmobile_discontinued" = "Vanaf 1 januari 2022 wordt FMobile stopgezet en niet langer ondersteund. Dank u voor uw deelname aan het avontuur!";
+"learn_more" = "Leer meer";
 "reset_zones_done" = "Reset uitgevoerd";
 "reset_zones_done_description" = "Alle Femto en randzones zijn gereset.";
 "close" = "Sluit";
@@ -55,9 +59,9 @@
 "insert_sim_title" = "Een SIM-kaart plaatsen";
 "insert_sim_description" = "Plaats en ontgrendel een geldige SIM-kaart om FMobile te kunnen gebruiken.";
 "no_sim" = "Geen geldige SIM-kaart gedetecteerd";
-"sim_card" = "SIM-kaart :";
+"sim_card" = "SIM 1:";
 "no_esim" = "Geen eSIM ingeschakeld";
-"esim" = "eSIM :";
+"esim" = "SIM 2:";
 "generation" = "Motor: FMobile b%@ - Opwekking %@";
 "status" = "Status";
 "netprefs" = "Netwerkvoorkeuren";
@@ -102,7 +106,7 @@
 "activate" = "Activeer de FMobile motor";
 "updating" = "Update van de FMobile motor in uitvoering…";
 "not_connected" = "U bent niet verbonden";
-"not_connected_searching" = "Op zoek naar %@…";
+"not_connected_searching" = "op zoek";
 "connected" = "Aangesloten: %@";
 "country_included_button" = "Dit land %@ is inbegrepen in mijn pakket";
 "new_country" = "Nieuw land inbegrepen";
@@ -148,7 +152,7 @@
 "field_test_copied_confirmation" = "Code gekopieerd!";
 "select_url" = "Aangepaste URL voor flow test";
 "about" = "Over ons";
-"about_description" = "Applicatie en snelkoppelingen gemaakt door Michaël Nass\nUI/UX, dekkingskaart, flow test en optimalisatie door Nathan Fallet\nLogo by Bruno (@brunoleyoyo)\n\nDeze applicatie is ontwikkeld door onafhankelijke ontwikkelaars en wordt gratis en zonder enige garantie geleverd. \n\nDe Groupe MINASTE (inclusief de FMobile applicatie) is onder geen enkele voorwaarde verbonden aan een operator. \n\n© 2021 Groupe MINASTE";
+"about_description" = "Applicatie en snelkoppelingen gemaakt door Michaël Nass\nUI/UX, dekkingskaart, flow test en optimalisatie door Nathan Fallet\nLogo by Bruno (@brunoleyoyo)\n\nDeze applicatie is ontwikkeld door onafhankelijke ontwikkelaars en wordt gratis en zonder enige garantie geleverd. \n\nDe Groupe MINASTE (inclusief de FMobile applicatie) is onder geen enkele voorwaarde verbonden aan een operator. \n\n© 2018 - 2022 Groupe MINASTE";
 "donate" = "Doe een donatie";
 "select_donation" = "Selecteer een donatie";
 "donate_helloasso" = "Doe een HelloAsso-donatie";

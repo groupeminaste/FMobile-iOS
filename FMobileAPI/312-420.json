@@ -1,0 +1,16 @@
+{
+  "mcc": "312",
+  "mnc": "420",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "US",
+  "itiname": "NTW",
+  "homename": "NTW",
+  "itimnc": "560",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

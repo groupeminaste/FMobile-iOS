@@ -67,7 +67,7 @@ class CarrierSelectionTableViewCell: UITableViewCell {
 
 }
 
-protocol MapCarrierContainer: class {
+protocol MapCarrierContainer: AnyObject {
     
     var carriers: [CarrierConfiguration] { get set }
     var current: CarrierConfiguration? { get set }

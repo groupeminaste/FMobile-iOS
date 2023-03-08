@@ -1,0 +1,16 @@
+{
+  "mcc": "608",
+  "mnc": "02",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "SN",
+  "itiname": "Tigo - Free",
+  "homename": "Tigo - Free",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

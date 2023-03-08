@@ -1,0 +1,17 @@
+{
+  "mcc": "220",
+  "mnc": "01",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "RS",
+  "itiname": "mt:s d.o.o.",
+  "homename": "Telenor SRB",
+  "itimnc": "03",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": false,
+  "countriesVData": ["BA", "ME", "AL", "MK", "XK"]
+}

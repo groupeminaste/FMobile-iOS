@@ -1,0 +1,16 @@
+{
+  "mcc": "212",
+  "mnc": "10",
+  "stms": 50000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "MC",
+  "itiname": "Orange F",
+  "homename": "MonacoTelecom",
+  "itimnc": "01",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": false,
+  "disableFMobileCore": false
+}

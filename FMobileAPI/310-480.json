@@ -1,0 +1,17 @@
+{
+  "mcc": "310",
+  "mnc": "480",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "US",
+  "itiname": "Verizon",
+  "homename": "Verizon",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true,
+  "countriesVData": ["CA", "MX"]
+}

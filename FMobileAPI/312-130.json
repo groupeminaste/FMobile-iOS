@@ -1,0 +1,16 @@
+{
+  "mcc": "312",
+  "mnc": "130",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "US",
+  "itiname": "Appalchian",
+  "homename": "Appalchian",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

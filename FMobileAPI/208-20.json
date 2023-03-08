@@ -1,0 +1,18 @@
+{
+  "mcc": "208",
+  "mnc": "20",
+  "stms": 50000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "FR",
+  "itiname": "Bouygues",
+  "homename": "Bouygues",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true,
+  "countriesVData": ["GB"],
+  "carrierServices": [["\"Espace client\"", "fr.bouyguestelecom.espaceclient://", "open_official_app"], ["680", "tel://680", "call_conso"], ["1064", "tel://1064", "call_service"]]
+}

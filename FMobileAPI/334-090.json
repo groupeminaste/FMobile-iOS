@@ -1,0 +1,16 @@
+{
+  "mcc": "334",
+  "mnc": "090",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "MX",
+  "itiname": "Movistar",
+  "homename": "AT&T",
+  "itimnc": "03",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

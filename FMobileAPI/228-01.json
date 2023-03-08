@@ -1,0 +1,16 @@
+{
+  "mcc": "228",
+  "mnc": "01",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "CH",
+  "itiname": "Swisscom",
+  "homename": "Swisscom",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

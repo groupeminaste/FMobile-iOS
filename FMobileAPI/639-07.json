@@ -1,0 +1,16 @@
+{
+  "mcc": "639",
+  "mnc": "07",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "KE",
+  "itiname": "Telkom",
+  "homename": "Telkom",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

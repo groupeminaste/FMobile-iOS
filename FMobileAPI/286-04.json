@@ -1,0 +1,16 @@
+{
+  "mcc": "286",
+  "mnc": "04",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "TR",
+  "itiname": "Turk Telekom",
+  "homename": "Turk Telekom",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

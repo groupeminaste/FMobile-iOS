@@ -1,0 +1,16 @@
+{
+  "mcc": "240",
+  "mnc": "06",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "SE",
+  "itiname": "Telenor SE",
+  "homename": "Vimla!",
+  "itimnc": "08",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

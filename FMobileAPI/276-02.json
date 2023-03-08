@@ -1,0 +1,17 @@
+{
+  "mcc": "276",
+  "mnc": "02",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "AL",
+  "itiname": "VodafoneAL",
+  "homename": "VodafoneAL",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true,
+  "countriesVData": ["BA", "ME", "RS", "MK", "XK"]
+}

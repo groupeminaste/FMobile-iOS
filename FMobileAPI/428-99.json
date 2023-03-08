@@ -1,0 +1,16 @@
+{
+  "mcc": "428",
+  "mnc": "99",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "MN",
+  "itiname": "MobiCom",
+  "homename": "MobiCom",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

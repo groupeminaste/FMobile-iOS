@@ -81,6 +81,9 @@ class FMNetwork {
         if let lastnetr = datas.value(forKey: (type == .esim ? "e" : "") + "lastnetr") as? String {
             self.network.lastnetr = lastnetr
         }
+        if let nrfemto = datas.value(forKey: (type == .esim ? "e" : "") + "NRFEMTO") as? Bool {
+            self.card.nrfemto = nrfemto
+        }
         
         if let carrierServices = datas.value(forKey: (type == .esim ? "e" : "") + "carrierServices") as? [[String]] {
             var newCarrierS = [(String, String, String)]()
@@ -208,9 +211,9 @@ class FMNetwork {
                 let operatorPListPath_2 = try? fileManager.destinationOfSymbolicLink(atPath: operatorPListSymLinkPath_2)
                 let carrierPListPath_2 = try? fileManager.destinationOfSymbolicLink(atPath: carrierPListSymLinkPath_2)
                 
-                if operatorPListPath == operatorPListPath_2 && carrierPListPath == carrierPListPath_2 {
+                if operatorPListPath == operatorPListPath_2 && carrierPListPath == carrierPListPath_2 && operatorPListPath != nil {
                     type = .esim
-                } else if operatorPListPath == operatorPListPath_1 && carrierPListPath == carrierPListPath_1 {
+                } else if operatorPListPath == operatorPListPath_1 && carrierPListPath == carrierPListPath_1 && operatorPListPath != nil {
                     type = .sim
                 } else {
                     type = .current

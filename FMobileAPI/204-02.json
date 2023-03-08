@@ -1,0 +1,16 @@
+{
+  "mcc": "204",
+  "mnc": "02",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "NL",
+  "itiname": "Tele2 NL",
+  "homename": "Tele2 NL",
+  "itimnc": "16",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

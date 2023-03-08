@@ -7,7 +7,11 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 5";
+"fmobile" = "👋 Farewell FMobile";
+"important" = "Important";
+"fmobile_discontinued_title" = "FMobile is now discontinued!";
+"fmobile_discontinued" = "As from January 1st 2022, FMobile is discontinued and no longer supported. Thank you for being part of the adventure!";
+"learn_more" = "Learn more";
 "reset_zones_done" = "Reset done";
 "reset_zones_done_description" = "All Femto and ran-sharing zones has been reset.";
 "close" = "Close";
@@ -55,9 +59,9 @@
 "insert_sim_title" = "Please insert a SIM card";
 "insert_sim_description" = "Please insert and unlock a SIM card to start using FMobile.";
 "no_sim" = "No valid SIM card detected";
-"sim_card" = "SIM card:";
+"sim_card" = "SIM 1:";
 "no_esim" = "No activated eSIM";
-"esim" = "eSIM:";
+"esim" = "SIM 2:";
 "generation" = "Engine: FMobile b%@ - Generation %@";
 "status" = "Status";
 "netprefs" = "Network preferences";
@@ -102,7 +106,7 @@
 "activate" = "Activate the FMobile engine";
 "updating" = "Upgrading the FMobile engine…";
 "not_connected" = "You are not connected";
-"not_connected_searching" = "Searching for %@…";
+"not_connected_searching" = "searching";
 "connected" = "Connected: %@";
 "country_included_button" = "This country %@ is included in my plan";
 "new_country" = "New included country";
@@ -148,7 +152,7 @@
 "field_test_copied_confirmation" = "Code successfully copied!";
 "select_url" = "Custom URL for the speed test";
 "about" = "About";
-"about_description" = "Application and Shortcut made by Michaël Nass\nUI/UX, coverage map, speedtest and optimization by Nathan Fallet\nLogo by Bruno (@brunoleyoyo)\n\nThis application has been developed by independent developers, and is provided for free without any warranty.\n\nThe Groupe MINASTE (including its FMobile application) is not, in any case, affiliated with any carrier.\n\n© 2021 Groupe MINASTE";
+"about_description" = "Application and Shortcut made by Michaël Nass\nUI/UX, coverage map, speedtest and optimization by Nathan Fallet\nLogo by Bruno (@brunoleyoyo)\n\nThis application has been developed by independent developers, and is provided for free without any warranty.\n\nThe Groupe MINASTE (including its FMobile application) is not, in any case, affiliated with any carrier.\n\n© 2018 - 2022 Groupe MINASTE";
 "donate" = "Donate";
 "donate_helloasso" = "Donate using HelloAsso";
 "donate_iap" = "Donate using Apple iAP";

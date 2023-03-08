@@ -1,0 +1,16 @@
+{
+  "mcc": "730",
+  "mnc": "09",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "CL",
+  "itiname": "WOM R",
+  "homename": "WOM R",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

@@ -1,0 +1,16 @@
+{
+  "mcc": "222",
+  "mnc": "50",
+  "stms": 5000,
+  "hp": "WCDMA",
+  "nrp": "HSDPA",
+  "land": "IT",
+  "itiname": "I WIND",
+  "homename": "Iliad",
+  "itimnc": "88",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": false,
+  "disableFMobileCore": false
+}

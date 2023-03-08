@@ -1,0 +1,16 @@
+{
+  "mcc": "234",
+  "mnc": "57",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "GB",
+  "itiname": "O2-UK",
+  "homename": "Sky",
+  "itimnc": "10",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

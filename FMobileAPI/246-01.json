@@ -1,0 +1,16 @@
+{
+  "mcc": "246",
+  "mnc": "01",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "LT",
+  "itiname": "Omnitel",
+  "homename": "Omnitel",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

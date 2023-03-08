@@ -1,0 +1,16 @@
+{
+  "mcc": "422",
+  "mnc": "03",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "OM",
+  "itiname": "Ooredoo",
+  "homename": "Ooredoo",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

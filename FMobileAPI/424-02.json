@@ -1,0 +1,16 @@
+{
+  "mcc": "424",
+  "mnc": "02",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "AE",
+  "itiname": "etisalat",
+  "homename": "etisalat",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

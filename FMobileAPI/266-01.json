@@ -1,0 +1,16 @@
+{
+  "mcc": "266",
+  "mnc": "01",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "GI",
+  "itiname": "Gibtel",
+  "homename": "Gibtel",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

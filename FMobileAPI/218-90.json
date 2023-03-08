@@ -1,0 +1,17 @@
+{
+  "mcc": "218",
+  "mnc": "90",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "BA",
+  "itiname": "Blicnet",
+  "homename": "Blicnet",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true,
+  "countriesVData": ["RS", "ME", "AL", "MK", "XK"]
+}

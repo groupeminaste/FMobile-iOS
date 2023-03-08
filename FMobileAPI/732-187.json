@@ -1,0 +1,16 @@
+{
+  "mcc": "732",
+  "mnc": "187",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "CO",
+  "itiname": "TIGO",
+  "homename": "ETB",
+  "itimnc": "103",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": false
+}

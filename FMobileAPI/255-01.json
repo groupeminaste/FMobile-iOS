@@ -1,0 +1,16 @@
+{
+  "mcc": "255",
+  "mnc": "01",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "UA",
+  "itiname": "Vodafone UA",
+  "homename": "Vodafone UA",
+  "itimnc": "07",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

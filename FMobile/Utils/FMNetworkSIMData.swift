@@ -41,12 +41,13 @@ class FMNetworkSIMData {
     var roam5G = false
     var setupDone = false
     var minimalSetup = true
+    var nrfemto: Bool
     
     var includedData = [String]()
     var includedVoice = [String]()
     var includedVData = [String]()
     
-    init(mcc: String = String(), mnc: String = String(), land: String = String(), name: String = String(), fullname: String = String(), data: String = String(), simname: String = String(), carrier: CTCarrier = CTCarrier(), active: Bool = false, nrdec: Bool = false, eligibleminimalsetup: Bool = false, type: FMNetworkType = .sim) {
+    init(mcc: String = String(), mnc: String = String(), land: String = String(), name: String = String(), fullname: String = String(), data: String = String(), simname: String = String(), carrier: CTCarrier = CTCarrier(), active: Bool = false, nrdec: Bool = false, eligibleminimalsetup: Bool = false, nrfemto: Bool = false, type: FMNetworkType = .sim) {
         self.mcc = mcc
         self.mnc = mnc
         self.land = land
@@ -58,6 +59,7 @@ class FMNetworkSIMData {
         self.active = active
         self.nrdec = nrdec
         self.eligibleminimalsetup = eligibleminimalsetup
+        self.nrfemto = nrfemto
         self.type = type
     }
     

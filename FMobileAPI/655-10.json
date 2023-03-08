@@ -1,0 +1,16 @@
+{
+  "mcc": "655",
+  "mnc": "10",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "ZA",
+  "itiname": "MTN-SA",
+  "homename": "MTN-SA",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

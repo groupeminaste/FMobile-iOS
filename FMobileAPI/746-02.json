@@ -1,0 +1,16 @@
+{
+  "mcc": "746",
+  "mnc": "02",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "SR",
+  "itiname": "Telesur",
+  "homename": "Telesur",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

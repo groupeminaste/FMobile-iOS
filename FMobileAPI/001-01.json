@@ -1,0 +1,16 @@
+{
+  "mcc": "001",
+  "mnc": "01",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "WD",
+  "itiname": "Carrier Lab",
+  "homename": "Carrier Lab",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

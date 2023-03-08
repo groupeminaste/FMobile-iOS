@@ -1,0 +1,16 @@
+{
+  "mcc": "420",
+  "mnc": "04",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "SA",
+  "itiname": "Zain KSA",
+  "homename": "Zain KSA",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

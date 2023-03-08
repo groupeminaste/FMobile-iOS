@@ -1,0 +1,16 @@
+{
+  "mcc": "293",
+  "mnc": "40",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "SI",
+  "itiname": "A1 SI",
+  "homename": "A1 SI",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

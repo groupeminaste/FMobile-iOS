@@ -1,0 +1,16 @@
+{
+  "mcc": "544",
+  "mnc": "11",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "AS",
+  "itiname": "BlueSky",
+  "homename": "BlueSky",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

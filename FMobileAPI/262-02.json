@@ -1,0 +1,16 @@
+{
+  "mcc": "262",
+  "mnc": "02",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "DE",
+  "itiname": "Vodafone.de",
+  "homename": "Vodafone.de",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

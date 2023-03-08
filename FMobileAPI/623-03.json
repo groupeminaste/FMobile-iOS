@@ -1,0 +1,16 @@
+{
+  "mcc": "623",
+  "mnc": "03",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "CF",
+  "itiname": "Orange RCA",
+  "homename": "Orange RCA",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

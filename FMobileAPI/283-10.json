@@ -1,0 +1,16 @@
+{
+  "mcc": "283",
+  "mnc": "10",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "AM",
+  "itiname": "Ucom Armenia",
+  "homename": "Ucom Armenia",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

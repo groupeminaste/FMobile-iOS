@@ -1,0 +1,16 @@
+{
+  "mcc": "268",
+  "mnc": "03",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "PT",
+  "itiname": "NOS",
+  "homename": "NOS",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

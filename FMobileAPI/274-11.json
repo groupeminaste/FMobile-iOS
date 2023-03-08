@@ -1,0 +1,16 @@
+{
+  "mcc": "274",
+  "mnc": "11",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "IS",
+  "itiname": "Vodafone",
+  "homename": "NOVA",
+  "itimnc": "02",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": false,
+  "disableFMobileCore": false
+}

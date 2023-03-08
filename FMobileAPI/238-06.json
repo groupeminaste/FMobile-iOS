@@ -1,0 +1,16 @@
+{
+  "mcc": "238",
+  "mnc": "06",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "DK",
+  "itiname": "TDC",
+  "homename": "3 DK",
+  "itimnc": "01",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": false,
+  "disableFMobileCore": false
+}

@@ -1,0 +1,16 @@
+{
+  "mcc": "312",
+  "mnc": "480",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "US",
+  "itiname": "Nemont",
+  "homename": "Nemont",
+  "itimnc": "560",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

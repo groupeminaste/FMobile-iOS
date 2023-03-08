@@ -1,0 +1,16 @@
+{
+  "mcc": "330",
+  "mnc": "110",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "PR",
+  "itiname": "CLARO PR",
+  "homename": "CLARO PR",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

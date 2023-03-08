@@ -1,0 +1,16 @@
+{
+  "mcc": "748",
+  "mnc": "10",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "UY",
+  "itiname": "Claro UY",
+  "homename": "Claro UY",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

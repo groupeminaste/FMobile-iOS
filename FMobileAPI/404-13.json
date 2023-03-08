@@ -1,0 +1,16 @@
+{
+  "mcc": "404",
+  "mnc": "13",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "IN",
+  "itiname": "Vodafone IN",
+  "homename": "Vodafone IN",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

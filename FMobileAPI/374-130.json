@@ -1,0 +1,16 @@
+{
+  "mcc": "374",
+  "mnc": "130",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "TT",
+  "itiname": "Digicel",
+  "homename": "Digicel",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

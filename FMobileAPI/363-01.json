@@ -1,0 +1,16 @@
+{
+  "mcc": "363",
+  "mnc": "01",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "AW",
+  "itiname": "SETAR",
+  "homename": "SETAR",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

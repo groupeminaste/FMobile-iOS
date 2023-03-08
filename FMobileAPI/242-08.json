@@ -1,0 +1,16 @@
+{
+  "mcc": "242",
+  "mnc": "08",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "NO",
+  "itiname": "N Telenor",
+  "homename": "TDC",
+  "itimnc": "01",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

@@ -1,0 +1,16 @@
+{
+  "mcc": "466",
+  "mnc": "91",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "TW",
+  "itiname": "台灣之星",
+  "homename": "台灣之星",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

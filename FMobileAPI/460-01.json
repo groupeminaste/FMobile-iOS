@@ -1,0 +1,16 @@
+{
+  "mcc": "460",
+  "mnc": "01",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "CN",
+  "itiname": "中国联通",
+  "homename": "中国联通",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

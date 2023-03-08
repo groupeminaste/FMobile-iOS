@@ -1,0 +1,16 @@
+{
+  "mcc": "234",
+  "mnc": "15",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "GB",
+  "itiname": "vodafone UK",
+  "homename": "vodafone UK",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

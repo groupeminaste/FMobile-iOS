@@ -1,0 +1,16 @@
+{
+  "mcc": "528",
+  "mnc": "11",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "BN",
+  "itiname": "DSTCom",
+  "homename": "DSTCom",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

@@ -1,0 +1,16 @@
+{
+  "mcc": "714",
+  "mnc": "20",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "PA",
+  "itiname": "Movistar",
+  "homename": "Movistar",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

@@ -1,0 +1,16 @@
+{
+  "mcc": "470",
+  "mnc": "01",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "BD",
+  "itiname": "Grameenphone",
+  "homename": "Grameenphone",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

@@ -1,0 +1,16 @@
+{
+  "mcc": "262",
+  "mnc": "03",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "DE",
+  "itiname": "1&1",
+  "homename": "o2-de",
+  "itimnc": "07",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

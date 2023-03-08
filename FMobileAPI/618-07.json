@@ -1,0 +1,16 @@
+{
+  "mcc": "618",
+  "mnc": "07",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "LR",
+  "itiname": "ORANGE LBR",
+  "homename": "ORANGE LBR",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

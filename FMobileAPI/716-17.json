@@ -1,0 +1,16 @@
+{
+  "mcc": "716",
+  "mnc": "17",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "PE",
+  "itiname": "Nextel",
+  "homename": "Nextel",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

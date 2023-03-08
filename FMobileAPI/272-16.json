@@ -1,0 +1,16 @@
+{
+  "mcc": "272",
+  "mnc": "16",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "IE",
+  "itiname": "3",
+  "homename": "ID Ireland",
+  "itimnc": "02",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": false,
+  "disableFMobileCore": false
+}

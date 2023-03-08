@@ -1,0 +1,16 @@
+{
+  "mcc": "525",
+  "mnc": "05",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "SG",
+  "itiname": "StarHub",
+  "homename": "StarHub",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

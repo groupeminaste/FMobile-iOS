@@ -1,0 +1,16 @@
+{
+  "mcc": "310",
+  "mnc": "GSC",
+  "stms": 5000,
+  "hp": "CDMA",
+  "nrp": "WCDMA",
+  "land": "US",
+  "itiname": "Golden State",
+  "homename": "Golden State",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

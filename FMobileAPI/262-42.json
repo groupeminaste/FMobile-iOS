@@ -1,0 +1,16 @@
+{
+  "mcc": "262",
+  "mnc": "42",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "DE",
+  "itiname": "Truphone",
+  "homename": "Truphone",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

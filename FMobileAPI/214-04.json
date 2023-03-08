@@ -1,0 +1,16 @@
+{
+  "mcc": "214",
+  "mnc": "04",
+  "stms": 50,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "ES",
+  "itiname": "Orange",
+  "homename": "Yoigo",
+  "itimnc": "03",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": false,
+  "disableFMobileCore": false
+}

@@ -7,7 +7,11 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 5";
+"fmobile" = "👋 Adieu FMobile";
+"important" = "Important";
+"fmobile_discontinued_title" = "FMobile est désormais discontinuée !";
+"fmobile_discontinued" = "Depuis le 1er janvier 2022, FMobile est discontinuée et n'est plus supportée. Merci d'avoir pris part à l'aventure !";
+"learn_more" = "En savoir plus";
 "reset_zones_done" = "Réinitialisation effectuée";
 "reset_zones_done_description" = "Toutes les zones de Femto et ran-sharing ont étés réinitialisés.";
 "close" = "Fermer";
@@ -55,9 +59,9 @@
 "insert_sim_title" = "Veuillez insérer une carte SIM";
 "insert_sim_description" = "Veuillez insérer et déverrouiller une carte SIM valide pour commencer à utiliser FMobile.";
 "no_sim" = "Aucune carte SIM valide détectée";
-"sim_card" = "Carte SIM :";
+"sim_card" = "SIM 1 :";
 "no_esim" = "Aucune eSIM activée";
-"esim" = "eSIM :";
+"esim" = "SIM 2 :";
 "generation" = "Moteur : FMobile b%@ - Génération %@";
 "status" = "Statut";
 "netprefs" = "Préférences réseau";
@@ -102,7 +106,7 @@
 "activate" = "Activer le moteur de FMobile";
 "updating" = "Mise à jour du moteur de FMobile en cours…";
 "not_connected" = "Vous n'êtes pas connecté";
-"not_connected_searching" = "Recherche de %@…";
+"not_connected_searching" = "recherche";
 "connected" = "Connecté : %@";
 "country_included_button" = "Ce pays %@ est inclus dans mon forfait";
 "new_country" = "Nouveau pays inclus";
@@ -147,7 +151,7 @@
 "field_test_copied_confirmation" = "Code copié !";
 "select_url" = "URL personnalisée pour le test de débit";
 "about" = "À propos";
-"about_description" = "Application et Raccourcis créés par Michaël Nass\nUI/UX, carte de couverture, test de débit et optimisation par Nathan Fallet\nLogo par Bruno (@brunoleyoyo)\n\nCette application a été développée par des développeurs indépendants et est fournie gratuitement sans aucune garantie.\n\nLe Groupe MINASTE (y compris son application FMobile) n'est, en aucun cas, affilié à quelconque opérateur.\n\n© 2021 Groupe MINASTE";
+"about_description" = "Application et Raccourcis créés par Michaël Nass\nUI/UX, carte de couverture, test de débit et optimisation par Nathan Fallet\nLogo par Bruno (@brunoleyoyo)\n\nCette application a été développée par des développeurs indépendants et est fournie gratuitement sans aucune garantie.\n\nLe Groupe MINASTE (y compris son application FMobile) n'est, en aucun cas, affilié à quelconque opérateur.\n\n© 2018 - 2022 Groupe MINASTE";
 "donate" = "Faire un don";
 "donate_helloasso" = "Faire un don avec HelloAsso";
 "donate_iap" = "Faire un don avec Apple iAP";

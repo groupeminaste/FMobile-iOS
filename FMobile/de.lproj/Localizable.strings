@@ -7,7 +7,11 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 5";
+"fmobile" = "👋 Leb wohl FMobile";
+"important" = "Wichtig";
+"fmobile_discontinued_title" = "FMobile ist nun diskontinuiert!";
+"fmobile_discontinued" = "Seit dem 1. Januar 2022 ist FMobile unterbrochen und wird nicht mehr unterstützt. Vielen Dank für Ihre Teilnahme an dem Abenteuer!";
+"learn_more" = "Mehr lernen";
 "reset_zones_done" = "Rückstellung erfolgt";
 "reset_zones_done_description" = "Alle Femto- und Ransharingzonen wurden zurückgesetzt.";
 "close" = "Schließen";
@@ -55,9 +59,9 @@
 "insert_sim_title" = "Bitte legen Sie eine SIM-Karte ein";
 "insert_sim_description" = "Bitte legen Sie eine SIM-Karte ein und entsperren Sie sie, um FMobile zu nutzen.";
 "no_sim" = "Keine gültige SIM-Karte erkannt";
-"sim_card" = "SIM-Karte:";
+"sim_card" = "SIM 1:";
 "no_esim" = "Kein aktiviertes eSIM";
-"esim" = "eSIM:";
+"esim" = "SIM 2:";
 "generation" = "Motor: FMobile b%@ - Generation %@";
 "status" = "Status";
 "netprefs" = "Netzwerkeinstellungen";
@@ -102,7 +106,7 @@
 "activate" = "FMobile Motor aktivieren";
 "updating" = "Aktualisierung des FMobile Motors…";
 "not_connected" = "Sie sind nicht verbunden";
-"not_connected_searching" = "Suche nach %@…";
+"not_connected_searching" = "suche";
 "connected" = "Verbunden: %@";
 "country_included_button" = "Dieses Land %@ ist in meinem Plan enthalten";
 "new_country" = "Neu enthaltene Land";
@@ -148,7 +152,7 @@
 "field_test_copied_confirmation" = "Code erfolgreich kopiert!";
 "select_url" = "Persönliche URL für den Geschwindigkeitstest";
 "about" = "Über uns";
-"about_description" = "Applikation und Kurzbefehle von Michaël Nass\nUI/UX, Deckungsmap, Speedtest und Optimierung von Nathan Fallet\nLogo von Bruno (@brunoleyoyo)\n\nDiese Applikation wurde von unabhängigen Entwicklern entwickelt und wird ohne jegliche Garantie kostenlos zur Verfügung gestellt.\n\nDer Groupe MINASTE (einschließlich ihrer FMobile Applikation) ist in keinem Fall mit irgend einer Mobilfunkbetreiber verbunden.\n\n© 2021 Groupe MINASTE";
+"about_description" = "Applikation und Kurzbefehle von Michaël Nass\nUI/UX, Deckungsmap, Speedtest und Optimierung von Nathan Fallet\nLogo von Bruno (@brunoleyoyo)\n\nDiese Applikation wurde von unabhängigen Entwicklern entwickelt und wird ohne jegliche Garantie kostenlos zur Verfügung gestellt.\n\nDer Groupe MINASTE (einschließlich ihrer FMobile Applikation) ist in keinem Fall mit irgend einer Mobilfunkbetreiber verbunden.\n\n© 2018 - 2022 Groupe MINASTE";
 "donate" = "Spenden";
 "select_donation" = "Wählen Sie eine Spende";
 "donate_helloasso" = "Mit HelloAsso Spenden";

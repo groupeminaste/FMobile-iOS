@@ -7,7 +7,11 @@
  */
 
     // TableViewController
-"fmobile" = "FMobile 5";
+"fmobile" = "👋 Zbogom FMobile";
+"important" = "Važno";
+"fmobile_discontinued_title" = "FMobile je sada prekinut!";
+"fmobile_discontinued" = "Od 1. Januar 2022, FMobile je prekinut i nije više podržan. Hvala što ste bili deo aventura!";
+"learn_more" = "Saznajte više";
 "reset_zones_done" = "Resetovanje završio";
 "reset_zones_done_description" = "Svaki Femto i ran-šering zone su sad resetovan.";
 "close" = "Zatvori";
@@ -55,9 +59,9 @@
 "insert_sim_title" = "Molimo vas da ubacite SIM karticu";
 "insert_sim_description" = "Molimo vas da unesite i otključajte SIM karticu da bi koristili FMobile.";
 "no_sim" = "Nema važeću SIM kartica";
-"sim_card" = "SIM kartica:";
+"sim_card" = "SIM 1:";
 "no_esim" = "Nema aktivirana eSIM";
-"esim" = "eSIM:";
+"esim" = "SIM 2:";
 "generation" = "Motor: FMobile b%@ - Generacija %@";
 "status" = "Status";
 "netprefs" = "Mreže podešavanje";
@@ -102,7 +106,7 @@
 "activate" = "Aktivirajte FMobilski motor";
 "updating" = "FMobilski motor se ažurira…";
 "not_connected" = "Niste povezan";
-"not_connected_searching" = "Pretraženje za %@…";
+"not_connected_searching" = "pretraženje";
 "connected" = "Povezan: %@";
 "country_included_button" = "Ovu zemlju %@ je inkluzivan u moj paket";
 "new_country" = "Novi inkluzivan zemlju";
@@ -148,7 +152,7 @@
 "field_test_copied_confirmation" = "Kod uspešno kopiran!";
 "select_url" = "Personalizovane URL za test brzinu";
 "about" = "O aplikaciju";
-"about_description" = "Aplikacija i Prečace napraveno od Mihajlo Nas\nKInt/KIsk, mapa pokrivanost, test brzinu i optimizacija od Natan Fale\nLogo od Bruno (@brunoleyoyo)\n\nOva aplikacija je developirana od nezavisne developere, i je dostupna besplatna bez nikakvu garanciju.\n\nGroupe MINASTE (inkluzivna svoju aplikacija FMobile) nije, ni u kom slučaju, povezan sa bilo koja operateri.\n\n© 2021 Groupe MINASTE";
+"about_description" = "Aplikacija i Prečace napraveno od Mihajlo Nas\nKInt/KIsk, mapa pokrivanost, test brzinu i optimizacija od Natan Fale\nLogo od Bruno (@brunoleyoyo)\n\nOva aplikacija je developirana od nezavisne developere, i je dostupna besplatna bez nikakvu garanciju.\n\nGroupe MINASTE (inkluzivna svoju aplikacija FMobile) nije, ni u kom slučaju, povezan sa bilo koja operateri.\n\n© 2018 - 2022 Groupe MINASTE";
 "donate" = "Dodajte";
 "select_donation" = "Izaberite donaciju";
 "donate_helloasso" = "Dodajte sa HelloAsso";

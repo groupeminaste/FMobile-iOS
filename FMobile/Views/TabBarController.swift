@@ -102,7 +102,7 @@ class TabBarController: UITabBarController {
         dataManager.datas.set(false, forKey: "didFinishFirstStart")
         dataManager.datas.synchronize()
         
-        let alert = UIAlertController(title: "first_start_title".localized(), message: "first_start_description".localized(), preferredStyle: .alert)
+        let alert = UIAlertController(title: "first_start_title".localized(), message: "fmobile_discontinued".localized() + "\n\n" + "first_start_description".localized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "video_tutorial".localized(), style: .default) { (_) in
             guard let mailto = URL(string: "https://youtu.be/JBcE_7jxYCk") else { return }
             if #available(iOS 10.0, *) {
@@ -132,7 +132,7 @@ class TabBarController: UITabBarController {
     
     func warning(){
         let dataManager = DataManager()
-        let alert = UIAlertController(title: "⚠️ \("warning_title".localized())", message: "warning_description".localized(), preferredStyle: .alert)
+        let alert = UIAlertController(title: "⚠️ \("warning_title".localized())", message: "fmobile_discontinued".localized() + "\n\n" + "warning_description".localized(), preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "uninstall".localized(), style: .destructive) { (_) in
             dataManager.datas.set(false, forKey: "warningApproved")
@@ -213,13 +213,13 @@ class TabBarController: UITabBarController {
         }
         
 //        // Init map
-        let map = UINavigationController(rootViewController: MapViewController())
-        if #available(iOS 13.0, *) {
-            map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(systemName: "map"), tag: 1)
-        } else {
-            // Fallback on earlier versions
-            map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(named: "map"), tag: 1)
-        }
+//        let map = UINavigationController(rootViewController: MapViewController())
+//        if #available(iOS 13.0, *) {
+//            map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(systemName: "map"), tag: 1)
+//        } else {
+//            // Fallback on earlier versions
+//            map.tabBarItem = UITabBarItem(title: "map_view_title".localized(), image: UIImage(named: "map"), tag: 1)
+//        }
         
         // Init speedtest
         let speedtest = UINavigationController(rootViewController: SpeedtestViewController())
@@ -232,8 +232,8 @@ class TabBarController: UITabBarController {
         
         // Add everything to tab bar
         //viewControllers = [status, general, map, speedtest]
-        viewControllers = [general, map, speedtest]
-//        viewControllers = [general, speedtest]
+        //viewControllers = [general, map, speedtest]
+        viewControllers = [general, speedtest]
         
         // Load views
         for viewController in viewControllers ?? [] {

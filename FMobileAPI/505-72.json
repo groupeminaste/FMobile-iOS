@@ -1,0 +1,16 @@
+{
+  "mcc": "505",
+  "mnc": "72",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "AU",
+  "itiname": "Telstra",
+  "homename": "Telstra",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

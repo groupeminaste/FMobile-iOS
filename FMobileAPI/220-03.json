@@ -1,0 +1,17 @@
+{
+  "mcc": "220",
+  "mnc": "03",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "RS",
+  "itiname": "mt:s d.o.o.",
+  "homename": "mt:s",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true,
+  "countriesVData": ["BA", "ME", "AL", "MK", "XK"]
+}

@@ -37,7 +37,7 @@ class DataManager {
     var didChangeSettings = false
     var ntimer = Date().addingTimeInterval(-15 * 60)
     var dispInfoNotif = false
-    var allowCountryDetection = true
+    var allowCountryDetection = false
     var timeLastCountry = Date().addingTimeInterval(-70 * 60)
     var lastCountry = "FR"
     var url = "http://raccourcis.ios.free.fr/fmobile/speedtest/nrcheck.rnd"
@@ -159,6 +159,7 @@ class DataManager {
         if let timeCache = datas.value(forKey: "timeCache") as? Date {
             self.timeCache = timeCache
         }
+
 //        if let registeredService = datas.value(forKey: "registeredService") as? String {
 //            self.registeredService = registeredService
 //        }

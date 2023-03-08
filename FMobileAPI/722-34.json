@@ -1,0 +1,16 @@
+{
+  "mcc": "722",
+  "mnc": "34",
+  "stms": 5000,
+  "hp": "HSDPA",
+  "nrp": "WCDMA",
+  "land": "AR",
+  "itiname": "Movistar",
+  "homename": "Personal",
+  "itimnc": "07",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": false
+}

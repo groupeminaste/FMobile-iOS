@@ -1,0 +1,16 @@
+{
+  "mcc": "510",
+  "mnc": "09",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "ID",
+  "itiname": "Smartfren",
+  "homename": "Smartfren",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

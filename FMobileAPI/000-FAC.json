@@ -1,0 +1,16 @@
+{
+  "mcc": "000",
+  "mnc": "FAC",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "WD",
+  "itiname": "Factory - UMTS only",
+  "homename": "Factory - UMTS only",
+  "itimnc": "01",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

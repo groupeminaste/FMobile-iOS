@@ -1,0 +1,17 @@
+{
+  "mcc": "297",
+  "mnc": "03",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "ME",
+  "itiname": "m:tel",
+  "homename": "m:tel",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true,
+  "countriesVData": ["BA", "RS", "AL", "MK", "XK"]
+}

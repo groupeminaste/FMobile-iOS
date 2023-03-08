@@ -1,0 +1,16 @@
+{
+  "mcc": "520",
+  "mnc": "00",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "TH",
+  "itiname": "TRUE-H",
+  "homename": "TRUE-H",
+  "itimnc": "98",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

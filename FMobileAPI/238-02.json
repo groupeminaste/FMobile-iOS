@@ -1,0 +1,16 @@
+{
+  "mcc": "238",
+  "mnc": "02",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "DK",
+  "itiname": "Telenor DK",
+  "homename": "Telenor DK",
+  "itimnc": "66",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

@@ -1,0 +1,16 @@
+{
+  "mcc": "330",
+  "mnc": "120",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "PR",
+  "itiname": "Open Mob.",
+  "homename": "Open Mob.",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

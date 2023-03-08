@@ -1,0 +1,16 @@
+{
+  "mcc": "631",
+  "mnc": "02",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "AO",
+  "itiname": "UNITEL",
+  "homename": "UNITEL",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

@@ -1,0 +1,16 @@
+{
+  "mcc": "999",
+  "mnc": "999",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "WD",
+  "itiname": "FMobile (Unknown)",
+  "homename": "FMobile (Unknown)",
+  "itimnc": "000",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

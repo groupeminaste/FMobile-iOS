@@ -1,0 +1,16 @@
+{
+  "mcc": "450",
+  "mnc": "06",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "KR",
+  "itiname": "LG U+",
+  "homename": "LG U+",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

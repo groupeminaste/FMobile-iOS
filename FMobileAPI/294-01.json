@@ -1,0 +1,17 @@
+{
+  "mcc": "294",
+  "mnc": "01",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "MK",
+  "itiname": "Telekom.mk",
+  "homename": "Telekom.mk",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true,
+  "countriesVData": ["BA", "ME", "AL", "RS", "XK"]
+}

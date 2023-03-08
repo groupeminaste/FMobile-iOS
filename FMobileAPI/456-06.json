@@ -1,0 +1,16 @@
+{
+  "mcc": "456",
+  "mnc": "06",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "KH",
+  "itiname": "Smart",
+  "homename": "Smart",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

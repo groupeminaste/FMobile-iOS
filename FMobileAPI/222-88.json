@@ -1,0 +1,16 @@
+{
+  "mcc": "222",
+  "mnc": "88",
+  "stms": 5000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "IT",
+  "itiname": "I WIND",
+  "homename": "I WIND",
+  "itimnc": "98",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true
+}

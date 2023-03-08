@@ -1,0 +1,18 @@
+{
+  "mcc": "208",
+  "mnc": "01",
+  "stms": 50000,
+  "hp": "NONE",
+  "nrp": "NONE",
+  "land": "FR",
+  "itiname": "Orange F",
+  "homename": "Orange F",
+  "itimnc": "99",
+  "nrfemto": false,
+  "out2G": false,
+  "setupDone": true,
+  "minimalSetup": true,
+  "disableFMobileCore": true,
+  "countriesVData": ["GB", "CH", "AD"],
+  "carrierServices": [["Orange et Moi", "orangeetmoi://", "open_official_app"], ["MySosh France", "mysosh://", "open_official_app"], ["Orange Conso", "#123#", "copy_callcode"], ["3900", "tel://3900", "call_service"]]
+}
