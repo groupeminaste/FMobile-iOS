@@ -17,12 +17,12 @@
 		<key>FMobileCoverage.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>1</integer>
 		</dict>
 		<key>FMobileG3.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<key>FMobileTests copy.xcscheme_^#shared#^_</key>
 		<dict>

@@ -270,7 +270,7 @@
 "map_info_legend_nonetwork" = "Aucun service";
 "map_info_legend_unknown" = "Inconnu";
 "status_view_title" = "Statut";
-"minaste_center" = "Centrale MINASTE (beta)";
+"minaste_center" = "Centrale MINASTE";
 "install_fmobile" = "Si vous voulez participer à la carte de couverture, veuillez installer l'application standard FMobile sur un appareil disposant de capacités cellulaires.";
 "LTE_roaming_not_certified" = "Itinérance nationale 4G non certifiée";
 "LTE_roaming_not_certified_description" = "L'itinérance nationale 4G n'a pas été certifiée pour votre opérateur. Assurez vous de la désautoriser uniquement si vous êtes certain que votre opérateur dispose d'un contrat d'itinérance 4G.";

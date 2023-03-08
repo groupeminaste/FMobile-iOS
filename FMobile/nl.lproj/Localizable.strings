@@ -270,7 +270,7 @@
 "map_info_carrier" = "Weergegeven operator";
 "map_info_title" = "Kaart informatie";
 "status_view_title" = "Toestand";
-"minaste_center" = "MINASTE Center (beta)";
+"minaste_center" = "MINASTE Center";
 "install_fmobile" = "Als u wilt deelnemen aan de dekkingskaart, installeer dan de standaard FMobile app op een mobiel apparaat.";
 "LTE_roaming_not_certified" = "National Roaming 4G uncertificated";
 "LTE_roaming_not_certified_description" = "4G nationale roaming is niet gecertificeerd voor uw operator. Zorg ervoor dat u het alleen ontautoriseert als u er zeker van bent dat uw operator een 4G-roamingcontract heeft";

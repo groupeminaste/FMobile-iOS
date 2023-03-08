@@ -269,7 +269,7 @@
 "map_info_carrier" = "Operador mostrado";
 "map_info_title" = "Informaciones sobre el mapa";
 "status_view_title" = "Estado";
-"minaste_center" = "MINASTE Centro (beta)";
+"minaste_center" = "MINASTE Centro";
 "install_fmobile" = "Si quieres participar en el mapa de cobertura, por favor, instala la aplicación estándar de FMobile en un dispositivo celular.";
 "LTE_roaming_not_certified" = "Itinerancia nacional 4G no certificada";
 "LTE_roaming_not_certified_description" = "La itinerancia nacional 4G no ha sido certificada para su operador. Asegúrese de desautorizarlo sólo si está seguro de que su operador tiene un contrato de itinerancia 4G";

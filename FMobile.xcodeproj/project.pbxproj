@@ -262,7 +262,7 @@
 		ED01AAEE215F80D300693C03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED01AAF1215F80D300693C03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED01AAF3215F80D300693C03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED01C572254CE174008D4319 /* FMobileCoverage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMobileCoverage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED01C572254CE174008D4319 /* Coverage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coverage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED01C574254CE174008D4319 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED01C583254CE178008D4319 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED01C585254CE178008D4319 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -553,7 +553,7 @@
 				ED01AAE1215F80D200693C03 /* FMobile 5.app */,
 				EDA1B976223C0B790015A05B /* FMobile Fast Access.appex */,
 				ED4F2CE322CD390600D56E63 /* FMobileG3.appex */,
-				ED01C572254CE174008D4319 /* FMobileCoverage.app */,
+				ED01C572254CE174008D4319 /* Coverage.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -691,9 +691,9 @@
 			productReference = ED01AAE1215F80D200693C03 /* FMobile 5.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ED01C571254CE174008D4319 /* FMobileCoverage */ = {
+		ED01C571254CE174008D4319 /* Coverage */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ED01C586254CE178008D4319 /* Build configuration list for PBXNativeTarget "FMobileCoverage" */;
+			buildConfigurationList = ED01C586254CE178008D4319 /* Build configuration list for PBXNativeTarget "Coverage" */;
 			buildPhases = (
 				ED01C56E254CE174008D4319 /* Sources */,
 				ED01C56F254CE174008D4319 /* Frameworks */,
@@ -703,12 +703,12 @@
 			);
 			dependencies = (
 			);
-			name = FMobileCoverage;
+			name = Coverage;
 			packageProductDependencies = (
 				ED01C64E254CE980008D4319 /* GroupeMINASTE */,
 			);
 			productName = FMobileCoverage;
-			productReference = ED01C572254CE174008D4319 /* FMobileCoverage.app */;
+			productReference = ED01C572254CE174008D4319 /* Coverage.app */;
 			productType = "com.apple.product-type.application";
 		};
 		ED4F2CE222CD390600D56E63 /* FMobileG3 */ = {
@@ -830,7 +830,7 @@
 				ED01AAE0215F80D100693C03 /* FMobile */,
 				EDA1B975223C0B790015A05B /* status */,
 				ED4F2CE222CD390600D56E63 /* FMobileG3 */,
-				ED01C571254CE174008D4319 /* FMobileCoverage */,
+				ED01C571254CE174008D4319 /* Coverage */,
 			);
 		};
 /* End PBXProject section */
@@ -1325,7 +1325,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobile/FMobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 184;
+				CURRENT_PROJECT_VERSION = 185;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -1335,7 +1335,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0.1;
+				MARKETING_VERSION = 5.0.2;
 				OTHER_CFLAGS = "-DFMOBILE";
 				OTHER_SWIFT_FLAGS = "-DFMOBILE";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile;
@@ -1357,7 +1357,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobile/FMobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 184;
+				CURRENT_PROJECT_VERSION = 185;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -1367,7 +1367,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0.1;
+				MARKETING_VERSION = 5.0.2;
 				OTHER_CFLAGS = "-DFMOBILE";
 				OTHER_SWIFT_FLAGS = "-DFMOBILE";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile;
@@ -1388,7 +1388,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_ENTITLEMENTS = FMobileCoverage/FMobileCoverage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 184;
+				CURRENT_PROJECT_VERSION = 185;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = FMobileCoverage/Info.plist;
@@ -1398,7 +1398,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0.1;
+				MARKETING_VERSION = 5.0.2;
 				OTHER_CFLAGS = "-DFMOBILECOVERAGE";
 				OTHER_SWIFT_FLAGS = "-DFMOBILECOVERAGE";
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.plugn.fmobile-older";
@@ -1416,7 +1416,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_ENTITLEMENTS = FMobileCoverage/FMobileCoverage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 184;
+				CURRENT_PROJECT_VERSION = 185;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = FMobileCoverage/Info.plist;
@@ -1426,7 +1426,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0.1;
+				MARKETING_VERSION = 5.0.2;
 				OTHER_CFLAGS = "-DFMOBILECOVERAGE";
 				OTHER_SWIFT_FLAGS = "-DFMOBILECOVERAGE";
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.plugn.fmobile-older";
@@ -1444,7 +1444,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobileG3/FMobileG3.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 184;
+				CURRENT_PROJECT_VERSION = 185;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = FMobileG3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1453,7 +1453,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.0.1;
+				MARKETING_VERSION = 5.0.2;
 				OTHER_CFLAGS = "-DFMOBILE_G3";
 				OTHER_SWIFT_FLAGS = "-DFMOBILE_G3";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.FMobileG3;
@@ -1472,7 +1472,7 @@
 				CODE_SIGN_ENTITLEMENTS = FMobileG3/FMobileG3.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 184;
+				CURRENT_PROJECT_VERSION = 185;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = FMobileG3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1481,7 +1481,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.0.1;
+				MARKETING_VERSION = 5.0.2;
 				OTHER_CFLAGS = "-DFMOBILE_G3";
 				OTHER_SWIFT_FLAGS = "-DFMOBILE_G3";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.plugn.fmobile.FMobileG3;
@@ -1500,7 +1500,7 @@
 				CODE_SIGN_ENTITLEMENTS = status/status.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 184;
+				CURRENT_PROJECT_VERSION = 185;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = status/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1509,7 +1509,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.0.1;
+				MARKETING_VERSION = 5.0.2;
 				NEW_SETTING = "";
 				OTHER_CFLAGS = "-DSTATUS";
 				OTHER_SWIFT_FLAGS = "-DSTATUS";
@@ -1528,7 +1528,7 @@
 				CODE_SIGN_ENTITLEMENTS = status/status.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 184;
+				CURRENT_PROJECT_VERSION = 185;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = status/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1537,7 +1537,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.0.1;
+				MARKETING_VERSION = 5.0.2;
 				NEW_SETTING = "";
 				OTHER_CFLAGS = "-DSTATUS";
 				OTHER_SWIFT_FLAGS = "-DSTATUS";
@@ -1571,7 +1571,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ED01C586254CE178008D4319 /* Build configuration list for PBXNativeTarget "FMobileCoverage" */ = {
+		ED01C586254CE178008D4319 /* Build configuration list for PBXNativeTarget "Coverage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ED01C587254CE178008D4319 /* Debug */,

@@ -269,7 +269,7 @@
 "map_info_carrier" = "Angezeigte Netzwerk";
 "map_info_title" = "Karte Informationen";
 "status_view_title" = "Status";
-"minaste_center" = "MINASTE Center (beta)";
+"minaste_center" = "MINASTE Center";
 "install_fmobile" = "Wenn Sie an der Abdeckungskarte teilnehmen möchten, installieren Sie bitte die Standard-FMobile-App auf einem Mobiltelefon-fähigen Gerät.";
 "LTE_roaming_not_certified" = "National Roaming 4G unzertifiziert";
 "LTE_roaming_not_certified_description" = "4G National Roaming wurde für Ihren Betreiber nicht zertifiziert. Stellen Sie sicher, dass Sie die Autorisierung nur dann aufheben, wenn Sie sicher sind, dass Ihr Betreiber einen 4G-Roaming-Vertrag hat";

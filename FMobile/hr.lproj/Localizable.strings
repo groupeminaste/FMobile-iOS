@@ -269,7 +269,7 @@
 "map_info_carrier" = "Prikazan operater";
 "map_info_title" = "Informacije mapa";
 "status_view_title" = "Status";
-"minaste_center" = "MINASTE Centar (beta)";
+"minaste_center" = "MINASTE Centar";
 "install_fmobile" = "Ako želite da učestvujete na mapi pokrivenosti, instalirajte standardnu aplikaciju FMobile na uređaj sa mobilni podaci.";
 "LTE_roaming_not_certified" = "4G Nacionalnu Roaming nije certifirana";
 "LTE_roaming_not_certified_description" = "4G Nacionalni Roaming nije sertifikovan za vašeg operatera. Obavezno ga odjavite samo ako ste sigurni da vaš operater ima ugovor o 4G roamingu.";

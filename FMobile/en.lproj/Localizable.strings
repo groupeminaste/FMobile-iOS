@@ -271,7 +271,7 @@
 "map_info_legend_unknown" = "Unknown";
 "map_carrier_title" = "Select a carrier";
 "status_view_title" = "Status";
-"minaste_center" = "MINASTE Center (beta)";
+"minaste_center" = "MINASTE Center";
 "install_apps" = "Install FMobile and FWi-Fi";
 "install_fmobile" = "If you want to participate to the coverage map, please install the standard FMobile app on a cellular capable device.";
 "install_fmobile_desc" = "The roaming management app";
