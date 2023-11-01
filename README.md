@@ -22,6 +22,7 @@ ANIRC for iOS 13+: https://www.icloud.com/shortcuts/3cdfd9f060694195a1dfa16c4226
 
 FMobile 5 uses a completely new processing engine, FMNetwork, that is avaiable on GitHub separately. If you're intrested in how FMobile was working under the hood, you should visit the GroupeMINASTE/FMNetwork and GroupeMINASTE/FMNetworkExample GitHub repositories instead of building FMobile 5. FMNetwork is a clean Swift package you can integrate in your apps, and has proper documentation already there.
 
+### Important information: FMobile 5 and FMNetwork lost a lot of its features due to changes in iOS 15.2. Starting with iOS 16.0, Apple has also deprecated the CTCarrier object from the Core Telephony API, and building FMobile 5 using iOS 16.4+ as a target (SDK) will make FMobile and FMNetwork entirely unusable as all the values returned by the APIs will be generic.
 
 You may use the FMobile Series 1/2/3/4/5 code as you want, but please mention us (FMobile or the Groupe MINASTE) somewhere in your app if you use a big portion of our code (not mendatory but highly appreciated).
 
