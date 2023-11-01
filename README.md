@@ -17,7 +17,11 @@ If you want to build FMobile 5, it is recommended that you build FMobile 5.0.2 a
 FMobile 2 uses another Shortcut to operate, named ANIRC that replaces the old RRFM shortcut, and that is available for download here: https://www.icloud.com/shortcuts/3cdfd9f060694195a1dfa16c4226832e. FMobile 3 and upwards uses the same ANIRC shortcut to operate.
 
 FMobile 5 has a special Shortcut divided in two parts:
+
+
 ANIRC12 for iOS 12: https://www.icloud.com/shortcuts/1c0f64e2dbc24c10b1226d42235ef012
+
+
 ANIRC for iOS 13+: https://www.icloud.com/shortcuts/3cdfd9f060694195a1dfa16c4226832e
 
 FMobile 5 uses a completely new processing engine, FMNetwork, that is avaiable on GitHub separately. If you're intrested in how FMobile was working under the hood, you should visit the GroupeMINASTE/FMNetwork and GroupeMINASTE/FMNetworkExample GitHub repositories instead of building FMobile 5. FMNetwork is a clean Swift package you can integrate in your apps, and has proper documentation already there.
